@@ -26,7 +26,7 @@ public class Map
         Console.WriteLine(" |          |      |            Subway           |        +---------------+");
         Console.WriteLine(" |          |      |           Entrance          |           Art Gallery");
         Console.WriteLine(" +----------+      |  +---+                  +--------+");
-        Console.WriteLine("  Apartments       |--|  |                  |        |");
+        Console.WriteLine("  Apartments       |--| S |                  |        |");
         Console.WriteLine("                   |  +---+                  |        |");
         Console.WriteLine("                   |                         |        |");
         Console.WriteLine("                   |                         +--------+");
