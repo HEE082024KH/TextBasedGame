@@ -1,51 +1,82 @@
 public class Locations
 {
-    public static string Gate()
+    public string? currentLocation;
+    public int? input;
+    public void Gate()
     {
-        return"";
+        if (currentLocation == "GATE")
+        {
+            bool gateUnlocked = false;
+            Console.WriteLine("You are at the front gate");
+            Console.WriteLine("What do you want to do?");
+            Console.WriteLine("1. Travel to a different location");
+            Console.WriteLine("2. Exit through the gate");
+            Console.WriteLine("3. Look around for anything useful");
+            input = Convert.ToInt32(Console.ReadKey());
+            while (!(input == 1 || input == 2 || input == 3))
+            {
+                if (input == 1)
+                {
+                    currentLocation = Console.ReadLine();
+                }
+                else if (input == 2)
+                {
+                    if (gateUnlocked == true)
+                    {
+                        Console.WriteLine("You push open the heavy gate");
+                        Console.WriteLine("It screeches loudly as it scrapes along the ground");
+                        Console.WriteLine("Then silence");
+                        Console.WriteLine("You look back one last time before leaving");
+                        Thread.Sleep(10000);
+                        Console.Clear();
+                        Console.WriteLine("CONGRATULATIONS, YOU MANAGED TO ESCAPE!");
+                    }
+                }
+                else if (input == 3)
+                {
+                    if ()
+                    {}
+                }
+            }
+        }
     }
-    public static string Apartments()
+    public void Apartments()
     {
-        return"";
+        if (currentLocation == "APARTMENTS" || currentLocation == "APARTEMENTS" || currentLocation == "APARTMENT" || currentLocation == "APARTEMENT")
+        {
+        }
     }
-    public static string SubwayEntrance()
+    public void SubwayEntrance()
     {
-        return"";
+        if (currentLocation == "SUBWAY")
+        {
+        }
     }
-    public static string Shop()
+    public void Shop()
     {
-        return"";
     }
-    public static string ArtGallery()
+    public void ArtGallery()
     {
-        return"";
     }
-    public static string OfficeBuilding()
+    public void OfficeBuilding()
     {
-        return"";
     }
-    public static string Pavilion()
+    public void Pavilion()
     {
-        return"";
     }
-    public static string AbandonedWarehouse()
+    public void AbandonedWarehouse()
     {
-        return"";
     }
-    public static string BombShelter()
+    public void BombShelter()
     {
-        return"";
     }
-    public static string Fountain()
+    public void Fountain()
     {
-        return"";
     }
-    public static string Alley()
+    public void Alley()
     {
-        return"";
     }
-    public static string Shack()
+    public void Shack()
     {
-        return"";
     }
 }

@@ -1,7 +1,6 @@
 public class Map
 {
-    public string currentLocation = "";
-    public static string ShowMap()
+    public void ShowMap()
     {
         Console.WriteLine("");
         Console.WriteLine("                              +---+           +-----------------------------+");
@@ -33,7 +32,6 @@ public class Map
         Console.WriteLine("                  Gate                          Shop");
         Console.WriteLine("");
         Console.WriteLine($"You are at: currentLocation");
-        return "";
     }
 
 }

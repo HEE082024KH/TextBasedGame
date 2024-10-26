@@ -6,6 +6,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Map.ShowMap();
+        Map map = new Map();
+        map.ShowMap();
     }
 }
