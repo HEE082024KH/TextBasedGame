@@ -6,7 +6,6 @@ public class Locations
     public bool gateUnlocked = false;
     public void Gate()
     {
-        if (currentLocation == "gate")
         {
             Console.WriteLine("You are at the front gate");
             Thread.Sleep(2000);
@@ -92,15 +91,9 @@ public class Locations
     }
     public void Apartments()
     {
-        if (currentLocation == "APARTMENTS" || currentLocation == "APARTEMENTS" || currentLocation == "APARTMENT" || currentLocation == "APARTEMENT")
-        {
-        }
     }
     public void SubwayEntrance()
     {
-        if (currentLocation == "SUBWAY")
-        {
-        }
     }
     public void Shop()
     {
