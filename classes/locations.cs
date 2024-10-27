@@ -6,10 +6,10 @@ public class Locations
     public bool gateUnlocked = false;
     public void Gate()
     {
-
-        if (currentLocation == "GATE")
+        if (currentLocation == "gate")
         {
             Console.WriteLine("You are at the front gate");
+            Thread.Sleep(2000);
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("1. Travel to a different location");
             Console.WriteLine("2. Exit through the gate");
@@ -19,6 +19,7 @@ public class Locations
             {
                 if (input == 1)
                 {
+                    Console.WriteLine("Where do you want to travel to?");
                     currentLocation = Console.ReadLine();
                 }
                 else if (input == 2)
