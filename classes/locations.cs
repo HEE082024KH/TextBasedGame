@@ -19,7 +19,7 @@ public class Locations
                 if (input == 1)
                 {
                     Console.WriteLine("Where do you want to travel to?");
-                    currentLocation = Console.ReadLine();
+                    input = Convert.ToInt32(Console.ReadLine());
                 }
                 else if (input == 2)
                 {
