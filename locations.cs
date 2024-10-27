@@ -3,8 +3,10 @@ public class Locations
     Items items = new();
     public string? currentLocation;
     public int? input;
+    public bool gateUnlocked = false;
     public void Gate()
     {
+
         if (currentLocation == "GATE")
         {
             Console.WriteLine("You are at the front gate");
@@ -21,7 +23,7 @@ public class Locations
                 }
                 else if (input == 2)
                 {
-                    if (items.gateUnlocked == true)
+                    if (gateUnlocked == true)
                     {
                         Console.WriteLine("You push open the heavy gate");
                         Console.WriteLine("It screeches loudly as it scrapes along the ground");
@@ -30,6 +32,11 @@ public class Locations
                         Thread.Sleep(10000);
                         Console.Clear();
                         Console.WriteLine("CONGRATULATIONS, YOU MANAGED TO ESCAPE!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("The gate is locked");
+                        Console.WriteLine("I need to find some way to unlock the gate");
                     }
                 }
                 else if (input == 3)
