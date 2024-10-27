@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Map map = new Map();
+        Map map = new();
         map.ShowMap();
     }
 }
