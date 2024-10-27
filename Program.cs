@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TextBasedGame;
+﻿namespace TextBasedGame;
 
 class Program
 {

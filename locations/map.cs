@@ -1,5 +1,6 @@
 public class Map
 {
+    Locations locations = new();
     public void ShowMap()
     {
         Console.WriteLine("");
@@ -31,7 +32,18 @@ public class Map
         Console.WriteLine("                   |                         +--------+");
         Console.WriteLine("                  Gate                          Shop");
         Console.WriteLine("");
-        Console.WriteLine($"You are at: currentLocation");
+        if (locations.currentLocation != null)
+        {
+            Console.WriteLine($"You are at: {locations.currentLocation}     What do you want to do?");
+            Console.WriteLine("1. Travel to a location     2. Check inventory");
+            locations.input = Convert.ToInt32(Console.ReadLine());
+        }
+        else
+        {            
+            Console.WriteLine("What do you want to do?");
+            Console.WriteLine("1. Travel to a location     2. Check inventory");
+            locations.input = Convert.ToInt32(Console.ReadLine());
+        }
     }
 
 }

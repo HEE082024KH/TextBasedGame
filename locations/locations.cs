@@ -2,11 +2,12 @@ public class Locations
 {
     public string? currentLocation;
     public int? input;
+    bool gateUnlocked = false;
+    bool hasFlashlight = false;
     public void Gate()
     {
         if (currentLocation == "GATE")
         {
-            bool gateUnlocked = false;
             Console.WriteLine("You are at the front gate");
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("1. Travel to a different location");
@@ -34,7 +35,12 @@ public class Locations
                 }
                 else if (input == 3)
                 {
-                    if ()
+                    if (hasFlashlight == true)
+                    {
+                        Console.WriteLine("You use your flashlight to look around");
+                        Console.WriteLine("You find a ");
+                    }
+                    else
                     {}
                 }
             }
