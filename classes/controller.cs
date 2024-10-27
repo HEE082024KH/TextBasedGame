@@ -1,8 +1,10 @@
 public class Controller
 {
   Locations locations = new();
+  Map map = new();
   public void LocationSelector()
   {
+    map.ShowMap();
     Console.WriteLine("Where do you want to travel to?");
     Console.Write(">");
     locations.input = Convert.ToInt32(Console.ReadLine());

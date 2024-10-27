@@ -7,14 +7,15 @@ public class Locations
     public void Gate()
     {
         {
+            Console.Clear();
             Console.WriteLine("You are at the front gate");
             Thread.Sleep(2000);
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("1. Travel to a different location");
             Console.WriteLine("2. Exit through the gate");
             Console.WriteLine("3. Look around for anything useful");
-            input = Convert.ToInt32(Console.ReadKey());
-            while (!(input == 1 || input == 2 || input == 3))
+            input = Convert.ToInt32(Console.ReadLine());
+            while (input != 1 || input != 2 || input != 3)
             {
                 if (input == 1)
                 {

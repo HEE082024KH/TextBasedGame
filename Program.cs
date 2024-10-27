@@ -6,8 +6,9 @@ class Program
     {
         Map map = new();
         Travel travel = new();
-        Locations locations = new();
-        map.ShowMap();
-        travel.MapOptions();
+        Controller controller = new();
+
+        // Run Game
+        controller.LocationSelector();
     }
 }
