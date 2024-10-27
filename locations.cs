@@ -1,9 +1,8 @@
 public class Locations
 {
+    Items items = new();
     public string? currentLocation;
     public int? input;
-    bool gateUnlocked = false;
-    bool hasFlashlight = false;
     public void Gate()
     {
         if (currentLocation == "GATE")
@@ -22,7 +21,7 @@ public class Locations
                 }
                 else if (input == 2)
                 {
-                    if (gateUnlocked == true)
+                    if (items.gateUnlocked == true)
                     {
                         Console.WriteLine("You push open the heavy gate");
                         Console.WriteLine("It screeches loudly as it scrapes along the ground");
@@ -35,13 +34,17 @@ public class Locations
                 }
                 else if (input == 3)
                 {
-                    if (hasFlashlight == true)
+                    if (items.hasFlashlight == true)
                     {
                         Console.WriteLine("You use your flashlight to look around");
-                        Console.WriteLine("You find a ");
+                        Console.WriteLine("You found a 'Hairpin'");
+                        items.hasHairpin = true;
                     }
                     else
-                    {}
+                    {
+                        Console.WriteLine("You struggle to see anything in the dark");
+                        Console.WriteLine("If only I had a flashlight");
+                    }
                 }
             }
         }
