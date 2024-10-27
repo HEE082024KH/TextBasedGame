@@ -78,6 +78,14 @@ public class Locations
                         Console.WriteLine("If only I had a flashlight");
                     }
                 }
+                else
+                {
+                    Console.WriteLine("What do you want to do?");
+                    Console.WriteLine("1. Travel to a different location");
+                    Console.WriteLine("2. Exit through the gate");
+                    Console.WriteLine("3. Look around for anything useful");
+                    input = Convert.ToInt32(Console.ReadKey());
+                }
             }
         }
     }
