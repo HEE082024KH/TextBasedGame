@@ -191,7 +191,7 @@ public class Locations
     }
     public void Apartments()
     {
-        currentLocation = "Gate";
+        currentLocation = "Apartments";
         Console.Clear();
         Console.WriteLine($"You are at the  -{currentLocation}-");
         Thread.Sleep(500);
@@ -242,7 +242,7 @@ public class Locations
     }
     public void SubwayEntrance()
     {
-                currentLocation = "Gate";
+        currentLocation = "SubwayEntrance";
         Console.Clear();
         Console.WriteLine($"You are at the  -{currentLocation}-");
         Thread.Sleep(500);
@@ -293,7 +293,7 @@ public class Locations
     }
     public void Shop()
     {
-                currentLocation = "Gate";
+        currentLocation = "Shop";
         Console.Clear();
         Console.WriteLine($"You are at the  -{currentLocation}-");
         Thread.Sleep(500);
@@ -344,7 +344,7 @@ public class Locations
     }
     public void ArtGallery()
     {
-                currentLocation = "Gate";
+        currentLocation = "ArtGallery";
         Console.Clear();
         Console.WriteLine($"You are at the  -{currentLocation}-");
         Thread.Sleep(500);
@@ -395,7 +395,7 @@ public class Locations
     }
     public void OfficeBuilding()
     {
-                currentLocation = "Gate";
+        currentLocation = "OfficeBuilding";
         Console.Clear();
         Console.WriteLine($"You are at the  -{currentLocation}-");
         Thread.Sleep(500);
@@ -446,7 +446,7 @@ public class Locations
     }
     public void Pavilion()
     {
-                currentLocation = "Gate";
+        currentLocation = "Pavilion";
         Console.Clear();
         Console.WriteLine($"You are at the  -{currentLocation}-");
         Thread.Sleep(500);
@@ -497,7 +497,7 @@ public class Locations
     }
     public void AbandonedWarehouse()
     {
-                currentLocation = "Gate";
+        currentLocation = "AbandonedWarehouse";
         Console.Clear();
         Console.WriteLine($"You are at the  -{currentLocation}-");
         Thread.Sleep(500);
@@ -548,7 +548,7 @@ public class Locations
     }
     public void BombShelter()
     {
-                currentLocation = "Gate";
+        currentLocation = "BombShelter";
         Console.Clear();
         Console.WriteLine($"You are at the  -{currentLocation}-");
         Thread.Sleep(500);
@@ -599,7 +599,7 @@ public class Locations
     }
     public void Fountain()
     {
-                currentLocation = "Gate";
+        currentLocation = "Fountain";
         Console.Clear();
         Console.WriteLine($"You are at the  -{currentLocation}-");
         Thread.Sleep(500);
@@ -650,7 +650,7 @@ public class Locations
     }
     public void Alley()
     {
-                currentLocation = "Gate";
+        currentLocation = "Alley";
         Console.Clear();
         Console.WriteLine($"You are at the  -{currentLocation}-");
         Thread.Sleep(500);
@@ -701,7 +701,7 @@ public class Locations
     }
     public void Shack()
     {
-                currentLocation = "Gate";
+        currentLocation = "Shack";
         Console.Clear();
         Console.WriteLine($"You are at the  -{currentLocation}-");
         Thread.Sleep(500);
