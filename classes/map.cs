@@ -32,4 +32,26 @@ public class Map
         Console.WriteLine("                1. Gate                       4. Shop");
         Console.WriteLine("");
     }
+    public class Structures
+    {
+        public void Building()
+        {
+            Console.WriteLine("██████████████");
+            Console.WriteLine("█⬛⬛⬛⬛⬛█");
+            Console.WriteLine("█⬛⬛⬛⬛⬛█");
+            Console.WriteLine("█⬛⬛⬛⬛⬛█");
+            Console.WriteLine("█⬛⬛⬛⬛⬛█");
+            Console.WriteLine("█⬛⬛⬛⬛⬛█");
+            Console.WriteLine("█⬛⬛⬛⬛⬛█");
+            Console.WriteLine("█⬛⬛⬛⬛⬛█");
+            Console.WriteLine("█⬛⬛⬛⬛⬛█");
+            Console.WriteLine("█⬛⬛⬛⬛⬛█");
+            Console.WriteLine("█⬛⬛⬛⬛⬛█");
+            Console.WriteLine("█⬛⬛⬛⬛⬛█");
+            Console.WriteLine("█⬛⬛⬛⬛⬛█");
+            Console.WriteLine("█⬛⬛⬛⬛⬛█");
+            Console.WriteLine("█⬛⬛⬛⬛⬛█");
+            Console.WriteLine("█⬛⬛⬛⬛⬛█");
+        }
+    }
 }
