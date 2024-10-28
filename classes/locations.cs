@@ -10,6 +10,8 @@ public class Locations
     {
         if (start.newGame == true)
         {
+            start.NewGame();
+            start.newGame = false;
             map.ShowMap();
             Console.WriteLine("Where do you want to travel to?");
             Console.Write(">");
@@ -75,8 +77,8 @@ public class Locations
         {
             Console.Clear();
             Console.WriteLine("You are at the front gate");
-            Thread.Sleep(2000);
-            Console.WriteLine("What do you want to do?");
+            Thread.Sleep(1000);
+            Console.WriteLine("-What do you want to do?-");
             Console.WriteLine("1. Travel to a different location");
             Console.WriteLine("2. Exit through the gate");
             Console.WriteLine("3. Look around for anything useful");

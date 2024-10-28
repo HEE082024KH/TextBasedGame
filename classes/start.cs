@@ -5,21 +5,39 @@ public class Start
   {
     Console.Write("...");
     Thread.Sleep(1000);
-    Console.Write("\"Mhmm ...\"");
+    Console.Write("Mhmm ...");
     Thread.Sleep(1000);
-    Console.Write("\"What ... \"");
+    Console.Write("What ... ");
     Thread.Sleep(1000);
-    Console.WriteLine("Abruptly a cold gust of wind yanks you from your slumber");
+    Console.Write("Slowly");
     Thread.Sleep(1000);
-    Console.WriteLine("");
+    Console.Write(", you start ");
     Thread.Sleep(1000);
-    Console.WriteLine("");
+    Console.Write("to regain consciousness.");
+    Thread.Sleep(2000);
+    Console.WriteLine("\nYou try to get on your feet.");
+    Thread.Sleep(2500);
+    Console.WriteLine("Your eyes finally open enough for you to realize your surroundings.");
+    Thread.Sleep(3500);
+    Console.Write("It's dark");
+    Thread.Sleep(2000);
+    Console.Write(", almost pitch black");
+    Thread.Sleep(2000);
+    Console.Write(", only the moon making it less so.");
+    Thread.Sleep(3000);
+    Console.WriteLine("\nThis place feels unfamiliar to you");
     Thread.Sleep(1000);
-    Console.WriteLine("");
+    Console.Write(", uncomfortable");
     Thread.Sleep(1000);
-    Console.WriteLine("");
+    Console.WriteLine("It's quiet");
     Thread.Sleep(1000);
-    Console.WriteLine("");
-    newGame = false;
+    Console.Write(", too quiet.");
+    Thread.Sleep(1000);
+    Console.WriteLine("It gives you an eerie feeling in your stomach.");
+    Thread.Sleep(2500);
+    Console.WriteLine("Unsure of where, what, and how");
+    Thread.Sleep(1000);
+    Console.Write(", you look around for somewhere to start.");
+    Thread.Sleep(1000);
   }
 }
