@@ -1,10 +1,75 @@
 public class Locations
 {
     Items items = new();
-    Controller controller;
+    Map map = new();
+    Start start = new();
     public string? currentLocation;
     public int? input;
     public bool gateUnlocked = false;
+    public void LocationSelector()
+    {
+        if (start.newGame == true)
+        {
+            map.ShowMap();
+            Console.WriteLine("Where do you want to travel to?");
+            Console.Write(">");
+            input = Convert.ToInt32(Console.ReadLine());
+        }
+        switch (input)
+        {
+            case 1:
+                currentLocation = "Gate";
+                Gate();
+                break;
+            case 2:
+                currentLocation = "Apartments";
+                Apartments();
+                break;
+            case 3:
+                currentLocation = "Subway Entrance";
+                SubwayEntrance();
+                break;
+            case 4:
+                currentLocation = "Shop";
+                Shop();
+                break;
+            case 5:
+                currentLocation = "Art Gallery";
+                ArtGallery();
+                break;
+            case 6:
+                currentLocation = "Office Building";
+                OfficeBuilding();
+                break;
+            case 7:
+                currentLocation = "Pavilion";
+                Pavilion();
+                break;
+            case 8:
+                currentLocation = "Abandoned Warehouse";
+                AbandonedWarehouse();
+                break;
+            case 9:
+                currentLocation = "Bomb Shelter";
+                BombShelter();
+                break;
+            case 10:
+                currentLocation = "Fountain";
+                Fountain();
+                break;
+            case 11:
+                currentLocation = "Alley";
+                Alley();
+                break;
+            case 12:
+                currentLocation = "Shack";
+                Shack();
+                break;
+            default:
+                Console.WriteLine("Invalid input");
+                break;
+        }
+    }
     public void Gate()
     {
         {
@@ -20,9 +85,10 @@ public class Locations
             {
                 if (input == 1)
                 {
+                    map.ShowMap();
                     Console.WriteLine("Where do you want to travel to?");
                     input = Convert.ToInt32(Console.ReadLine());
-                    controller.LocationSelector();
+                    LocationSelector();
                 }
                 else if (input == 2)
                 {
@@ -87,7 +153,7 @@ public class Locations
                     Console.WriteLine("1. Travel to a different location");
                     Console.WriteLine("2. Exit through the gate");
                     Console.WriteLine("3. Look around for anything useful");
-                    input = Convert.ToInt32(Console.ReadKey());
+                    input = Convert.ToInt32(Console.ReadLine());
                 }
             }
         }

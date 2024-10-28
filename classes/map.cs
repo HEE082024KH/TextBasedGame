@@ -1,6 +1,5 @@
 public class Map
 {
-    Locations locations = new();
     public void ShowMap()
     {
         Console.WriteLine("");

@@ -3,8 +3,7 @@ public class Travel
     public void MapOptions()
     {
         Locations locations = new();
-        Controller controller = new();
-        
+
         if (locations.currentLocation != null)
         {
             Console.WriteLine($"You are at: {locations.currentLocation}     What do you want to do?");
@@ -14,7 +13,7 @@ public class Travel
             {
                 if (locations.input == 1)
                 {
-                    controller.LocationSelector();
+                    locations.LocationSelector();
                 }
                 else if (locations.input == 2)
                 {
@@ -24,7 +23,7 @@ public class Travel
             }
         }
         else
-        {            
+        {
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("1. Travel to a location     2. Check inventory");
             locations.input = Convert.ToInt32(Console.ReadLine());
@@ -32,7 +31,7 @@ public class Travel
             {
                 if (locations.input == 1)
                 {
-                    controller.LocationSelector();
+                    locations.LocationSelector();
                 }
                 else if (locations.input == 2)
                 {
