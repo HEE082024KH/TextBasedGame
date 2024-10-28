@@ -1,6 +1,7 @@
 public class Locations
 {
     Items items = new();
+    Controller controller;
     public string? currentLocation;
     public int? input;
     public bool gateUnlocked = false;
@@ -21,6 +22,7 @@ public class Locations
                 {
                     Console.WriteLine("Where do you want to travel to?");
                     input = Convert.ToInt32(Console.ReadLine());
+                    controller.LocationSelector();
                 }
                 else if (input == 2)
                 {
@@ -46,7 +48,7 @@ public class Locations
                         {
                             if (endGame == "a")
                             {
-                            Console.WriteLine("Achievements Unlocked:");
+                                Console.WriteLine("Achievements Unlocked:");
                             }
                             else if (endGame == "e")
                             {
