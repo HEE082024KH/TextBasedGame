@@ -23,14 +23,14 @@ public class Start
     Thread.Sleep(2000);
     Console.Write(", almost pitch black");
     Thread.Sleep(2000);
-    Console.Write(", only the moon making it less so.");
+    Console.Write(", only the moon adding some resemblence of light");
     Thread.Sleep(3000);
     Console.WriteLine("\nThis place feels unfamiliar to you");
-    Thread.Sleep(1000);
+    Thread.Sleep(2000);
     Console.Write(", uncomfortable");
-    Thread.Sleep(1000);
+    Thread.Sleep(2000);
     Console.WriteLine("It's quiet");
-    Thread.Sleep(1000);
+    Thread.Sleep(2000);
     Console.Write(", too quiet.");
     Thread.Sleep(1000);
     Console.WriteLine("It gives you an eerie feeling in your stomach.");
