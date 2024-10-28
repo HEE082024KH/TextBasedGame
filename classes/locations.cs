@@ -3,6 +3,7 @@ public class Locations
     Items items = new();
     Map map = new();
     Start start = new();
+    Inventory inventory = new();
     public string? currentLocation;
     public int? input;
     public bool gateUnlocked = false;
@@ -10,7 +11,7 @@ public class Locations
     {
         if (start.newGame == true)
         {
-            start.NewGame();
+            // start.NewGame();
             start.newGame = false;
             map.ShowMap();
             Console.WriteLine("Where do you want to travel to?");
@@ -75,18 +76,28 @@ public class Locations
     public void Gate()
     {
         {
+            currentLocation = "Gate";
             Console.Clear();
-            Console.WriteLine("You are at the front gate");
-            Thread.Sleep(1000);
-            Console.WriteLine("-What do you want to do?-");
+            Console.WriteLine($"You are at the  -{currentLocation}-");
+            Thread.Sleep(500);
+            Console.WriteLine("---What do you want to do?---");
             Console.WriteLine("1. Travel to a different location");
-            Console.WriteLine("2. Exit through the gate");
-            Console.WriteLine("3. Look around for anything useful");
-            input = Convert.ToInt32(Console.ReadLine());
-            while (input != 1 || input != 2 || input != 3)
+            Console.WriteLine("2. Check inventory");
+            Console.WriteLine("3. Exit through the gate");
+            Console.WriteLine("4. Look around for anything useful");
+            try
+            {
+                input = Convert.ToInt32(Console.ReadLine());
+            }
+            catch
+            {
+                Gate();
+            }
+            while (input != 1 || input != 2 || input != 3 || input != 4)
             {
                 if (input == 1)
                 {
+                    Console.Clear();
                     map.ShowMap();
                     Console.WriteLine("Where do you want to travel to?");
                     input = Convert.ToInt32(Console.ReadLine());
@@ -94,8 +105,17 @@ public class Locations
                 }
                 else if (input == 2)
                 {
+                    Console.Clear();
+                    Console.WriteLine("Press -enter- to go back");
+                    inventory.openInventory();                        
+                    Console.ReadLine();
+                    Gate();
+                }
+                else if (input == 3)
+                {
                     if (gateUnlocked == true)
                     {
+                        Console.Clear();
                         Console.WriteLine("You push open the heavy gate");
                         Thread.Sleep(3000);
                         Console.Clear();
@@ -131,31 +151,39 @@ public class Locations
                     }
                     else
                     {
+                        Console.Clear();
                         Console.WriteLine("The gate is locked");
                         Console.WriteLine("I need to find some way to unlock the gate");
+                        Thread.Sleep(3500);
+                        Gate();
                     }
                 }
-                else if (input == 3)
+                else if (input == 4)
                 {
                     if (items.hasFlashlight == true)
                     {
+                        Console.Clear();
                         Console.WriteLine("You use your flashlight to look around");
                         Console.WriteLine("You found a 'Hairpin'");
                         items.hasHairpin = true;
+                        Thread.Sleep(3500);
+                        Gate();
                     }
                     else
                     {
+                        Console.Clear();
                         Console.WriteLine("You struggle to see anything in the dark");
                         Console.WriteLine("If only I had a flashlight");
+                        Thread.Sleep(3500);
+                        Gate();
                     }
                 }
                 else
                 {
-                    Console.WriteLine("What do you want to do?");
-                    Console.WriteLine("1. Travel to a different location");
-                    Console.WriteLine("2. Exit through the gate");
-                    Console.WriteLine("3. Look around for anything useful");
-                    input = Convert.ToInt32(Console.ReadLine());
+                    Console.Clear();
+                    Console.Write("---Invalid input---");
+                    Thread.Sleep(1000);
+                    Gate();
                 }
             }
         }
