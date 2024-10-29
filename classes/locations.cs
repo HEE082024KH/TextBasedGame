@@ -11,6 +11,7 @@ public class Locations
     {
         if (start.newGame == true)
         {
+            start.NewGame();
             start.newGame = false;
             map.ShowMap();
             Console.WriteLine("Where do you want to travel to?");
