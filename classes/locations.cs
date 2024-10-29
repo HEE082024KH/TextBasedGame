@@ -9,15 +9,8 @@ public class Locations
     public bool gateUnlocked = false;
     public void LocationSelector()
     {
-        if (items.hasWound <= 3)
-        {
-            Console.WriteLine("You died from too many serious wounds");
-            Thread.Sleep(1500);
-            Console.WriteLine("--GAME OVER--");
-        }
         if (start.newGame == true)
         {
-            // start.NewGame();
             start.newGame = false;
             map.ShowMap();
             Console.WriteLine("Where do you want to travel to?");
@@ -258,7 +251,7 @@ public class Locations
                                 Thread.Sleep(2000);
                                 Console.WriteLine("Looking through one of the bags, you cut your hand on a sharp object");
                                 Thread.Sleep(2500);
-
+                                items.Wounds();
                                 break;
                             }
                         case 2:
