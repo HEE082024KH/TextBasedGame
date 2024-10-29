@@ -9,6 +9,12 @@ public class Locations
     public bool gateUnlocked = false;
     public void LocationSelector()
     {
+        if (items.hasWound <= 3)
+        {
+            Console.WriteLine("You died from too many serious wounds");
+            Thread.Sleep(1500);
+            Console.WriteLine("--GAME OVER--");
+        }
         if (start.newGame == true)
         {
             // start.NewGame();
@@ -106,7 +112,7 @@ public class Locations
             {
                 Console.Clear();
                 Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();                        
+                inventory.openInventory();
                 Console.ReadLine();
                 Gate();
             }
@@ -185,7 +191,7 @@ public class Locations
                 Console.Clear();
                 Console.Write("---Invalid input---");
                 Thread.Sleep(1000);
-                 Gate();
+                Gate();
             }
         }
     }
@@ -198,46 +204,86 @@ public class Locations
         Console.WriteLine("---What do you want to do?---");
         Console.WriteLine("1. Travel to a different location");
         Console.WriteLine("2. Check inventory");
-        Console.WriteLine("3. Exit through the gate");
-        Console.WriteLine("4. Look around for anything useful");
+        Console.WriteLine("3. Look around outside");
+        Console.WriteLine("4. Go in the front door");
+        Console.WriteLine("5. Walk around to the back door");
         try
         {
             input = Convert.ToInt32(Console.ReadLine());
         }
         catch
         {
-            Gate();
+            Apartments();
         }
-        while (input != 1 || input != 2 || input != 3 || input != 4)
+        switch (input)
         {
-            if (input == 1)
-            {
-                Console.Clear();
-                map.ShowMap();
-                input = Convert.ToInt32(Console.ReadLine());
-                LocationSelector();
-            }
-            else if (input == 2)
-            {
-                Console.Clear();
-                Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();                        
-                Console.ReadLine();
-                Gate();
-            }
-            else if (input == 3)
-            {
-            }
-            else if (input == 4)
-            {
-            }
-            else
-            {
-                Console.Clear();
-                Console.Write("---Invalid input---");
-                Thread.Sleep(1000);
-                Gate();
-            }
+            case 1:
+                {
+                    Console.Clear();
+                    map.ShowMap();
+                    input = Convert.ToInt32(Console.ReadLine());
+                    LocationSelector();
+                    break;
+                }
+            case 2:
+                {
+                    Console.Clear();
+                    Console.WriteLine("Press -enter- to go back");
+                    inventory.openInventory();
+                    Console.ReadLine();
+                    Apartments();
+                    break;
+                }
+            case 3:
+                {
+                    Console.Clear();
+                    Console.WriteLine("There's a few bags of trash scattered along the walls");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("---What do you want to do?---");
+                    Console.WriteLine("1. Search the bags");
+                    Console.WriteLine("2. Leave them alone");
+                    try
+                    {
+                        input = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Apartments();
+                    }
+                    switch (input)
+                    {
+                        case 1:
+                            {
+                                Console.WriteLine("You rummage through the bags, looking for anything of use.");
+                                Thread.Sleep(2000);
+                                Console.WriteLine("Looking through one of the bags, you cut your hand on a sharp object");
+                                Thread.Sleep(2500);
+
+                                break;
+                            }
+                        case 2:
+                            {
+                                break;
+                            }
+                    }
+                    break;
+                }
+            case 4:
+                {
+                    break;
+                }
+            case 5:
+                {
+                    break;
+                }
+            default:
+                {
+                    Console.Clear();
+                    Console.Write("---Invalid input---");
+                    Thread.Sleep(1000);
+                    Apartments();
+                    break;
+                }
         }
     }
     public void SubwayEntrance()
@@ -272,7 +318,7 @@ public class Locations
             {
                 Console.Clear();
                 Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();                        
+                inventory.openInventory();
                 Console.ReadLine();
                 Gate();
             }
@@ -323,7 +369,7 @@ public class Locations
             {
                 Console.Clear();
                 Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();                        
+                inventory.openInventory();
                 Console.ReadLine();
                 Gate();
             }
@@ -374,7 +420,7 @@ public class Locations
             {
                 Console.Clear();
                 Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();                        
+                inventory.openInventory();
                 Console.ReadLine();
                 Gate();
             }
@@ -425,7 +471,7 @@ public class Locations
             {
                 Console.Clear();
                 Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();                        
+                inventory.openInventory();
                 Console.ReadLine();
                 Gate();
             }
@@ -476,7 +522,7 @@ public class Locations
             {
                 Console.Clear();
                 Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();                        
+                inventory.openInventory();
                 Console.ReadLine();
                 Gate();
             }
@@ -527,7 +573,7 @@ public class Locations
             {
                 Console.Clear();
                 Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();                        
+                inventory.openInventory();
                 Console.ReadLine();
                 Gate();
             }
@@ -578,7 +624,7 @@ public class Locations
             {
                 Console.Clear();
                 Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();                        
+                inventory.openInventory();
                 Console.ReadLine();
                 Gate();
             }
@@ -629,7 +675,7 @@ public class Locations
             {
                 Console.Clear();
                 Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();                        
+                inventory.openInventory();
                 Console.ReadLine();
                 Gate();
             }
@@ -680,7 +726,7 @@ public class Locations
             {
                 Console.Clear();
                 Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();                        
+                inventory.openInventory();
                 Console.ReadLine();
                 Gate();
             }
@@ -731,7 +777,7 @@ public class Locations
             {
                 Console.Clear();
                 Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();                        
+                inventory.openInventory();
                 Console.ReadLine();
                 Gate();
             }
