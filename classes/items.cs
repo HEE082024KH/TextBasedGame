@@ -5,6 +5,10 @@ public class Items
     public bool hasHairpin = false;
     public void Wounds()
     {
+        if (hasWound <= 3)
+        {
+            hasWound++;
+        }
         if (hasWound >= 3)
         {
             Console.WriteLine("You died from too many serious wounds");

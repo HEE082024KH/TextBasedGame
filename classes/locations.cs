@@ -11,7 +11,7 @@ public class Locations
     {
         if (start.newGame == true)
         {
-            start.NewGame();
+            // start.NewGame();
             start.newGame = false;
             map.ShowMap();
             Console.WriteLine("Where do you want to travel to?");
@@ -78,7 +78,7 @@ public class Locations
         currentLocation = "Gate";
         Console.Clear();
         Console.WriteLine($"You are at the  -{currentLocation}-");
-        Thread.Sleep(500);
+        Console.WriteLine("");
         Console.WriteLine("---What do you want to do?---");
         Console.WriteLine("1. Travel to a different location");
         Console.WriteLine("2. Check inventory");
@@ -152,7 +152,7 @@ public class Locations
                 {
                     Console.Clear();
                     Console.WriteLine("The gate is locked");
-                    Thread.Sleep(1500);
+                    Console.WriteLine("");
                     Console.WriteLine("I need to find some way to unlock the gate");
                     Thread.Sleep(3500);
                     Gate();
@@ -160,7 +160,16 @@ public class Locations
             }
             else if (input == 4)
             {
-                if (items.hasFlashlight == true)
+                if (items.hasFlashlight == true && items.hasHairpin == true)
+                {
+                    Console.Clear();
+                    Console.WriteLine("You use your flashlight to look around");
+                    Thread.Sleep(1500);
+                    Console.WriteLine("But you find nothing useful");
+                    Thread.Sleep(3500);
+                    Gate();
+                }
+                else if (items.hasFlashlight == true)
                 {
                     Console.Clear();
                     Console.WriteLine("You use your flashlight to look around");
@@ -194,13 +203,13 @@ public class Locations
         currentLocation = "Apartments";
         Console.Clear();
         Console.WriteLine($"You are at the  -{currentLocation}-");
-        Thread.Sleep(500);
+        Console.WriteLine("");
         Console.WriteLine("---What do you want to do?---");
         Console.WriteLine("1. Travel to a different location");
         Console.WriteLine("2. Check inventory");
         Console.WriteLine("3. Look around outside");
         Console.WriteLine("4. Go in the front door");
-        Console.WriteLine("5. Walk around to the back door");
+        Console.WriteLine("5. Look for an open window");
         try
         {
             input = Convert.ToInt32(Console.ReadLine());
@@ -232,7 +241,7 @@ public class Locations
                 {
                     Console.Clear();
                     Console.WriteLine("There's a few bags of trash scattered along the walls");
-                    Thread.Sleep(2000);
+                    Console.WriteLine("");
                     Console.WriteLine("---What do you want to do?---");
                     Console.WriteLine("1. Search the bags");
                     Console.WriteLine("2. Leave them alone");
@@ -248,15 +257,23 @@ public class Locations
                     {
                         case 1:
                             {
+                                Console.Clear();
                                 Console.WriteLine("You rummage through the bags, looking for anything of use.");
-                                Thread.Sleep(2000);
+                                Thread.Sleep(1000);
                                 Console.WriteLine("Looking through one of the bags, you cut your hand on a sharp object");
-                                Thread.Sleep(2500);
+                                Thread.Sleep(2000);
                                 items.Wounds();
+                                Apartments();
                                 break;
                             }
                         case 2:
                             {
+                                Console.Clear();
+                                Console.WriteLine("You leave the bags alone.");
+                                Thread.Sleep(2000);
+                                Console.WriteLine("Who knows what kind of diseases are in those bags.");
+                                Thread.Sleep(2000);
+                                Apartments();
                                 break;
                             }
                     }

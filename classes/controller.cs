@@ -5,6 +5,7 @@ public class Controller
 
   public void Run()
   {
+    Console.Clear();
     locations.LocationSelector();
   }
 }
