@@ -3,6 +3,7 @@ public class Items
     public int hasWound;
     public bool hasFlashlight = false;
     public bool hasHairpin = false;
+    public bool hasCrowbar = false;
     public void Wounds()
     {
         if (hasWound <= 3)

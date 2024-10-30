@@ -305,6 +305,63 @@ public class Locations
                     {
                         Apartments();
                     }
+                    switch (input)
+                    {
+                        case 1:
+                        {
+                            Console.Clear();
+                            if (items.hasCrowbar == true)
+                            {
+                                Console.WriteLine("You use the crowbar to pry the door open.");
+                                Thread.Sleep(1000);
+                                Console.WriteLine("With a loud crack the door opens");
+                                Thread.Sleep(2000);
+                                Console.WriteLine("The room looks to be a maintainance room of sorts");
+                                Thread.Sleep(1000);
+                                Console.WriteLine("Not much to find here");
+                                Thread.Sleep(2000);
+                                Apartments();
+                            }
+                            Console.WriteLine("The door is locked");
+                            Thread.Sleep(1000);
+                            Console.WriteLine("If only I had a key or a crowbar or something to break down the door");
+                            Thread.Sleep(3000);
+                            Apartments();
+                            break;
+                        }
+                        case 2:
+                        {
+                            if (items.hasCrowbar == true)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("");
+                                Console.WriteLine("");
+                                Console.WriteLine("");
+                                Console.WriteLine("");
+                            }
+                            break;
+                        }
+                        case 3:
+                        {
+                            break;
+                        }
+                        case 4:
+                        {
+                            break;
+                        }
+                        case 5:
+                        {
+                            break;
+                        }
+                        case 6:
+                        {
+                            break;
+                        }
+                        default:
+                        {
+                            break;
+                        }
+                    }
                     break;
                 }
             case 5:
