@@ -281,6 +281,30 @@ public class Locations
                 }
             case 4:
                 {
+                    Console.Clear();
+                    Console.WriteLine("The door opens with a nasty creak");
+                    Thread.Sleep(1000);
+                    Console.WriteLine(", sure to notify anyone nearby.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Inside there's a small hallway with a door at the end,");
+                    Console.WriteLine("and 2 doors on either side.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("");
+                    Console.WriteLine("What do you want to do?");
+                    Console.WriteLine("1. Enter the first door on the right");
+                    Console.WriteLine("2. Enter the second door on the right");
+                    Console.WriteLine("3. Enter the first door on the left");
+                    Console.WriteLine("4. Enter the first door on the left");
+                    Console.WriteLine("5. Enter the door at the end");
+                    Console.WriteLine("6. Leave");
+                    try
+                    {
+                        input = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Apartments();
+                    }
                     break;
                 }
             case 5:
