@@ -92,25 +92,27 @@ public class Locations
         {
             Gate();
         }
-        while (input != 1 || input != 2 || input != 3 || input != 4)
+        switch (input)
         {
-            if (input == 1)
+            case 1:
             {
                 Console.Clear();
                 map.ShowMap();
                 Console.WriteLine("Where do you want to travel to?");
                 input = Convert.ToInt32(Console.ReadLine());
                 LocationSelector();
+                break;
             }
-            else if (input == 2)
+            case 2:
             {
                 Console.Clear();
                 Console.WriteLine("Press -enter- to go back");
                 inventory.openInventory();
                 Console.ReadLine();
                 Gate();
+                break;
             }
-            else if (input == 3)
+            case 3:
             {
                 if (gateUnlocked == true)
                 {
@@ -157,8 +159,9 @@ public class Locations
                     Thread.Sleep(3500);
                     Gate();
                 }
+                break;
             }
-            else if (input == 4)
+            case 4:
             {
                 if (items.hasFlashlight == true && items.hasHairpin == true)
                 {
@@ -188,13 +191,15 @@ public class Locations
                     Thread.Sleep(3500);
                     Gate();
                 }
+                break;
             }
-            else
+            default:
             {
                 Console.Clear();
                 Console.Write("---Invalid input---");
                 Thread.Sleep(1000);
                 Gate();
+                break;
             }
         }
     }
@@ -322,22 +327,87 @@ public class Locations
                                 Thread.Sleep(2000);
                                 Apartments();
                             }
+                            if (items.hasHairpin == true)
+                            {
+                                items.hasHairpin = false;
+                                Console.WriteLine("You use the hairpin to unlock the door.");
+                                Thread.Sleep(2000);
+                                Console.WriteLine("The room looks to be a maintainance room of sorts");
+                                Thread.Sleep(1000);
+                                Console.WriteLine("Not much to find here");
+                                Thread.Sleep(2000);
+                                Apartments();
+                            }
+                            else
+                            {
                             Console.WriteLine("The door is locked");
                             Thread.Sleep(1000);
-                            Console.WriteLine("If only I had a key or a crowbar or something to break down the door");
+                            Console.WriteLine("If only I had a crowbar or something to unlock down the door");
                             Thread.Sleep(3000);
                             Apartments();
+                            }
                             break;
                         }
                         case 2:
                         {
-                            if (items.hasCrowbar == true)
+                            if (items.hasCrowbar == true || items.hasHairpin == true)
+                            {
+                                if (items.hasCrowbar == true)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("You use the crowbar to pry the door open.");
+                                    Thread.Sleep(1000);
+                                    Console.WriteLine("The door opens with ease");
+                                    Thread.Sleep(500);
+                                    Console.Write(", almost too easy");
+                                    Thread.Sleep(1500);
+                                }
+                                else if (items.hasHairpin == true)
+                                {
+                                    items.hasHairpin = false;
+                                    Console.WriteLine("You use the hairpin to unlock the door.");
+                                    Thread.Sleep(1000);
+                                    Console.WriteLine("The door opens with ease");
+                                    Thread.Sleep(500);
+                                    Console.Write(", almost too easy");
+                                    Thread.Sleep(1500);
+                                }
+                                Console.WriteLine("");
+                                Console.WriteLine("What do you want to do?");
+                                Console.WriteLine("1. Just walk in");
+                                Console.WriteLine("2. Hug the wall and sneakily look inside");
+                                try
+                                {
+                                    input = Convert.ToInt32(Console.ReadLine());
+                                }
+                                catch
+                                {
+                                    Apartments();
+                                }
+                                switch (input)
+                                {
+                                    case 1:
+                                    {
+                                        break;
+                                    }
+                                    case 2:
+                                    {
+                                        break;
+                                    }
+                                    default:
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                            else
                             {
                                 Console.Clear();
-                                Console.WriteLine("");
-                                Console.WriteLine("");
-                                Console.WriteLine("");
-                                Console.WriteLine("");
+                                Console.WriteLine("The door is locked");
+                                Thread.Sleep(1000);
+                                Console.WriteLine("If only I had a crowbar or something to unlock down the door");
+                                Thread.Sleep(3000);
+                                Apartments();
                             }
                             break;
                         }
