@@ -177,7 +177,7 @@ public class Locations
                     Console.Clear();
                     Console.WriteLine("You use your flashlight to look around");
                     Thread.Sleep(1500);
-                    Console.WriteLine("You found a 'Hairpin'");
+                    Console.WriteLine("You found a -Hairpin-");
                     items.hasHairpin = true;
                     Thread.Sleep(3500);
                     Gate();
@@ -352,26 +352,21 @@ public class Locations
                         {
                             if (items.hasCrowbar == true || items.hasHairpin == true)
                             {
+                                Console.Clear();
                                 if (items.hasCrowbar == true)
                                 {
-                                    Console.Clear();
                                     Console.WriteLine("You use the crowbar to pry the door open.");
-                                    Thread.Sleep(1000);
-                                    Console.WriteLine("The door opens with ease");
-                                    Thread.Sleep(500);
-                                    Console.Write(", almost too easy");
-                                    Thread.Sleep(1500);
                                 }
                                 else if (items.hasHairpin == true)
                                 {
                                     items.hasHairpin = false;
                                     Console.WriteLine("You use the hairpin to unlock the door.");
-                                    Thread.Sleep(1000);
-                                    Console.WriteLine("The door opens with ease");
-                                    Thread.Sleep(500);
-                                    Console.Write(", almost too easy");
-                                    Thread.Sleep(1500);
                                 }
+                                Thread.Sleep(1000);
+                                Console.WriteLine("The door opens with ease");
+                                Thread.Sleep(500);
+                                Console.Write(", almost too easy");
+                                Thread.Sleep(1500);
                                 Console.WriteLine("");
                                 Console.WriteLine("What do you want to do?");
                                 Console.WriteLine("1. Just walk in");
@@ -388,14 +383,39 @@ public class Locations
                                 {
                                     case 1:
                                     {
+                                        Console.Clear();
+                                        Console.WriteLine("As you walk in man jumps you.");
+                                        Thread.Sleep(1000);
+                                        Console.WriteLine("During the struggle you hurt your arm.");
+                                        items.Wounds();
+                                        Thread.Sleep(1500);
+                                        Console.WriteLine("He's not much of a fighter, however, and eventually you knock him out.");
+                                        Thread.Sleep(2000);
+                                        Console.WriteLine("");
+                                        Apartments();
                                         break;
                                     }
                                     case 2:
                                     {
+                                        Console.Clear();
+                                        Console.WriteLine("As you sneakily look inside");
+                                        Thread.Sleep(500);
+                                        Console.Write(", you notice a man waiting to jump you.");
+                                        Thread.Sleep(1500);
+                                        Console.WriteLine("You catch him off guard by quickly charging him and knocking him to the ground.");
+                                        Thread.Sleep(2000);
+                                        Console.WriteLine("With a quick strike you knock him out cold.");
+                                        Thread.Sleep(1500);
+                                        Console.WriteLine("You go through his pockets and find a -Knife-");
+                                        items.hasKnife = true;
+                                        Thread.Sleep(1500);
+                                        Console.WriteLine("");
+                                        Apartments();
                                         break;
                                     }
                                     default:
                                     {
+
                                         break;
                                     }
                                 }
@@ -429,6 +449,10 @@ public class Locations
                         }
                         default:
                         {
+                            Console.Clear();
+                            Console.Write("---Invalid input---");
+                            Thread.Sleep(1000);
+                            Apartments();
                             break;
                         }
                     }
