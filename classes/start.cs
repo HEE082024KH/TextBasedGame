@@ -39,7 +39,7 @@ public class Start
     Thread.Sleep(3000);
     Console.Write("Unsure of where, what, and how");
     Thread.Sleep(2000);
-    Console.WriteLine(", you look around for somewhere to start.");
+    Console.WriteLine(", you look around for somewhere to start finding a way out of here.");
     Thread.Sleep(5000);
     Console.Clear();
   }

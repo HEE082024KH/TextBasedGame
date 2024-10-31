@@ -61,10 +61,14 @@ public class ApartmentsLocation
               {
                 Console.Clear();
                 Console.WriteLine("You rummage through the bags, looking for anything of use.");
-                Thread.Sleep(1000);
-                Console.WriteLine("Looking through one of the bags, you cut your hand on a sharp object");
                 Thread.Sleep(2000);
+                Console.WriteLine("Looking through one of the bags, you cut your hand on a sharp object");
+                Thread.Sleep(3000);
+                items.healthPoints -= 10;
                 items.HP();
+                Console.WriteLine("");
+                Console.WriteLine("-10 HP");
+                Thread.Sleep(2000);
                 Apartments();
                 break;
               }
@@ -99,7 +103,7 @@ public class ApartmentsLocation
           Console.WriteLine("3. Enter the first door on the left");
           Console.WriteLine("4. Enter the first door on the left");
           Console.WriteLine("5. Enter the door at the end");
-          Console.WriteLine("6. Leave");
+          Console.WriteLine("6. Go back out");
           try
           {
             locations.input = Convert.ToInt32(Console.ReadLine());
@@ -184,6 +188,10 @@ public class ApartmentsLocation
                         Console.WriteLine("As you walk in man jumps you.");
                         Thread.Sleep(1000);
                         Console.WriteLine("During the struggle you hurt your arm.");
+                        items.healthPoints -= 15;
+                        Console.WriteLine("");
+                        Console.WriteLine("-15 HP");
+                        Thread.Sleep(2000);
                         items.HP();
                         Thread.Sleep(1500);
                         Console.WriteLine("He's not much of a fighter, however, and eventually you knock him out.");
@@ -243,7 +251,8 @@ public class ApartmentsLocation
               }
             case 6:
               {
-                Console.WriteLine("You leave the apartments and go outside again.");
+                Console.WriteLine("You leave the apartments back the way you came.");
+                Thread.Sleep(3000);
                 Apartments();
                 break;
               }
@@ -260,6 +269,10 @@ public class ApartmentsLocation
         }
       case 5:
         {
+          Console.Clear();
+          Console.WriteLine("You walk around the building until you find an open window.");
+          Thread.Sleep(2500);
+          Console.WriteLine("Carefully, you climb through the window.");
           break;
         }
       default:
