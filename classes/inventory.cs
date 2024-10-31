@@ -1,9 +1,11 @@
-public class Inventory
+public class Status
 {
     Items items = new();
 
-    public void openInventory()
+    public void showStatus()
     {
+        Console.WriteLine($"HP: {items.HP}/50");
+        Console.WriteLine("");
         Console.WriteLine("You have the following items in your inventory:");
         if (items.hasFlashlight == true)
         {

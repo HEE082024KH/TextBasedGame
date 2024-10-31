@@ -5,14 +5,14 @@ public class Items
     public bool hasCrowbar;
     public bool hasKnife;
     public bool hasGateKey;
-    public int hasWound;
-    public void Wounds()
+    public int healthPoints = 50;
+    public void HP()
     {
-        if (hasWound <= 3)
+        if (healthPoints > 0)
         {
-            hasWound++;
+            healthPoints -= 10;
         }
-        if (hasWound >= 3)
+        if (healthPoints <= 0)
         {
             Console.WriteLine("You died from too many serious wounds");
             Thread.Sleep(2000);

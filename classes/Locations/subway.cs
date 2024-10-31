@@ -1,7 +1,7 @@
 public class SubwayEntrance
 {
   Locations locations = new();
-  Inventory inventory = new();
+  Status inventory = new();
   Items items = new();
   public void Subway()
   {
@@ -32,7 +32,7 @@ public class SubwayEntrance
         {
           Console.Clear();
           Console.WriteLine("Press -enter- to go back");
-          inventory.openInventory();
+          inventory.showStatus();
           Console.ReadLine();
           break;
         }

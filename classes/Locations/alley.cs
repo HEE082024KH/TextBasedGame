@@ -1,7 +1,7 @@
 public class AlleyLocation
 {
   Locations locations = new();
-  Inventory inventory = new();
+  Status inventory = new();
   Items items = new();
   public void Alley()
   {
@@ -32,7 +32,7 @@ public class AlleyLocation
         {
           Console.Clear();
           Console.WriteLine("Press -enter- to go back");
-          inventory.openInventory();
+          inventory.showStatus();
           Console.ReadLine();
           break;
         }

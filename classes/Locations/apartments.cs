@@ -1,7 +1,7 @@
 public class ApartmentsLocation
 {
   Locations locations = new();
-  Inventory inventory = new();
+  Status inventory = new();
   Items items = new();
   public void Apartments()
   {
@@ -34,7 +34,7 @@ public class ApartmentsLocation
         {
           Console.Clear();
           Console.WriteLine("Press -enter- to go back");
-          inventory.openInventory();
+          inventory.showStatus();
           Console.ReadLine();
           Apartments();
           break;
@@ -64,7 +64,7 @@ public class ApartmentsLocation
                 Thread.Sleep(1000);
                 Console.WriteLine("Looking through one of the bags, you cut your hand on a sharp object");
                 Thread.Sleep(2000);
-                items.Wounds();
+                items.HP();
                 Apartments();
                 break;
               }
@@ -184,7 +184,7 @@ public class ApartmentsLocation
                         Console.WriteLine("As you walk in man jumps you.");
                         Thread.Sleep(1000);
                         Console.WriteLine("During the struggle you hurt your arm.");
-                        items.Wounds();
+                        items.HP();
                         Thread.Sleep(1500);
                         Console.WriteLine("He's not much of a fighter, however, and eventually you knock him out.");
                         Thread.Sleep(2000);

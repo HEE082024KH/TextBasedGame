@@ -1,7 +1,7 @@
 public class GateLocation
 {
     Locations locations = new();
-    Inventory inventory = new();
+    Status inventory = new();
     Items items = new();
     public void Gate()
     {
@@ -33,7 +33,7 @@ public class GateLocation
                 {
                     Console.Clear();
                     Console.WriteLine("Press -enter- to go back");
-                    inventory.openInventory();
+                    inventory.showStatus();
                     Console.ReadLine();
                     Gate();
                     break;
