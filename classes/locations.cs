@@ -3,6 +3,8 @@ public class Locations
     Map map = new();
     Start start = new();
     GateLocation gate = new();
+    ApartmentsLocation apartments = new();
+    SubwayEntrance subway = new();
     public string? currentLocation;
     public int? input;
     public void LocationSelector()
@@ -25,11 +27,11 @@ public class Locations
                 break;
             case 2:
                 currentLocation = "Apartments";
-                Apartments();
+                apartments.Apartments();
                 break;
             case 3:
                 currentLocation = "Subway Entrance";
-                SubwayEntrance();
+                subway.Subway();
                 break;
             case 4:
                 currentLocation = "Shop";
@@ -72,54 +74,7 @@ public class Locations
                 break;
         }
     }
-    public void Shop()
-    {
-        currentLocation = "Shop";
-        Console.Clear();
-        Console.WriteLine($"You are at the  -{currentLocation}-");
-        Thread.Sleep(500);
-        Console.WriteLine("---What do you want to do?---");
-        Console.WriteLine("1. Travel to a different location");
-        Console.WriteLine("2. Check inventory");
-        Console.WriteLine("3. Exit through the gate");
-        Console.WriteLine("4. Look around for anything useful");
-        try
-        {
-            input = Convert.ToInt32(Console.ReadLine());
-        }
-        catch
-        {
-        }
-        while (input != 1 || input != 2 || input != 3 || input != 4)
-        {
-            if (input == 1)
-            {
-                Console.Clear();
-                map.ShowMap();
-                input = Convert.ToInt32(Console.ReadLine());
-                LocationSelector();
-            }
-            else if (input == 2)
-            {
-                Console.Clear();
-                Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();
-                Console.ReadLine();
-            }
-            else if (input == 3)
-            {
-            }
-            else if (input == 4)
-            {
-            }
-            else
-            {
-                Console.Clear();
-                Console.Write("---Invalid input---");
-                Thread.Sleep(1000);
-            }
-        }
-    }
+
     public void ArtGallery()
     {
         currentLocation = "ArtGallery";
@@ -139,34 +94,36 @@ public class Locations
         {
 
         }
-        while (input != 1 || input != 2 || input != 3 || input != 4)
+        switch (locations.input)
         {
-            if (input == 1)
-            {
-                Console.Clear();
-                map.ShowMap();
-                input = Convert.ToInt32(Console.ReadLine());
-                LocationSelector();
-            }
-            else if (input == 2)
-            {
-                Console.Clear();
-                Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();
-                Console.ReadLine();
-            }
-            else if (input == 3)
-            {
-            }
-            else if (input == 4)
-            {
-            }
-            else
-            {
-                Console.Clear();
-                Console.Write("---Invalid input---");
-                Thread.Sleep(1000);
-            }
+            case 1:
+                {
+                    locations.LocationSelector();
+                    break;
+                }
+            case 2:
+                {
+                    Console.Clear();
+                    Console.WriteLine("Press -enter- to go back");
+                    inventory.openInventory();
+                    Console.ReadLine();
+                    break;
+                }
+            case 3:
+                {
+                    break;
+                }
+            case 4:
+                {
+                    break;
+                }
+            default:
+                {
+                    Console.Clear();
+                    Console.Write("---Invalid input---");
+                    Thread.Sleep(1000);
+                    break;
+                }
         }
     }
     public void OfficeBuilding()
@@ -187,34 +144,36 @@ public class Locations
         catch
         {
         }
-        while (input != 1 || input != 2 || input != 3 || input != 4)
+        switch (locations.input)
         {
-            if (input == 1)
-            {
-                Console.Clear();
-                map.ShowMap();
-                input = Convert.ToInt32(Console.ReadLine());
-                LocationSelector();
-            }
-            else if (input == 2)
-            {
-                Console.Clear();
-                Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();
-                Console.ReadLine();
-            }
-            else if (input == 3)
-            {
-            }
-            else if (input == 4)
-            {
-            }
-            else
-            {
-                Console.Clear();
-                Console.Write("---Invalid input---");
-                Thread.Sleep(1000);
-            }
+            case 1:
+                {
+                    locations.LocationSelector();
+                    break;
+                }
+            case 2:
+                {
+                    Console.Clear();
+                    Console.WriteLine("Press -enter- to go back");
+                    inventory.openInventory();
+                    Console.ReadLine();
+                    break;
+                }
+            case 3:
+                {
+                    break;
+                }
+            case 4:
+                {
+                    break;
+                }
+            default:
+                {
+                    Console.Clear();
+                    Console.Write("---Invalid input---");
+                    Thread.Sleep(1000);
+                    break;
+                }
         }
     }
     public void Pavilion()
@@ -235,34 +194,36 @@ public class Locations
         catch
         {
         }
-        while (input != 1 || input != 2 || input != 3 || input != 4)
+        switch (locations.input)
         {
-            if (input == 1)
-            {
-                Console.Clear();
-                map.ShowMap();
-                input = Convert.ToInt32(Console.ReadLine());
-                LocationSelector();
-            }
-            else if (input == 2)
-            {
-                Console.Clear();
-                Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();
-                Console.ReadLine();
-            }
-            else if (input == 3)
-            {
-            }
-            else if (input == 4)
-            {
-            }
-            else
-            {
-                Console.Clear();
-                Console.Write("---Invalid input---");
-                Thread.Sleep(1000);
-            }
+            case 1:
+                {
+                    locations.LocationSelector();
+                    break;
+                }
+            case 2:
+                {
+                    Console.Clear();
+                    Console.WriteLine("Press -enter- to go back");
+                    inventory.openInventory();
+                    Console.ReadLine();
+                    break;
+                }
+            case 3:
+                {
+                    break;
+                }
+            case 4:
+                {
+                    break;
+                }
+            default:
+                {
+                    Console.Clear();
+                    Console.Write("---Invalid input---");
+                    Thread.Sleep(1000);
+                    break;
+                }
         }
     }
     public void AbandonedWarehouse()
@@ -283,34 +244,36 @@ public class Locations
         catch
         {
         }
-        while (input != 1 || input != 2 || input != 3 || input != 4)
+        switch (locations.input)
         {
-            if (input == 1)
-            {
-                Console.Clear();
-                map.ShowMap();
-                input = Convert.ToInt32(Console.ReadLine());
-                LocationSelector();
-            }
-            else if (input == 2)
-            {
-                Console.Clear();
-                Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();
-                Console.ReadLine();
-            }
-            else if (input == 3)
-            {
-            }
-            else if (input == 4)
-            {
-            }
-            else
-            {
-                Console.Clear();
-                Console.Write("---Invalid input---");
-                Thread.Sleep(1000);
-            }
+            case 1:
+                {
+                    locations.LocationSelector();
+                    break;
+                }
+            case 2:
+                {
+                    Console.Clear();
+                    Console.WriteLine("Press -enter- to go back");
+                    inventory.openInventory();
+                    Console.ReadLine();
+                    break;
+                }
+            case 3:
+                {
+                    break;
+                }
+            case 4:
+                {
+                    break;
+                }
+            default:
+                {
+                    Console.Clear();
+                    Console.Write("---Invalid input---");
+                    Thread.Sleep(1000);
+                    break;
+                }
         }
     }
     public void BombShelter()
@@ -331,34 +294,36 @@ public class Locations
         catch
         {
         }
-        while (input != 1 || input != 2 || input != 3 || input != 4)
+        switch (locations.input)
         {
-            if (input == 1)
-            {
-                Console.Clear();
-                map.ShowMap();
-                input = Convert.ToInt32(Console.ReadLine());
-                LocationSelector();
-            }
-            else if (input == 2)
-            {
-                Console.Clear();
-                Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();
-                Console.ReadLine();
-            }
-            else if (input == 3)
-            {
-            }
-            else if (input == 4)
-            {
-            }
-            else
-            {
-                Console.Clear();
-                Console.Write("---Invalid input---");
-                Thread.Sleep(1000);
-            }
+            case 1:
+                {
+                    locations.LocationSelector();
+                    break;
+                }
+            case 2:
+                {
+                    Console.Clear();
+                    Console.WriteLine("Press -enter- to go back");
+                    inventory.openInventory();
+                    Console.ReadLine();
+                    break;
+                }
+            case 3:
+                {
+                    break;
+                }
+            case 4:
+                {
+                    break;
+                }
+            default:
+                {
+                    Console.Clear();
+                    Console.Write("---Invalid input---");
+                    Thread.Sleep(1000);
+                    break;
+                }
         }
     }
     public void Fountain()
@@ -379,34 +344,36 @@ public class Locations
         catch
         {
         }
-        while (input != 1 || input != 2 || input != 3 || input != 4)
+        switch (locations.input)
         {
-            if (input == 1)
-            {
-                Console.Clear();
-                map.ShowMap();
-                input = Convert.ToInt32(Console.ReadLine());
-                LocationSelector();
-            }
-            else if (input == 2)
-            {
-                Console.Clear();
-                Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();
-                Console.ReadLine();
-            }
-            else if (input == 3)
-            {
-            }
-            else if (input == 4)
-            {
-            }
-            else
-            {
-                Console.Clear();
-                Console.Write("---Invalid input---");
-                Thread.Sleep(1000);
-            }
+            case 1:
+                {
+                    locations.LocationSelector();
+                    break;
+                }
+            case 2:
+                {
+                    Console.Clear();
+                    Console.WriteLine("Press -enter- to go back");
+                    inventory.openInventory();
+                    Console.ReadLine();
+                    break;
+                }
+            case 3:
+                {
+                    break;
+                }
+            case 4:
+                {
+                    break;
+                }
+            default:
+                {
+                    Console.Clear();
+                    Console.Write("---Invalid input---");
+                    Thread.Sleep(1000);
+                    break;
+                }
         }
     }
     public void Alley()
@@ -427,34 +394,36 @@ public class Locations
         catch
         {
         }
-        while (input != 1 || input != 2 || input != 3 || input != 4)
+        switch (locations.input)
         {
-            if (input == 1)
-            {
-                Console.Clear();
-                map.ShowMap();
-                input = Convert.ToInt32(Console.ReadLine());
-                LocationSelector();
-            }
-            else if (input == 2)
-            {
-                Console.Clear();
-                Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();
-                Console.ReadLine();
-            }
-            else if (input == 3)
-            {
-            }
-            else if (input == 4)
-            {
-            }
-            else
-            {
-                Console.Clear();
-                Console.Write("---Invalid input---");
-                Thread.Sleep(1000);
-            }
+            case 1:
+                {
+                    locations.LocationSelector();
+                    break;
+                }
+            case 2:
+                {
+                    Console.Clear();
+                    Console.WriteLine("Press -enter- to go back");
+                    inventory.openInventory();
+                    Console.ReadLine();
+                    break;
+                }
+            case 3:
+                {
+                    break;
+                }
+            case 4:
+                {
+                    break;
+                }
+            default:
+                {
+                    Console.Clear();
+                    Console.Write("---Invalid input---");
+                    Thread.Sleep(1000);
+                    break;
+                }
         }
     }
     public void Shack()
@@ -475,34 +444,36 @@ public class Locations
         catch
         {
         }
-        while (input != 1 || input != 2 || input != 3 || input != 4)
+        switch (locations.input)
         {
-            if (input == 1)
-            {
-                Console.Clear();
-                map.ShowMap();
-                input = Convert.ToInt32(Console.ReadLine());
-                LocationSelector();
-            }
-            else if (input == 2)
-            {
-                Console.Clear();
-                Console.WriteLine("Press -enter- to go back");
-                inventory.openInventory();
-                Console.ReadLine();
-            }
-            else if (input == 3)
-            {
-            }
-            else if (input == 4)
-            {
-            }
-            else
-            {
-                Console.Clear();
-                Console.Write("---Invalid input---");
-                Thread.Sleep(1000);
-            }
+            case 1:
+                {
+                    locations.LocationSelector();
+                    break;
+                }
+            case 2:
+                {
+                    Console.Clear();
+                    Console.WriteLine("Press -enter- to go back");
+                    inventory.openInventory();
+                    Console.ReadLine();
+                    break;
+                }
+            case 3:
+                {
+                    break;
+                }
+            case 4:
+                {
+                    break;
+                }
+            default:
+                {
+                    Console.Clear();
+                    Console.Write("---Invalid input---");
+                    Thread.Sleep(1000);
+                    break;
+                }
         }
     }
 }
