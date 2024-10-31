@@ -1,6 +1,5 @@
 public class Locations
 {
-    BombShelter shelter = new();
     Map map = new();
     Start start = new();
     public string? currentLocation;
@@ -15,6 +14,7 @@ public class Locations
     OfficeBuilding office = new();
     PavilionLocation pavilion = new();
     AbandonedWarehouse warehouse = new();
+    BombShelter shelter = new();
     FountainLocation fountain = new();
     AlleyLocation alley = new();
     ShackLocation shack = new();
