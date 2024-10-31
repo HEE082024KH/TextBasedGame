@@ -16,6 +16,7 @@ public class Locations
     PavilionLocation pavilion = new();
     AbandonedWarehouse warehouse = new();
     FountainLocation fountain = new();
+    AlleyLocation alley = new();
 
     public void LocationSelector()
     {
@@ -73,7 +74,7 @@ public class Locations
                 break;
             case 11:
                 currentLocation = "Alley";
-                Alley();
+                alley.Alley();
                 break;
             case 12:
                 currentLocation = "Shack";
@@ -85,56 +86,6 @@ public class Locations
         }
     }
 
-    public void Alley()
-    {
-        currentLocation = "Alley";
-        Console.Clear();
-        Console.WriteLine($"You are at the  -{currentLocation}-");
-        Thread.Sleep(500);
-        Console.WriteLine("---What do you want to do?---");
-        Console.WriteLine("1. Travel to a different location");
-        Console.WriteLine("2. Check inventory");
-        Console.WriteLine("3. Exit through the gate");
-        Console.WriteLine("4. Look around for anything useful");
-        try
-        {
-            input = Convert.ToInt32(Console.ReadLine());
-        }
-        catch
-        {
-        }
-        switch (locations.input)
-        {
-            case 1:
-                {
-                    locations.LocationSelector();
-                    break;
-                }
-            case 2:
-                {
-                    Console.Clear();
-                    Console.WriteLine("Press -enter- to go back");
-                    inventory.openInventory();
-                    Console.ReadLine();
-                    break;
-                }
-            case 3:
-                {
-                    break;
-                }
-            case 4:
-                {
-                    break;
-                }
-            default:
-                {
-                    Console.Clear();
-                    Console.Write("---Invalid input---");
-                    Thread.Sleep(1000);
-                    break;
-                }
-        }
-    }
     public void Shack()
     {
         currentLocation = "Shack";
