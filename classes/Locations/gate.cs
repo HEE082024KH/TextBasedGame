@@ -1,10 +1,9 @@
 public class GateLocation
 {
-  Locations locations = new();
-  Inventory inventory = new();
-  Items items = new();
-  Map map = new();
-  public void Gate()
+    Locations locations = new();
+    Inventory inventory = new();
+    Items items = new();
+    public void Gate()
     {
         locations.currentLocation = "Gate";
         Console.Clear();
@@ -41,19 +40,25 @@ public class GateLocation
                 }
             case 3:
                 {
-                    if (locations.gateUnlocked == true)
+                    if (items.hasGateKey == true)
                     {
                         Console.Clear();
-                        Console.WriteLine("You push open the heavy gate");
+                        Console.WriteLine("You take out the key and slide it into the keyhole");
+                        Thread.Sleep(2000);
+                        Console.Write(", with a distinct click");
+                        Thread.Sleep(1000);
+                        Console.Write(" it unlocks.");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("You push open the heavy gate.");
                         Thread.Sleep(3000);
                         Console.Clear();
-                        Console.WriteLine("It screeches loudly as it scrapes along the ground");
+                        Console.WriteLine("It screeches loudly as it scrapes along the ground.");
                         Thread.Sleep(3000);
                         Console.Clear();
                         Console.WriteLine("Then silence...");
                         Thread.Sleep(2000);
                         Console.Clear();
-                        Console.WriteLine("You look back one last time before leaving");
+                        Console.WriteLine("You look back one last time before leaving.");
                         Thread.Sleep(5000);
                         Console.Clear();
                         Console.WriteLine("CONGRATULATIONS, YOU MANAGED TO ESCAPE!");

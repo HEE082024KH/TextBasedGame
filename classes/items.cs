@@ -4,6 +4,7 @@ public class Items
     public bool hasHairpin;
     public bool hasCrowbar;
     public bool hasKnife;
+    public bool hasGateKey;
     public int hasWound;
     public void Wounds()
     {
