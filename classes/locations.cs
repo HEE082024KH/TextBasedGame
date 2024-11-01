@@ -30,7 +30,13 @@ public class Locations
         map.ShowMap();
         Console.WriteLine("Where do you want to travel to?");
         Console.Write(">");
-        input = Convert.ToInt32(Console.ReadLine());
+        try
+        {
+            input = Convert.ToInt32(Console.ReadLine());
+        }
+        catch
+        {
+        }
         switch (input)
         {
             case 1:
