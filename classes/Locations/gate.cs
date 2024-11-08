@@ -20,14 +20,13 @@ public class GateLocation
         }
         catch
         {
-            Gate();
+            Console.WriteLine("Invalid input");
         }
         switch (locations.input)
         {
             case 1:
                 {
-                    locations.LocationSelector();
-                    break;
+                    goto locationSelector;
                 }
             case 2:
                 {
@@ -134,5 +133,7 @@ public class GateLocation
                     break;
                 }
         }
+    locationSelector:
+        locations.LocationSelector();
     }
 }

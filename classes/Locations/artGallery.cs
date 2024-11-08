@@ -20,14 +20,13 @@ public class ArtGallery
     }
     catch
     {
-
+      Console.WriteLine("Invalid input");
     }
     switch (locations.input)
     {
       case 1:
         {
-          locations.LocationSelector();
-          break;
+          goto locationSelector;
         }
       case 2:
         {
@@ -53,5 +52,7 @@ public class ArtGallery
           break;
         }
     }
+  locationSelector:
+    locations.LocationSelector();
   }
 }

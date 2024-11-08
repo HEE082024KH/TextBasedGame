@@ -21,14 +21,13 @@ public class ApartmentsLocation
     }
     catch
     {
-      Apartments();
+      Console.WriteLine("Invalid input");
     }
     switch (locations.input)
     {
       case 1:
         {
-          locations.LocationSelector();
-          break;
+          goto locationSelector;
         }
       case 2:
         {
@@ -284,5 +283,8 @@ public class ApartmentsLocation
           break;
         }
     }
+  locationSelector:
+    locations.LocationSelector();
   }
+
 }

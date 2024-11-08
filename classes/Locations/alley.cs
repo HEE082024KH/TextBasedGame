@@ -20,13 +20,13 @@ public class AlleyLocation
     }
     catch
     {
+      Console.WriteLine("Invalid input");
     }
     switch (locations.input)
     {
       case 1:
         {
-          locations.LocationSelector();
-          break;
+          goto locationSelector;
         }
       case 2:
         {
@@ -52,5 +52,7 @@ public class AlleyLocation
           break;
         }
     }
+  locationSelector:
+    locations.LocationSelector();
   }
 }
