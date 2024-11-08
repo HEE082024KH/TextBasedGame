@@ -5,6 +5,7 @@ public class GateLocation
     Items items = new();
     public void Gate()
     {
+    gate:
         locations.currentLocation = "Gate";
         Console.Clear();
         Console.WriteLine($"You are at the  -{locations.currentLocation}-");
@@ -34,8 +35,7 @@ public class GateLocation
                     Console.WriteLine("Press -enter- to go back");
                     inventory.showStatus();
                     Console.ReadLine();
-                    Gate();
-                    break;
+                    goto gate;
                 }
             case 3:
                 {
@@ -88,7 +88,7 @@ public class GateLocation
                         Console.WriteLine("");
                         Console.WriteLine("I need to find some way to unlock the gate");
                         Thread.Sleep(3500);
-                        Gate();
+                        goto gate;
                     }
                     break;
                 }
@@ -101,7 +101,7 @@ public class GateLocation
                         Thread.Sleep(1500);
                         Console.WriteLine("But you find nothing useful");
                         Thread.Sleep(3500);
-                        Gate();
+                        goto gate;
                     }
                     else if (items.hasFlashlight == true)
                     {
@@ -111,7 +111,7 @@ public class GateLocation
                         Console.WriteLine("You found a -Hairpin-");
                         items.hasHairpin = true;
                         Thread.Sleep(3500);
-                        Gate();
+                        goto gate;
                     }
                     else
                     {
@@ -120,17 +120,15 @@ public class GateLocation
                         Thread.Sleep(1500);
                         Console.WriteLine("If only I had a flashlight");
                         Thread.Sleep(3500);
-                        Gate();
+                        goto gate;
                     }
-                    break;
                 }
             default:
                 {
                     Console.Clear();
                     Console.Write("---Invalid input---");
                     Thread.Sleep(1000);
-                    Gate();
-                    break;
+                    goto gate;
                 }
         }
     locationSelector:

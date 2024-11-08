@@ -5,6 +5,7 @@ public class ApartmentsLocation
   Items items = new();
   public void Apartments()
   {
+  apartments:
     locations.currentLocation = "Apartments";
     Console.Clear();
     Console.WriteLine($"You are at the  -{locations.currentLocation}-");
@@ -35,8 +36,7 @@ public class ApartmentsLocation
           Console.WriteLine("Press -enter- to go back");
           inventory.showStatus();
           Console.ReadLine();
-          Apartments();
-          break;
+          goto apartments;
         }
       case 3:
         {
@@ -52,7 +52,7 @@ public class ApartmentsLocation
           }
           catch
           {
-            Apartments();
+            Console.WriteLine("Invalid input");
           }
           switch (locations.input)
           {
@@ -68,8 +68,7 @@ public class ApartmentsLocation
                 Console.WriteLine("");
                 Console.WriteLine("-10 HP");
                 Thread.Sleep(2000);
-                Apartments();
-                break;
+                goto apartments;
               }
             case 2:
               {
@@ -78,8 +77,7 @@ public class ApartmentsLocation
                 Thread.Sleep(2000);
                 Console.WriteLine("Who knows what kind of diseases are in those bags.");
                 Thread.Sleep(2000);
-                Apartments();
-                break;
+                goto apartments;
               }
           }
           break;
@@ -109,7 +107,7 @@ public class ApartmentsLocation
           }
           catch
           {
-            Apartments();
+            goto insideApartments;
           }
           switch (locations.input)
           {
@@ -162,6 +160,7 @@ public class ApartmentsLocation
                     items.hasHairpin = false;
                     Console.WriteLine("You use the hairpin to unlock the door.");
                   }
+                insideApartmentsF1D2:
                   Thread.Sleep(1000);
                   Console.WriteLine("The door opens with ease");
                   Thread.Sleep(500);
@@ -177,7 +176,8 @@ public class ApartmentsLocation
                   }
                   catch
                   {
-                    Apartments();
+                    Console.WriteLine("Invalid input");
+                    goto insideApartmentsF1D2;
                   }
                   switch (locations.input)
                   {
@@ -220,8 +220,7 @@ public class ApartmentsLocation
                       }
                     default:
                       {
-
-                        break;
+                        goto insideApartments;
                       }
                   }
                 }
@@ -234,7 +233,6 @@ public class ApartmentsLocation
                   Thread.Sleep(3000);
                   goto insideApartments;
                 }
-                break;
               }
             case 3:
               {
@@ -252,16 +250,14 @@ public class ApartmentsLocation
               {
                 Console.WriteLine("You leave the apartments back the way you came.");
                 Thread.Sleep(3000);
-                Apartments();
-                break;
+                goto apartments;
               }
             default:
               {
                 Console.Clear();
                 Console.Write("---Invalid input---");
                 Thread.Sleep(1000);
-                Apartments();
-                break;
+                goto apartments;
               }
           }
           break;
@@ -279,8 +275,7 @@ public class ApartmentsLocation
           Console.Clear();
           Console.Write("---Invalid input---");
           Thread.Sleep(1000);
-          Apartments();
-          break;
+          goto apartments;
         }
     }
   locationSelector:
