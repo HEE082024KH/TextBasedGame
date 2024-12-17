@@ -41,55 +41,68 @@ public class Locations
         {
             case 1:
                 currentLocation = "Gate";
-                gate.Gate();
-                break;
+                goto gate;
             case 2:
                 currentLocation = "Apartments";
-                apartments.Apartments();
-                break;
+                goto apartments;
             case 3:
                 currentLocation = "Subway Entrance";
-                subway.Subway();
-                break;
+                goto subway;
             case 4:
                 currentLocation = "Shop";
-                shop.Shop();
-                break;
+                goto shop;
             case 5:
                 currentLocation = "Art Gallery";
-                art.Art();
-                break;
+                goto art;
             case 6:
                 currentLocation = "Office Building";
-                office.Office();
-                break;
+                goto office;
             case 7:
                 currentLocation = "Pavilion";
-                pavilion.Pavilion();
-                break;
+                goto pavilion;
             case 8:
                 currentLocation = "Abandoned Warehouse";
-                warehouse.Warehouse();
-                break;
+                goto warehouse;
             case 9:
                 currentLocation = "Bomb Shelter";
-                shelter.Shelter();
-                break;
+                goto shelter;
             case 10:
                 currentLocation = "Fountain";
-                fountain.Fountain();
-                break;
+                goto fountain;
             case 11:
                 currentLocation = "Alley";
-                alley.Alley();
-                break;
+                goto alley;
             case 12:
                 currentLocation = "Shack";
-                shack.Shack();
-                break;
+                goto shack;
             default:
                 Console.WriteLine("Invalid input");
                 break;
         }
+
+    gate:
+        gate.Gate();
+    apartments:
+        apartments.Apartments();
+    subway:
+        subway.Subway();
+    shop:
+        shop.Shop();
+    art:
+        art.Art();
+    office:
+        office.Office();
+    pavilion:
+        pavilion.Pavilion();
+    warehouse:
+        warehouse.Warehouse();
+    shelter:
+        shelter.Shelter();
+    fountain:
+        fountain.Fountain();
+    alley:
+        alley.Alley();
+    shack:
+        shack.Shack();
     }
 }
