@@ -1,8 +1,8 @@
-public class AlleyLocation
+public class AlleyLocation(Locations locations)
 {
-  Locations locations = new();
-  Status inventory = new();
-  Items items = new();
+  private Locations locations = locations;
+  Status inventory = locations.inventory;
+  Items items = locations.items;
   public void Alley()
   {
     locations.currentLocation = "Alley";
@@ -26,7 +26,8 @@ public class AlleyLocation
     {
       case 1:
         {
-          goto locationSelector;
+          locations.LocationSelector();
+          break;
         }
       case 2:
         {
@@ -52,7 +53,5 @@ public class AlleyLocation
           break;
         }
     }
-  locationSelector:
-    locations.LocationSelector();
   }
 }

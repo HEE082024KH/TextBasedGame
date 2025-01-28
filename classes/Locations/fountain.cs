@@ -1,8 +1,8 @@
-public class FountainLocation
+public class FountainLocation(Locations locations)
 {
-  Locations locations = new();
-  Status inventory = new();
-  Items items = new();
+  private Locations locations = locations;
+  Status inventory = locations.inventory;
+  Items items = locations.items;
   public void Fountain()
   {
     locations.currentLocation = "Fountain";
@@ -26,7 +26,8 @@ public class FountainLocation
     {
       case 1:
         {
-          goto locationSelector;
+          locations.LocationSelector();
+          break;
         }
       case 2:
         {
@@ -52,7 +53,5 @@ public class FountainLocation
           break;
         }
     }
-  locationSelector:
-    locations.LocationSelector();
   }
 }

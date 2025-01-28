@@ -1,8 +1,8 @@
-public class ShackLocation
+public class ShackLocation(Locations locations)
 {
-  Locations locations = new();
-  Status inventory = new();
-  Items items = new();
+  private Locations locations = locations;
+  Status inventory = locations.inventory;
+  Items items = locations.items;
   public void Shack()
   {
     locations.currentLocation = "Shack";
@@ -26,7 +26,8 @@ public class ShackLocation
     {
       case 1:
         {
-          goto locationSelector;
+          locations.LocationSelector();
+          break;
         }
       case 2:
         {
@@ -52,7 +53,5 @@ public class ShackLocation
           break;
         }
     }
-  locationSelector:
-    locations.LocationSelector();
   }
 }

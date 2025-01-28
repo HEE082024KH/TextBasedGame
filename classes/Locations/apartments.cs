@@ -1,8 +1,8 @@
-public class ApartmentsLocation
+public class ApartmentsLocation(Locations locations)
 {
-  Locations locations = new();
-  Status inventory = new();
-  Items items = new();
+  private Locations locations = locations;
+  Status inventory = locations.inventory;
+  Items items = locations.items;
   public void Apartments()
   {
   apartments:
@@ -27,9 +27,10 @@ public class ApartmentsLocation
     switch (locations.input)
     {
       case 1:
-        {
-          goto locationSelector;
-        }
+      {
+        locations.LocationSelector();
+        break;
+      }
       case 2:
         {
           Console.Clear();
@@ -278,8 +279,5 @@ public class ApartmentsLocation
           goto apartments;
         }
     }
-  locationSelector:
-    locations.LocationSelector();
   }
-
 }

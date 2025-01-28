@@ -1,8 +1,8 @@
-public class AbandonedWarehouse
+public class AbandonedWarehouse(Locations locations)
 {
-  Locations locations = new();
-  Status inventory = new();
-  Items items = new();
+  private Locations locations = locations;
+  Status inventory = locations.inventory;
+  Items items = locations.items;
   public void Warehouse()
   {
     locations.currentLocation = "AbandonedWarehouse";
@@ -26,7 +26,8 @@ public class AbandonedWarehouse
     {
       case 1:
         {
-          goto locationSelector;
+          locations.LocationSelector();
+          break;
         }
       case 2:
         {
@@ -52,7 +53,5 @@ public class AbandonedWarehouse
           break;
         }
     }
-  locationSelector:
-    locations.LocationSelector();
   }
 }

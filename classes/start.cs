@@ -1,6 +1,6 @@
 public class Start
 {
-  public bool newGame = true;
+  public bool newGame = false;
   public void NewGame()
   {
     Console.Write("... ");

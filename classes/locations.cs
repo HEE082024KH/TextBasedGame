@@ -2,22 +2,40 @@ public class Locations
 {
     Map map = new();
     Start start = new();
+    public Items items = new();
+    public Status inventory = new();
     public string? currentLocation;
     public int? input;
 
     // Define locations
-    GateLocation gate = new();
-    ApartmentsLocation apartments = new();
-    SubwayEntrance subway = new();
-    ShopLocation shop = new();
-    ArtGallery art = new();
-    OfficeBuilding office = new();
-    PavilionLocation pavilion = new();
-    AbandonedWarehouse warehouse = new();
-    BombShelter shelter = new();
-    FountainLocation fountain = new();
-    AlleyLocation alley = new();
-    ShackLocation shack = new();
+    GateLocation gate;
+    ApartmentsLocation apartments;
+    SubwayEntrance subway;
+    ShopLocation shop;
+    ArtGallery art;
+    OfficeBuilding office;
+    PavilionLocation pavilion;
+    AbandonedWarehouse warehouse;
+    BombShelter shelter;
+    FountainLocation fountain;
+    AlleyLocation alley;
+    ShackLocation shack;
+
+    public void InitializeLocations()
+    {
+        gate = new(this);
+        apartments = new(this);
+        subway = new(this);
+        shop = new(this);
+        art = new(this);
+        office = new(this);
+        pavilion = new(this);
+        warehouse = new(this);
+        shelter = new(this);
+        fountain = new(this);
+        alley = new(this);
+        shack = new(this);
+    }
 
     public void LocationSelector()
     {
@@ -36,6 +54,7 @@ public class Locations
         }
         catch
         {
+            Console.WriteLine("Please enter a number!");
         }
         switch (input)
         {

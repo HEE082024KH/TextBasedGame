@@ -1,8 +1,8 @@
-public class ArtGallery
+public class ArtGallery(Locations locations)
 {
-  Locations locations = new();
-  Status inventory = new();
-  Items items = new();
+  private Locations locations = locations;
+  Status inventory = locations.inventory;
+  Items items = locations.items;
   public void Art()
   {
     locations.currentLocation = "ArtGallery";
@@ -26,7 +26,8 @@ public class ArtGallery
     {
       case 1:
         {
-          goto locationSelector;
+          locations.LocationSelector();
+          break;
         }
       case 2:
         {
@@ -52,7 +53,5 @@ public class ArtGallery
           break;
         }
     }
-  locationSelector:
-    locations.LocationSelector();
   }
 }
