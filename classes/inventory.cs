@@ -5,7 +5,7 @@ public class Status(Locations locations)
 
     public void ShowStatus()
     {
-        Console.WriteLine($"Current HP: {items.healthPoints}/50");
+        Console.WriteLine($"Current HP: {items.healthPoints}/100");
         Console.WriteLine("1. Check inventory");
         Console.WriteLine("2. Use item");
         Console.WriteLine("3. Go back");
@@ -23,14 +23,14 @@ public class Status(Locations locations)
                 ShowInventory();
                 break;
             case 2:
-                ;
+                ShowItems();
                 break;
             case 3:
                 break;
         }
     }
 
-    public void ShowItems()
+    private void ShowItems()
     {
         Console.WriteLine("You have the following items in your inventory:");
         if (items.hasFlashlight == true)

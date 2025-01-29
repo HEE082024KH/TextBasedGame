@@ -101,7 +101,8 @@ public class ApartmentsLocation(Locations locations)
           Console.WriteLine("3. Enter the first door on the left");
           Console.WriteLine("4. Enter the first door on the left");
           Console.WriteLine("5. Enter the door at the end");
-          Console.WriteLine("6. Go back out");
+          Console.WriteLine("6. Use the stairs to go up a floor");
+          Console.WriteLine("7. Go back out");
           try
           {
             locations.input = Convert.ToInt32(Console.ReadLine());
@@ -248,6 +249,19 @@ public class ApartmentsLocation(Locations locations)
                 break;
               }
             case 6:
+            {
+              Console.WriteLine("You get halfway up the stairs before you notice ");
+              Thread.Sleep(2500);
+              Console.Write("a big pile of rubble blocking the stairs.");
+              Thread.Sleep(2500);
+              Console.WriteLine("The stairs looks damaged");
+              Thread.Sleep(1500);
+              Console.Write(", enough so that even if you clear the rubble");
+              Thread.Sleep(2500);
+              Console.Write(" you have doubts if it's safe or not");
+              break;
+            }
+            case 7:
               {
                 Console.WriteLine("You leave the apartments back the way you came.");
                 Thread.Sleep(3000);
@@ -271,6 +285,13 @@ public class ApartmentsLocation(Locations locations)
           Console.WriteLine("You walk around the building until you find an open window.");
           Thread.Sleep(2500);
           Console.WriteLine("Carefully, you climb through the window.");
+          Thread.Sleep(2500);
+          Console.WriteLine("There's not much to the room, other than your standard furniture");
+          Thread.Sleep(2500);
+          Console.WriteLine("...");
+          Thread.Sleep(500);
+          Console.Write("");
+          Thread.Sleep(2500);
           break;
         }
       default:
