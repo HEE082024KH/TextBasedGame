@@ -32,7 +32,7 @@ public class AlleyLocation(Locations locations)
       case 2:
         {
           Console.Clear();
-          inventory.showStatus();
+          inventory.ShowStatus();
           Alley();
           break;
         }

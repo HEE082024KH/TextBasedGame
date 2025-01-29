@@ -32,7 +32,7 @@ public class GateLocation(Locations locations)
             case 2:
             {
                 Console.Clear();
-                inventory.showStatus();
+                inventory.ShowStatus();
                 Gate();
                 break;
             }

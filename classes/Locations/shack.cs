@@ -32,7 +32,7 @@ public class ShackLocation(Locations locations)
       case 2:
         {
           Console.Clear();
-          inventory.showStatus();
+          inventory.ShowStatus();
           Shack();
           break;
         }

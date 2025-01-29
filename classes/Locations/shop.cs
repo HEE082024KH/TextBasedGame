@@ -32,7 +32,7 @@ public class ShopLocation(Locations locations)
       case 2:
         {
           Console.Clear();
-          inventory.showStatus();
+          inventory.ShowStatus();
           Shop();
           break;
         }

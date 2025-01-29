@@ -32,7 +32,7 @@ public class BombShelter(Locations locations)
       case 2:
         {
           Console.Clear();
-          inventory.showStatus();
+          inventory.ShowStatus();
           Shelter();
           break;
         }
