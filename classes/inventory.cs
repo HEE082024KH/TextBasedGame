@@ -2,7 +2,7 @@ public class Status(Locations locations)
 {
     private Locations locations = locations;
     Items items = new();
-
+    private string itemInput;
     public void ShowStatus()
     {
         Console.WriteLine($"Current HP: {items.healthPoints}/100");
@@ -32,10 +32,35 @@ public class Status(Locations locations)
 
     private void ShowItems()
     {
-        Console.WriteLine("You have the following items in your inventory:");
-        if (items.hasFlashlight == true)
+        Console.WriteLine("Which items do you want to use?");
+        if (items.hasBandage == true)
         {
-            Console.WriteLine();
+            Console.WriteLine("- Bandage");
+        }        
+        if (items.hasAlcohol == true)
+        {
+            Console.WriteLine("- Alcohol");
+        }
+        try
+        {
+            itemInput = Console.ReadLine().ToLower();
+        }
+        catch
+        {
+            Console.WriteLine("Invalid input");
+            ShowItems();
+        }
+        switch (itemInput)
+        {
+            case "bandage":
+                ;
+                break;
+            case "alcohol":
+                ;
+                break;
+            case "":
+                ;
+                break;
         }
     }
 

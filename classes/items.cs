@@ -6,6 +6,8 @@ public class Items
     public bool hasKnife;
     public bool hasGateKey;
     public bool hasKey;
+    public bool hasBandage;
+    public bool hasAlcohol;
     public int healthPoints = 80;
     public void HP()
     {

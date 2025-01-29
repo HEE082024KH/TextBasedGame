@@ -246,7 +246,19 @@ public class ApartmentsLocation(Locations locations)
               }
             case 5:
               {
-                break;
+                Console.WriteLine("It looks be some sort of janitors closet or maintenance room");
+                Thread.Sleep(3000);
+                Console.WriteLine("It's messy and full of useless utility items");
+                Thread.Sleep(2500);
+                Console.Write(", but there is a medical cabinet on the wall");
+                Thread.Sleep(2500);
+                Console.WriteLine("Inside you find a bandage and a bottle of alcohol.");
+                items.hasBandage = true;
+                items.hasAlcohol = true;
+                Thread.Sleep(2500);
+                Console.WriteLine(">");
+                Console.ReadLine();
+                goto insideApartments;
               }
             case 6:
             {
