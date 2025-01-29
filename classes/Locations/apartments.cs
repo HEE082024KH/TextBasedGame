@@ -253,7 +253,8 @@ public class ApartmentsLocation(Locations locations)
                 Console.Write(", but there is a medical cabinet on the wall");
                 Thread.Sleep(2500);
                 Console.WriteLine("Inside you find a bandage and a bottle of alcohol.");
-                items.hasBandage = true;
+                items.hasBandages = true;
+                items.bandages = items.bandages++;
                 items.hasAlcohol = true;
                 Thread.Sleep(2500);
                 Console.WriteLine(">");

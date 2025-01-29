@@ -32,8 +32,8 @@ public class Status(Locations locations)
 
     private void ShowItems()
     {
-        Console.WriteLine("Which items do you want to use?");
-        if (items.hasBandage == true)
+        Console.WriteLine("Type which item you want to use");
+        if (items.hasBandages == true)
         {
             Console.WriteLine("- Bandage");
         }        
@@ -52,14 +52,27 @@ public class Status(Locations locations)
         }
         switch (itemInput)
         {
-            case "bandage":
-                ;
+            case "bandages":
+                items.bandages = items.bandages--;
+                items.healthPoints += 30;
                 break;
             case "alcohol":
-                ;
-                break;
-            case "":
-                ;
+                if (items.isBuzzed == true)
+                {
+                    items.isDrunk = true;
+                    items.isBuzzed = false;
+                }
+                else if (items.isDrunk == true)
+                {
+                    items.isHammered = true;
+                    items.isDrunk = false;
+                }
+                else
+                {
+                    items.isBuzzed = true;
+                }
+
+                items.alcohol = items.alcohol--;
                 break;
         }
     }
@@ -82,6 +95,14 @@ public class Status(Locations locations)
         if (items.hasKnife == true)
         {
             Console.WriteLine("- Knife");
+        }       
+        if (items.hasBandages == true)
+        {
+            Console.WriteLine("- Bandages");
+        }        
+        if (items.hasAlcohol == true)
+        {
+            Console.WriteLine("- Alcohol");
         }
         Console.WriteLine(">");
         Console.ReadLine();

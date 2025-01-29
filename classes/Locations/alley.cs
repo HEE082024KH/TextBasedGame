@@ -12,8 +12,8 @@ public class AlleyLocation(Locations locations)
     Console.WriteLine("---What do you want to do?---");
     Console.WriteLine("1. Travel to a different location");
     Console.WriteLine("2. Check status");
-    Console.WriteLine("3. Exit through the gate");
-    Console.WriteLine("4. Look around for anything useful");
+    Console.WriteLine("3. ");
+    Console.WriteLine("4. ");
     try
     {
       locations.input = Convert.ToInt32(Console.ReadLine());
@@ -49,6 +49,7 @@ public class AlleyLocation(Locations locations)
           Console.Clear();
           Console.Write("---Invalid input---");
           Thread.Sleep(1000);
+          Alley();
           break;
         }
     }

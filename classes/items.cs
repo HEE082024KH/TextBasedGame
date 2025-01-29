@@ -6,8 +6,13 @@ public class Items
     public bool hasKnife;
     public bool hasGateKey;
     public bool hasKey;
-    public bool hasBandage;
+    public bool hasBandages;
+    public int bandages;
     public bool hasAlcohol;
+    public int alcohol;
+    public bool isBuzzed;
+    public bool isDrunk;
+    public bool isHammered;
     public int healthPoints = 80;
     public void HP()
     {
