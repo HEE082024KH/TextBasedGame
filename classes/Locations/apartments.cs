@@ -34,10 +34,8 @@ public class ApartmentsLocation(Locations locations)
       case 2:
         {
           Console.Clear();
-          Console.WriteLine("Press -enter- to go back");
           inventory.showStatus();
-          Console.ReadLine();
-          goto apartments;
+          break;
         }
       case 3:
         {

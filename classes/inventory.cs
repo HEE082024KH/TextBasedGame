@@ -4,8 +4,7 @@ public class Status
 
     public void showStatus()
     {
-        Console.WriteLine($"HP: {items.HP}/50");
-        Console.WriteLine("");
+        Console.WriteLine($"Current HP: {items.HP}/50");
         Console.WriteLine("You have the following items in your inventory:");
         if (items.hasFlashlight == true)
         {
@@ -23,6 +22,8 @@ public class Status
         {
             Console.WriteLine("- Knife");
         }
+        Console.WriteLine(">");
+        Console.ReadLine();
         return;
     }
 }
