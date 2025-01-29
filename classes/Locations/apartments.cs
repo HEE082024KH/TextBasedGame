@@ -259,7 +259,9 @@ public class ApartmentsLocation(Locations locations)
               Console.Write(", enough so that even if you clear the rubble");
               Thread.Sleep(2500);
               Console.Write(" you have doubts if it's safe or not");
-              break;
+              Console.WriteLine(">");
+              Console.ReadLine();
+              goto insideApartments;
             }
             case 7:
               {
@@ -287,11 +289,30 @@ public class ApartmentsLocation(Locations locations)
           Console.WriteLine("Carefully, you climb through the window.");
           Thread.Sleep(2500);
           Console.WriteLine("There's not much to the room, other than your standard furniture");
-          Thread.Sleep(2500);
-          Console.WriteLine("...");
           Thread.Sleep(500);
-          Console.Write("");
+          Console.Write("...");
+          Thread.Sleep(1500);
+          Console.WriteLine("You spot a small box on a dresser");
+          Thread.Sleep(2000);
+          if (items.hasKey == true)
+          {
+            Console.WriteLine("You use the key to open the box.");
+            Thread.Sleep(2000);
+            Console.WriteLine("Inside you find, what looks to be, a valuable gem of some kind.");
+            Thread.Sleep(3000);
+          }
+          else
+          {
+            Console.Write(", but it seems to be locked. I need to look for the key.");
+            Thread.Sleep(2500);
+          }
+          Console.WriteLine("You try to exit through the door, but it is locked.");
           Thread.Sleep(2500);
+          Console.WriteLine("You back out through the window.");
+          Thread.Sleep(2000);
+          Console.WriteLine(">");
+          Console.ReadLine();
+          Apartments();
           break;
         }
       default:

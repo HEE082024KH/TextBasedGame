@@ -5,6 +5,7 @@ public class Items
     public bool hasCrowbar;
     public bool hasKnife;
     public bool hasGateKey;
+    public bool hasKey;
     public int healthPoints = 80;
     public void HP()
     {
