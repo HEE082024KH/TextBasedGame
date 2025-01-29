@@ -5,14 +5,13 @@ public class GateLocation(Locations locations)
     Items items = locations.items;
     public void Gate()
     {
-    gate:
         locations.currentLocation = "Gate";
         Console.Clear();
         Console.WriteLine($"You are at the  -{locations.currentLocation}-");
         Console.WriteLine("");
         Console.WriteLine("---What do you want to do?---");
         Console.WriteLine("1. Travel to a different location");
-        Console.WriteLine("2. Check inventory");
+        Console.WriteLine("2. Check status");
         Console.WriteLine("3. Exit through the gate");
         Console.WriteLine("4. Look around for anything useful");
         try
@@ -33,10 +32,9 @@ public class GateLocation(Locations locations)
             case 2:
             {
                 Console.Clear();
-                Console.WriteLine("Press -enter- to go back");
                 inventory.showStatus();
-                Console.ReadLine();
-                goto gate;
+                Gate();
+                break;
             }
             case 3:
             { 
@@ -89,7 +87,7 @@ public class GateLocation(Locations locations)
                     Console.WriteLine("");
                     Console.WriteLine("I need to find some way to unlock the gate");
                     Thread.Sleep(3500);
-                    goto gate;
+                    Gate();
                 }
                 break;
             }
@@ -102,7 +100,7 @@ public class GateLocation(Locations locations)
                     Thread.Sleep(1500);
                     Console.WriteLine("But you find nothing useful");
                     Thread.Sleep(3500);
-                    goto gate;
+                    Gate();
                 }
                 else if (items.hasFlashlight == true)
                 {
@@ -112,7 +110,7 @@ public class GateLocation(Locations locations)
                     Console.WriteLine("You found a -Hairpin-");
                     items.hasHairpin = true;
                     Thread.Sleep(3500);
-                    goto gate;
+                    Gate();
                 }
                 else
                 {
@@ -121,15 +119,17 @@ public class GateLocation(Locations locations)
                     Thread.Sleep(1500);
                     Console.WriteLine("If only I had a flashlight");
                     Thread.Sleep(3500);
-                    goto gate;
+                    Gate();
                 }
+                break;
             }
             default:
             {
                 Console.Clear();
                 Console.Write("---Invalid input---");
                 Thread.Sleep(1000);
-                goto gate;
+                Gate();
+                break;
             }
         }
     }

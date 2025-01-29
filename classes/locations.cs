@@ -3,7 +3,7 @@ public class Locations
     Map map = new();
     Start start = new();
     public Items items = new();
-    public Status inventory = new();
+    public Status inventory;
     public string? currentLocation;
     public int? input;
 

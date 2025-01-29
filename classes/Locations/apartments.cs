@@ -5,14 +5,13 @@ public class ApartmentsLocation(Locations locations)
   Items items = locations.items;
   public void Apartments()
   {
-  apartments:
     locations.currentLocation = "Apartments";
     Console.Clear();
     Console.WriteLine($"You are at the  -{locations.currentLocation}-");
     Console.WriteLine("");
     Console.WriteLine("---What do you want to do?---");
     Console.WriteLine("1. Travel to a different location");
-    Console.WriteLine("2. Check inventory");
+    Console.WriteLine("2. Check status");
     Console.WriteLine("3. Look around outside");
     Console.WriteLine("4. Go in the front door");
     Console.WriteLine("5. Look for an open window");
@@ -35,6 +34,7 @@ public class ApartmentsLocation(Locations locations)
         {
           Console.Clear();
           inventory.showStatus();
+          Apartments();
           break;
         }
       case 3:
@@ -67,7 +67,8 @@ public class ApartmentsLocation(Locations locations)
                 Console.WriteLine("");
                 Console.WriteLine("-10 HP");
                 Thread.Sleep(2000);
-                goto apartments;
+                Apartments();
+                break;
               }
             case 2:
               {
@@ -76,7 +77,8 @@ public class ApartmentsLocation(Locations locations)
                 Thread.Sleep(2000);
                 Console.WriteLine("Who knows what kind of diseases are in those bags.");
                 Thread.Sleep(2000);
-                goto apartments;
+                Apartments();
+                break;
               }
           }
           break;
@@ -249,14 +251,16 @@ public class ApartmentsLocation(Locations locations)
               {
                 Console.WriteLine("You leave the apartments back the way you came.");
                 Thread.Sleep(3000);
-                goto apartments;
+                Apartments();
+                break;
               }
             default:
               {
                 Console.Clear();
                 Console.Write("---Invalid input---");
                 Thread.Sleep(1000);
-                goto apartments;
+                Apartments();
+                break;
               }
           }
           break;
@@ -274,7 +278,8 @@ public class ApartmentsLocation(Locations locations)
           Console.Clear();
           Console.Write("---Invalid input---");
           Thread.Sleep(1000);
-          goto apartments;
+          Apartments();
+          break;
         }
     }
   }

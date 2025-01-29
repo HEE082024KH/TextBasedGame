@@ -11,7 +11,7 @@ public class AbandonedWarehouse(Locations locations)
     Thread.Sleep(500);
     Console.WriteLine("---What do you want to do?---");
     Console.WriteLine("1. Travel to a different location");
-    Console.WriteLine("2. Check inventory");
+    Console.WriteLine("2. Check status");
     Console.WriteLine("3. Exit through the gate");
     Console.WriteLine("4. Look around for anything useful");
     try
@@ -32,9 +32,7 @@ public class AbandonedWarehouse(Locations locations)
       case 2:
         {
           Console.Clear();
-          Console.WriteLine("Press -enter- to go back");
           inventory.showStatus();
-          Console.ReadLine();
           break;
         }
       case 3:
@@ -50,6 +48,7 @@ public class AbandonedWarehouse(Locations locations)
           Console.Clear();
           Console.Write("---Invalid input---");
           Thread.Sleep(1000);
+          Warehouse();
           break;
         }
     }
