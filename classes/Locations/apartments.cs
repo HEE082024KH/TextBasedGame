@@ -21,7 +21,10 @@ public class ApartmentsLocation(Locations locations)
     }
     catch
     {
+      Console.WriteLine("");
       Console.WriteLine("Invalid input");
+      Thread.Sleep(1500);
+      Apartments();
     }
     switch (locations.input)
     {
@@ -99,7 +102,7 @@ public class ApartmentsLocation(Locations locations)
           Console.WriteLine("1. Enter the first door on the right");
           Console.WriteLine("2. Enter the second door on the right");
           Console.WriteLine("3. Enter the first door on the left");
-          Console.WriteLine("4. Enter the first door on the left");
+          Console.WriteLine("4. Enter the second door on the left");
           Console.WriteLine("5. Enter the door at the end");
           Console.WriteLine("6. Use the stairs to go up a floor");
           Console.WriteLine("7. Go back out");
@@ -304,13 +307,15 @@ public class ApartmentsLocation(Locations locations)
                 }
               }
             case 3:
-              {
-                break;
-              }
+            {
+              ;
+              break;
+            }
             case 4:
-              {
-                break;
-              }
+            {
+              ;
+              break;
+            }
             case 5:
               {
                 Console.WriteLine("It looks be some sort of janitors closet.");
