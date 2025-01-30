@@ -3,6 +3,7 @@ public class ApartmentsLocation(Locations locations)
   private Locations locations = locations;
   Status inventory = locations.inventory;
   Items items = locations.items;
+  private bool insideApartmentsDoor2;
   public void Apartments()
   {
     locations.currentLocation = "Apartments";
@@ -153,14 +154,14 @@ public class ApartmentsLocation(Locations locations)
               }
             case 2:
               {
-                if (items.hasCrowbar == true || items.hasHairpin == true)
+                if (items.hasCrowbar || items.hasHairpin)
                 {
                   Console.Clear();
-                  if (items.hasCrowbar == true)
+                  if (items.hasCrowbar)
                   {
                     Console.WriteLine("You use the crowbar to pry the door open.");
                   }
-                  else if (items.hasHairpin == true)
+                  else if (items.hasHairpin)
                   {
                     items.hasHairpin = false;
                     Console.WriteLine("You use the hairpin to unlock the door.");
@@ -188,6 +189,7 @@ public class ApartmentsLocation(Locations locations)
                   switch (locations.input)
                   {
                     case 1:
+                      if (!insideApartmentsDoor2)
                       {
                         Console.Clear();
                         Console.WriteLine("As you walk in man jumps you.");
@@ -201,14 +203,14 @@ public class ApartmentsLocation(Locations locations)
                           Thread.Sleep(2000);
                           items.healthPoints -= 20;
                         }
-                        else if (items.isDrunk == true)
+                        else if (items.isDrunk)
                         {
                           Console.WriteLine("You barely manage to fight him off");
                           Thread.Sleep(2000);
                           Console.Write(", turns out fighting while drunk is not easy");
                           items.healthPoints -= 30;
                         }
-                        else if (items.isHammered == true)
+                        else if (items.isHammered)
                         {
                           Console.WriteLine("You are hammered.");
                           Thread.Sleep(2000);
@@ -231,13 +233,23 @@ public class ApartmentsLocation(Locations locations)
                         Thread.Sleep(2000);
                         Console.WriteLine("You go through his pockets and find a -Knife-");
                         items.hasKnife = true;
+                        if (items.hasNecklaceQuest)
+                        {
+                          items.hasNecklaceQuest = false;
+                          Console.WriteLine("You also find the woman's necklace");
+                          items.hasNecklace = true;
+                        }
+                        insideApartmentsDoor2 = true;
                         Thread.Sleep(1500);
-                        Console.WriteLine("");
-                        goto insideApartments;
                       }
+                      else if (!items.hasNecklace && items.hasNecklaceQuest)
+                      {
+                        Console.WriteLine("You see the man lying on the floor.");
+                      };
+                      goto insideApartments;
                     case 2:
                       {
-                        if (items.isDrunk == false || items.isHammered == false)
+                        if (!items.isDrunk || !items.isHammered)
                         {
                           Console.Clear();
                           Console.WriteLine("As you sneakily look inside");
@@ -252,7 +264,7 @@ public class ApartmentsLocation(Locations locations)
                           Console.Write(", but you do not notice anything.");
                         }
                         Thread.Sleep(1500);
-                        if (items.isBuzzed == true)
+                        if (items.isBuzzed)
                         {
                           Console.WriteLine("Despite feeling buzzed you charge the man and knock him to the ground");
                           Thread.Sleep(3500);
@@ -260,7 +272,7 @@ public class ApartmentsLocation(Locations locations)
                           Thread.Sleep(3000);
                           items.healthPoints -= 5;
                         }
-                        else if (items.isDrunk == true)
+                        else if (items.isDrunk)
                         {
                           Console.WriteLine("You walk inside and get jumped by a strange man.");
                           Thread.Sleep(3500);
@@ -268,7 +280,7 @@ public class ApartmentsLocation(Locations locations)
                           Thread.Sleep(3000);
                           items.healthPoints -= 15;
                         }
-                        else if (items.isHammered == true)
+                        else if (items.isHammered)
                         {
                           Console.WriteLine("You are hammered.");
                           Thread.Sleep(1500);
@@ -374,13 +386,13 @@ public class ApartmentsLocation(Locations locations)
                   Console.ReadLine();
                   break;
                 case 2:
-                  if (items.hasKnife == true)
+                  if (items.hasKnife)
                   { 
                     Console.WriteLine("You pull out your knife and force her to give you what she has.");
                     Thread.Sleep(3500);
                     Console.WriteLine();
                   }
-                  else if (items.hasCrowbar == true)
+                  else if (items.hasCrowbar)
                   {
                     Console.WriteLine("");
                   }
@@ -459,7 +471,7 @@ public class ApartmentsLocation(Locations locations)
           Thread.Sleep(1500);
           Console.WriteLine("You spot a small box on a dresser");
           Thread.Sleep(2000);
-          if (items.hasKey == true)
+          if (items.hasKey)
           {
             Console.WriteLine("You use the key to open the box.");
             Thread.Sleep(2000);

@@ -14,6 +14,7 @@ public class Items
     public bool isDrunk;
     public bool isHammered;
     public bool hasNecklaceQuest;
+    public bool hasNecklace;
     public int healthPoints = 80;
     public void HP()
     {
