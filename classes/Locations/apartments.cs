@@ -165,7 +165,7 @@ public class ApartmentsLocation(Locations locations)
                     items.hasHairpin = false;
                     Console.WriteLine("You use the hairpin to unlock the door.");
                   }
-                insideApartmentsF1D2:
+                insideApartmentsDoor2:
                   Thread.Sleep(1000);
                   Console.WriteLine("The door opens with ease");
                   Thread.Sleep(500);
@@ -183,7 +183,7 @@ public class ApartmentsLocation(Locations locations)
                   {
                     Console.WriteLine("Invalid input");
                     Thread.Sleep(2000);
-                    goto insideApartmentsF1D2;
+                    goto insideApartmentsDoor2;
                   }
                   switch (locations.input)
                   {
@@ -313,7 +313,66 @@ public class ApartmentsLocation(Locations locations)
             }
             case 4:
             {
-              ;
+              insideApartmentsDoor4:
+              Console.WriteLine("The door appears broken, and opens with ease.");
+              Thread.Sleep(2000);
+              Console.WriteLine("The place is a complete mess");
+              Thread.Sleep(1500);
+              Console.Write(", but somehow different");
+              Thread.Sleep(1500);
+              Console.Write(", man-made");
+              Thread.Sleep(1000);
+              Console.Write(", or rather destroyed.");
+              Thread.Sleep(3000);
+              Console.WriteLine("You look around for anything or anyone.");
+              Thread.Sleep(2000);
+              Console.WriteLine("There is not much to be found it seems");
+              Thread.Sleep(2000);
+              Console.WriteLine(", until you hear a faint sound from the next room.");
+              Thread.Sleep(3000);
+              Console.WriteLine("As you enter the room you notice a mattress on the floor");
+              Thread.Sleep(3000);
+              Console.Write(", and a small woman next to it");
+              Thread.Sleep(2000);
+              Console.Write(" trying to hide and make herself small.");
+              Thread.Sleep(4000);
+              Console.Clear();
+              Console.WriteLine("As you enter the room you notice a mattress on the floor, " +
+                                "and a small woman next to it trying to hide and make herself small.");
+              Console.WriteLine("");
+              Console.WriteLine("What do you do?");
+              Console.WriteLine("1. Calmly try to talk to her.");
+              Console.WriteLine("2. Aggressively threaten and steal her things.");
+              Console.WriteLine("3. Try to kill her.");
+              try
+              {
+                locations.input = Convert.ToInt32(Console.ReadLine());
+              }
+              catch
+              {
+                Console.WriteLine("");
+                goto insideApartmentsDoor4;
+              }
+
+              switch (locations.input)
+              {
+                case 1:
+                  Console.WriteLine("Calmly you talk to her");
+                  Thread.Sleep(2000);
+                  Console.Write(", assuring that you mean no harm.");
+                  Thread.Sleep(2500);
+                  Console.WriteLine("With a careful voice she responds");
+                  Thread.Sleep(1500);
+                  Console.Write(", and she tells you she has lost a precious momento.");
+                  break;
+                case 2:
+                  Console.WriteLine("");
+                  break;
+                case 3:
+                  Console.WriteLine("");
+                  break;
+              }
+
               break;
             }
             case 5:
