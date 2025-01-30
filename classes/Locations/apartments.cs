@@ -313,7 +313,6 @@ public class ApartmentsLocation(Locations locations)
             }
             case 4:
             {
-              insideApartmentsDoor4:
               Console.WriteLine("The door appears broken, and opens with ease.");
               Thread.Sleep(2000);
               Console.WriteLine("The place is a complete mess");
@@ -337,6 +336,7 @@ public class ApartmentsLocation(Locations locations)
               Console.Write(" trying to hide and make herself small.");
               Thread.Sleep(4000);
               Console.Clear();
+              insideApartmentsDoor4:
               Console.WriteLine("As you enter the room you notice a mattress on the floor, " +
                                 "and a small woman next to it trying to hide and make herself small.");
               Console.WriteLine("");
@@ -363,10 +363,31 @@ public class ApartmentsLocation(Locations locations)
                   Thread.Sleep(2500);
                   Console.WriteLine("With a careful voice she responds");
                   Thread.Sleep(1500);
-                  Console.Write(", and she tells you she has lost a precious momento.");
+                  Console.Write(", and you learn she has lost a precious momento.");
+                  Thread.Sleep(2500);
+                  Console.WriteLine("The neighbor across the hall beat her up and took it from her.");
+                  Thread.Sleep(4000);
+                  Console.WriteLine("She wants you to recover her necklace and return it to her.");
+                  Thread.Sleep(4000);
+                  items.hasNecklaceQuest = true;
+                  Console.WriteLine(">");
+                  Console.ReadLine();
                   break;
                 case 2:
-                  Console.WriteLine("");
+                  if (items.hasKnife == true)
+                  { 
+                    Console.WriteLine("You pull out your knife and force her to give you what she has.");
+                    Thread.Sleep(3500);
+                    Console.WriteLine();
+                  }
+                  else if (items.hasCrowbar == true)
+                  {
+                    Console.WriteLine("");
+                  }
+                  else
+                  {
+                    Console.WriteLine("");
+                  }
                   break;
                 case 3:
                   Console.WriteLine("");
