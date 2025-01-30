@@ -179,6 +179,7 @@ public class ApartmentsLocation(Locations locations)
                   catch
                   {
                     Console.WriteLine("Invalid input");
+                    Thread.Sleep(2000);
                     goto insideApartmentsF1D2;
                   }
                   switch (locations.input)
@@ -188,8 +189,35 @@ public class ApartmentsLocation(Locations locations)
                         Console.Clear();
                         Console.WriteLine("As you walk in man jumps you.");
                         Thread.Sleep(1000);
-                        Console.WriteLine("During the struggle you hurt your arm.");
-                        items.healthPoints -= 15;
+                        if (items.isBuzzed == true)
+                        {
+                          Console.WriteLine("Despite feeling buzzed you manage to overpower the man");
+                          Thread.Sleep(2500);
+                          Console.Write(", ");
+                          Console.WriteLine("however, you are hurt in the process.");
+                          Thread.Sleep(2000);
+                          items.healthPoints -= 20;
+                        }
+                        else if (items.isDrunk == true)
+                        {
+                          Console.WriteLine("You barely manage to fight him off");
+                          Thread.Sleep(2000);
+                          Console.Write(", turns out fighting while drunk is not easy");
+                          items.healthPoints -= 30;
+                        }
+                        else if (items.isHammered == true)
+                        {
+                          Console.WriteLine("You are hammered.");
+                          Thread.Sleep(2000);
+                          Console.Write("Before you notice what is going on everything goes black.");
+                          Thread.Sleep(3000);
+                          items.healthPoints = 0;
+                        }
+                        else
+                        {
+                          Console.WriteLine("During the struggle you hurt your arm.");
+                          items.healthPoints -= 15;
+                        }
                         Console.WriteLine("");
                         Console.WriteLine("-15 HP");
                         Thread.Sleep(2000);
@@ -205,15 +233,54 @@ public class ApartmentsLocation(Locations locations)
                       }
                     case 2:
                       {
-                        Console.Clear();
-                        Console.WriteLine("As you sneakily look inside");
-                        Thread.Sleep(500);
-                        Console.Write(", you notice a man waiting to jump you.");
-                        Thread.Sleep(1500);
-                        Console.WriteLine("You catch him off guard by quickly charging him and knocking him to the ground.");
-                        Thread.Sleep(2000);
-                        Console.WriteLine("With a quick strike you knock him out cold.");
-                        Thread.Sleep(1500);
+                        if (items.isDrunk == false || items.isHammered == false)
+                        {
+                          Console.Clear();
+                          Console.WriteLine("As you sneakily look inside");
+                          Thread.Sleep(500);
+                          Console.Write(", you notice a man waiting to jump you.");
+                          Thread.Sleep(1500);
+                        }
+                        else
+                        {
+                          Console.Clear();
+                          Console.WriteLine("You sneakily look inside");
+                          Thread.Sleep(500);
+                          Console.Write(", but you do not notice anything.");
+                          Thread.Sleep(1500);
+                        }
+                        if (items.isBuzzed == true)
+                        {
+                          Console.WriteLine("Despite feeling buzzed you charge the man and knock him to the ground");
+                          Thread.Sleep(3500);
+                          Console.WriteLine("Eventually, with a bit of fumbling, you manage to knock him out.");
+                          Thread.Sleep(3000);
+                          items.healthPoints -= 5;
+                        }
+                        else if (items.isDrunk == true)
+                        {
+                          Console.WriteLine("Despite feeling drunk you charge the man and knock him to the ground");
+                          Thread.Sleep(3500);
+                          Console.Write("You struggle to overpower him, but eventually you manage to knock him out.");
+                          Thread.Sleep(3000);
+                          items.healthPoints -= 15;
+                        }
+                        else if (items.isHammered == true)
+                        {
+                          Console.WriteLine("You are hammered.");
+                          Thread.Sleep(1500);
+                          Console.Write("The man clearly sees you coming, and has no trouble knocking you out.");
+                          Thread.Sleep(3500);
+                          items.healthPoints = 0;
+                        }
+                        else
+                        {
+                          Console.WriteLine(
+                            "You catch him off guard by quickly charging him and knocking him to the ground.");
+                          Thread.Sleep(2000);
+                          Console.WriteLine("With a quick strike you knock him out cold.");
+                          Thread.Sleep(1500);
+                        }
                         Console.WriteLine("You go through his pockets and find a -Knife-");
                         items.hasKnife = true;
                         Thread.Sleep(1500);

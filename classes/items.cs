@@ -22,7 +22,6 @@ public class Items
             Thread.Sleep(2000);
             Console.WriteLine("--GAME OVER--");
             Thread.Sleep(1500);
-            return;
         }
     }
 }

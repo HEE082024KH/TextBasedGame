@@ -6,6 +6,18 @@ public class Status(Locations locations)
     public void ShowStatus()
     {
         Console.WriteLine($"Current HP: {items.healthPoints}/100");
+        if (items.isBuzzed == true)
+        {
+            Console.WriteLine("You feel buzzed.");
+        }
+        else if (items.isDrunk == true)
+        {
+            Console.WriteLine("You feel drunk.");
+        }
+        else if (items.isHammered == true)
+        {
+            Console.WriteLine("You feel hammered.");
+        }
         Console.WriteLine("1. Check inventory");
         Console.WriteLine("2. Use item");
         Console.WriteLine("3. Go back");
@@ -16,6 +28,7 @@ public class Status(Locations locations)
         catch
         {
             Console.WriteLine("Invalid input");
+            ShowStatus();
         }
         switch (locations.input)
         {
@@ -23,14 +36,14 @@ public class Status(Locations locations)
                 ShowInventory();
                 break;
             case 2:
-                ShowItems();
+                UseItems();
                 break;
             case 3:
                 break;
         }
     }
 
-    private void ShowItems()
+    private void UseItems()
     {
         Console.WriteLine("Type which item you want to use");
         if (items.hasBandages == true)
@@ -48,13 +61,24 @@ public class Status(Locations locations)
         catch
         {
             Console.WriteLine("Invalid input");
-            ShowItems();
+            UseItems();
         }
         switch (itemInput)
         {
             case "bandages":
-                items.bandages = items.bandages--;
-                items.healthPoints += 30;
+                if (items.healthPoints > 70)
+                {
+                    items.healthPoints = 100;
+                }
+                else if (items.healthPoints == 100)
+                {
+                    Console.WriteLine("You are already full health.");
+                }
+                else
+                {
+                    items.bandages = items.bandages--;
+                    items.healthPoints += 30;
+                }
                 break;
             case "alcohol":
                 if (items.isBuzzed == true)
