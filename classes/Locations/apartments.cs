@@ -122,7 +122,7 @@ public class ApartmentsLocation(Locations locations)
                   Thread.Sleep(1000);
                   Console.WriteLine("With a loud crack the door opens");
                   Thread.Sleep(2000);
-                  Console.WriteLine("The room looks to be a maintainance room of sorts");
+                  Console.WriteLine("The room looks to be a maintenance room of sorts");
                   Thread.Sleep(1000);
                   Console.WriteLine("Not much to find here");
                   Thread.Sleep(2000);
@@ -133,7 +133,7 @@ public class ApartmentsLocation(Locations locations)
                   items.hasHairpin = false;
                   Console.WriteLine("You use the hairpin to unlock the door.");
                   Thread.Sleep(2000);
-                  Console.WriteLine("The room looks to be a maintainance room of sorts");
+                  Console.WriteLine("The room looks to be a maintenance room of sorts");
                   Thread.Sleep(1000);
                   Console.WriteLine("Not much to find here");
                   Thread.Sleep(2000);
@@ -218,6 +218,7 @@ public class ApartmentsLocation(Locations locations)
                           Console.WriteLine("During the struggle you hurt your arm.");
                           items.healthPoints -= 15;
                         }
+                        items.HP();
                         Console.WriteLine("");
                         Console.WriteLine("-15 HP");
                         Thread.Sleep(2000);
@@ -239,16 +240,15 @@ public class ApartmentsLocation(Locations locations)
                           Console.WriteLine("As you sneakily look inside");
                           Thread.Sleep(500);
                           Console.Write(", you notice a man waiting to jump you.");
-                          Thread.Sleep(1500);
                         }
                         else
                         {
                           Console.Clear();
-                          Console.WriteLine("You sneakily look inside");
+                          Console.WriteLine("You look inside");
                           Thread.Sleep(500);
                           Console.Write(", but you do not notice anything.");
-                          Thread.Sleep(1500);
                         }
+                        Thread.Sleep(1500);
                         if (items.isBuzzed == true)
                         {
                           Console.WriteLine("Despite feeling buzzed you charge the man and knock him to the ground");
@@ -259,9 +259,9 @@ public class ApartmentsLocation(Locations locations)
                         }
                         else if (items.isDrunk == true)
                         {
-                          Console.WriteLine("Despite feeling drunk you charge the man and knock him to the ground");
+                          Console.WriteLine("You walk inside and get jumped by a strange man.");
                           Thread.Sleep(3500);
-                          Console.Write("You struggle to overpower him, but eventually you manage to knock him out.");
+                          Console.WriteLine("You struggle to overpower him, but eventually you manage to knock him out.");
                           Thread.Sleep(3000);
                           items.healthPoints -= 15;
                         }
@@ -269,7 +269,7 @@ public class ApartmentsLocation(Locations locations)
                         {
                           Console.WriteLine("You are hammered.");
                           Thread.Sleep(1500);
-                          Console.Write("The man clearly sees you coming, and has no trouble knocking you out.");
+                          Console.WriteLine("You walk inside and suddenly everything goes black.");
                           Thread.Sleep(3500);
                           items.healthPoints = 0;
                         }
@@ -281,10 +281,10 @@ public class ApartmentsLocation(Locations locations)
                           Console.WriteLine("With a quick strike you knock him out cold.");
                           Thread.Sleep(1500);
                         }
+                        items.HP();
                         Console.WriteLine("You go through his pockets and find a -Knife-");
                         items.hasKnife = true;
                         Thread.Sleep(1500);
-                        Console.WriteLine("");
                         goto insideApartments;
                       }
                     default:
@@ -313,7 +313,7 @@ public class ApartmentsLocation(Locations locations)
               }
             case 5:
               {
-                Console.WriteLine("It looks be some sort of janitors closet or maintenance room");
+                Console.WriteLine("It looks be some sort of janitors closet.");
                 Thread.Sleep(3000);
                 Console.WriteLine("It's messy and full of useless utility items");
                 Thread.Sleep(2500);
@@ -338,7 +338,7 @@ public class ApartmentsLocation(Locations locations)
               Thread.Sleep(1500);
               Console.Write(", enough so that even if you clear the rubble");
               Thread.Sleep(2500);
-              Console.Write(" you have doubts if it's safe or not");
+              Console.Write(" you doubt it is safe to pass");
               Console.WriteLine(">");
               Console.ReadLine();
               goto insideApartments;
@@ -388,7 +388,7 @@ public class ApartmentsLocation(Locations locations)
           }
           Console.WriteLine("You try to exit through the door, but it is locked.");
           Thread.Sleep(2500);
-          Console.WriteLine("You back out through the window.");
+          Console.WriteLine("You go back out through the window.");
           Thread.Sleep(2000);
           Console.WriteLine(">");
           Console.ReadLine();
