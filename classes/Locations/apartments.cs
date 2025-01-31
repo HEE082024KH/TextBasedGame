@@ -492,7 +492,21 @@ public class ApartmentsLocation(Locations locations)
                         items.Money += 5;
                         break;
                       case "crowbar":
-                        ;
+                        Console.WriteLine("You swing the crowbar with force");
+                        Thread.Sleep(2500);
+                        Console.Write(", striking her across the face.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("You hear the sound of bones breaking");
+                        Thread.Sleep(2500);
+                        Console.Write(", as blood splatters across the wall.");
+                        Thread.Sleep(2500);
+                        Console.WriteLine("She falls to the ground");
+                        Thread.Sleep(2000);
+                        Console.Write(", her eyes staring at you");
+                        Thread.Sleep(2000);
+                        Console.Write(", pleading.");
+                        Thread.Sleep(1500);
+                        
                         break;
                     }
                     insideApartmentsDoor4Kill = true;
@@ -501,7 +515,8 @@ public class ApartmentsLocation(Locations locations)
               }
               else if (insideApartmentsDoor4Done)
               {
-                
+                Console.WriteLine("I do not have any reason to go back here.");
+                Thread.Sleep(3000);
               }
               else if (insideApartmentsDoor4Talk)
               {
@@ -521,6 +536,17 @@ public class ApartmentsLocation(Locations locations)
                   Thread.Sleep(2500);
                   insideApartmentsDoor4Done = true;
                 }
+                else
+                {
+                  Console.WriteLine("Her face lights up as you enter.");
+                  Thread.Sleep(2500);
+                  Console.WriteLine("When she learns you have not found the necklace");
+                  Thread.Sleep(3000);
+                  Console.WriteLine(", her smile fades.");
+                  Thread.Sleep(1500);
+                  Console.WriteLine("I should find the necklace before coming back here.");
+                  Thread.Sleep(4000);
+                }
               }
               else if (insideApartmentsDoor4Steal)
               {
@@ -528,11 +554,18 @@ public class ApartmentsLocation(Locations locations)
                 Thread.Sleep(2500);
                 Console.WriteLine("You look around but she is nowhere to be found.");
                 Thread.Sleep(3000);
-                Console.WriteLine("");
+                Console.WriteLine("Her sleeping bag and things are gone.");
+                Thread.Sleep(2500);
+                insideApartmentsDoor4Steal = true;
               }
               else if (insideApartmentsDoor4Kill)
               {
-                
+                Console.WriteLine("The apartment has blood everywhere.");
+                Thread.Sleep(2000);
+                Console.WriteLine("You see her body lying there, where you left it");
+                Thread.Sleep(3000);
+                Console.WriteLine("There is nothing more to find here.");
+                insideApartmentsDoor4Done = true;
               } 
               break;
             }
