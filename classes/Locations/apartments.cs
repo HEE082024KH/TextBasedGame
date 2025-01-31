@@ -4,7 +4,6 @@ public class ApartmentsLocation(Locations locations)
   Status inventory = locations.inventory;
   Items items = locations.items;
   private bool insideApartmentsDoor2;
-  private bool insideApartmentsDoor4;
   private bool insideApartmentsDoor4Talk;
   private bool insideApartmentsDoor4Steal;
   private bool insideApartmentsDoor4Kill;
@@ -325,7 +324,32 @@ public class ApartmentsLocation(Locations locations)
               }
             case 3:
             {
-              ;
+              Console.WriteLine("As you approach the door");
+              Thread.Sleep(1500);
+              Console.Write(", you notice a weird substance covering the door and doorhandle.");
+              Thread.Sleep(3500);
+              insideApartmentsDoor3:
+              Console.WriteLine("--What do you want to do?");
+              Console.WriteLine("1. Open the door");
+              Console.WriteLine("2. Leave");
+              try
+              {
+                locations.input = Convert.ToInt32(Console.ReadLine());
+              }
+              catch
+              {
+                Console.WriteLine("Invalid input");
+                goto insideApartmentsDoor3;
+              }
+
+              switch (locations.input)
+              {
+                case 1:
+                  ;
+                  break;
+                case 2:
+                  goto insideApartments;
+              }
               break;
             }
             case 4:
