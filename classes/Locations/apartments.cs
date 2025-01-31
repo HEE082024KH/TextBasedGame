@@ -333,7 +333,7 @@ public class ApartmentsLocation(Locations locations)
             {
               Console.WriteLine("As you approach the door");
               Thread.Sleep(1500);
-              Console.Write(", you notice a weird substance covering the door and doorhandle.");
+              Console.Write(", you notice a weird substance covering the door and door handle.");
               Thread.Sleep(3500);
               insideApartmentsDoor3:
               Console.WriteLine("--What do you want to do?");
@@ -351,7 +351,77 @@ public class ApartmentsLocation(Locations locations)
               switch (locations.input)
               {
                 case 1:
-                  Console.WriteLine("");
+                  Console.WriteLine("Your hand feels icky as you touch the door handle");
+                  Console.WriteLine("-5 HP");
+                  items.HealthPoints -= 5;
+                  Thread.Sleep(3000);
+                  Console.WriteLine("As you open the door a foul odor slaps you across the face.");
+                  Thread.Sleep(3000);
+                  Console.WriteLine("Inside, the walls are covered in dirt, blood and feces");
+                  Thread.Sleep(3000);
+                  Console.Write(", a disgusting spectacle of yuck!");
+                  Thread.Sleep(2500);
+                  Console.WriteLine("The floor, however, is pristine");
+                  Thread.Sleep(2000);
+                  Console.Write(", like something has been covering it");
+                  Thread.Sleep(2500);
+                  Console.Write(", shielded from whatever monstrosity happened here.");
+                  Thread.Sleep(3000);
+                  insideApartmentsDoor3Open:
+                  Console.WriteLine("--What do you want to do?--");
+                  Console.WriteLine("1. Enter the room");
+                  Console.WriteLine("2. Leave");
+                  try
+                  {
+                    locations.input = Convert.ToInt32(Console.ReadLine());
+                  }
+                  catch
+                  {
+                    Console.WriteLine("Invalid input");
+                    goto insideApartmentsDoor3Open;
+                  }
+                  switch (locations.input)
+                  {
+                    case 1:
+                      Console.WriteLine("You enter the room, against your best judgement.");
+                      Thread.Sleep(3000);
+                      Console.WriteLine("You look around the room");
+                      Thread.Sleep(2000);
+                      Console.WriteLine("Looking for anything or something explaining all this.");
+                      Thread.Sleep(3500);
+                      insideApartmentsDoor3OpenInside:
+                      Console.WriteLine("--What do you want to do?--");
+                      Console.WriteLine("1. Keep looking");
+                      Console.WriteLine("2. Leave");
+                      try
+                      {
+                        locations.input = Convert.ToInt32(Console.ReadLine());
+                      }
+                      catch
+                      {
+                        Console.WriteLine("Invalid input");
+                        goto insideApartments;
+                      }
+
+                      switch (locations.input)
+                      {
+                        case 1:
+                          Console.WriteLine("You keep looking around");
+                          Thread.Sleep(2500);
+                          Console.WriteLine(", touching things you maybe shouldn't.");
+                          Thread.Sleep(3000);
+                          Console.WriteLine("You do not find anything useful");
+                          Thread.Sleep(2500);
+                          Console.WriteLine(", but you might have overstayed your welcome.");
+                          Console.WriteLine("-5 HP");
+                          items.HealthPoints -= 5;
+                          break;
+                      }
+                      break;
+                    case 2:
+                      goto insideApartments;
+                      break;
+                  }
                   break;
                 case 2:
                   goto insideApartments;
