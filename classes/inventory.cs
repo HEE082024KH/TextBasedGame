@@ -2,7 +2,7 @@ public class Status(Locations locations)
 {
     private Locations locations = locations;
     Items items = new();
-    public string itemInput;
+    public string? itemInput;
     public void ShowStatus()
     {
         Console.WriteLine($"Current HP: {items.HealthPoints}/100");
@@ -49,14 +49,14 @@ public class Status(Locations locations)
         if (items.Bandages > 0)
         {
             Console.WriteLine("- Bandage");
-        }        
+        }
         if (items.Alcohol > 0)
         {
             Console.WriteLine("- Alcohol");
         }
         try
         {
-            itemInput = Console.ReadLine().ToLower();
+            itemInput = Console.ReadLine()?.ToLower();
         }
         catch
         {
@@ -103,7 +103,7 @@ public class Status(Locations locations)
 
     private void ShowInventory()
     {
-    Console.WriteLine("You have the following items in your inventory:");
+        Console.WriteLine("You have the following items in your inventory:");
         if (items.Flashlight == true)
         {
             Console.WriteLine("- Flashlight");
@@ -119,11 +119,11 @@ public class Status(Locations locations)
         if (items.Knife == true)
         {
             Console.WriteLine("- Knife");
-        }       
+        }
         if (items.Bandages > 0)
         {
             Console.WriteLine("- Bandages");
-        }        
+        }
         if (items.Alcohol > 0)
         {
             Console.WriteLine("- Alcohol");
