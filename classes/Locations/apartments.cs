@@ -369,7 +369,8 @@ public class ApartmentsLocation(Locations locations)
                 }
                 catch
                 {
-                  Console.WriteLine("");
+                  Console.WriteLine("Invalid input");
+                  Thread.Sleep(1500);
                   goto insideApartmentsDoor4;
                 }
                 switch (locations.input)
@@ -437,6 +438,7 @@ public class ApartmentsLocation(Locations locations)
                     catch
                     {
                       Console.WriteLine("Invalid input");
+                      Thread.Sleep(1500);
                       goto insideApartmentsDoor4Kill;
                     }
                     switch (inventory.itemInput)
@@ -506,7 +508,48 @@ public class ApartmentsLocation(Locations locations)
                         Thread.Sleep(2000);
                         Console.Write(", pleading.");
                         Thread.Sleep(1500);
-                        
+                        Console.WriteLine("--Do you hit her again?--");
+                        Console.WriteLine("1. Yes");
+                        Console.WriteLine("2. No");
+                        insideApartmentsDoor4KillCrowbar:
+                        try
+                        {
+                          locations.input = Convert.ToInt32(Console.ReadLine());
+                        }
+                        catch
+                        {
+                          Console.WriteLine("Invalid input");
+                          Thread.Sleep(1500);
+                          goto insideApartmentsDoor4KillCrowbar;
+                        }
+                        switch (locations.input)
+                        {
+                          case 1:
+                            Console.WriteLine("You strike her again");
+                            Thread.Sleep(2000);
+                            Console.Write(", and again");
+                            Thread.Sleep(1500);
+                            Console.Write(", until she stops moving.");
+                            Thread.Sleep(3000);
+                            Console.WriteLine("From her dead corpse");
+                            Thread.Sleep(1500);
+                            Console.Write(", you find 5 bucks");
+                            items.Money += 5;
+                            break;
+                          case 2:
+                            Console.WriteLine("You stand around");
+                            Thread.Sleep(1500);
+                            Console.Write(", looking at her");
+                            Thread.Sleep(1500);
+                            Console.Write(", as her eyes goes blank.");
+                            Thread.Sleep(3000);
+                            Console.WriteLine("From her dead corpse");
+                            Thread.Sleep(1500);
+                            Console.Write(", you find 5 bucks");
+                            items.Money += 5;
+                            break;
+                        }
+                        insideApartmentsDoor4Done = true;
                         break;
                     }
                     insideApartmentsDoor4Kill = true;
