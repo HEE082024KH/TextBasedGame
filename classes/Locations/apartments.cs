@@ -204,7 +204,8 @@ public class ApartmentsLocation(Locations locations)
                           Thread.Sleep(2500);
                           Console.Write(", ");
                           Console.WriteLine("however, you are hurt in the process.");
-                          Thread.Sleep(2000);
+                          Console.WriteLine("-20 HP");
+                          Thread.Sleep(3000);
                           items.HealthPoints -= 20;
                         }
                         else if (items.IsDrunk)
@@ -212,6 +213,8 @@ public class ApartmentsLocation(Locations locations)
                           Console.WriteLine("You barely manage to fight him off");
                           Thread.Sleep(2000);
                           Console.Write(", turns out fighting while drunk is not easy");
+                          Console.WriteLine("-30 HP");
+                          Thread.Sleep(3000);
                           items.HealthPoints -= 30;
                         }
                         else if (items.IsHammered)
@@ -225,6 +228,8 @@ public class ApartmentsLocation(Locations locations)
                         else
                         {
                           Console.WriteLine("During the struggle you hurt your arm.");
+                          Console.WriteLine("-15 HP");
+                          Thread.Sleep(3000);
                           items.HealthPoints -= 15;
                         }
                         items.Hp();
@@ -273,6 +278,7 @@ public class ApartmentsLocation(Locations locations)
                           Console.WriteLine("Despite feeling buzzed you charge the man and knock him to the ground");
                           Thread.Sleep(3500);
                           Console.WriteLine("Eventually, with a bit of fumbling, you manage to knock him out.");
+                          Console.WriteLine("-5 HP");
                           Thread.Sleep(3000);
                           items.HealthPoints -= 5;
                         }
@@ -281,6 +287,7 @@ public class ApartmentsLocation(Locations locations)
                           Console.WriteLine("You walk inside and get jumped by a strange man.");
                           Thread.Sleep(3500);
                           Console.WriteLine("You struggle to overpower him, but eventually you manage to knock him out.");
+                          Console.WriteLine("-15 HP");
                           Thread.Sleep(3000);
                           items.HealthPoints -= 15;
                         }
@@ -341,11 +348,10 @@ public class ApartmentsLocation(Locations locations)
                 Console.WriteLine("Invalid input");
                 goto insideApartmentsDoor3;
               }
-
               switch (locations.input)
               {
                 case 1:
-                  ;
+                  Console.WriteLine("");
                   break;
                 case 2:
                   goto insideApartments;
