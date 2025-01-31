@@ -8,6 +8,7 @@ public class ApartmentsLocation(Locations locations)
   private bool insideApartmentsDoor4Talk;
   private bool insideApartmentsDoor4Steal;
   private bool insideApartmentsDoor4Kill;
+  private bool insideApartmentsDoor4Done;
   public void Apartments()
   {
     locations.currentLocation = "Apartments";
@@ -329,50 +330,51 @@ public class ApartmentsLocation(Locations locations)
             }
             case 4:
             {
-              Console.WriteLine("The door appears broken, and opens with ease.");
-              Thread.Sleep(2000);
-              Console.WriteLine("The place is a complete mess");
-              Thread.Sleep(1500);
-              Console.Write(", but somehow different");
-              Thread.Sleep(1500);
-              Console.Write(", man-made");
-              Thread.Sleep(1000);
-              Console.Write(", or rather destroyed.");
-              Thread.Sleep(3000);
-              Console.WriteLine("You look around for anything or anyone.");
-              Thread.Sleep(2000);
-              Console.WriteLine("There is not much to be found it seems");
-              Thread.Sleep(2000);
-              Console.WriteLine(", until you hear a faint sound from the next room.");
-              Thread.Sleep(3000);
-              Console.WriteLine("As you enter the room you notice a mattress on the floor");
-              Thread.Sleep(3000);
-              Console.Write(", and a small woman next to it");
-              Thread.Sleep(2000);
-              Console.Write(" trying to hide and make herself small.");
-              Thread.Sleep(4000);
-              Console.Clear();
-              insideApartmentsDoor4:
-              Console.WriteLine("As you enter the room you notice a mattress on the floor, " +
+              if (!insideApartmentsDoor4Done || !insideApartmentsDoor4Kill || !insideApartmentsDoor4Steal || !insideApartmentsDoor4Talk)
+              {
+                Console.WriteLine("The door appears broken, and opens with ease.");
+                Thread.Sleep(2000);
+                Console.WriteLine("The place is a complete mess");
+                Thread.Sleep(1500);
+                Console.Write(", but somehow different");
+                Thread.Sleep(1500);
+                Console.Write(", man-made");
+                Thread.Sleep(1000);
+                Console.Write(", or rather destroyed.");
+                Thread.Sleep(3000);
+                Console.WriteLine("You look around for anything or anyone.");
+                Thread.Sleep(2000);
+                Console.WriteLine("There is not much to be found it seems");
+                Thread.Sleep(2000);
+                Console.WriteLine(", until you hear a faint sound from the next room.");
+                Thread.Sleep(3000);
+                Console.WriteLine("As you enter the room you notice a mattress on the floor");
+                Thread.Sleep(3000);
+                Console.Write(", and a small woman next to it");
+                Thread.Sleep(2000);
+                Console.Write(" trying to hide and make herself small.");
+                Thread.Sleep(4000);
+                Console.Clear();
+                insideApartmentsDoor4:
+                Console.WriteLine("As you enter the room you notice a mattress on the floor, " +
                                 "and a small woman next to it trying to hide and make herself small.");
-              Console.WriteLine("");
-              Console.WriteLine("What do you do?");
-              Console.WriteLine("1. Calmly try to talk to her.");
-              Console.WriteLine("2. Aggressively threaten and steal her things.");
-              Console.WriteLine("3. Try to kill her.");
-              try
-              {
-                locations.input = Convert.ToInt32(Console.ReadLine());
-              }
-              catch
-              {
                 Console.WriteLine("");
-                goto insideApartmentsDoor4;
-              }
-
-              switch (locations.input)
-              {
-                case 1:
+                Console.WriteLine("What do you do?");
+                Console.WriteLine("1. Calmly try to talk to her.");
+                Console.WriteLine("2. Aggressively threaten and steal her things.");
+                Console.WriteLine("3. Try to kill her.");
+                try
+                {
+                  locations.input = Convert.ToInt32(Console.ReadLine());
+                }
+                catch
+                {
+                  Console.WriteLine("");
+                  goto insideApartmentsDoor4;
+                }
+                switch (locations.input)
+                {
+                  case 1:
                   Console.WriteLine("Calmly you talk to her");
                   Thread.Sleep(2000);
                   Console.Write(", assuring that you mean no harm.");
@@ -389,89 +391,149 @@ public class ApartmentsLocation(Locations locations)
                   insideApartmentsDoor4Talk = true;
                   Console.WriteLine(">");
                   Console.ReadLine();
+                  insideApartmentsDoor4Talk = true;
                   break;
-                case 2:
+                  case 2:
                   if (items.Knife)
-                  { 
+                  {
                     Console.WriteLine("You pull out your knife and force her to give you what she has.");
                     Thread.Sleep(3500);
                     Console.WriteLine("Reluctantly, she pulls out 25 bucks from behind a dresser.");
-                    items.Money = items.Money + 25;
+                    items.Money += 25;
                   }
                   else if (items.Crowbar)
                   {
                     Console.WriteLine("You pull out your crowbar and force her to give you what she has.");
                     Thread.Sleep(3500);
                     Console.WriteLine("Reluctantly, gives you 20 bucks.");
-                    items.Money = items.Money + 20;
+                    items.Money += 20;
                   }
                   else
                   {
                     Console.WriteLine("You scream at her and force her to give you what she has.");
                     Thread.Sleep(3500);
                     Console.WriteLine("Reluctantly, gives you 10 bucks.");
-                    items.Money = items.Money + 10;
+                    items.Money += 10;
                   }
 
                   insideApartmentsDoor4Steal = true;
                   break;
-                case 3:
-                  insideApartmentsDoor4Kill:
-                  Console.WriteLine("What weapon do you want to use?");
-                  Console.WriteLine("- Hands");
-                  if (items.Knife)
-                  {
-                    Console.WriteLine("- Knife");
-                  }
-                  if (items.Crowbar)
-                  {
-                    Console.WriteLine("- Crowbar");
-                  }
-                  try
-                  {
-                    inventory.itemInput = Console.ReadLine().ToLower();
-                  }
-                  catch
-                  {
-                    Console.WriteLine("Invalid input");
-                    goto insideApartmentsDoor4Kill;
-                  }
-
-                  switch (inventory.itemInput)
-                  {
-                    case "hands":
-                      Console.WriteLine("You swiftly place your hands around her neck");
-                      Thread.Sleep(3000);
-                      Console.Write(", squeezing");
-                      Thread.Sleep(1000);
-                      Console.Write(", tightening your grip.");
-                      Thread.Sleep(2000);
-                      Console.WriteLine("You hear her gasping for air");
-                      Thread.Sleep(2000);
-                      Console.Write(", slowly turning quiet.");
-                      Thread.Sleep(2000);
-                      Console.WriteLine("Her eyes staring at you");
-                      Thread.Sleep(2000);
-                      Console.Write(", intensely");
-                      Thread.Sleep(1000);
-                      Console.Write(", begging.");
-                      Thread.Sleep(1000);
-                      Console.WriteLine("Until you feel the life leave her body");
-                      Thread.Sleep(2000);
-                      Console.Write(", and her eyes go empty.");
-                      Thread.Sleep(3000);
-                      Console.WriteLine("From her dead corpse");
-                      break;
-                    case "knife":
-                      ;
-                      break;
-                    case "crowbar":
-                      ;
-                      break;
-                  }
-                  insideApartmentsDoor4Kill = true;
-                  break;
+                  case 3:
+                    insideApartmentsDoor4Kill:
+                    Console.WriteLine("What weapon do you want to use?");
+                    Console.WriteLine("- Hands");
+                    if (items.Knife)
+                    {
+                      Console.WriteLine("- Knife");
+                    }
+                    if (items.Crowbar)
+                    {
+                      Console.WriteLine("- Crowbar");
+                    }
+                    try
+                    {
+                      inventory.itemInput = Console.ReadLine().ToLower();
+                    }
+                    catch
+                    {
+                      Console.WriteLine("Invalid input");
+                      goto insideApartmentsDoor4Kill;
+                    }
+                    switch (inventory.itemInput)
+                    {
+                      case "hands":
+                        Console.WriteLine("You swiftly place your hands around her neck");
+                        Thread.Sleep(3000);
+                        Console.Write(", squeezing");
+                        Thread.Sleep(1000);
+                        Console.Write(", tightening your grip.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("You hear her gasping for air");
+                        Thread.Sleep(2000);
+                        Console.Write(", slowly turning quiet.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Her eyes staring at you");
+                        Thread.Sleep(2000);
+                        Console.Write(", intensely");
+                        Thread.Sleep(1000);
+                        Console.Write(", begging.");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("Until you feel the life leave her body");
+                        Thread.Sleep(2000);
+                        Console.Write(", and her eyes go empty.");
+                        Thread.Sleep(4000);
+                        Console.WriteLine("From her dead corpse");
+                        Thread.Sleep(1500);
+                        Console.Write(", you find 5 bucks");
+                        items.Money += 5;
+                        break;
+                      case "knife":
+                        Console.WriteLine("With a swift motion you stab her in the stomach.");
+                        Thread.Sleep(3000);
+                        Console.WriteLine("She gasps as the blade enter her body");
+                        Thread.Sleep(2000);
+                        Console.Write("She starts screaming in pain.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("You stab her again");
+                        Thread.Sleep(2000);
+                        Console.Write(", and again");
+                        Thread.Sleep(1500);
+                        Console.Write(", until she stops screaming.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Her body collapses towards you");
+                        Thread.Sleep(2000);
+                        Console.Write(", cold");
+                        Thread.Sleep(1000);
+                        Console.Write(", lifeless.");
+                        Thread.Sleep(3000);
+                        Console.WriteLine("From her dead corpse");
+                        Thread.Sleep(1500);
+                        Console.Write(", you find 5 bucks");
+                        items.Money += 5;
+                        break;
+                      case "crowbar":
+                        ;
+                        break;
+                    }
+                    insideApartmentsDoor4Kill = true;
+                    break;
+                }
               }
+              else if (insideApartmentsDoor4Done)
+              {
+                
+              }
+              else if (insideApartmentsDoor4Talk)
+              {
+                if (items.Necklace)
+                {
+                  Console.WriteLine("Her face lights up as you enter.");
+                  Thread.Sleep(2500);
+                  Console.WriteLine("You hand the necklace over to her");
+                  Thread.Sleep(2500);
+                  Console.WriteLine("With great appreciation she thanks you.");
+                  Thread.Sleep(2500);
+                  Console.WriteLine("She gives you a -key- in return.");
+                  Thread.Sleep(2000);
+                  Console.WriteLine("She is unsure where it fits, but she found it on this floor.");
+                  Thread.Sleep(3000);
+                  Console.WriteLine("If I look around a bit I might figure where to use it.");
+                  Thread.Sleep(2500);
+                  insideApartmentsDoor4Done = true;
+                }
+              }
+              else if (insideApartmentsDoor4Steal)
+              {
+                Console.WriteLine("You enter the apartment looking for the woman.");
+                Thread.Sleep(2500);
+                Console.WriteLine("You look around but she is nowhere to be found.");
+                Thread.Sleep(3000);
+                Console.WriteLine("");
+              }
+              else if (insideApartmentsDoor4Kill)
+              {
+                
+              } 
               break;
             }
             case 5:
