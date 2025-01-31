@@ -38,7 +38,7 @@ public class GateLocation(Locations locations)
             }
             case 3:
             { 
-                if (items.hasGateKey == true)
+                if (items.GateKey == true)
                 { 
                     Console.Clear();
                     Console.WriteLine("You take out the key and slide it into the keyhole");
@@ -93,7 +93,7 @@ public class GateLocation(Locations locations)
             }
             case 4:
             {
-                if (items.hasFlashlight == true && items.hasHairpin == true)
+                if (items.Flashlight == true && items.Hairpin == true)
                 { 
                     Console.Clear();
                     Console.WriteLine("You use your flashlight to look around");
@@ -102,13 +102,13 @@ public class GateLocation(Locations locations)
                     Thread.Sleep(3500);
                     Gate();
                 }
-                else if (items.hasFlashlight == true)
+                else if (items.Flashlight == true)
                 {
                     Console.Clear();
                     Console.WriteLine("You use your flashlight to look around");
                     Thread.Sleep(1500);
                     Console.WriteLine("You found a -Hairpin-");
-                    items.hasHairpin = true;
+                    items.Hairpin = true;
                     Thread.Sleep(3500);
                     Gate();
                 }

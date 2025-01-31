@@ -4,6 +4,10 @@ public class ApartmentsLocation(Locations locations)
   Status inventory = locations.inventory;
   Items items = locations.items;
   private bool insideApartmentsDoor2;
+  private bool insideApartmentsDoor4;
+  private bool insideApartmentsDoor4Talk;
+  private bool insideApartmentsDoor4Steal;
+  private bool insideApartmentsDoor4Kill;
   public void Apartments()
   {
     locations.currentLocation = "Apartments";
@@ -66,8 +70,8 @@ public class ApartmentsLocation(Locations locations)
                 Thread.Sleep(2000);
                 Console.WriteLine("Looking through one of the bags, you cut your hand on a sharp object");
                 Thread.Sleep(3000);
-                items.healthPoints -= 10;
-                items.HP();
+                items.HealthPoints -= 10;
+                items.Hp();
                 Console.WriteLine("");
                 Console.WriteLine("-10 HP");
                 Thread.Sleep(2000);
@@ -120,7 +124,7 @@ public class ApartmentsLocation(Locations locations)
             case 1:
               {
                 Console.Clear();
-                if (items.hasCrowbar == true)
+                if (items.Crowbar)
                 {
                   Console.WriteLine("You use the crowbar to pry the door open.");
                   Thread.Sleep(1000);
@@ -132,9 +136,9 @@ public class ApartmentsLocation(Locations locations)
                   Thread.Sleep(2000);
                   goto insideApartments;
                 }
-                if (items.hasHairpin == true)
+                if (items.Hairpin)
                 {
-                  items.hasHairpin = false;
+                  items.Hairpin = false;
                   Console.WriteLine("You use the hairpin to unlock the door.");
                   Thread.Sleep(2000);
                   Console.WriteLine("The room looks to be a maintenance room of sorts");
@@ -154,16 +158,16 @@ public class ApartmentsLocation(Locations locations)
               }
             case 2:
               {
-                if (items.hasCrowbar || items.hasHairpin)
+                if (items.Crowbar || items.Hairpin)
                 {
                   Console.Clear();
-                  if (items.hasCrowbar)
+                  if (items.Crowbar)
                   {
                     Console.WriteLine("You use the crowbar to pry the door open.");
                   }
-                  else if (items.hasHairpin)
+                  else if (items.Hairpin)
                   {
-                    items.hasHairpin = false;
+                    items.Hairpin = false;
                     Console.WriteLine("You use the hairpin to unlock the door.");
                   }
                 insideApartmentsDoor2:
@@ -194,62 +198,62 @@ public class ApartmentsLocation(Locations locations)
                         Console.Clear();
                         Console.WriteLine("As you walk in man jumps you.");
                         Thread.Sleep(1000);
-                        if (items.isBuzzed == true)
+                        if (items.IsBuzzed)
                         {
                           Console.WriteLine("Despite feeling buzzed you manage to overpower the man");
                           Thread.Sleep(2500);
                           Console.Write(", ");
                           Console.WriteLine("however, you are hurt in the process.");
                           Thread.Sleep(2000);
-                          items.healthPoints -= 20;
+                          items.HealthPoints -= 20;
                         }
-                        else if (items.isDrunk)
+                        else if (items.IsDrunk)
                         {
                           Console.WriteLine("You barely manage to fight him off");
                           Thread.Sleep(2000);
                           Console.Write(", turns out fighting while drunk is not easy");
-                          items.healthPoints -= 30;
+                          items.HealthPoints -= 30;
                         }
-                        else if (items.isHammered)
+                        else if (items.IsHammered)
                         {
                           Console.WriteLine("You are hammered.");
                           Thread.Sleep(2000);
                           Console.Write("Before you notice what is going on everything goes black.");
                           Thread.Sleep(3000);
-                          items.healthPoints = 0;
+                          items.HealthPoints = 0;
                         }
                         else
                         {
                           Console.WriteLine("During the struggle you hurt your arm.");
-                          items.healthPoints -= 15;
+                          items.HealthPoints -= 15;
                         }
-                        items.HP();
+                        items.Hp();
                         Console.WriteLine("");
                         Console.WriteLine("-15 HP");
                         Thread.Sleep(2000);
-                        items.HP();
+                        items.Hp();
                         Thread.Sleep(1500);
                         Console.WriteLine("He's not much of a fighter, however, and eventually you knock him out.");
                         Thread.Sleep(2000);
                         Console.WriteLine("You go through his pockets and find a -Knife-");
-                        items.hasKnife = true;
-                        if (items.hasNecklaceQuest)
+                        items.Knife = true;
+                        if (items.NecklaceQuest)
                         {
-                          items.hasNecklaceQuest = false;
+                          items.NecklaceQuest = false;
                           Console.WriteLine("You also find the woman's necklace");
-                          items.hasNecklace = true;
+                          items.Necklace = true;
                         }
                         insideApartmentsDoor2 = true;
                         Thread.Sleep(1500);
                       }
-                      else if (!items.hasNecklace && items.hasNecklaceQuest)
+                      else if (!items.Necklace && items.NecklaceQuest)
                       {
                         Console.WriteLine("You see the man lying on the floor.");
                       };
                       goto insideApartments;
                     case 2:
                       {
-                        if (!items.isDrunk || !items.isHammered)
+                        if (!items.IsDrunk || !items.IsHammered)
                         {
                           Console.Clear();
                           Console.WriteLine("As you sneakily look inside");
@@ -264,29 +268,29 @@ public class ApartmentsLocation(Locations locations)
                           Console.Write(", but you do not notice anything.");
                         }
                         Thread.Sleep(1500);
-                        if (items.isBuzzed)
+                        if (items.IsBuzzed)
                         {
                           Console.WriteLine("Despite feeling buzzed you charge the man and knock him to the ground");
                           Thread.Sleep(3500);
                           Console.WriteLine("Eventually, with a bit of fumbling, you manage to knock him out.");
                           Thread.Sleep(3000);
-                          items.healthPoints -= 5;
+                          items.HealthPoints -= 5;
                         }
-                        else if (items.isDrunk)
+                        else if (items.IsDrunk)
                         {
                           Console.WriteLine("You walk inside and get jumped by a strange man.");
                           Thread.Sleep(3500);
                           Console.WriteLine("You struggle to overpower him, but eventually you manage to knock him out.");
                           Thread.Sleep(3000);
-                          items.healthPoints -= 15;
+                          items.HealthPoints -= 15;
                         }
-                        else if (items.isHammered)
+                        else if (items.IsHammered)
                         {
                           Console.WriteLine("You are hammered.");
                           Thread.Sleep(1500);
                           Console.WriteLine("You walk inside and suddenly everything goes black.");
                           Thread.Sleep(3500);
-                          items.healthPoints = 0;
+                          items.HealthPoints = 0;
                         }
                         else
                         {
@@ -296,9 +300,9 @@ public class ApartmentsLocation(Locations locations)
                           Console.WriteLine("With a quick strike you knock him out cold.");
                           Thread.Sleep(1500);
                         }
-                        items.HP();
+                        items.Hp();
                         Console.WriteLine("You go through his pockets and find a -Knife-");
-                        items.hasKnife = true;
+                        items.Knife = true;
                         Thread.Sleep(1500);
                         goto insideApartments;
                       }
@@ -373,39 +377,101 @@ public class ApartmentsLocation(Locations locations)
                   Thread.Sleep(2000);
                   Console.Write(", assuring that you mean no harm.");
                   Thread.Sleep(2500);
-                  Console.WriteLine("With a careful voice she responds");
+                  Console.WriteLine("With a careful voice she responds, and you talk for a minute");
                   Thread.Sleep(1500);
-                  Console.Write(", and you learn she has lost a precious momento.");
+                  Console.Write("You learn she has lost a precious momento.");
                   Thread.Sleep(2500);
                   Console.WriteLine("The neighbor across the hall beat her up and took it from her.");
                   Thread.Sleep(4000);
                   Console.WriteLine("She wants you to recover her necklace and return it to her.");
                   Thread.Sleep(4000);
-                  items.hasNecklaceQuest = true;
+                  items.NecklaceQuest = true;
+                  insideApartmentsDoor4Talk = true;
                   Console.WriteLine(">");
                   Console.ReadLine();
                   break;
                 case 2:
-                  if (items.hasKnife)
+                  if (items.Knife)
                   { 
                     Console.WriteLine("You pull out your knife and force her to give you what she has.");
                     Thread.Sleep(3500);
-                    Console.WriteLine();
+                    Console.WriteLine("Reluctantly, she pulls out 25 bucks from behind a dresser.");
+                    items.Money = items.Money + 25;
                   }
-                  else if (items.hasCrowbar)
+                  else if (items.Crowbar)
                   {
-                    Console.WriteLine("");
+                    Console.WriteLine("You pull out your crowbar and force her to give you what she has.");
+                    Thread.Sleep(3500);
+                    Console.WriteLine("Reluctantly, gives you 20 bucks.");
+                    items.Money = items.Money + 20;
                   }
                   else
                   {
-                    Console.WriteLine("");
+                    Console.WriteLine("You scream at her and force her to give you what she has.");
+                    Thread.Sleep(3500);
+                    Console.WriteLine("Reluctantly, gives you 10 bucks.");
+                    items.Money = items.Money + 10;
                   }
+
+                  insideApartmentsDoor4Steal = true;
                   break;
                 case 3:
-                  Console.WriteLine("");
+                  insideApartmentsDoor4Kill:
+                  Console.WriteLine("What weapon do you want to use?");
+                  Console.WriteLine("- Hands");
+                  if (items.Knife)
+                  {
+                    Console.WriteLine("- Knife");
+                  }
+                  if (items.Crowbar)
+                  {
+                    Console.WriteLine("- Crowbar");
+                  }
+                  try
+                  {
+                    inventory.itemInput = Console.ReadLine().ToLower();
+                  }
+                  catch
+                  {
+                    Console.WriteLine("Invalid input");
+                    goto insideApartmentsDoor4Kill;
+                  }
+
+                  switch (inventory.itemInput)
+                  {
+                    case "hands":
+                      Console.WriteLine("You swiftly place your hands around her neck");
+                      Thread.Sleep(3000);
+                      Console.Write(", squeezing");
+                      Thread.Sleep(1000);
+                      Console.Write(", tightening your grip.");
+                      Thread.Sleep(2000);
+                      Console.WriteLine("You hear her gasping for air");
+                      Thread.Sleep(2000);
+                      Console.Write(", slowly turning quiet.");
+                      Thread.Sleep(2000);
+                      Console.WriteLine("Her eyes staring at you");
+                      Thread.Sleep(2000);
+                      Console.Write(", intensely");
+                      Thread.Sleep(1000);
+                      Console.Write(", begging.");
+                      Thread.Sleep(1000);
+                      Console.WriteLine("Until you feel the life leave her body");
+                      Thread.Sleep(2000);
+                      Console.Write(", and her eyes go empty.");
+                      Thread.Sleep(3000);
+                      Console.WriteLine("From her dead corpse");
+                      break;
+                    case "knife":
+                      ;
+                      break;
+                    case "crowbar":
+                      ;
+                      break;
+                  }
+                  insideApartmentsDoor4Kill = true;
                   break;
               }
-
               break;
             }
             case 5:
@@ -416,10 +482,9 @@ public class ApartmentsLocation(Locations locations)
                 Thread.Sleep(2500);
                 Console.Write(", but there is a medical cabinet on the wall");
                 Thread.Sleep(2500);
-                Console.WriteLine("Inside you find a bandage and a bottle of alcohol.");
-                items.hasBandages = true;
-                items.bandages = items.bandages++;
-                items.hasAlcohol = true;
+                Console.WriteLine("Inside you find a -bandage- and a bottle of -Alcohol-.");
+                items.Bandages = items.Bandages++;
+                items.Alcohol = items.Alcohol++;
                 Thread.Sleep(2500);
                 Console.WriteLine(">");
                 Console.ReadLine();
@@ -471,7 +536,7 @@ public class ApartmentsLocation(Locations locations)
           Thread.Sleep(1500);
           Console.WriteLine("You spot a small box on a dresser");
           Thread.Sleep(2000);
-          if (items.hasKey)
+          if (items.Key)
           {
             Console.WriteLine("You use the key to open the box.");
             Thread.Sleep(2000);

@@ -1,24 +1,23 @@
 public class Items
 {
-    public bool hasFlashlight;
-    public bool hasHairpin;
-    public bool hasCrowbar;
-    public bool hasKnife;
-    public bool hasGateKey;
-    public bool hasKey;
-    public bool hasBandages;
-    public int bandages;
-    public bool hasAlcohol;
-    public int alcohol;
-    public bool isBuzzed;
-    public bool isDrunk;
-    public bool isHammered;
-    public bool hasNecklaceQuest;
-    public bool hasNecklace;
-    public int healthPoints = 80;
-    public void HP()
+    public bool Flashlight;
+    public bool Hairpin;
+    public bool Crowbar;
+    public bool Knife;
+    public bool GateKey;
+    public bool Key;
+    public int Bandages;
+    public int Alcohol;
+    public bool IsBuzzed;
+    public bool IsDrunk;
+    public bool IsHammered;
+    public bool NecklaceQuest;
+    public bool Necklace;
+    public int Money;
+    public int HealthPoints = 80;
+    public void Hp()
     {
-        if (healthPoints <= 0)
+        if (HealthPoints <= 0)
         {
             Console.WriteLine("You died from too many serious wounds");
             Thread.Sleep(2000);
