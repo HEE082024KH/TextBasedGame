@@ -26,7 +26,6 @@ public class ApartmentsLocation(Locations locations)
     }
     catch
     {
-      Console.WriteLine("");
       Console.WriteLine("Invalid input");
       Thread.Sleep(1500);
       Apartments();
@@ -41,12 +40,13 @@ public class ApartmentsLocation(Locations locations)
       case 2:
         {
           Console.Clear();
-          inventory.ShowStatus();
+          // inventory.ShowStatus();
           Apartments();
           break;
         }
       case 3:
         {
+          outsideApartments:
           Console.Clear();
           Console.WriteLine("There's a few bags of trash scattered along the walls");
           Console.WriteLine("");
@@ -60,6 +60,8 @@ public class ApartmentsLocation(Locations locations)
           catch
           {
             Console.WriteLine("Invalid input");
+            Thread.Sleep(1500);
+            goto outsideApartments;
           }
           switch (locations.input)
           {
@@ -67,14 +69,13 @@ public class ApartmentsLocation(Locations locations)
               {
                 Console.Clear();
                 Console.WriteLine("You rummage through the bags, looking for anything of use.");
-                Thread.Sleep(2000);
+                Thread.Sleep(3500);
                 Console.WriteLine("Looking through one of the bags, you cut your hand on a sharp object");
-                Thread.Sleep(3000);
+                Thread.Sleep(2500);
+                Console.WriteLine("-10 HP");
                 items.HealthPoints -= 10;
                 items.Hp();
-                Console.WriteLine("");
-                Console.WriteLine("-10 HP");
-                Thread.Sleep(2000);
+                Thread.Sleep(2500);
                 Apartments();
                 break;
               }
@@ -84,7 +85,7 @@ public class ApartmentsLocation(Locations locations)
                 Console.WriteLine("You leave the bags alone.");
                 Thread.Sleep(2000);
                 Console.WriteLine("Who knows what kind of diseases are in those bags.");
-                Thread.Sleep(2000);
+                Thread.Sleep(3000);
                 Apartments();
                 break;
               }
@@ -93,16 +94,17 @@ public class ApartmentsLocation(Locations locations)
         }
       case 4:
         {
-        insideApartments:
           Console.Clear();
-          Console.WriteLine("The door opens with a nasty creak");
+          Console.Write("The door opens with a nasty creak");
           Thread.Sleep(1000);
           Console.WriteLine(", sure to notify anyone nearby.");
+          Thread.Sleep(1500);
+          Console.Write("Inside there's a small hallway with a door at the end");
           Thread.Sleep(2000);
-          Console.WriteLine("Inside there's a small hallway with a door at the end,");
-          Console.WriteLine("and 2 doors on either side.");
-          Thread.Sleep(2000);
+          Console.WriteLine(", and 2 doors on either side.");
+          Thread.Sleep(1000);
           Console.WriteLine("");
+          insideApartments:
           Console.WriteLine("What do you want to do?");
           Console.WriteLine("1. Enter the first door on the right");
           Console.WriteLine("2. Enter the second door on the right");
@@ -151,31 +153,19 @@ public class ApartmentsLocation(Locations locations)
                 {
                   Console.WriteLine("The door is locked");
                   Thread.Sleep(1000);
-                  Console.WriteLine("If only I had a crowbar or something to unlock down the door");
+                  Console.WriteLine("If only I had a crowbar or something to unlock the door");
                   Thread.Sleep(3000);
                   goto insideApartments;
                 }
               }
             case 2:
               {
-                if (items.Crowbar || items.Hairpin)
-                {
+                  insideApartmentsDoor2:
                   Console.Clear();
-                  if (items.Crowbar)
-                  {
-                    Console.WriteLine("You use the crowbar to pry the door open.");
-                  }
-                  else if (items.Hairpin)
-                  {
-                    items.Hairpin = false;
-                    Console.WriteLine("You use the hairpin to unlock the door.");
-                  }
-                insideApartmentsDoor2:
-                  Thread.Sleep(1000);
-                  Console.WriteLine("The door opens with ease");
-                  Thread.Sleep(500);
-                  Console.Write(", almost too easy");
+                  Console.Write("The door opens with ease");
                   Thread.Sleep(1500);
+                  Console.WriteLine(", almost too easy");
+                  Thread.Sleep(1000);
                   Console.WriteLine("");
                   Console.WriteLine("What do you want to do?");
                   Console.WriteLine("1. Just walk in");
@@ -196,16 +186,16 @@ public class ApartmentsLocation(Locations locations)
                       if (!insideApartmentsDoor2)
                       {
                         Console.Clear();
-                        Console.WriteLine("As you walk in man jumps you.");
+                        Console.WriteLine("As you walk in a man jumps you from behind.");
                         Thread.Sleep(1000);
                         if (items.IsBuzzed)
                         {
-                          Console.WriteLine("Despite feeling buzzed you manage to overpower the man");
+                          Console.Write("Despite feeling buzzed you manage to overpower the man");
                           Thread.Sleep(2500);
-                          Console.Write(", ");
-                          Console.WriteLine("however, you are hurt in the process.");
+                          Console.WriteLine(", however, you are hurt in the process.");
+                          Thread.Sleep(2000);
                           Console.WriteLine("-20 HP");
-                          Thread.Sleep(3000);
+                          Thread.Sleep(2000);
                           items.HealthPoints -= 20;
                         }
                         else if (items.IsDrunk)
@@ -213,8 +203,9 @@ public class ApartmentsLocation(Locations locations)
                           Console.WriteLine("You barely manage to fight him off");
                           Thread.Sleep(2000);
                           Console.Write(", turns out fighting while drunk is not easy");
+                          Thread.Sleep(2000);
                           Console.WriteLine("-30 HP");
-                          Thread.Sleep(3000);
+                          Thread.Sleep(2000);
                           items.HealthPoints -= 30;
                         }
                         else if (items.IsHammered)
@@ -228,50 +219,59 @@ public class ApartmentsLocation(Locations locations)
                         else
                         {
                           Console.WriteLine("During the struggle you hurt your arm.");
+                          Thread.Sleep(2000);
                           Console.WriteLine("-15 HP");
-                          Thread.Sleep(3000);
+                          Thread.Sleep(2000);
                           items.HealthPoints -= 15;
                         }
                         items.Hp();
-                        Console.WriteLine("");
-                        Console.WriteLine("-15 HP");
-                        Thread.Sleep(2000);
-                        items.Hp();
-                        Thread.Sleep(1500);
                         Console.WriteLine("He's not much of a fighter, however, and eventually you knock him out.");
+                        Thread.Sleep(3000);
+                        Console.WriteLine("You go through his pockets and find a KNIFE");
                         Thread.Sleep(2000);
-                        Console.WriteLine("You go through his pockets and find a -Knife-");
                         items.Knife = true;
                         if (items.NecklaceQuest)
                         {
                           items.NecklaceQuest = false;
-                          Console.WriteLine("You also find the woman's necklace");
+                          Console.WriteLine("You also find the woman's NECKLACE");
+                          Thread.Sleep(2000);
                           items.Necklace = true;
                         }
                         insideApartmentsDoor2 = true;
-                        Thread.Sleep(1500);
                       }
-                      else if (!items.Necklace && items.NecklaceQuest)
+                      else if (!items.Necklace && items.NecklaceQuest && insideApartmentsDoor2)
                       {
                         Console.WriteLine("You see the man lying on the floor.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("You go through his pockets and find the woman's NECKLACE");
+                        Thread.Sleep(3500);
+                        items.Necklace = true;
                       }
-                      ;
+                      else
+                      {
+                        Console.WriteLine("You see the man lying on the floor.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("There is not much left to find here, however.");
+                        Thread.Sleep(2500);
+                      }
+                      Console.Clear();
                       goto insideApartments;
                     case 2:
                       {
                         if (!items.IsDrunk || !items.IsHammered)
                         {
                           Console.Clear();
-                          Console.WriteLine("As you sneakily look inside");
-                          Thread.Sleep(500);
-                          Console.Write(", you notice a man waiting to jump you.");
+                          Console.Write("As you look inside");
+                          Thread.Sleep(1500);
+                          Console.WriteLine(", you notice a man waiting to jump you.");
+                          Thread.Sleep(2000);
                         }
                         else
                         {
                           Console.Clear();
-                          Console.WriteLine("You look inside");
+                          Console.Write("You look inside");
                           Thread.Sleep(500);
-                          Console.Write(", but you do not notice anything.");
+                          Console.WriteLine(", but you do not notice anything.");
                         }
                         Thread.Sleep(1500);
                         if (items.IsBuzzed)
@@ -302,129 +302,116 @@ public class ApartmentsLocation(Locations locations)
                         }
                         else
                         {
-                          Console.WriteLine(
-                            "You catch him off guard by quickly charging him and knocking him to the ground.");
-                          Thread.Sleep(2000);
+                          Console.WriteLine("You catch him off guard by quickly charging him and knocking him to the ground.");
+                          Thread.Sleep(3500);
                           Console.WriteLine("With a quick strike you knock him out cold.");
-                          Thread.Sleep(1500);
+                          Thread.Sleep(2000);
                         }
                         items.Hp();
-                        Console.WriteLine("You go through his pockets and find a -Knife-");
+                        Console.WriteLine("You go through his pockets and find a KNIFE");
                         items.Knife = true;
-                        Thread.Sleep(1500);
-                        goto insideApartments;
-                      }
-                    default:
-                      {
+                        Thread.Sleep(3000);
+                        Console.Clear();
                         goto insideApartments;
                       }
                   }
-                }
-                else
-                {
-                  Console.Clear();
-                  Console.WriteLine("The door is locked");
-                  Thread.Sleep(1000);
-                  Console.WriteLine("If only I had a crowbar or something to unlock down the door");
-                  Thread.Sleep(3000);
                   goto insideApartments;
-                }
               }
             case 3:
-              {
-                Console.WriteLine("As you approach the door");
-                Thread.Sleep(1500);
-                Console.Write(", you notice a weird substance covering the door and door handle.");
-                Thread.Sleep(3500);
+            {
+              Console.Clear();
+              Console.WriteLine("As you approach the door");
+              Thread.Sleep(1500);
+              Console.Write(", you notice a weird substance covering the door and door handle.");
+              Thread.Sleep(3500);
               insideApartmentsDoor3:
-                Console.WriteLine("--What do you want to do?");
-                Console.WriteLine("1. Open the door");
-                Console.WriteLine("2. Leave");
-                try
-                {
-                  locations.input = Convert.ToInt32(Console.ReadLine());
-                }
-                catch
-                {
-                  Console.WriteLine("Invalid input");
-                  goto insideApartmentsDoor3;
-                }
-                switch (locations.input)
-                {
-                  case 1:
-                    Console.WriteLine("Your hand feels icky as you touch the door handle");
-                    Console.WriteLine("-5 HP");
-                    items.HealthPoints -= 5;
-                    Thread.Sleep(3000);
-                    Console.WriteLine("As you open the door a foul odor slaps you across the face.");
-                    Thread.Sleep(3000);
-                    Console.WriteLine("Inside, the walls are covered in dirt, blood and feces");
-                    Thread.Sleep(3000);
-                    Console.Write(", a disgusting spectacle of yuck!");
-                    Thread.Sleep(2500);
-                    Console.WriteLine("The floor, however, is pristine");
-                    Thread.Sleep(2000);
-                    Console.Write(", like something has been covering it");
-                    Thread.Sleep(2500);
-                    Console.Write(", shielded from whatever monstrosity happened here.");
-                    Thread.Sleep(3000);
+              Console.WriteLine("--What do you want to do?");
+              Console.WriteLine("1. Open the door");
+              Console.WriteLine("2. Leave");
+              try
+              {
+                locations.input = Convert.ToInt32(Console.ReadLine());
+              }
+              catch
+              {
+                Console.WriteLine("Invalid input");
+                goto insideApartmentsDoor3;
+              }
+              switch (locations.input)
+              {
+                case 1:
+                  Console.WriteLine("Your hand feels icky as you touch the door handle");
+                  Console.WriteLine("-5 HP");
+                  items.HealthPoints -= 5;
+                  Thread.Sleep(3000);
+                  Console.WriteLine("As you open the door a foul odor slaps you across the face.");
+                  Thread.Sleep(3000);
+                  Console.WriteLine("Inside, the walls are covered in dirt, blood and feces");
+                  Thread.Sleep(3000);
+                  Console.Write(", a disgusting spectacle of yuck!");
+                  Thread.Sleep(2500);
+                  Console.WriteLine("The floor, however, is pristine");
+                  Thread.Sleep(2000);
+                  Console.Write(", like something has been covering it");
+                  Thread.Sleep(2500);
+                  Console.Write(", shielded from whatever monstrosity happened here.");
+                  Thread.Sleep(3000);
                   insideApartmentsDoor3Open:
-                    Console.WriteLine("--What do you want to do?--");
-                    Console.WriteLine("1. Enter the room");
-                    Console.WriteLine("2. Leave");
-                    try
-                    {
-                      locations.input = Convert.ToInt32(Console.ReadLine());
-                    }
-                    catch
-                    {
-                      Console.WriteLine("Invalid input");
-                      goto insideApartmentsDoor3Open;
-                    }
-                    switch (locations.input)
-                    {
-                      case 1:
-                        Console.WriteLine("You enter the room, against your best judgement.");
-                        Thread.Sleep(3000);
-                        Console.WriteLine("You look around the room");
-                        Thread.Sleep(2000);
-                        Console.WriteLine("Looking for anything or something explaining all this.");
-                        Thread.Sleep(3500);
+                  Console.WriteLine("--What do you want to do?--");
+                  Console.WriteLine("1. Enter the room");
+                  Console.WriteLine("2. Leave");
+                  try
+                  {
+                    locations.input = Convert.ToInt32(Console.ReadLine());
+                  }
+                  catch
+                  {
+                    Console.WriteLine("Invalid input");
+                    goto insideApartmentsDoor3Open;
+                  }
+                  switch (locations.input)
+                  {
+                    case 1:
+                      Console.WriteLine("You enter the room, against your best judgement.");
+                      Thread.Sleep(3000);
+                      Console.WriteLine("You look around the room");
+                      Thread.Sleep(2000);
+                      Console.WriteLine("Looking for anything or something explaining all this.");
+                      Thread.Sleep(3500);
                       insideApartmentsDoor3OpenInside:
-                        Console.WriteLine("--What do you want to do?--");
-                        Console.WriteLine("1. Keep looking");
-                        Console.WriteLine("2. Leave");
-                        try
-                        {
-                          locations.input = Convert.ToInt32(Console.ReadLine());
-                        }
-                        catch
-                        {
-                          Console.WriteLine("Invalid input");
-                          goto insideApartmentsDoor3OpenInside;
-                        }
-
-                        switch (locations.input)
-                        {
-                          case 1:
-                            Console.WriteLine("You keep looking around");
-                            Thread.Sleep(2500);
-                            Console.WriteLine(", touching things you maybe shouldn't.");
-                            Thread.Sleep(3000);
-                            Console.WriteLine("You do not find anything useful");
-                            Thread.Sleep(2500);
-                            Console.WriteLine(", but you might have overstayed your welcome.");
-                            Console.WriteLine("-5 HP");
-                            items.HealthPoints -= 5;
-                            break;
-                        }
-                        break;
+                      Console.WriteLine("--What do you want to do?--");
+                      Console.WriteLine("1. Keep looking");
+                      Console.WriteLine("2. Leave");
+                      try
+                      {
+                        locations.input = Convert.ToInt32(Console.ReadLine());
+                      }
+                      catch
+                      {
+                        Console.WriteLine("Invalid input");
+                        goto insideApartmentsDoor3OpenInside;
+                      }
+                      switch (locations.input)
+                      {
+                        case 1:
+                          Console.WriteLine("You keep looking around");
+                          Thread.Sleep(2500);
+                          Console.WriteLine(", touching things you maybe shouldn't.");
+                          Thread.Sleep(3000);
+                          Console.WriteLine("You do not find anything useful");
+                          Thread.Sleep(2500);
+                          Console.WriteLine(", but you might have overstayed your welcome.");
+                          Console.WriteLine("-5 HP");
+                          items.HealthPoints -= 5;
+                          break;
                       case 2:
                         goto insideApartments;
-                    }
-                    break;
-                  case 2:
-                    goto insideApartments;
+                      };
+                      break;
+                  }
+                  break;
+                case 2:
+                  goto insideApartments;
                 }
                 break;
               }
