@@ -464,7 +464,7 @@ public class ApartmentsLocation(Locations locations)
                   Console.Write(" trying to hide and make herself small.");
                   Thread.Sleep(4000);
                   Console.Clear();
-                insideApartmentsDoor4:
+                  insideApartmentsDoor4:
                   Console.WriteLine("As you enter the room you notice a mattress on the floor, " +
                                   "and a small woman next to it trying to hide and make herself small.");
                   Console.WriteLine("");
@@ -525,11 +525,10 @@ public class ApartmentsLocation(Locations locations)
                         Console.WriteLine("Reluctantly, gives you 10 bucks.");
                         items.Money += 10;
                       }
-
                       insideApartmentsDoor4Steal = true;
                       break;
                     case 3:
-                    insideApartmentsDoor4Kill:
+                      insideApartmentsDoor4Kill:
                       Console.WriteLine("What weapon do you want to use?");
                       Console.WriteLine("- Hands");
                       if (items.Knife)
@@ -617,10 +616,10 @@ public class ApartmentsLocation(Locations locations)
                           Thread.Sleep(2000);
                           Console.Write(", pleading.");
                           Thread.Sleep(1500);
+                          insideApartmentsDoor4KillCrowbar:
                           Console.WriteLine("--Do you hit her again?--");
                           Console.WriteLine("1. Yes");
                           Console.WriteLine("2. No");
-                        insideApartmentsDoor4KillCrowbar:
                           try
                           {
                             locations.input = Convert.ToInt32(Console.ReadLine());
