@@ -788,9 +788,7 @@ public class ApartmentsLocation(Locations locations)
             Console.WriteLine("Inside you find a BANDAGE and a bottle of ALCOHOL.");
             items.Bandages = items.Bandages++;
             items.Alcohol = items.Alcohol++;
-            Thread.Sleep(2500);
-            Console.Write(">");
-            Console.ReadLine();
+            Thread.Sleep(3500);
             Console.Clear();
             goto insideApartments;
           }
@@ -805,9 +803,7 @@ public class ApartmentsLocation(Locations locations)
             Console.Write(", enough so that even if you clear the rubble");
             Thread.Sleep(2500);
             Console.WriteLine(" you doubt it is safe to pass");
-            Thread.Sleep(2000);
-            Console.Write(">");
-            Console.ReadLine();
+            Thread.Sleep(3000);
             Console.Clear();
             goto insideApartments;
           }
@@ -860,9 +856,7 @@ public class ApartmentsLocation(Locations locations)
         Console.WriteLine("You try to exit through the door, but it is locked.");
         Thread.Sleep(2500);
         Console.WriteLine("You go back out through the window.");
-        Thread.Sleep(2000);
-        Console.Write(">");
-        Console.ReadLine();
+        Thread.Sleep(2500);
         Apartments();
         break;
       }
