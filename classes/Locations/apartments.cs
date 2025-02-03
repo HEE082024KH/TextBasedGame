@@ -454,13 +454,13 @@ public class ApartmentsLocation(Locations locations)
                   Thread.Sleep(2000);
                   Console.Write("The place is a complete mess");
                   Thread.Sleep(1500);
-                  Console.WriteLine(", but somehow different");
+                  Console.Write(", but somehow different");
                   Thread.Sleep(1500);
-                  Console.WriteLine(", man-made");
+                  Console.Write(", man-made");
                   Thread.Sleep(1000);
                   Console.WriteLine(", or rather destroyed.");
                   Thread.Sleep(3000);
-                  Console.Write("You look around for anything or anyone.");
+                  Console.WriteLine("You look around for anything or anyone.");
                   Thread.Sleep(2000);
                   Console.Write("There is not much to be found it seems");
                   Thread.Sleep(2000);
@@ -468,7 +468,7 @@ public class ApartmentsLocation(Locations locations)
                   Thread.Sleep(3000);
                   Console.Write("As you enter the room you notice a mattress on the floor");
                   Thread.Sleep(3000);
-                  Console.WriteLine(", and a small woman next to it");
+                  Console.Write(", and a small woman next to it");
                   Thread.Sleep(2000);
                   Console.WriteLine(" trying to hide and make herself small.");
                   Thread.Sleep(4000);
@@ -476,8 +476,7 @@ public class ApartmentsLocation(Locations locations)
                                   "and a small woman next to it trying to hide and make herself small.");
                   Thread.Sleep(5000);
                   insideApartmentsDoor4:
-                  Console.Clear();
-                  Console.WriteLine("");
+                  Console.Clear(); 
                   Console.WriteLine("What do you do?");
                   Console.WriteLine("1. Calmly try to talk to her.");
                   Console.WriteLine("2. Aggressively threaten and steal her things.");
@@ -745,11 +744,11 @@ public class ApartmentsLocation(Locations locations)
               {
                 Console.WriteLine("It looks be some sort of janitors closet.");
                 Thread.Sleep(3000);
-                Console.WriteLine("It's messy and full of useless utility items");
+                Console.Write("It's messy and full of useless utility items");
                 Thread.Sleep(2500);
-                Console.Write(", but there is a medical cabinet on the wall");
+                Console.WriteLine(", but there is a medical cabinet on the wall");
                 Thread.Sleep(2500);
-                Console.WriteLine("Inside you find a -bandage- and a bottle of -Alcohol-.");
+                Console.WriteLine("Inside you find a BANDAGE and a bottle of ALCOHOL.");
                 items.Bandages = items.Bandages++;
                 items.Alcohol = items.Alcohol++;
                 Thread.Sleep(2500);
@@ -760,15 +759,16 @@ public class ApartmentsLocation(Locations locations)
               }
             case 6:
               {
-                Console.WriteLine("You get halfway up the stairs before you notice ");
+                Console.Write("You get halfway up the stairs before you notice ");
                 Thread.Sleep(2500);
-                Console.Write("a big pile of rubble blocking the stairs.");
+                Console.WriteLine(" a big pile of rubble blocking the stairs.");
                 Thread.Sleep(2500);
-                Console.WriteLine("The stairs looks damaged");
+                Console.Write("The stairs looks damaged");
                 Thread.Sleep(1500);
                 Console.Write(", enough so that even if you clear the rubble");
                 Thread.Sleep(2500);
-                Console.Write(" you doubt it is safe to pass");
+                Console.WriteLine(" you doubt it is safe to pass");
+                Thread.Sleep(2000);
                 Console.Write(">");
                 Console.ReadLine();
                 Console.Clear();
@@ -776,6 +776,7 @@ public class ApartmentsLocation(Locations locations)
               }
             case 7:
               {
+                Console.Clear();
                 Console.WriteLine("You leave the apartments back the way you came.");
                 Thread.Sleep(3000);
                 Apartments();
