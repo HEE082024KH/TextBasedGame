@@ -13,6 +13,7 @@ public class Items
     public bool IsHammered;
     public bool NecklaceQuest;
     public bool Necklace;
+    public bool OfficeKeycard;
     public int Money;
     public int HealthPoints = 80;
     public void Hp()
