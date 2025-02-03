@@ -420,7 +420,6 @@ public class ApartmentsLocation(Locations locations)
                       break;
                     case 2:
                       goto insideApartments;
-                      break;
                   }
                   break;
                 case 2:
@@ -434,7 +433,7 @@ public class ApartmentsLocation(Locations locations)
               {
                 Console.WriteLine("The door appears broken, and opens with ease.");
                 Thread.Sleep(2000);
-                Console.WriteLine("The place is a complete mess");
+                Console.Write("The place is a complete mess");
                 Thread.Sleep(1500);
                 Console.Write(", but somehow different");
                 Thread.Sleep(1500);
@@ -476,24 +475,23 @@ public class ApartmentsLocation(Locations locations)
                 switch (locations.input)
                 {
                   case 1:
-                  Console.WriteLine("Calmly you talk to her");
-                  Thread.Sleep(2000);
-                  Console.Write(", assuring that you mean no harm.");
-                  Thread.Sleep(2500);
-                  Console.WriteLine("With a careful voice she responds, and you talk for a minute");
-                  Thread.Sleep(1500);
-                  Console.Write("You learn she has lost a precious momento.");
-                  Thread.Sleep(2500);
-                  Console.WriteLine("The neighbor across the hall beat her up and took it from her.");
-                  Thread.Sleep(4000);
-                  Console.WriteLine("She wants you to recover her necklace and return it to her.");
-                  Thread.Sleep(4000);
-                  items.NecklaceQuest = true;
-                  insideApartmentsDoor4Talk = true;
-                  Console.WriteLine(">");
-                  Console.ReadLine();
-                  insideApartmentsDoor4Talk = true;
-                  break;
+                    Console.WriteLine("Calmly you talk to her");
+                    Thread.Sleep(2000);
+                    Console.Write(", assuring that you mean no harm.");
+                    Thread.Sleep(2500);
+                    Console.WriteLine("With a careful voice she responds, and you talk for a minute");
+                    Thread.Sleep(1500);
+                    Console.Write("You learn she has lost a precious momento.");
+                    Thread.Sleep(2500);
+                    Console.WriteLine("The neighbor across the hall beat her up and took it from her.");
+                    Thread.Sleep(4000);
+                    Console.WriteLine("She wants you to recover her necklace and return it to her.");
+                    Thread.Sleep(4000);
+                    items.NecklaceQuest = true;
+                    insideApartmentsDoor4Talk = true;
+                    Console.WriteLine(">");
+                    Console.ReadLine();
+                    break;
                   case 2:
                   if (items.Knife)
                   {
