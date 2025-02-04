@@ -1,6 +1,7 @@
 public class ApartmentsLocation(Locations locations)
 {
   private bool insideApartmentsDoor2;
+  private bool insideApartmentsDoor2Done;
   private bool insideApartmentsDoor4Done;
   private bool insideApartmentsDoor4Kill;
   private bool insideApartmentsDoor4KillHands;
@@ -43,7 +44,7 @@ public class ApartmentsLocation(Locations locations)
       case 2:
       {
         Console.Clear();
-        // inventory.ShowStatus();
+        inventory.ShowStatus();
         Apartments();
         break;
       }
@@ -272,69 +273,78 @@ public class ApartmentsLocation(Locations locations)
                 Console.Clear();
                 goto insideApartments;
               case 2:
-              {
-                if (!items.IsDrunk || !items.IsHammered)
+                if (insideApartmentsDoor2Done)
                 {
-                  Console.Clear();
-                  Console.Write("As you look inside");
-                  Thread.Sleep(1500);
-                  Console.WriteLine(", you notice a man waiting to jump you.");
-                  Thread.Sleep(2000);
-                }
-                else
-                {
-                  Console.Clear();
-                  Console.Write("You look inside");
-                  Thread.Sleep(500);
-                  Console.WriteLine(", but you do not notice anything.");
+                  {
+                    if (!items.IsDrunk || !items.IsHammered)
+                    {
+                      Console.Clear();
+                      Console.Write("As you look inside");
+                      Thread.Sleep(1500);
+                      Console.WriteLine(", you notice a man waiting to jump you.");
+                      Thread.Sleep(2000);
+                    }
+                    else
+                    {
+                      Console.Clear();
+                      Console.Write("You look inside");
+                      Thread.Sleep(500);
+                      Console.WriteLine(", but you do not notice anything.");
+                    }
+
+                    Thread.Sleep(1500);
+                    if (items.IsBuzzed)
+                    {
+                      Console.WriteLine(
+                        "Despite feeling buzzed you charge the man and knock him to the ground");
+                      Thread.Sleep(3500);
+                      Console.WriteLine(
+                        "Eventually, with a bit of fumbling, you manage to knock him out.");
+                      Console.WriteLine("\t-5 HP");
+                      Thread.Sleep(3000);
+                      items.HealthPoints -= 5;
+                    }
+                    else if (items.IsDrunk)
+                    {
+                      Console.WriteLine("You walk inside and get jumped by a strange man.");
+                      Thread.Sleep(3500);
+                      Console.WriteLine(
+                        "You struggle to overpower him, but eventually you manage to knock him out.");
+                      Console.WriteLine("\t-15 HP");
+                      Thread.Sleep(3000);
+                      items.HealthPoints -= 15;
+                    }
+                    else if (items.IsHammered)
+                    {
+                      Console.WriteLine("You are hammered.");
+                      Thread.Sleep(1500);
+                      Console.WriteLine("You walk inside and suddenly everything goes black.");
+                      Thread.Sleep(3500);
+                      items.HealthPoints = 0;
+                    }
+                    else
+                    {
+                      Console.WriteLine(
+                        "You catch him off guard by quickly charging him and knocking him to the ground.");
+                      Thread.Sleep(3500);
+                      Console.WriteLine("With a quick strike you knock him out cold.");
+                      Thread.Sleep(2500);
+                    }
+
+                    items.Hp();
+                    Console.WriteLine("You go through his pockets and find a KNIFE");
+                    items.Knife = true;
+                    Thread.Sleep(3000);
+                    Console.Clear();
+                    goto insideApartments;
+                  }
                 }
 
-                Thread.Sleep(1500);
-                if (items.IsBuzzed)
-                {
-                  Console.WriteLine(
-                    "Despite feeling buzzed you charge the man and knock him to the ground");
-                  Thread.Sleep(3500);
-                  Console.WriteLine(
-                    "Eventually, with a bit of fumbling, you manage to knock him out.");
-                  Console.WriteLine("\t-5 HP");
-                  Thread.Sleep(3000);
-                  items.HealthPoints -= 5;
-                }
-                else if (items.IsDrunk)
-                {
-                  Console.WriteLine("You walk inside and get jumped by a strange man.");
-                  Thread.Sleep(3500);
-                  Console.WriteLine(
-                    "You struggle to overpower him, but eventually you manage to knock him out.");
-                  Console.WriteLine("\t-15 HP");
-                  Thread.Sleep(3000);
-                  items.HealthPoints -= 15;
-                }
-                else if (items.IsHammered)
-                {
-                  Console.WriteLine("You are hammered.");
-                  Thread.Sleep(1500);
-                  Console.WriteLine("You walk inside and suddenly everything goes black.");
-                  Thread.Sleep(3500);
-                  items.HealthPoints = 0;
-                }
-                else
-                {
-                  Console.WriteLine(
-                    "You catch him off guard by quickly charging him and knocking him to the ground.");
-                  Thread.Sleep(3500);
-                  Console.WriteLine("With a quick strike you knock him out cold.");
-                  Thread.Sleep(2500);
-                }
-
-                items.Hp();
-                Console.WriteLine("You go through his pockets and find a KNIFE");
-                items.Knife = true;
-                Thread.Sleep(3000);
-                Console.Clear();
+                Console.WriteLine("You see the man lying on the floor.");
+                Thread.Sleep(2000);
+                Console.WriteLine("There is not much left to find here, however.");
+                Thread.Sleep(2500);
                 goto insideApartments;
-              }
             }
 
             Console.Clear();
@@ -773,8 +783,11 @@ public class ApartmentsLocation(Locations locations)
                           break;
                       }
 
+
                       insideApartmentsDoor4Done = true;
                       break;
+                    default:
+                      goto insideApartmentsDoor4Kill;
                   }
 
                   insideApartmentsDoor4Kill = true;
@@ -801,7 +814,7 @@ public class ApartmentsLocation(Locations locations)
           }
           case 6:
           {
-            Console.Write("You get halfway up the stairs before you notice ");
+            Console.Write("You get halfway up the stairs before you notice");
             Thread.Sleep(2500);
             Console.WriteLine(" a big pile of rubble blocking the stairs.");
             Thread.Sleep(2500);

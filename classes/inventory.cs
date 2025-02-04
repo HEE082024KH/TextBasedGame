@@ -4,15 +4,15 @@ public class Status(Locations locations, Items items)
   {
     Console.WriteLine($"Current HP: {items.HealthPoints}/100");
     Console.WriteLine(($"Current $: {items.Money}"));
-    if (items.IsBuzzed == true)
+    if (items.IsBuzzed)
     {
       Console.WriteLine("You feel buzzed.");
     }
-    else if (items.IsDrunk == true)
+    else if (items.IsDrunk)
     {
       Console.WriteLine("You feel drunk.");
     }
-    else if (items.IsHammered == true)
+    else if (items.IsHammered)
     {
       Console.WriteLine("You feel hammered.");
     }
@@ -85,12 +85,12 @@ public class Status(Locations locations, Items items)
 
         break;
       case "alcohol":
-        if (items.IsBuzzed == true)
+        if (items.IsBuzzed)
         {
           items.IsDrunk = true;
           items.IsBuzzed = false;
         }
-        else if (items.IsDrunk == true)
+        else if (items.IsDrunk)
         {
           items.IsHammered = true;
           items.IsDrunk = false;
