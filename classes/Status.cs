@@ -4,7 +4,7 @@ public class Status(Locations locations, Items items)
   {
     Console.WriteLine($"Current HP: {items.HealthPoints}/100");
     Console.WriteLine(($"Current $: {items.Money}"));
-    if (items.IsBuzzed)
+    if (items.IsBuzzed == false)
     {
       Console.WriteLine("You feel buzzed.");
     }

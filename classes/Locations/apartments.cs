@@ -9,9 +9,9 @@ public class ApartmentsLocation(Locations locations)
   private bool insideApartmentsDoor4KillHands;
   private bool insideApartmentsDoor4Steal;
   private bool insideApartmentsDoor4Talk;
-  private readonly Status inventory = locations.inventory;
   private readonly Items items = locations.items;
   private readonly Locations locations = locations;
+  private readonly Status inventory = new(locations, locations.items);
 
   public void Apartments()
   {
