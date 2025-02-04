@@ -1,5 +1,7 @@
 public class ApartmentsLocation(Locations locations)
 {
+  private bool enterInsideApartments;
+  private bool insideApartmentsWindow;
   private bool insideApartmentsDoor2;
   private bool insideApartmentsDoor2Done;
   private bool insideApartmentsDoor4Done;
@@ -100,16 +102,21 @@ public class ApartmentsLocation(Locations locations)
       }
       case 4:
       {
-        Console.Clear();
-        Console.Write("The door opens with a nasty creak");
-        Thread.Sleep(1000);
-        Console.WriteLine(", sure to notify anyone nearby.");
-        Thread.Sleep(1500);
-        Console.Write("Inside there's a small hallway with a door at the end");
-        Thread.Sleep(2000);
-        Console.WriteLine(", and 2 doors on either side.");
-        Thread.Sleep(2000);
-        Console.WriteLine("");
+        if (!enterInsideApartments)
+        {
+          Console.Clear();
+          Console.Write("The door opens with a nasty creak");
+          Thread.Sleep(1000);
+          Console.WriteLine(", sure to notify anyone nearby.");
+          Thread.Sleep(1500);
+          Console.Write("Inside there's a small hallway with a door at the end");
+          Thread.Sleep(2000);
+          Console.WriteLine(", and 2 doors on either side.");
+          Thread.Sleep(2000);
+          Console.WriteLine("");
+          enterInsideApartments = true;
+        }
+
         insideApartments:
         Console.WriteLine("What do you want to do?");
         Console.WriteLine("1. Enter the first door on the right");
@@ -273,7 +280,7 @@ public class ApartmentsLocation(Locations locations)
                 Console.Clear();
                 goto insideApartments;
               case 2:
-                if (insideApartmentsDoor2Done)
+                if (!insideApartmentsDoor2Done)
                 {
                   {
                     if (!items.IsDrunk || !items.IsHammered)
@@ -335,6 +342,7 @@ public class ApartmentsLocation(Locations locations)
                     Console.WriteLine("You go through his pockets and find a KNIFE");
                     items.Knife = true;
                     Thread.Sleep(3000);
+                    insideApartmentsDoor2Done = true;
                     Console.Clear();
                     goto insideApartments;
                   }
@@ -344,6 +352,7 @@ public class ApartmentsLocation(Locations locations)
                 Thread.Sleep(2000);
                 Console.WriteLine("There is not much left to find here, however.");
                 Thread.Sleep(2500);
+                Console.Clear();
                 goto insideApartments;
             }
 
@@ -849,41 +858,55 @@ public class ApartmentsLocation(Locations locations)
       }
       case 5:
       {
-        Console.Clear();
-        Console.WriteLine("You walk around the building until you find an open window.");
-        Thread.Sleep(2500);
-        Console.WriteLine("Carefully, you climb through the window.");
-        Thread.Sleep(2500);
-        Console.WriteLine("There's not much to the room, other than your standard furniture");
-        Thread.Sleep(500);
-        Console.Write("...");
-        Thread.Sleep(1500);
-        Console.WriteLine("You spot a small box on a dresser");
-        Thread.Sleep(2000);
-        if (items.Key)
+        if (!items.GreenGem)
         {
-          Console.WriteLine("You use the key to open the box.");
+          if (!insideApartmentsWindow)
+          {
+            Console.Clear();
+            Console.WriteLine("You walk around the building until you find an open window.");
+            Thread.Sleep(2500);
+            Console.WriteLine("Carefully, you climb through the window.");
+            Thread.Sleep(2500);
+            Console.WriteLine("There's not much to the room, other than your standard furniture");
+            Thread.Sleep(500);
+            Console.Write("...");
+            insideApartmentsWindow = true;
+          }
+
+          Thread.Sleep(1500);
+          Console.WriteLine("You spot a small box on a dresser");
           Thread.Sleep(2000);
-          Console.WriteLine("Inside you find, what looks to be, a valuable gem of some kind.");
-          Thread.Sleep(3000);
-          Console.WriteLine("You got a GREEN GEM.");
-          Thread.Sleep(2000);
-          items.GreenGem = true;
-        }
-        else
-        {
-          Console.Write(", but it seems to be locked. I need to look for the key.");
+          if (items.Key)
+          {
+            Console.WriteLine("You use the key to open the box.");
+            Thread.Sleep(2000);
+            Console.WriteLine("Inside you find, what looks to be, a valuable gem of some kind.");
+            Thread.Sleep(3000);
+            Console.WriteLine("You got a GREEN GEM.");
+            Thread.Sleep(2000);
+            items.GreenGem = true;
+          }
+          else
+          {
+            Console.Write(", but it seems to be locked. I need to look for the key.");
+            Thread.Sleep(2500);
+          }
+
+          Console.WriteLine("");
+          Console.WriteLine("You try to exit through the door, but it is locked.");
           Thread.Sleep(2500);
+          Console.WriteLine("You go back out through the window.");
+          Thread.Sleep(2500);
+          Apartments();
+          break;
         }
 
-        Console.WriteLine("");
-        Console.WriteLine("You try to exit through the door, but it is locked.");
-        Thread.Sleep(2500);
-        Console.WriteLine("You go back out through the window.");
+        Console.WriteLine("There not anything more for me to do here.");
         Thread.Sleep(2500);
         Apartments();
         break;
       }
+
       default:
       {
         Console.Clear();
