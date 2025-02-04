@@ -474,8 +474,75 @@ public class ApartmentsLocation(Locations locations)
           }
           case 4:
           {
-            if (!insideApartmentsDoor4Done || !insideApartmentsDoor4Kill || !insideApartmentsDoor4Steal ||
-                !insideApartmentsDoor4Talk)
+            if (insideApartmentsDoor4Done)
+            {
+              Console.Clear();
+              Console.WriteLine("I do not have any reason to go back here.");
+              Thread.Sleep(3000);
+              goto insideApartments;
+            }
+
+            if (insideApartmentsDoor4Talk)
+            {
+              if (items.Necklace)
+              {
+                Console.Clear();
+                Console.WriteLine("Her face lights up as you enter.");
+                Thread.Sleep(2500);
+                Console.WriteLine("You hand the necklace over to her");
+                Thread.Sleep(2500);
+                Console.WriteLine("With great appreciation she thanks you.");
+                Thread.Sleep(2500);
+                Console.WriteLine("She gives you a KEY in return.");
+                Thread.Sleep(2000);
+                Console.WriteLine("She is unsure where it fits, but she found it on this floor.");
+                Thread.Sleep(3000);
+                Console.WriteLine("If I look around a bit I might figure where to use it.");
+                Thread.Sleep(2500);
+                insideApartmentsDoor4Done = true;
+                goto insideApartments;
+              }
+
+              Console.Clear();
+              Console.WriteLine("Her face lights up as you enter.");
+              Thread.Sleep(2500);
+              Console.Write("When she learns you have not found the necklace");
+              Thread.Sleep(3000);
+              Console.WriteLine(", her smile fades.");
+              Thread.Sleep(1500);
+              Console.WriteLine("I should find the necklace before coming back here.");
+              Thread.Sleep(4000);
+              goto insideApartments;
+            }
+
+            if (insideApartmentsDoor4Steal)
+            {
+              Console.Clear();
+              Console.WriteLine("You enter the apartment looking for the woman.");
+              Thread.Sleep(2500);
+              Console.WriteLine("You look around but she is nowhere to be found.");
+              Thread.Sleep(3000);
+              Console.WriteLine("Her sleeping bag and things are gone.");
+              Thread.Sleep(2500);
+              insideApartmentsDoor4Steal = true;
+            }
+            else if (insideApartmentsDoor4Kill)
+            {
+              Console.Clear();
+              if (insideApartmentsDoor4KillHands)
+              {
+                Console.WriteLine("The apartment has blood everywhere.");
+                Thread.Sleep(2000);
+              }
+
+              Console.WriteLine("You see her body lying there, where you left it");
+              Thread.Sleep(3000);
+              Console.WriteLine("There is nothing more to find here.");
+              Thread.Sleep(2500);
+              insideApartmentsDoor4Done = true;
+              goto insideApartments;
+            }
+            else
             {
               Console.Clear();
               Console.WriteLine("The door appears broken, and opens with ease.");
@@ -714,66 +781,6 @@ public class ApartmentsLocation(Locations locations)
                   goto insideApartments;
               }
             }
-            else if (insideApartmentsDoor4Done)
-            {
-              Console.WriteLine("I do not have any reason to go back here.");
-              Thread.Sleep(3000);
-              goto insideApartments;
-            }
-            else if (insideApartmentsDoor4Talk)
-            {
-              if (items.Necklace)
-              {
-                Console.WriteLine("Her face lights up as you enter.");
-                Thread.Sleep(2500);
-                Console.WriteLine("You hand the necklace over to her");
-                Thread.Sleep(2500);
-                Console.WriteLine("With great appreciation she thanks you.");
-                Thread.Sleep(2500);
-                Console.WriteLine("She gives you a KEY in return.");
-                Thread.Sleep(2000);
-                Console.WriteLine("She is unsure where it fits, but she found it on this floor.");
-                Thread.Sleep(3000);
-                Console.WriteLine("If I look around a bit I might figure where to use it.");
-                Thread.Sleep(2500);
-                insideApartmentsDoor4Done = true;
-                goto insideApartments;
-              }
-
-              Console.WriteLine("Her face lights up as you enter.");
-              Thread.Sleep(2500);
-              Console.Write("When she learns you have not found the necklace");
-              Thread.Sleep(3000);
-              Console.WriteLine(", her smile fades.");
-              Thread.Sleep(1500);
-              Console.WriteLine("I should find the necklace before coming back here.");
-              Thread.Sleep(4000);
-              goto insideApartments;
-            }
-            else if (insideApartmentsDoor4Steal)
-            {
-              Console.WriteLine("You enter the apartment looking for the woman.");
-              Thread.Sleep(2500);
-              Console.WriteLine("You look around but she is nowhere to be found.");
-              Thread.Sleep(3000);
-              Console.WriteLine("Her sleeping bag and things are gone.");
-              Thread.Sleep(2500);
-              insideApartmentsDoor4Steal = true;
-            }
-            else if (insideApartmentsDoor4Kill)
-            {
-              if (insideApartmentsDoor4KillHands)
-              {
-                Console.WriteLine("The apartment has blood everywhere.");
-                Thread.Sleep(2000);
-              }
-
-              Console.WriteLine("You see her body lying there, where you left it");
-              Thread.Sleep(3000);
-              Console.WriteLine("There is nothing more to find here.");
-              Thread.Sleep(2500);
-              insideApartmentsDoor4Done = true;
-            }
 
             break;
           }
@@ -846,6 +853,9 @@ public class ApartmentsLocation(Locations locations)
           Thread.Sleep(2000);
           Console.WriteLine("Inside you find, what looks to be, a valuable gem of some kind.");
           Thread.Sleep(3000);
+          Console.WriteLine("You got a GREEN GEM.");
+          Thread.Sleep(2000);
+          items.GreenGem = true;
         }
         else
         {
@@ -853,6 +863,7 @@ public class ApartmentsLocation(Locations locations)
           Thread.Sleep(2500);
         }
 
+        Console.WriteLine("");
         Console.WriteLine("You try to exit through the door, but it is locked.");
         Thread.Sleep(2500);
         Console.WriteLine("You go back out through the window.");
