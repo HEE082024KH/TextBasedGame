@@ -7,12 +7,18 @@ I decided to create a text based game.
 Initially the idea was to create a simple game, but as I've worked on it new ideas has come up and
 the project grew in size.
 
+![TextBasedGame Example Image](readme.png)
+
 Currently, the game only has 2/12 locations finished, but most game logic and structure is done.
-**\*About 15% done.**
+**\*About 15% done overall.**
+
+Feel free to test the game if you want, any feedback is welcome.
+
+---
 
 Working on this project I have gotten better at:
 
 - Splitting up project in different files
-- Switches and if/else loops, and conditionals
+- Switches and if/else loops, conditionals
 - General game logic
 - Labels and project structure
