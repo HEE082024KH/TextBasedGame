@@ -644,7 +644,7 @@ public class ApartmentsLocation(Locations locations)
                   if (items.Crowbar) Console.WriteLine("- Crowbar");
                   try
                   {
-                    inventory.itemInput = Console.ReadLine()?.ToLower();
+                    locations.itemInput = Console.ReadLine()?.ToLower();
                   }
                   catch
                   {
@@ -653,7 +653,7 @@ public class ApartmentsLocation(Locations locations)
                     goto insideApartmentsDoor4Kill;
                   }
 
-                  switch (inventory.itemInput)
+                  switch (locations.itemInput)
                   {
                     case "hands":
                       Console.Write("You swiftly place your hands around her neck");

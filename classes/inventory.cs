@@ -1,7 +1,5 @@
 public class Status(Locations locations, Items items)
 {
-  public string? itemInput;
-
   public void ShowStatus()
   {
     Console.WriteLine($"Current HP: {items.HealthPoints}/100");
@@ -60,7 +58,7 @@ public class Status(Locations locations, Items items)
 
     try
     {
-      itemInput = Console.ReadLine()?.ToLower();
+      locations.itemInput = Console.ReadLine()?.ToLower();
     }
     catch
     {
@@ -68,7 +66,7 @@ public class Status(Locations locations, Items items)
       UseItems();
     }
 
-    switch (itemInput)
+    switch (locations.itemInput)
     {
       case "bandages":
         if (items.HealthPoints > 70)
