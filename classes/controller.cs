@@ -5,7 +5,6 @@ public class Controller
   public void Run()
   {
     locations.InitializeLocations();
-    Console.Clear();
     locations.LocationSelector();
   }
 }

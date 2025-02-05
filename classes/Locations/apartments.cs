@@ -11,7 +11,7 @@ public class ApartmentsLocation(Locations locations)
   private bool insideApartmentsDoor4Talk;
   private readonly Items items = locations.items;
   private readonly Locations locations = locations;
-  private readonly Status inventory = new(locations, locations.items);
+  private readonly Status status = new(locations, locations.items);
 
   public void Apartments()
   {
@@ -46,7 +46,7 @@ public class ApartmentsLocation(Locations locations)
       case 2:
       {
         Console.Clear();
-        inventory.ShowStatus();
+        status.ShowStatus();
         Apartments();
         break;
       }

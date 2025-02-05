@@ -1,8 +1,8 @@
 public class BombShelter(Locations locations)
 {
-  private Locations locations = locations;
-  Status inventory = locations.inventory;
-  Items items = locations.items;
+  private readonly Items items = locations.items;
+  private readonly Locations locations = locations;
+  private readonly Status status = new(locations, locations.items);
   public void Shelter()
   {
     locations.currentLocation = "BombShelter";
@@ -32,7 +32,7 @@ public class BombShelter(Locations locations)
       case 2:
         {
           Console.Clear();
-          inventory.ShowStatus();
+          status.ShowStatus();
           Shelter();
           break;
         }

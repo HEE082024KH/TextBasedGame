@@ -40,6 +40,7 @@ public class Locations
 
   public void LocationSelector()
   {
+    Console.Clear();
     if (start.newGame == true)
     {
       start.NewGame();

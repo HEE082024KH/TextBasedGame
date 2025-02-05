@@ -1,8 +1,9 @@
 public class ShopLocation(Locations locations)
 {
-  private Locations locations = locations;
-  Status inventory = locations.inventory;
-  Items items = locations.items;
+  private readonly Items items = locations.items;
+  private readonly Locations locations = locations;
+  private readonly Status status = new(locations, locations.items);
+
   public void Shop()
   {
     locations.currentLocation = "Shop";
@@ -22,36 +23,37 @@ public class ShopLocation(Locations locations)
     {
       Console.WriteLine("Invalid input");
     }
+
     switch (locations.input)
     {
       case 1:
-        {
-          locations.LocationSelector();
-          break;
-        }
+      {
+        locations.LocationSelector();
+        break;
+      }
       case 2:
-        {
-          Console.Clear();
-          inventory.ShowStatus();
-          Shop();
-          break;
-        }
+      {
+        Console.Clear();
+        status.ShowStatus();
+        Shop();
+        break;
+      }
       case 3:
-        {
-          break;
-        }
+      {
+        break;
+      }
       case 4:
-        {
-          break;
-        }
+      {
+        break;
+      }
       default:
-        {
-          Console.Clear();
-          Console.Write("---Invalid input---");
-          Thread.Sleep(1000);
-          Shop();
-          break;
-        }
+      {
+        Console.Clear();
+        Console.Write("---Invalid input---");
+        Thread.Sleep(1000);
+        Shop();
+        break;
+      }
     }
   }
 }
