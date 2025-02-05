@@ -25,7 +25,9 @@ public class Items
       Console.WriteLine("You died from too many serious wounds");
       Thread.Sleep(2000);
       Console.WriteLine("--GAME OVER--");
-      Thread.Sleep(1500);
+      Console.Write(">");
+      Console.ReadLine();
+      Environment.Exit(0);
     }
   }
 }

@@ -831,7 +831,7 @@ public class ApartmentsLocation(Locations locations)
             Thread.Sleep(1500);
             Console.Write(", enough so that even if you clear the rubble");
             Thread.Sleep(2500);
-            Console.WriteLine(" you doubt it is safe to pass");
+            Console.WriteLine(" you doubt it is safe to pass.");
             Thread.Sleep(3000);
             Console.Clear();
             goto insideApartments;
