@@ -1,7 +1,6 @@
 public class SubwayEntrance(Locations locations)
 {
   private readonly Items items = locations.items;
-  private readonly Locations locations = locations;
   private readonly Status status = new(locations, locations.items);
   private bool subwayEntrance;
   private bool subwayFlashlight;
@@ -45,7 +44,13 @@ public class SubwayEntrance(Locations locations)
       }
       case 3:
       {
-        if (!subwayEntrance)
+        if (subwayFlashlight)
+        {
+          Console.WriteLine("I have nothing more to do down here.");
+          Thread.Sleep(2000);
+          Subway();
+        }
+        else if (!subwayEntrance)
         {
           Console.Clear();
           Console.Write("As you walk down into the subway");
@@ -68,8 +73,8 @@ public class SubwayEntrance(Locations locations)
           Thread.Sleep(2000);
           Console.WriteLine(" but it might be hard to see anything without a flashlight.");
           Thread.Sleep(3500);
-          subwayEntrance = true;
           Console.WriteLine("");
+          subwayEntrance = true;
         }
 
         subwayEntrance:
@@ -91,7 +96,7 @@ public class SubwayEntrance(Locations locations)
         switch (locations.input)
         {
           case 1:
-            if (items.Flashlight)
+            if (items.Flashlight && !subwayFlashlight)
             {
               Console.WriteLine("You venture down into the subway.");
               Thread.Sleep(2000);
@@ -103,42 +108,107 @@ public class SubwayEntrance(Locations locations)
               Thread.Sleep(2000);
               Console.WriteLine(", if you look past the dirt and trash.");
               Thread.Sleep(2000);
-              Console.WriteLine("");
+              Console.Write("As you walk around");
+              Thread.Sleep(1500);
+              Console.WriteLine(" it feels like there is someone of something watching you.");
+              Thread.Sleep(3000);
+              Console.Write("You try every door you find");
+              Thread.Sleep(2000);
+              Console.WriteLine(", but they are all locked.");
+              Thread.Sleep(2500);
+              Console.WriteLine("Eventually, you find an unlocked door.");
+              Thread.Sleep(3000);
+              Console.Clear();
+              Console.Write("Slowly");
+              Thread.Sleep(1000);
+              Console.Write(", you open the door");
+              Thread.Sleep(1000);
+              Console.WriteLine("and walk in.");
+              Thread.Sleep(2000);
+              Console.Write("Inside there are shelves everywhere");
+              Thread.Sleep(2000);
+              Console.WriteLine(", filled with boxes on boxes.");
               Thread.Sleep(2000);
               Console.WriteLine("");
-              Thread.Sleep(2000);
-              Console.WriteLine("");
-              Thread.Sleep(2000);
-              Console.WriteLine("");
-              Thread.Sleep(2000);
-              Console.WriteLine("");
+              subwayShelves:
+              Console.WriteLine("--What do you do want to do?--");
+              Console.WriteLine("1. Search left side first");
+              Console.WriteLine("2. Search right side first");
+              Console.WriteLine("3. Leave");
+              try
+              {
+                locations.input = Convert.ToInt32(Console.ReadLine());
+              }
+              catch
+              {
+                Console.Clear();
+                Console.WriteLine("Invalid input");
+                Thread.Sleep(1500);
+                Console.Clear();
+                goto subwayShelves;
+              }
+
+              switch (locations.input)
+              {
+                case 1:
+                  Console.WriteLine("You start searching the boxes on the left side.");
+                  Thread.Sleep(2500);
+                  Console.WriteLine("While searching one of the boxes");
+                  Thread.Sleep(1500);
+                  Console.WriteLine(", you cut your hand on something sharp");
+                  Thread.Sleep(2500);
+                  Console.WriteLine("-10 HP");
+                  items.HealthPoints -= 10;
+                  items.Hp();
+                  goto subwayShelves;
+                case 2:
+                  Console.WriteLine("You start searching the boxes on the right side.");
+                  Thread.Sleep(2500);
+                  Console.WriteLine("After going through a lot of empty boxes");
+                  Thread.Sleep(2500);
+                  Console.WriteLine(", you find a box with a label.");
+                  Thread.Sleep(2000);
+                  goto subwayShelves;
+                case 3:
+                  Subway();
+                  break;
+              }
+
+              subwayFlashlight = true;
+            }
+            else if (subwayFlashlight)
+            {
+              Console.WriteLine("I have nothing more to do down here.");
               Thread.Sleep(2000);
             }
+            else
+            {
+              Console.WriteLine("You venture down into the subway.");
+              Thread.Sleep(2000);
+              Console.WriteLine("Before you know it everything is pitch black.");
+              Thread.Sleep(3500);
+              Console.WriteLine("You start hearing unintelligible noises");
+              Thread.Sleep(2000);
+              Console.Write("Humans?");
+              Thread.Sleep(1000);
+              Console.Write(" Animals?");
+              Thread.Sleep(1000);
+              Console.WriteLine(" Or maybe something worse?");
+              Thread.Sleep(1500);
+              Console.Write("You keep walking down corridors");
+              Thread.Sleep(2000);
+              Console.WriteLine(", or what you think are corridors.");
+              Thread.Sleep(2000);
+              Console.WriteLine("You get the feeling someone or something is watching you");
+              Thread.Sleep(3000);
+              Console.Write("...");
+              Thread.Sleep(1000);
+              Console.WriteLine(" Everything goes black.");
+              Thread.Sleep(2000);
+              items.HealthPoints = 0;
+              items.Hp();
+            }
 
-            Console.WriteLine("You venture down into the subway.");
-            Thread.Sleep(2000);
-            Console.WriteLine("Before you know it everything is pitch black.");
-            Thread.Sleep(3500);
-            Console.WriteLine("You start hearing unintelligible noises");
-            Thread.Sleep(2000);
-            Console.Write("Humans?");
-            Thread.Sleep(1000);
-            Console.Write(" Animals?");
-            Thread.Sleep(1000);
-            Console.WriteLine(" Or maybe something worse?");
-            Thread.Sleep(1500);
-            Console.Write("You keep walking down corridors");
-            Thread.Sleep(2000);
-            Console.WriteLine(", or what you think are corridors.");
-            Thread.Sleep(2000);
-            Console.WriteLine("You get the feeling someone or something is watching you");
-            Thread.Sleep(3000);
-            Console.Write("...");
-            Thread.Sleep(1000);
-            Console.WriteLine(" Everything goes black.");
-            Thread.Sleep(2000);
-            items.HealthPoints = 0;
-            items.Hp();
             break;
           case 2:
             Subway();
@@ -147,6 +217,7 @@ public class SubwayEntrance(Locations locations)
 
         break;
       }
+
       case 4:
       {
         Console.Clear();

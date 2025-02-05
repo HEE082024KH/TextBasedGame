@@ -45,7 +45,7 @@ public class Status(Locations locations, Items items)
     }
   }
 
-  public void UseItems()
+  private void UseItems()
   {
     Console.WriteLine("Type which item you want to use");
     if (items.Bandages > 0)
@@ -126,7 +126,7 @@ public class Status(Locations locations, Items items)
     }
   }
 
-  public void ShowInventory()
+  private void ShowInventory()
   {
     Console.WriteLine("You have the following items in your inventory:");
     if (items.GateKey)

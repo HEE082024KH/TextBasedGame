@@ -171,7 +171,7 @@ public class ApartmentsLocation(Locations locations)
 
             Console.WriteLine("The door is locked");
             Thread.Sleep(1000);
-            Console.WriteLine("If only I had a crowbar or something to unlock the door");
+            Console.WriteLine("If only you had a crowbar or something to unlock the door");
             Thread.Sleep(3000);
             Console.Clear();
             goto insideApartments;
@@ -496,7 +496,7 @@ public class ApartmentsLocation(Locations locations)
             if (insideApartmentsDoor4Done)
             {
               Console.Clear();
-              Console.WriteLine("I do not have any reason to go back here.");
+              Console.WriteLine("You do not have any reason to go back here.");
               Thread.Sleep(3000);
               goto insideApartments;
             }
@@ -514,9 +514,10 @@ public class ApartmentsLocation(Locations locations)
                 Thread.Sleep(2500);
                 Console.WriteLine("She gives you a KEY in return.");
                 Thread.Sleep(2000);
+                items.Key = true;
                 Console.WriteLine("She is unsure where it fits, but she found it on this floor.");
                 Thread.Sleep(3000);
-                Console.WriteLine("If I look around a bit I might figure where to use it.");
+                Console.WriteLine("If you look around a bit you might figure where to use it.");
                 Thread.Sleep(2500);
                 insideApartmentsDoor4Done = true;
                 goto insideApartments;
@@ -529,7 +530,7 @@ public class ApartmentsLocation(Locations locations)
               Thread.Sleep(3000);
               Console.WriteLine(", her smile fades.");
               Thread.Sleep(1500);
-              Console.WriteLine("I should find the necklace before coming back here.");
+              Console.WriteLine("You should find the necklace before coming back here.");
               Thread.Sleep(4000);
               goto insideApartments;
             }
@@ -888,7 +889,7 @@ public class ApartmentsLocation(Locations locations)
           }
           else
           {
-            Console.Write(", but it seems to be locked. I need to look for the key.");
+            Console.Write(", but it seems to be locked. You need to look for the key.");
             Thread.Sleep(2500);
           }
 
