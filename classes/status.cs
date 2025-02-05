@@ -4,7 +4,7 @@ public class Status(Locations locations, Items items)
   {
     Console.WriteLine($"Current HP: {items.HealthPoints}/100");
     Console.WriteLine(($"Current $: {items.Money}"));
-    if (items.IsBuzzed == false)
+    if (items.IsBuzzed)
     {
       Console.WriteLine("You feel buzzed.");
     }
@@ -33,9 +33,11 @@ public class Status(Locations locations, Items items)
     switch (locations.input)
     {
       case 1:
+        Console.Clear();
         ShowInventory();
         break;
       case 2:
+        Console.Clear();
         UseItems();
         break;
       case 3:
@@ -68,35 +70,54 @@ public class Status(Locations locations, Items items)
 
     switch (locations.itemInput)
     {
-      case "bandages":
-        if (items.HealthPoints > 70)
+      case "bandage":
+        switch (items.HealthPoints)
         {
-          items.HealthPoints = 100;
-        }
-        else if (items.HealthPoints == 100)
-        {
-          Console.WriteLine("You are already full health.");
-        }
-        else
-        {
-          items.Bandages = items.Bandages--;
-          items.HealthPoints += 30;
+          case 70:
+            Console.WriteLine("You use a bandage, and is now at full health.");
+            Thread.Sleep(3000);
+            items.HealthPoints = 100;
+            break;
+          case 100:
+            Console.WriteLine("You are already full health.");
+            Thread.Sleep(2500);
+            break;
+          default:
+            items.Bandages = items.Bandages--;
+            items.HealthPoints += 30;
+            Console.WriteLine("You use a bandage.");
+            Thread.Sleep(1000);
+            Console.WriteLine($"HP: {items.HealthPoints}/100");
+            Thread.Sleep(2000);
+            break;
         }
 
         break;
       case "alcohol":
         if (items.IsBuzzed)
         {
+          Console.WriteLine("You take another drink.");
+          Thread.Sleep(1500);
+          Console.WriteLine("You start to feel drunk.");
+          Thread.Sleep(2500);
           items.IsDrunk = true;
           items.IsBuzzed = false;
         }
         else if (items.IsDrunk)
         {
+          Console.WriteLine("You take another drink.");
+          Thread.Sleep(1500);
+          Console.WriteLine("You start to feel hammered.");
+          Thread.Sleep(2500);
           items.IsHammered = true;
           items.IsDrunk = false;
         }
         else
         {
+          Console.WriteLine("You take a drink.");
+          Thread.Sleep(1500);
+          Console.WriteLine("You start to feel buzzed.");
+          Thread.Sleep(2500);
           items.IsBuzzed = true;
         }
 

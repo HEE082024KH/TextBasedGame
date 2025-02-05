@@ -92,11 +92,31 @@ public class SubwayEntrance(Locations locations)
           case 1:
             if (items.Flashlight)
             {
+              Console.WriteLine("You venture down into the subway.");
+              Thread.Sleep(2000);
+              Console.WriteLine("");
+              Thread.Sleep(2000);
+              Console.WriteLine("");
+              Thread.Sleep(2000);
+              Console.WriteLine("");
+              Thread.Sleep(2000);
+              Console.WriteLine("");
+              Thread.Sleep(2000);
+              Console.WriteLine("");
+              Thread.Sleep(2000);
+              Console.WriteLine("");
+              Thread.Sleep(2000);
+              Console.WriteLine("");
+              Thread.Sleep(2000);
+              Console.WriteLine("");
+              Thread.Sleep(2000);
+              Console.WriteLine("");
+              Thread.Sleep(2000);
             }
 
             Console.WriteLine("You venture down into the subway.");
             Thread.Sleep(2000);
-            Console.WriteLine("You turn the corner and walk into pitch black darkness.");
+            Console.WriteLine("Before you know it everything is pitch black.");
             Thread.Sleep(3500);
             Console.WriteLine("You start hearing unintelligible noises");
             Thread.Sleep(2000);
