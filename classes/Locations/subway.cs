@@ -153,21 +153,35 @@ public class SubwayEntrance(Locations locations)
                 case 1:
                   Console.WriteLine("You start searching the boxes on the left side.");
                   Thread.Sleep(2500);
-                  Console.WriteLine("While searching one of the boxes");
+                  Console.Write("While searching one of the boxes");
                   Thread.Sleep(1500);
                   Console.WriteLine(", you cut your hand on something sharp");
                   Thread.Sleep(2500);
                   Console.WriteLine("-10 HP");
                   items.HealthPoints -= 10;
                   items.Hp();
+                  Console.Clear();
                   goto subwayShelves;
                 case 2:
-                  Console.WriteLine("You start searching the boxes on the right side.");
-                  Thread.Sleep(2500);
-                  Console.WriteLine("After going through a lot of empty boxes");
-                  Thread.Sleep(2500);
-                  Console.WriteLine(", you find a box with a label.");
-                  Thread.Sleep(2000);
+                  if (!items.Crowbar)
+                  {
+                    Console.WriteLine("You start searching the boxes on the right side.");
+                    Thread.Sleep(2500);
+                    Console.Write("After going through a lot of empty boxes");
+                    Thread.Sleep(2500);
+                    Console.WriteLine(", you find a box with a tool label.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Inside you find a CROWBAR");
+                    Thread.Sleep(2500);
+                    items.Crowbar = true;
+                  }
+                  else
+                  {
+                    Console.WriteLine("I have already searched these boxes before.");
+                    Thread.Sleep(2500);
+                  }
+
+                  Console.Clear();
                   goto subwayShelves;
                 case 3:
                   Subway();

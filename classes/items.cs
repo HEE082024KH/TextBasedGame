@@ -1,5 +1,9 @@
 public class Items
 {
+  // ITEMS NOT IMPLEMENTED YET:
+  // Flashlight
+  // GateKey
+
   public bool Flashlight;
   public bool Hairpin;
   public bool Crowbar;
