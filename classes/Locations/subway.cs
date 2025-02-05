@@ -4,6 +4,7 @@ public class SubwayEntrance(Locations locations)
   private readonly Locations locations = locations;
   private readonly Status status = new(locations, locations.items);
   private bool subwayEntrance;
+  private bool subwayFlashlight;
 
   public void Subway()
   {
@@ -94,13 +95,13 @@ public class SubwayEntrance(Locations locations)
             {
               Console.WriteLine("You venture down into the subway.");
               Thread.Sleep(2000);
-              Console.WriteLine("");
+              Console.Write("Your flashlight makes it easier to see");
               Thread.Sleep(2000);
-              Console.WriteLine("");
+              Console.WriteLine(", but it is still rather dark.");
               Thread.Sleep(2000);
-              Console.WriteLine("");
+              Console.Write("The subway is fairly empty");
               Thread.Sleep(2000);
-              Console.WriteLine("");
+              Console.WriteLine(", if you look past the dirt and trash.");
               Thread.Sleep(2000);
               Console.WriteLine("");
               Thread.Sleep(2000);
