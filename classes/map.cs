@@ -94,4 +94,19 @@ public class Structures
     Console.WriteLine("___|_______|__[ == ==]/.::::::;;;:::::::::::::::;;;:::::::.\\[=  == ]___|___");
     Console.WriteLine("");
   }
+
+  public void WarehouseStructure()
+  {
+    Console.WriteLine("");
+    Console.WriteLine("            )");
+    Console.WriteLine("           (      _[]_         (");
+    Console.WriteLine("   __[]___[]___[]/____\\_[]_    )");
+    Console.WriteLine("  /______________|    |____\\  (");
+    Console.WriteLine("  |[][] [][] [][] [][] [][]|__[]_");
+    Console.WriteLine("  |    |    |    |    |    |_____\\");
+    Console.WriteLine("  |[]|||||[]|[]|||[]|||||[]|[_]|||");
+    Console.WriteLine("  ================================");
+    Console.WriteLine("");
+  }
+  
 }
