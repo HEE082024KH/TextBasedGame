@@ -150,4 +150,23 @@ public class Structures
     Console.WriteLine(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
     Console.WriteLine("");
   }
+
+  public void Clouds()
+  {
+    Console.WriteLine("");
+    Console.WriteLine("                _         ");
+    Console.WriteLine("              (`  ).                   _");
+    Console.WriteLine("             (     ).              .:(`  )`. ");
+    Console.WriteLine(")           _(       '`.          :(   .    )");
+    Console.WriteLine("        .=(`(      .   )     .--  `.  (    ) )");
+    Console.WriteLine("       ((    (..__.:'-'   .+(   )   ` _`  ) )");
+    Console.WriteLine("`.     `(       ) )       (   .  )     (   )  ._");
+    Console.WriteLine("  )      ` __.:'   )     (   (   ))     `-'.-(`  )");
+    Console.WriteLine(")  )  ( )       --'       `- __.'         :(      ))");
+    Console.WriteLine(".-'  (_.'          .')                    `(    )  ))");
+    Console.WriteLine("                  (_  )                     ` __.:'");
+    Console.WriteLine("");
+    Console.WriteLine("--..,___.--,--'`,---..-.--+--.,,-,,..._.--..-._.--:---.");
+    Console.WriteLine("");
+  }
 }
