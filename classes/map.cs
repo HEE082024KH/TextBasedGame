@@ -134,4 +134,20 @@ public class Structures
     Console.WriteLine("|;____________/%%%%%%%%%%%%%%%%%\\____________;|");
     Console.WriteLine("");
   }
+
+  public void FancyHouse()
+  {
+    Console.WriteLine("");
+    Console.WriteLine("                 _ _.-'`-._ _");
+    Console.WriteLine("                ;.'________'.;");
+    Console.WriteLine("     _________n.[____________].n_________");
+    Console.WriteLine("    |\"\"_\"\"_\"\"_\"\"||==||==||==||\"\"_\"\"_\"\"_\"\"]");
+    Console.WriteLine("    |\"\"\"\"\"\"\"\"\"\"\"||..||..||..||\"\"\"\"\"\"\"\"\"\"\"|");
+    Console.WriteLine("    |LI LI LI LI||LI||LI||LI||LI LI LI LI|");
+    Console.WriteLine("    |.. .. .. ..||..||..||..||.. .. .. ..|");
+    Console.WriteLine("    |LI LI LI LI||LI||LI||LI||LI LI LI LI|");
+    Console.WriteLine(" ,,;;,;;;,;;;,;;;,;;;,;;;,;;;,;;,;;;,;;;,;;,,");
+    Console.WriteLine(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
+    Console.WriteLine("");
+  }
 }
