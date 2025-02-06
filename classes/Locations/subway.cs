@@ -7,7 +7,7 @@ public class SubwayEntrance(Locations locations)
 
   public void Subway()
   {
-    locations.currentLocation = "SubwayEntrance";
+    locations.currentLocation = "Subway Entrance";
     Console.Clear();
     Console.WriteLine($"You are at the  -{locations.currentLocation}-");
     Thread.Sleep(500);
