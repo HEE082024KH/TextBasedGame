@@ -19,7 +19,7 @@ public class ApartmentsLocation(Locations locations)
     Console.Clear();
     Console.WriteLine($"You are at the  -{locations.currentLocation}-");
     Console.WriteLine("");
-    Console.WriteLine("---What do you want to do?---");
+    Console.WriteLine("--What do you want to do?--");
     Console.WriteLine("1. Travel to a different location");
     Console.WriteLine("2. Check status");
     Console.WriteLine("3. Look around outside");
@@ -57,7 +57,7 @@ public class ApartmentsLocation(Locations locations)
         Console.Clear();
         Console.WriteLine("There's a few bags of trash scattered along the walls");
         Console.WriteLine("");
-        Console.WriteLine("---What do you want to do?---");
+        Console.WriteLine("--What do you want to do?--");
         Console.WriteLine("1. Search the bags");
         Console.WriteLine("2. Leave them alone");
         try
@@ -849,7 +849,7 @@ public class ApartmentsLocation(Locations locations)
           default:
           {
             Console.Clear();
-            Console.Write("---Invalid input---");
+            Console.Write("Invalid input");
             Thread.Sleep(1500);
             Apartments();
             break;
@@ -912,7 +912,7 @@ public class ApartmentsLocation(Locations locations)
       default:
       {
         Console.Clear();
-        Console.Write("---Invalid input---");
+        Console.Write("Invalid input");
         Thread.Sleep(1500);
         Apartments();
         break;

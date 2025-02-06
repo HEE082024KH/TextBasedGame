@@ -10,7 +10,7 @@ public class GateLocation(Locations locations)
     Console.Clear();
     Console.WriteLine($"You are at the  -{locations.currentLocation}-");
     Console.WriteLine("");
-    Console.WriteLine("---What do you want to do?---");
+    Console.WriteLine("--What do you want to do?--");
     Console.WriteLine("1. Travel to a different location");
     Console.WriteLine("2. Check status");
     Console.WriteLine("3. Exit through the gate");
@@ -133,7 +133,7 @@ public class GateLocation(Locations locations)
       default:
       {
         Console.Clear();
-        Console.Write("---Invalid input---");
+        Console.Write("Invalid input");
         Thread.Sleep(1000);
         Gate();
         break;

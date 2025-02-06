@@ -10,7 +10,7 @@ public class ShopLocation(Locations locations)
     Console.Clear();
     Console.WriteLine($"You are at the  -{locations.currentLocation}-");
     Thread.Sleep(500);
-    Console.WriteLine("---What do you want to do?---");
+    Console.WriteLine("--What do you want to do?--");
     Console.WriteLine("1. Travel to a different location");
     Console.WriteLine("2. Check status");
     Console.WriteLine("3. Enter the shop");
@@ -47,12 +47,45 @@ public class ShopLocation(Locations locations)
       }
       case 4:
       {
+        Console.Write("You walk around outside the shop");
+        Thread.Sleep(2500);
+        Console.WriteLine(", looking for anything useful.");
+        Thread.Sleep(2000);
+        Console.WriteLine("Around the back you find a few bags of trash.");
+        Thread.Sleep(2500);
+        Console.WriteLine("");
+        shopOutside:
+        Console.WriteLine("--What do you want to do?--");
+        Console.WriteLine("1. Search the bags");
+        Console.WriteLine("2. Leave them alone");
+        try
+        {
+          locations.input = Convert.ToInt32(Console.ReadLine());
+        }
+        catch
+        {
+          Console.Clear();
+          Console.WriteLine("Invalid input");
+          Thread.Sleep(1500);
+          goto shopOutside;
+        }
+
+        switch (locations.input)
+        {
+          case 1:
+            ;
+            break;
+          case 2:
+            ;
+            break;
+        }
+
         break;
       }
       default:
       {
         Console.Clear();
-        Console.Write("---Invalid input---");
+        Console.Write("--Invalid input--");
         Thread.Sleep(1000);
         Shop();
         break;
