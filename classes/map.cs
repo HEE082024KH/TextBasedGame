@@ -108,5 +108,30 @@ public class Structures
     Console.WriteLine("  ================================");
     Console.WriteLine("");
   }
-  
+
+  public void Hallway()
+  {
+    Console.WriteLine("");
+    Console.WriteLine(" _____________________________________________");
+    Console.WriteLine("|.'',                                     ,''.|");
+    Console.WriteLine("|.'.'',                                 ,''.'.|");
+    Console.WriteLine("|.'.'.'',                             ,''.'.'.|");
+    Console.WriteLine("|.'.'.'.'',                         ,''.'.'.'.|");
+    Console.WriteLine("|.'.'.'.'.|                         |.'.'.'.'.|");
+    Console.WriteLine("|.'.'.'.'.|===;                 ;===|.'.'.'.'.|");
+    Console.WriteLine("|.'.'.'.'.|:::|',             ,'|:::|.'.'.'.'.|");
+    Console.WriteLine("|.'.'.'.'.|---|'.|, _______ ,|.'|---|.'.'.'.'.|");
+    Console.WriteLine("|.'.'.'.'.|:::|'.|'|???????|'|.'|:::|.'.'.'.'.|");
+    Console.WriteLine("|,',',',',|---|',|'|???????|'|,'|---|,',',',',|");
+    Console.WriteLine("|.'.'.'.'.|:::|'.|'|???????|'|.'|:::|.'.'.'.'.|");
+    Console.WriteLine("|.'.'.'.'.|---|','   /%%%\\   ','|---|.'.'.'.'.|");
+    Console.WriteLine("|.'.'.'.'.|===:'    /%%%%%\\    ':===|.'.'.'.'.|");
+    Console.WriteLine("|.'.'.'.'.|%%%%%%%%%%%%%%%%%%%%%%%%%|.'.'.'.'.|");
+    Console.WriteLine("|.'.'.'.','       /%%%%%%%%%\\       ','.'.'.'.|");
+    Console.WriteLine("|.'.'.','        /%%%%%%%%%%%\\        ','.'.'.|");
+    Console.WriteLine("|.'.','         /%%%%%%%%%%%%%\\         ','.'.|");
+    Console.WriteLine("|.','          /%%%%%%%%%%%%%%%\\          ','.|");
+    Console.WriteLine("|;____________/%%%%%%%%%%%%%%%%%\\____________;|");
+    Console.WriteLine("");
+  }
 }
