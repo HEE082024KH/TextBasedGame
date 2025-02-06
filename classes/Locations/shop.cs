@@ -4,10 +4,11 @@ public class ShopLocation(Locations locations)
   private readonly Locations locations = locations;
   private readonly Status status = new(locations, locations.items);
   private bool shopOutside;
+  private bool subwayToShop;
 
   public void Shop()
   {
-    if (locations.currentLocation == "Subway Entrance")
+    if (locations.currentLocation == "Subway Entrance" && !subwayToShop)
     {
       Console.Clear();
       Console.Write("On your way to the Shop");
@@ -37,6 +38,7 @@ public class ShopLocation(Locations locations)
       switch (locations.input)
       {
         case 1:
+          Console.Clear();
           Console.WriteLine("You crouch down and extend your hand to pet them.");
           Thread.Sleep(2500);
           Console.Write("Slowly");
@@ -72,6 +74,7 @@ public class ShopLocation(Locations locations)
           switch (locations.input)
           {
             case 1:
+              Console.Clear();
               Console.WriteLine("You stay still holding your hand out.");
               Thread.Sleep(2000);
               Console.Write("As the dogs approach you");
@@ -94,24 +97,110 @@ public class ShopLocation(Locations locations)
               Thread.Sleep(2500);
               Console.WriteLine("You ruffle his fur as you pet him");
               Thread.Sleep(2000);
-              Console.Write("He backs off you.");
+              Console.WriteLine("He backs off you.");
               Thread.Sleep(1500);
               Console.WriteLine("One of the other dogs approaches a drops a BONE for you.");
               Thread.Sleep(3500);
+              Console.WriteLine("Then they nonchalantly walk off");
+              Thread.Sleep(3000);
+              items.DogBone = true;
               break;
             case 2:
-              ;
+              Console.Clear();
+              Console.Write("You are barely able to stand up");
+              Thread.Sleep(1500);
+              Console.WriteLine(", before they jump you.");
+              Thread.Sleep(2000);
+              Console.Write("You feel searing pain");
+              Thread.Sleep(1500);
+              Console.WriteLine(" as they all sink their teeth into your flesh.");
+              Thread.Sleep(3500);
+              Console.Write("You can see your blood");
+              Thread.Sleep(1500);
+              Console.WriteLine(" pooling around you.");
+              Thread.Sleep(2000);
+              Console.Write("You vision blurs");
+              Thread.Sleep(1500);
+              Console.WriteLine(" as you violently scream in agony and pain.");
+              Thread.Sleep(3000);
+              Console.WriteLine("Until everything goes black-");
+              Thread.Sleep(2000);
+              items.HealthPoints = 0;
+              items.Hp();
               break;
           }
 
           break;
         case 2:
-          ;
+          if (items.MachineGun)
+          {
+            Console.Clear();
+            Console.WriteLine("You pull out your machine gun and spray the dogs with bullet.");
+            Thread.Sleep(3500);
+            Console.WriteLine("All of the dogs are taken out before any of them could get close.");
+            Thread.Sleep(3500);
+          }
+          else
+          {
+            Console.Clear();
+            Console.Write("You look for a viable weapon amongst your things");
+            Thread.Sleep(3000);
+            Console.WriteLine(", but none seem powerful enough.");
+            Thread.Sleep(2000);
+            Console.WriteLine("Desperately you start throwing what you have at them");
+            Thread.Sleep(3000);
+            Console.Write("Except for a few bumps and scratches");
+            Thread.Sleep(2000);
+            Console.WriteLine(" they keep charging you.");
+            Thread.Sleep(2000);
+            Console.Write("As they reach you");
+            Thread.Sleep(1500);
+            Console.Write(" they all jump fangs first");
+            Thread.Sleep(2000);
+            Console.Write("You feel searing pain");
+            Thread.Sleep(1500);
+            Console.WriteLine(" as they all sink their teeth into your flesh.");
+            Thread.Sleep(3500);
+            Console.Write("You can see your blood");
+            Thread.Sleep(1500);
+            Console.WriteLine(" pooling around you.");
+            Thread.Sleep(2000);
+            Console.Write("You vision blurs");
+            Thread.Sleep(1500);
+            Console.WriteLine(" as you violently scream in agony and pain.");
+            Thread.Sleep(3000);
+            Console.WriteLine("Until everything goes black-");
+            Thread.Sleep(2000);
+            items.HealthPoints = 0;
+            items.Hp();
+          }
+
           break;
         case 3:
-          ;
+          Console.Write("Without hesitation");
+          Thread.Sleep(1000);
+          Console.WriteLine(" you start running as fast as you can.");
+          Thread.Sleep(2000);
+          Console.Write("As you look back");
+          Thread.Sleep(1500);
+          Console.Write(" you see them chasing after you");
+          Thread.Sleep(2000);
+          Console.WriteLine(", catching up quickly.");
+          Thread.Sleep(2000);
+          Console.WriteLine("You can see the Shop ahead of you in the distance.");
+          Thread.Sleep(3000);
+          Console.Write("You reach the Shop and manage to jump the fence");
+          Thread.Sleep(2000);
+          Console.WriteLine(", just as they leap forward to have a nibble");
+          Thread.Sleep(3000);
+          Console.Write("Breathing heavily");
+          Thread.Sleep(1500);
+          Console.WriteLine(", you look through the fence at the rapid dogs just out of reach.");
+          Thread.Sleep(4000);
           break;
       }
+
+      subwayToShop = true;
     }
 
     locations.currentLocation = "Shop";

@@ -1,10 +1,12 @@
 public class Items
 {
-  // MONEY AVAILABLE: $25
+  // MONEY AVAILABLE: $30
   //
   // ITEMS NOT IMPLEMENTED YET:
   // Flashlight
   // GateKey
+  // DogBone
+  // MachineGun
 
   public bool Flashlight;
   public bool Hairpin;
@@ -21,6 +23,8 @@ public class Items
   public bool Necklace;
   public bool OfficeKeycard;
   public bool GreenGem;
+  public bool DogBone;
+  public bool MachineGun;
   public int Money;
   public int HealthPoints = 80;
 
