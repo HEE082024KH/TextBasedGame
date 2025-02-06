@@ -1,6 +1,8 @@
-public class Start
+public class Start()
 {
+  private Structures structures;
   public bool newGame = false;
+
   public void NewGame()
   {
     Console.Write("... ");
@@ -21,6 +23,10 @@ public class Start
     Thread.Sleep(2000);
     Console.WriteLine("Your eyes finally open enough for you to realize your surroundings.");
     Thread.Sleep(3500);
+    Console.Clear();
+    structures.Clouds();
+    Thread.Sleep(2000);
+    Console.WriteLine("");
     Console.Write("It's dark");
     Thread.Sleep(2000);
     Console.Write(", almost pitch black");
