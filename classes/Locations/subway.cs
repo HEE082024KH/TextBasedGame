@@ -231,7 +231,6 @@ public class SubwayEntrance(Locations locations)
 
         break;
       }
-
       case 4:
       {
         Console.Clear();
@@ -241,8 +240,48 @@ public class SubwayEntrance(Locations locations)
         Thread.Sleep(2500);
         Console.Write("Some of them torn apart");
         Thread.Sleep(1500);
-        Console.WriteLine(", trash scattered everywhere.");
+        Console.Write(", trash scattered everywhere");
+        Thread.Sleep(1500);
+        Console.WriteLine(", rats roaming.");
         Thread.Sleep(2000);
+        Console.WriteLine("");
+        subwayEntrance:
+        Console.WriteLine("--What do you want to do?--");
+        Console.WriteLine("1. Search the unopened bags");
+        Console.WriteLine("2. Leave");
+        try
+        {
+          locations.input = Convert.ToInt32(Console.ReadLine());
+        }
+        catch
+        {
+          Console.WriteLine("Invalid input");
+          Thread.Sleep(1500);
+          Console.Clear();
+          goto subwayEntrance;
+        }
+
+        switch (locations.input)
+        {
+          case 1:
+            Console.WriteLine("You search the few unopened bags that are left.");
+            Thread.Sleep(3000);
+            Console.Write("The bags are dirty");
+            Thread.Sleep(1000);
+            Console.Write(", and full of trash");
+            Thread.Sleep(1500);
+            Console.WriteLine(", and likely a few diseases.");
+            Thread.Sleep(2000);
+            Console.WriteLine("-20 HP");
+            items.HealthPoints -= 20;
+            Thread.Sleep(2000);
+            Subway();
+            break;
+          case 2:
+            Subway();
+            break;
+        }
+
         break;
       }
       default:

@@ -11,8 +11,8 @@ the project grew in size.
 <img src="https://www.askpython.com/wp-content/uploads/2021/06/text-based-story-game-2048x1152.png.webp" width="525" height="295"/> 
 </picture> &nbsp;
 
-Currently, the game only has 2/12 locations finished, but most game logic and structure is done.
-<br> **\*About 15-20% done overall.**
+Currently, the game only has 3/12 locations finished, but most game logic and structure is done.
+<br> **\*About 20-25% done overall.**
 
 Feel free to test the game if you want, any feedback is welcome.
 
