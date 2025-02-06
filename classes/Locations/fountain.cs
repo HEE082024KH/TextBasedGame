@@ -21,7 +21,10 @@ public class FountainLocation(Locations locations)
     }
     catch
     {
+      Console.Clear();
       Console.WriteLine("Invalid input");
+      Thread.Sleep(1500);
+      Fountain();
     }
 
     switch (locations.input)

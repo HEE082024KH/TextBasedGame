@@ -21,7 +21,10 @@ public class AbandonedWarehouse(Locations locations)
     }
     catch
     {
+      Console.Clear();
       Console.WriteLine("Invalid input");
+      Thread.Sleep(1500);
+      Warehouse();
     }
 
     switch (locations.input)

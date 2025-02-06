@@ -21,7 +21,10 @@ public class PavilionLocation(Locations locations)
     }
     catch
     {
+      Console.Clear();
       Console.WriteLine("Invalid input");
+      Thread.Sleep(1500);
+      Pavilion();
     }
 
     switch (locations.input)

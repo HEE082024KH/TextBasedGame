@@ -21,7 +21,10 @@ public class ShackLocation(Locations locations)
     }
     catch
     {
+      Console.Clear();
       Console.WriteLine("Invalid input");
+      Thread.Sleep(1500);
+      Shack();
     }
 
     switch (locations.input)

@@ -21,7 +21,10 @@ public class AlleyLocation(Locations locations)
     }
     catch
     {
+      Console.Clear();
       Console.WriteLine("Invalid input");
+      Thread.Sleep(1500);
+      Alley();
     }
 
     switch (locations.input)

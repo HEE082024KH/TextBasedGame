@@ -21,7 +21,10 @@ public class OfficeBuilding(Locations locations)
     }
     catch
     {
+      Console.Clear();
       Console.WriteLine("Invalid input");
+      Thread.Sleep(1500);
+      Office();
     }
 
     switch (locations.input)

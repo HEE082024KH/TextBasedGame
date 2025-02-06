@@ -3,6 +3,7 @@ public class BombShelter(Locations locations)
   private readonly Items items = locations.items;
   private readonly Locations locations = locations;
   private readonly Status status = new(locations, locations.items);
+
   public void Shelter()
   {
     locations.currentLocation = "BombShelter";
@@ -20,38 +21,42 @@ public class BombShelter(Locations locations)
     }
     catch
     {
+      Console.Clear();
       Console.WriteLine("Invalid input");
+      Thread.Sleep(1500);
+      Shelter();
     }
+
     switch (locations.input)
     {
       case 1:
-        {
-          locations.LocationSelector();
-          break;
-        }
+      {
+        locations.LocationSelector();
+        break;
+      }
       case 2:
-        {
-          Console.Clear();
-          status.ShowStatus();
-          Shelter();
-          break;
-        }
+      {
+        Console.Clear();
+        status.ShowStatus();
+        Shelter();
+        break;
+      }
       case 3:
-        {
-          break;
-        }
+      {
+        break;
+      }
       case 4:
-        {
-          break;
-        }
+      {
+        break;
+      }
       default:
-        {
-          Console.Clear();
-          Console.Write("---Invalid input---");
-          Thread.Sleep(1000);
-          Shelter();
-          break;
-        }
+      {
+        Console.Clear();
+        Console.Write("---Invalid input---");
+        Thread.Sleep(1000);
+        Shelter();
+        break;
+      }
     }
   }
 }
