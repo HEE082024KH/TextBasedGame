@@ -42,27 +42,56 @@ public class Map
     Console.WriteLine("+--------------- 1. Gate ------------------------------------------+");
     Console.WriteLine("");
   }
+}
 
-  public class Structures
+public class Structures
+{
+  public void Skyscraper()
   {
-    public void Building()
-    {
-      Console.WriteLine("██████████████");
-      Console.WriteLine("█⬛⬛⬛⬛⬛█");
-      Console.WriteLine("█⬛⬛⬛⬛⬛█");
-      Console.WriteLine("█⬛⬛⬛⬛⬛█");
-      Console.WriteLine("█⬛⬛⬛⬛⬛█");
-      Console.WriteLine("█⬛⬛⬛⬛⬛█");
-      Console.WriteLine("█⬛⬛⬛⬛⬛█");
-      Console.WriteLine("█⬛⬛⬛⬛⬛█");
-      Console.WriteLine("█⬛⬛⬛⬛⬛█");
-      Console.WriteLine("█⬛⬛⬛⬛⬛█");
-      Console.WriteLine("█⬛⬛⬛⬛⬛█");
-      Console.WriteLine("█⬛⬛⬛⬛⬛█");
-      Console.WriteLine("█⬛⬛⬛⬛⬛█");
-      Console.WriteLine("█⬛⬛⬛⬛⬛█");
-      Console.WriteLine("█⬛⬛⬛⬛⬛█");
-      Console.WriteLine("█⬛⬛⬛⬛⬛█");
-    }
+    Console.WriteLine("");
+    Console.WriteLine("███████████████");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("");
+  }
+
+  public void City()
+  {
+    Console.WriteLine("");
+    Console.WriteLine("                   _                      _                _");
+    Console.WriteLine("    ____________ .' '.    _____/----/-\\ .' './========\\   / \\");
+    Console.WriteLine("   //// ////// /V_.-._\\  |.-.-.|===| _ |-----| u    u |  /___\\");
+    Console.WriteLine("  // /// // ///==\\ u |.  || | ||===||||| |T| |   ||   | .| u |_ _ _ _ _ _");
+    Console.WriteLine(" ///////-\\////====\\==|:::::::::::::::::::::::::::::::::::|u u| U U U U U");
+    Console.WriteLine(" |----/\\u |--|++++|..|'''''''''''::::::::::::::''''''''''|+++|+-+-+-+-+-+");
+    Console.WriteLine(" |u u|u | |u ||||||..|              '::::::::'           |===|>=== _ _ ==");
+    Console.WriteLine(" |===|  |u|==|++++|==|              .::::::::.           | T |....| V |..");
+    Console.WriteLine(" |u u|u | |u ||HH||         \\|/    .::::::::::.");
+    Console.WriteLine(" |===|_.|u|_.|+HH+|_              .::::::::::::.              _");
+    Console.WriteLine("                __(_)___         .::::::::::::::.         ___(_)__");
+    Console.WriteLine("---------------/  / \\  /|       .:::::;;;:::;;:::.       |\\  / \\  \\-------");
+    Console.WriteLine("______________/_______/ |      .::::::;;:::::;;:::.      | \\_______\\_______");
+    Console.WriteLine("|       |     [===  =] /|     .:::::;;;::::::;;;:::.     |\\ [==  = ]   |");
+    Console.WriteLine("|_______|_____[ = == ]/ |    .:::::;;;:::::::;;;::::.    | \\[ ===  ]___|___");
+    Console.WriteLine("     |       |[  === ] /|   .:::::;;;::::::::;;;:::::.   |\\ [=  ===] |");
+    Console.WriteLine("_____|_______|[== = =]/ |  .:::::;;;::::::::::;;;:::::.  | \\[ ==  =]_|_____");
+    Console.WriteLine(" |       |    [ == = ] /| .::::::;;:::::::::::;;;::::::. |\\ [== == ]      |");
+    Console.WriteLine("_|_______|____[=  == ]/ |.::::::;;:::::::::::::;;;::::::.| \\[  === ]______|");
+    Console.WriteLine("   |       |  [ === =] /.::::::;;::::::::::::::;;;:::::::.\\ [===  =]   |");
+    Console.WriteLine("___|_______|__[ == ==]/.::::::;;;:::::::::::::::;;;:::::::.\\[=  == ]___|___");
+    Console.WriteLine("");
   }
 }

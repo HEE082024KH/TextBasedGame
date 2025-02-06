@@ -1,5 +1,6 @@
 public class Items
 {
+  // MONEY AVAILABLE: $25
   // ITEMS NOT IMPLEMENTED YET:
   // Flashlight
   // GateKey

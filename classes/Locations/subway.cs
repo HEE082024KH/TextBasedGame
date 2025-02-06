@@ -243,7 +243,6 @@ public class SubwayEntrance(Locations locations)
         Thread.Sleep(1500);
         Console.WriteLine(", trash scattered everywhere.");
         Thread.Sleep(2000);
-
         break;
       }
       default:
