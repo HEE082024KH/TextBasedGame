@@ -169,4 +169,40 @@ public class Structures
     Console.WriteLine("--..,___.--,--'`,---..-.--+--.,,-,,..._.--..-._.--:---.");
     Console.WriteLine("");
   }
+
+  public void Computer()
+  {
+    Console.WriteLine("");
+    Console.WriteLine("                       .,,uod8B8bou,,.");
+    Console.WriteLine("              ..,uod8BBBBBBBBBBBBBBBBRPFT?l!i:.");
+    Console.WriteLine("         ,=m8BBBBBBBBBBBBBBBRPFT?!||||||||||||||");
+    Console.WriteLine("         !...:!TVBBBRPFT||||||||||!!^^\"\"'   ||||");
+    Console.WriteLine("         !.......:!?|||||!!^^\"\"'            ||||");
+    Console.WriteLine("         !.........||||                     ||||");
+    Console.WriteLine("         !.........||||  ##                 ||||");
+    Console.WriteLine("         !.........||||                     ||||");
+    Console.WriteLine("         !.........||||                     ||||");
+    Console.WriteLine("         !.........||||                     ||||");
+    Console.WriteLine("         !.........||||                     ||||");
+    Console.WriteLine("         `.........||||                    ,||||");
+    Console.WriteLine("          .;.......||||               _.-!!|||||");
+    Console.WriteLine("   .,uodWBBBBb.....||||       _.-!!|||||||||!:'");
+    Console.WriteLine("!YBBBBBBBBBBBBBBb..!|||:..-!!|||||||!iof68BBBBBb....");
+    Console.WriteLine("!..YBBBBBBBBBBBBBBb!!||||||||!iof68BBBBBBRPFT?!::   `.");
+    Console.WriteLine("!....YBBBBBBBBBBBBBBbaaitf68BBBBBBRPFT?!:::::::::     `.");
+    Console.WriteLine("!......YBBBBBBBBBBBBBBBBBBBRPFT?!::::::;:!^\"`;:::       `.");
+    Console.WriteLine("!........YBBBBBBBBBBRPFT?!::::::::::^''...::::::;         iBBbo.");
+    Console.WriteLine("`..........YBRPFT?!::::::::::::::::::::::::;iof68bo.      WBBBBbo.");
+    Console.WriteLine("  `..........:::::::::::::::::::::::;iof688888888888b.     `YBBBP^'");
+    Console.WriteLine("    `........::::::::::::::::;iof688888888888888888888b.     `");
+    Console.WriteLine("      `......:::::::::;iof688888888888888888888888888888b.");
+    Console.WriteLine("        `....:::;iof688888888888888888888888888888888899fT!");
+    Console.WriteLine("          `..::!8888888888888888888888888888888899fT|!^\"'");
+    Console.WriteLine("            `' !!988888888888888888888888899fT|!^\"'");
+    Console.WriteLine("                `!!8888888888888888899fT|!^\"'");
+    Console.WriteLine("                  `!988888888899fT|!^\"'");
+    Console.WriteLine("                    `!9899fT|!^\"'");
+    Console.WriteLine("                      `!^\"'");
+    Console.WriteLine("");
+  }
 }
