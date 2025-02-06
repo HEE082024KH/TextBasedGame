@@ -235,6 +235,15 @@ public class SubwayEntrance(Locations locations)
       case 4:
       {
         Console.Clear();
+        Console.WriteLine("You look around the entrance for anything useful.");
+        Thread.Sleep(2500);
+        Console.WriteLine("There is a few bags of trash scattered around.");
+        Thread.Sleep(2500);
+        Console.Write("Some of them torn apart");
+        Thread.Sleep(1500);
+        Console.WriteLine(", trash scattered everywhere.");
+        Thread.Sleep(2000);
+
         break;
       }
       default:
