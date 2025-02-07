@@ -65,6 +65,7 @@ public class Status(Locations locations, Items items)
     catch
     {
       Console.WriteLine("Invalid input");
+      Thread.Sleep(1500);
       UseItems();
     }
 
@@ -169,11 +170,6 @@ public class Status(Locations locations, Items items)
       Console.WriteLine("- Key");
     }
 
-    if (items.Necklace)
-    {
-      Console.WriteLine("- Necklace");
-    }
-
     if (items.GreenGem)
     {
       Console.WriteLine("- Green Gem");
@@ -184,6 +180,11 @@ public class Status(Locations locations, Items items)
       Console.WriteLine("- Office Keycard");
     }
 
+    if (items.Necklace)
+    {
+      Console.WriteLine("- Necklace");
+    }
+
     if (items.DogBone)
     {
       Console.WriteLine("- Dog Bone");
@@ -191,7 +192,7 @@ public class Status(Locations locations, Items items)
 
     if (items.MachineGun)
     {
-      Console.WriteLine("Machine Gun");
+      Console.WriteLine("- Machine Gun");
     }
 
     Console.WriteLine(">");
