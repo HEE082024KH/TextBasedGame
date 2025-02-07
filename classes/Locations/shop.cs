@@ -240,6 +240,76 @@ public class ShopLocation(Locations locations)
       }
       case 3:
       {
+        Console.Clear();
+        Console.WriteLine("As you enter the shop you hear faint music humming in the background.");
+        Thread.Sleep(3000);
+        Console.WriteLine("The walls are sparsely filled with random trinkets and items.");
+        Thread.Sleep(2500);
+        Console.WriteLine("There does not seem to be anyone here.");
+        Thread.Sleep(2000);
+        Console.Write("It all seems a bit");
+        Thread.Sleep(1000);
+        Console.WriteLine(", off.");
+        Thread.Sleep(1500);
+        Console.Write("You go over to the register");
+        Thread.Sleep(1500);
+        Console.WriteLine(", when a small creature behind the counter groans towards.");
+        Thread.Sleep(2500);
+        Console.WriteLine("You jump as they stare at you with a stern look");
+        Thread.Sleep(2500);
+        Console.Write("You try asking him about what he sells");
+        Thread.Sleep(1500);
+        Console.Write(" but he just points to a sign behind him");
+        Thread.Sleep(1500);
+        Console.WriteLine(", before grunting and retreating to the back room.");
+        Thread.Sleep(3000);
+        Console.Write("The sign seams simple enough though");
+        Thread.Sleep(1500);
+        Console.WriteLine(", luckily.");
+        Thread.Sleep(1000);
+        Console.Write("Pick and item.");
+        Thread.Sleep(1000);
+        Console.Write(" Have money.");
+        Thread.Sleep(1000);
+        Console.Write(" Ring the bell.");
+        Thread.Sleep(1000);
+        Console.Write("Pay");
+        Thread.Sleep(1000);
+        Console.WriteLine(" and get out.");
+        Thread.Sleep(3000);
+        Console.WriteLine("");
+        insideShop:
+        Console.WriteLine("--What do you want to do?--");
+        Console.WriteLine("1. Buy something");
+        Console.WriteLine("2. Sell something");
+        Console.WriteLine("3. Look around the shop");
+        Console.WriteLine("4. Leave");
+        try
+        {
+          locations.input = Convert.ToInt32(Console.ReadLine());
+        }
+        catch
+        {
+          Console.Clear();
+          Console.WriteLine("Invalid input");
+          Thread.Sleep(1500);
+          goto insideShop;
+        }
+
+        switch (locations.input)
+        {
+          case 1:
+            break;
+          case 2:
+            items.SellItems();
+            goto insideShop;
+          case 3:
+            break;
+          case 4:
+            Shop();
+            break;
+        }
+
         break;
       }
       case 4:

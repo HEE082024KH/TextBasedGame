@@ -40,4 +40,33 @@ public class Items
       Environment.Exit(0);
     }
   }
+
+  public void SellItems()
+  {
+    Console.WriteLine("--What do you want to sell?--");
+    if (GreenGem)
+    {
+      Console.WriteLine("Green Gem");
+    }
+
+    if (Necklace)
+    {
+      Console.WriteLine("Necklace");
+    }
+
+    if (Alcohol > 0)
+    {
+      Console.WriteLine("Alcohol");
+    }
+
+    if (Bandages > 0)
+    {
+      Console.WriteLine("Bandages");
+    }
+
+    if (Knife)
+    {
+      Console.WriteLine("Knife");
+    }
+  }
 }

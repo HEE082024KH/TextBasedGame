@@ -184,6 +184,16 @@ public class Status(Locations locations, Items items)
       Console.WriteLine("- Office Keycard");
     }
 
+    if (items.DogBone)
+    {
+      Console.WriteLine("- Dog Bone");
+    }
+
+    if (items.MachineGun)
+    {
+      Console.WriteLine("Machine Gun");
+    }
+
     Console.WriteLine(">");
     Console.ReadLine();
   }
