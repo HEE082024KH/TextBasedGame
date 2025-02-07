@@ -1,12 +1,14 @@
+using System.Reflection.PortableExecutable;
+
 public class Items(Locations locations)
 {
-  // MONEY AVAILABLE: $30
+  // MONEY AVAILABLE: $365
+  // MONEY SPENDABLE: $585
   //
-  // ITEMS NOT IMPLEMENTED YET:
-  // Flashlight
-  // GateKey
-  // DogBone
-  // MachineGun
+  // ITEMS
+  // Flashlight (!exist)
+  // GateKey (!exist)
+  // DogBone (!used)
 
   public bool GateKey;
   public bool Flashlight;
@@ -30,14 +32,71 @@ public class Items(Locations locations)
 
   public void Hp()
   {
-    if (HealthPoints <= 0)
+    if (HealthPoints > 0)
     {
-      Console.WriteLine("You died from too many serious wounds");
-      Thread.Sleep(2000);
-      Console.WriteLine("--GAME OVER--");
-      Console.Write(">");
-      Console.ReadLine();
-      Environment.Exit(0);
+      return;
+    }
+
+    Console.WriteLine("You died from too many serious wounds");
+    Thread.Sleep(2000);
+    Console.WriteLine("--GAME OVER--");
+    Console.Write(">");
+    Console.ReadLine();
+    Environment.Exit(0);
+  }
+
+  public void BuyItems()
+  {
+    Console.WriteLine("--What do you want to buy?--");
+    Console.WriteLine("1. Leave");
+    Console.WriteLine("");
+    Console.WriteLine("- Machine Gun");
+    Console.WriteLine("- ");
+    Console.WriteLine("- ");
+    Console.WriteLine("- Bandages");
+    Console.WriteLine("- Alcohol");
+    try
+    {
+      locations.itemInput = Console.ReadLine()?.ToLower();
+    }
+    catch
+    {
+      Console.WriteLine("Invalid input");
+      Thread.Sleep(1500);
+      BuyItems();
+    }
+
+    switch (locations.itemInput)
+    {
+      case "machine gun":
+      case "machinegun":
+        Console.WriteLine("You bought the Machine Gun for $500");
+        Thread.Sleep(2500);
+        Money -= 500;
+        MachineGun = true;
+        break;
+      case "2":
+        break;
+      case "3":
+        break;
+      case "alcohol":
+        Console.WriteLine("You bought a bottle of Alcohol for $50");
+        Thread.Sleep(2500);
+        Alcohol += 1;
+        Money -= 50;
+        break;
+      case "bandages":
+      case "bandage":
+        Console.WriteLine("You bought a Bandage for $25");
+        Thread.Sleep(2500);
+        Bandages += 1;
+        Money -= 25;
+        break;
+      case "1":
+        break;
+      default:
+        BuyItems();
+        break;
     }
   }
 
@@ -162,6 +221,9 @@ public class Items(Locations locations)
 
         break;
       case "1":
+        break;
+      default:
+        SellItems();
         break;
     }
   }

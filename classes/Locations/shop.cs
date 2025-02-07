@@ -299,6 +299,7 @@ public class ShopLocation(Locations locations)
         switch (locations.input)
         {
           case 1:
+            items.BuyItems();
             break;
           case 2:
             items.SellItems();
