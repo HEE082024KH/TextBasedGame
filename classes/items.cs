@@ -39,8 +39,9 @@ public class Items(Locations locations)
 
     Console.WriteLine("You died from too many serious wounds");
     Thread.Sleep(2000);
-    Console.WriteLine("--GAME OVER--");
-    Console.Write(">");
+    Console.WriteLine("---GAME OVER---");
+    Console.WriteLine("");
+    Console.WriteLine("Press Enter to exit");
     Console.ReadLine();
     Environment.Exit(0);
   }
@@ -51,8 +52,6 @@ public class Items(Locations locations)
     Console.WriteLine("1. Leave");
     Console.WriteLine("");
     Console.WriteLine("- Machine Gun");
-    Console.WriteLine("- ");
-    Console.WriteLine("- ");
     Console.WriteLine("- Bandages");
     Console.WriteLine("- Alcohol");
     try
@@ -74,10 +73,6 @@ public class Items(Locations locations)
         Thread.Sleep(2500);
         Money -= 500;
         MachineGun = true;
-        break;
-      case "2":
-        break;
-      case "3":
         break;
       case "alcohol":
         Console.WriteLine("You bought a bottle of Alcohol for $50");
@@ -193,6 +188,7 @@ public class Items(Locations locations)
       case "bandage":
         sellBandages:
         Console.WriteLine($"How many do you want to sell? (Currently have {Bandages})");
+        Console.WriteLine($"1. Leave");
         try
         {
           locations.input = Convert.ToInt32(Console.ReadLine());
@@ -211,6 +207,11 @@ public class Items(Locations locations)
           Thread.Sleep(2500);
           Bandages -= Convert.ToInt32(locations.input);
           Money += 10 * Convert.ToInt32(locations.input);
+          SellItems();
+        }
+        else if (locations.itemInput == "1")
+        {
+          SellItems();
         }
         else
         {
