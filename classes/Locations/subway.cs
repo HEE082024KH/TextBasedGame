@@ -8,7 +8,7 @@ public class SubwayEntrance(Locations locations)
 
   public void Subway()
   {
-        if (locations.currentLocation == "Apartments" && !apartmentsToSubway)
+    if (locations.currentLocation == "Apartments" && !apartmentsToSubway)
     {
       Console.Clear();
       Console.Write("On your way to the Subway");
@@ -39,7 +39,49 @@ public class SubwayEntrance(Locations locations)
       {
         case 1:
           Console.Clear();
+          Console.Write("Right away");
+          Thread.Sleep(1500);
+          Console.WriteLine(" you put your hands in the air");
+          Thread.Sleep(2000);
+          Console.Write("They walk over to you");
+          Thread.Sleep(1500);
+          Console.WriteLine(" putting knives to your throat.");
+          Thread.Sleep(2500);
+          Console.WriteLine("They start going through your pockets");
+          Thread.Sleep(2500);
+          Console.WriteLine("You can feel the knives prodding you as they grab your things.");
+          Thread.Sleep(3000);
+          Console.WriteLine("");
           apartmentsToSubwayThugs:
+          Console.WriteLine("--What do you want to do?--");
+          Console.WriteLine("1. Let them");
+          Console.WriteLine("2. Stop them");
+          Thread.Sleep(2000);
+          try
+          {
+            locations.input = Convert.ToInt32(Console.ReadLine());
+          }
+          catch
+          {
+            Console.WriteLine("Invalid input");
+            Thread.Sleep(1500);
+            Console.Clear();
+            goto apartmentsToSubwayThugs;
+          }
+
+          switch (locations.input)
+          {
+            case 1:
+              Console.Clear();
+              Console.WriteLine("");
+              Thread.Sleep(2000);
+              break;
+            case 2:
+              Console.Clear();
+              Console.WriteLine("");
+              Thread.Sleep(2000);
+              break;
+          }
           break;
         case 2:
           if (items.MachineGun)
@@ -71,7 +113,7 @@ public class SubwayEntrance(Locations locations)
           Thread.Sleep(3000);
           Console.Write("As you get closer");
           Thread.Sleep(1500);
-          Console.WriteLine(" you notice the thugs slow down and stops following you.");
+          Console.WriteLine(" you notice the thugs slow down and stop following you.");
           Thread.Sleep(3000);
           Console.WriteLine("That can not be a good sign, can it?");
           Thread.Sleep(3000);
