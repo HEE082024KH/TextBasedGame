@@ -30,6 +30,7 @@ public class ShopLocation(Locations locations)
       }
       catch
       {
+        Console.Clear();
         Console.WriteLine("Invalid input");
         Thread.Sleep(1500);
         Console.Clear();
@@ -67,8 +68,10 @@ public class ShopLocation(Locations locations)
           }
           catch
           {
+            Console.Clear();
             Console.WriteLine("Invalid input");
             Thread.Sleep(1500);
+            Console.Clear();
             goto subwayToShopDogs;
           }
 
@@ -299,6 +302,7 @@ public class ShopLocation(Locations locations)
           Console.Clear();
           Console.WriteLine("Invalid input");
           Thread.Sleep(1500);
+          Console.Clear();
           goto insideShop;
         }
 
@@ -343,6 +347,7 @@ public class ShopLocation(Locations locations)
             Console.Clear();
             Console.WriteLine("Invalid input");
             Thread.Sleep(1500);
+            Console.Clear();
             goto shopOutside;
           }
 

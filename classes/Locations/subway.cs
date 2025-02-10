@@ -29,6 +29,7 @@ public class SubwayEntrance(Locations locations)
       }
       catch
       {
+        Console.Clear();
         Console.WriteLine("Invalid input");
         Thread.Sleep(1500);
         Console.Clear();
@@ -63,6 +64,7 @@ public class SubwayEntrance(Locations locations)
           }
           catch
           {
+            Console.Clear();
             Console.WriteLine("Invalid input");
             Thread.Sleep(1500);
             Console.Clear();
@@ -89,8 +91,28 @@ public class SubwayEntrance(Locations locations)
               Console.Clear();
               Console.WriteLine("You push them off of you");
               Thread.Sleep(2000);
-              Console.WriteLine("");
+              Console.Write("Before you manage to do anything");
+              Thread.Sleep(2500);
+              Console.WriteLine(", you feel a cold sensation in your side.");
+              Thread.Sleep(3000);
+              Console.WriteLine("You look down and see a knife in your side.");
+              Thread.Sleep(3000);
+              Console.Write("You feel faint");
+              Thread.Sleep(1500);
+              Console.Write(" and fall to the ground.");
               Thread.Sleep(2000);
+              Console.WriteLine("Blood pools around you.");
+              Thread.Sleep(2000);
+              Console.Write("As you lie there");
+              Thread.Sleep(2000);
+              Console.WriteLine(" you feel multiple knives piercing your abdomen.");
+              Thread.Sleep(3000);
+              Console.Write("You start to feel numb");
+              Thread.Sleep(2000);
+              Console.WriteLine(" as everything turns black.");
+              Thread.Sleep(3000);
+              items.HealthPoints = 0;
+              items.Hp();
               break;
           }
           break;
@@ -112,6 +134,7 @@ public class SubwayEntrance(Locations locations)
 
           break;
         case 3:
+          Console.Clear();
           Console.Write("Without hesitation");
           Thread.Sleep(1000);
           Console.WriteLine(" you start running as fast as you can.");
@@ -217,6 +240,7 @@ public class SubwayEntrance(Locations locations)
           Console.Clear();
           Console.WriteLine("Invalid input");
           Thread.Sleep(1500);
+          Console.Clear();
           goto subwayEntrance;
         }
 
@@ -382,6 +406,7 @@ public class SubwayEntrance(Locations locations)
         }
         catch
         {
+          Console.Clear();
           Console.WriteLine("Invalid input");
           Thread.Sleep(1500);
           Console.Clear();
@@ -401,6 +426,7 @@ public class SubwayEntrance(Locations locations)
             Thread.Sleep(2000);
             Console.WriteLine("-20 HP");
             items.HealthPoints -= 20;
+            items.Hp();
             Thread.Sleep(2000);
             Subway();
             break;

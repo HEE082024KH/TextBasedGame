@@ -66,8 +66,10 @@ public class ApartmentsLocation(Locations locations)
         }
         catch
         {
+          Console.Clear();
           Console.WriteLine("Invalid input");
           Thread.Sleep(1500);
+          Console.Clear();
           goto outsideApartments;
         }
 
@@ -133,6 +135,7 @@ public class ApartmentsLocation(Locations locations)
         }
         catch
         {
+          Console.Clear();
           Console.WriteLine("Invalid input");
           Thread.Sleep(1500);
           Console.Clear();
@@ -195,8 +198,10 @@ public class ApartmentsLocation(Locations locations)
             }
             catch
             {
+              Console.Clear();
               Console.WriteLine("Invalid input");
               Thread.Sleep(2000);
+              Console.Clear();
               goto insideApartmentsDoor2;
             }
 
@@ -217,6 +222,7 @@ public class ApartmentsLocation(Locations locations)
                     Console.WriteLine("\t-20 HP");
                     Thread.Sleep(2000);
                     items.HealthPoints -= 20;
+                    items.Hp();
                   }
                   else if (items.IsDrunk)
                   {
@@ -227,6 +233,7 @@ public class ApartmentsLocation(Locations locations)
                     Console.WriteLine("\t-30 HP");
                     Thread.Sleep(2000);
                     items.HealthPoints -= 30;
+                    items.Hp();
                   }
                   else if (items.IsHammered)
                   {
@@ -235,6 +242,7 @@ public class ApartmentsLocation(Locations locations)
                     Console.Write("Before you notice what is going on everything goes black.");
                     Thread.Sleep(3000);
                     items.HealthPoints = 0;
+                    items.Hp();
                   }
                   else
                   {
@@ -243,6 +251,7 @@ public class ApartmentsLocation(Locations locations)
                     Console.WriteLine("\t-15 HP");
                     Thread.Sleep(2000);
                     items.HealthPoints -= 15;
+                    items.Hp();
                   }
 
                   items.Hp();
@@ -311,6 +320,7 @@ public class ApartmentsLocation(Locations locations)
                       Console.WriteLine("\t-5 HP");
                       Thread.Sleep(3000);
                       items.HealthPoints -= 5;
+                      items.Hp();
                     }
                     else if (items.IsDrunk)
                     {
@@ -321,6 +331,7 @@ public class ApartmentsLocation(Locations locations)
                       Console.WriteLine("\t-15 HP");
                       Thread.Sleep(3000);
                       items.HealthPoints -= 15;
+                      items.Hp();
                     }
                     else if (items.IsHammered)
                     {
@@ -329,6 +340,7 @@ public class ApartmentsLocation(Locations locations)
                       Console.WriteLine("You walk inside and suddenly everything goes black.");
                       Thread.Sleep(3500);
                       items.HealthPoints = 0;
+                      items.Hp();
                     }
                     else
                     {
@@ -378,6 +390,7 @@ public class ApartmentsLocation(Locations locations)
             }
             catch
             {
+              Console.Clear();
               Console.WriteLine("Invalid input");
               Thread.Sleep(1500);
               Console.Clear();
@@ -414,7 +427,9 @@ public class ApartmentsLocation(Locations locations)
                 }
                 catch
                 {
+                  Console.Clear();
                   Console.WriteLine("Invalid input");
+                  Thread.Sleep(1500);
                   Console.Clear();
                   goto insideApartmentsDoor3Open;
                 }
@@ -440,6 +455,7 @@ public class ApartmentsLocation(Locations locations)
                     }
                     catch
                     {
+                      Console.Clear();
                       Console.WriteLine("Invalid input");
                       Thread.Sleep(1500);
                       Console.Clear();
@@ -461,6 +477,7 @@ public class ApartmentsLocation(Locations locations)
                         Console.WriteLine("\t-15 HP");
                         Thread.Sleep(3000);
                         items.HealthPoints -= 15;
+                        items.Hp();
                         Thread.Sleep(2500);
                         Console.Write("Just as you are about to leave");
                         Thread.Sleep(2000);
@@ -600,6 +617,7 @@ public class ApartmentsLocation(Locations locations)
               }
               catch
               {
+                Console.Clear();
                 Console.WriteLine("Invalid input");
                 Thread.Sleep(1500);
                 Console.Clear();
@@ -669,8 +687,10 @@ public class ApartmentsLocation(Locations locations)
                   }
                   catch
                   {
+                    Console.Clear();
                     Console.WriteLine("Invalid input");
                     Thread.Sleep(1500);
+                    Console.Clear();
                     goto insideApartmentsDoor4Kill;
                   }
 
@@ -753,6 +773,7 @@ public class ApartmentsLocation(Locations locations)
                       }
                       catch
                       {
+                        Console.Clear();
                         Console.WriteLine("Invalid input");
                         Thread.Sleep(1500);
                         Console.Clear();
