@@ -134,7 +134,7 @@ public class GateLocation(Locations locations)
       {
         Console.Clear();
         Console.Write("Invalid input");
-        Thread.Sleep(1000);
+        Thread.Sleep(1500);
         Gate();
         break;
       }

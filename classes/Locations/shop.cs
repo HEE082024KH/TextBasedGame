@@ -300,7 +300,7 @@ public class ShopLocation(Locations locations)
         {
           case 1:
             items.BuyItems();
-            break;
+            goto insideShop;
           case 2:
             items.SellItems();
             goto insideShop;
@@ -367,8 +367,8 @@ public class ShopLocation(Locations locations)
       default:
       {
         Console.Clear();
-        Console.Write("--Invalid input--");
-        Thread.Sleep(1000);
+        Console.Write("Invalid input");
+        Thread.Sleep(1500);
         Shop();
         break;
       }

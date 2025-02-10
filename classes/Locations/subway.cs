@@ -287,8 +287,8 @@ public class SubwayEntrance(Locations locations)
       default:
       {
         Console.Clear();
-        Console.Write("---Invalid input---");
-        Thread.Sleep(1000);
+        Console.Write("Invalid input");
+        Thread.Sleep(1500);
         Subway();
         break;
       }
