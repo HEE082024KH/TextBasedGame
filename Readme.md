@@ -7,12 +7,12 @@ I decided to create a text based game.
 Initially the idea was to create a simple game, but as I've worked on it new ideas has come up and
 the project grew in size.
 
-<picture>
+<br><picture>
 <img src="https://www.askpython.com/wp-content/uploads/2021/06/text-based-story-game-2048x1152.png.webp" width="525" height="295"/> 
-</picture> &nbsp;
+</picture><br> &nbsp;
 
 Currently, the game only has 4/12 locations finished, but most game logic and structure is done.
-<br> **\*About 25-35% done overall.**
+<br> **\*About 35-40% done overall.**
 
 Feel free to test the game if you want, any feedback is welcome.
 
