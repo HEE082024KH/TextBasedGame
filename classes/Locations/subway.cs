@@ -4,9 +4,83 @@ public class SubwayEntrance(Locations locations)
   private readonly Status status = new(locations, locations.items);
   private bool subwayEntrance;
   private bool subwayFlashlight;
+  private bool apartmentsToSubway;
 
   public void Subway()
   {
+        if (locations.currentLocation == "Apartments" && !apartmentsToSubway)
+    {
+      Console.Clear();
+      Console.Write("On your way to the Subway");
+      Thread.Sleep(1500);
+      Console.WriteLine(", you encounter a pack of thugs.");
+      Thread.Sleep(2000);
+      Console.WriteLine("They do not look friendly.");
+      Thread.Sleep(2000);
+      Console.WriteLine("");
+      apartmentsToSubway:
+      Console.WriteLine("--What do you want to do?");
+      Console.WriteLine("1. Put your hands up");
+      Console.WriteLine("2. Attack them");
+      Console.WriteLine("3. Run");
+      try
+      {
+        locations.input = Convert.ToInt32(Console.ReadLine());
+      }
+      catch
+      {
+        Console.WriteLine("Invalid input");
+        Thread.Sleep(1500);
+        Console.Clear();
+        goto apartmentsToSubway;
+      }
+
+      switch (locations.input)
+      {
+        case 1:
+          Console.Clear();
+          apartmentsToSubwayThugs:
+          break;
+        case 2:
+          if (items.MachineGun)
+          {
+            Console.Clear();
+            Console.WriteLine("You pull out your machine gun and spray the dogs with bullet.");
+            Thread.Sleep(3500);
+            Console.WriteLine("All of the dogs are taken out before any of them could get close.");
+            Thread.Sleep(3500);
+          }
+          else
+          {
+            Console.Clear();
+            items.HealthPoints = 0;
+            items.Hp();
+          }
+
+          break;
+        case 3:
+          Console.Write("Without hesitation");
+          Thread.Sleep(1000);
+          Console.WriteLine(" you start running as fast as you can.");
+          Thread.Sleep(2000);
+          Console.Write("As you look back");
+          Thread.Sleep(1500);
+          Console.Write(" you see them chasing after you");
+          Thread.Sleep(2000);
+          Console.WriteLine("You can see the Subway ahead of you in the distance.");
+          Thread.Sleep(3000);
+          Console.Write("As you get closer");
+          Thread.Sleep(1500);
+          Console.WriteLine(" you notice the thugs slow down and stops following you.");
+          Thread.Sleep(3000);
+          Console.WriteLine("That can not be a good sign, can it?");
+          Thread.Sleep(3000);
+          break;
+      }
+
+      apartmentsToSubway = true;
+    }
+
     locations.currentLocation = "Subway Entrance";
     Console.Clear();
     Console.WriteLine($"You are at the  -{locations.currentLocation}-");
