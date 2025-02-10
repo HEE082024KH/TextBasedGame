@@ -1,6 +1,6 @@
 using System.Reflection.PortableExecutable;
 
-public class Items(Locations locations)
+public class Items(Locations locations, Items items)
 {
   // MONEY AVAILABLE: $365
   // MONEY SPENDABLE: $585
@@ -48,6 +48,7 @@ public class Items(Locations locations)
 
   public void BuyItems()
   {
+    Console.Clear();
     Console.WriteLine("--What do you want to buy?--");
     Console.WriteLine("1. Leave");
     Console.WriteLine("");
@@ -97,6 +98,7 @@ public class Items(Locations locations)
 
   public void SellItems()
   {
+    Console.Clear();
     Console.WriteLine("--What do you want to sell?--");
     Console.WriteLine("1. Leave");
     Console.WriteLine("");

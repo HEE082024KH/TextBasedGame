@@ -1,10 +1,11 @@
 public class ShopLocation(Locations locations)
 {
-  private readonly Items items = locations.items;
+  private readonly Items items = new(locations,locations.items);
   private readonly Locations locations = locations;
   private readonly Status status = new(locations, locations.items);
   private bool shopOutside;
   private bool subwayToShop;
+  private bool insideShop;
 
   public void Shop()
   {
@@ -240,44 +241,49 @@ public class ShopLocation(Locations locations)
       }
       case 3:
       {
-        Console.Clear();
-        Console.WriteLine("As you enter the shop you hear faint music humming in the background.");
-        Thread.Sleep(3000);
-        Console.WriteLine("The walls are sparsely filled with random trinkets and items.");
-        Thread.Sleep(2500);
-        Console.WriteLine("There does not seem to be anyone here.");
-        Thread.Sleep(2000);
-        Console.Write("It all seems a bit");
-        Thread.Sleep(1000);
-        Console.WriteLine(", off.");
-        Thread.Sleep(1500);
-        Console.Write("You go over to the register");
-        Thread.Sleep(1500);
-        Console.WriteLine(", when a small creature behind the counter groans towards.");
-        Thread.Sleep(2500);
-        Console.WriteLine("You jump as they stare at you with a stern look");
-        Thread.Sleep(2500);
-        Console.Write("You try asking him about what he sells");
-        Thread.Sleep(1500);
-        Console.Write(" but he just points to a sign behind him");
-        Thread.Sleep(1500);
-        Console.WriteLine(", before grunting and retreating to the back room.");
-        Thread.Sleep(3000);
-        Console.Write("The sign seams simple enough though");
-        Thread.Sleep(1500);
-        Console.WriteLine(", luckily.");
-        Thread.Sleep(1000);
-        Console.Write("Pick and item.");
-        Thread.Sleep(1000);
-        Console.Write(" Have money.");
-        Thread.Sleep(1000);
-        Console.Write(" Ring the bell.");
-        Thread.Sleep(1000);
-        Console.Write("Pay");
-        Thread.Sleep(1000);
-        Console.WriteLine(" and get out.");
-        Thread.Sleep(3000);
-        Console.WriteLine("");
+        if (!insideShop)
+        {
+          Console.Clear();
+          Console.WriteLine("As you enter the shop you hear faint music humming in the background.");
+          Thread.Sleep(3000);
+          Console.WriteLine("The walls are sparsely filled with random trinkets and items.");
+          Thread.Sleep(3000);
+          Console.Write("There does not seem to be anyone here.");
+          Thread.Sleep(2500);
+          Console.Write("It all seems a bit");
+          Thread.Sleep(1500);
+          Console.WriteLine(", off.");
+          Thread.Sleep(1500);
+          Console.Write("You go over to the register");
+          Thread.Sleep(1500);
+          Console.WriteLine(", a small creature behind the counter groans towards you.");
+          Thread.Sleep(3000);
+          Console.WriteLine("You jump, as they stare at you with a stern look");
+          Thread.Sleep(2500);
+          Console.Write("You try asking him about what he sells");
+          Thread.Sleep(2000);
+          Console.WriteLine(" but he just points to a sign behind him");
+          Thread.Sleep(2000);
+          Console.WriteLine(", before grunting and retreating to the back room.");
+          Thread.Sleep(3000);
+          Console.Write("The sign seams simple enough though");
+          Thread.Sleep(2000);
+          Console.WriteLine(", luckily.");
+          Thread.Sleep(1500);
+          Console.Write("Pick item.");
+          Thread.Sleep(1500);
+          Console.Write(" Have money.");
+          Thread.Sleep(1500);
+          Console.Write(" Ring bell.");
+          Thread.Sleep(1500);
+          Console.Write(" Pay.");
+          Thread.Sleep(1500);
+          Console.WriteLine(" Fuck off!");
+          Thread.Sleep(3000);
+          Console.WriteLine("");
+          insideShop = true;
+        }
+
         insideShop:
         Console.WriteLine("--What do you want to do?--");
         Console.WriteLine("1. Buy something");

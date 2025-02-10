@@ -73,11 +73,22 @@ public class SubwayEntrance(Locations locations)
           {
             case 1:
               Console.Clear();
-              Console.WriteLine("");
+              Console.WriteLine("You feel it is safer to let them.");
+              Thread.Sleep(2000);
+              Console.WriteLine("They end up taking all your money.");
+              Thread.Sleep(2000);
+              items.Money = 0;
+              Console.Write("As they walk off");
+              Thread.Sleep(1500);
+              Console.WriteLine(", you are not sure whether you should be happy to be alive");
+              Thread.Sleep(2500);
+              Console.WriteLine(", or angry they took all of your money.");
               Thread.Sleep(2000);
               break;
             case 2:
               Console.Clear();
+              Console.WriteLine("You push them off of you");
+              Thread.Sleep(2000);
               Console.WriteLine("");
               Thread.Sleep(2000);
               break;
