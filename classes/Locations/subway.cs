@@ -105,7 +105,7 @@ public class SubwayEntrance(Locations locations)
               Thread.Sleep(2000);
               Console.Write("As you lie there");
               Thread.Sleep(2000);
-              Console.WriteLine(" you feel multiple knives piercing your abdomen.");
+              Console.WriteLine(" you feel multiple knives piercing your body.");
               Thread.Sleep(3000);
               Console.Write("You start to feel numb");
               Thread.Sleep(2000);
@@ -115,19 +115,49 @@ public class SubwayEntrance(Locations locations)
               items.Hp();
               break;
           }
+
           break;
         case 2:
           if (items.MachineGun)
           {
             Console.Clear();
-            Console.WriteLine("You pull out your machine gun and spray the dogs with bullet.");
+            Console.WriteLine("You pull out your machine gun and spray the thugs with bullet.");
             Thread.Sleep(3500);
-            Console.WriteLine("All of the dogs are taken out before any of them could get close.");
+            Console.WriteLine("All of the thugs are taken out before any of them could get close.");
             Thread.Sleep(3500);
+            Console.WriteLine("You loot their corpses for 15 bucks.");
+            Thread.Sleep(3000);
+            items.Money += 15;
           }
-          else
+          else if (items.Knife || items.Crowbar)
           {
             Console.Clear();
+            if (items.Knife) Console.WriteLine("You pull out your knife and get ready to fight.");
+            if (items.Crowbar) Console.WriteLine("You pull out your crowbar and get ready to fight.");
+            Thread.Sleep(3000);
+            Console.Write("You expect them to come at you all at once");
+            Thread.Sleep(2500);
+            Console.WriteLine(", but they circle around you like hawks.");
+            Thread.Sleep(2500);
+            Console.Write("They take turns taking jabs at you");
+            Thread.Sleep(2500);
+            Console.Write(" stabbing the air");
+            Thread.Sleep(1500);
+            Console.WriteLine(", mostly");
+            Thread.Sleep(1500);
+            Console.Write("Eventually");
+            Thread.Sleep(1500);
+            Console.WriteLine(", you manage to fend them off.");
+            Thread.Sleep(2000);
+            Console.WriteLine("They run off leaving one of their wounded.");
+            Thread.Sleep(2500);
+            Console.WriteLine("You search his pockets and find 5 bucks");
+            Thread.Sleep(2500);
+            items.Money += 5;
+            Console.WriteLine("They got in a few good stabs and swipes.");
+            Thread.Sleep(2500);
+            Console.WriteLine("-25 HP");
+            Thread.Sleep(2000);
             items.HealthPoints = 0;
             items.Hp();
           }
