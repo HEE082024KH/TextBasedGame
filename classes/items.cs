@@ -90,6 +90,7 @@ public class Items(Locations locations, Items items)
         Money -= 25;
         break;
       case "1":
+        Console.Clear();
         break;
       default:
         BuyItems();
@@ -235,6 +236,7 @@ public class Items(Locations locations, Items items)
 
         break;
       case "1":
+        Console.Clear();
         break;
       default:
         SellItems();

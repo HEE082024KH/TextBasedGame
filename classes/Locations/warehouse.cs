@@ -189,7 +189,7 @@ public class AbandonedWarehouse(Locations locations)
       pavilionToWarehouse = true;
     }
 
-    locations.currentLocation = "AbandonedWarehouse";
+    locations.currentLocation = "Abandoned Warehouse";
     Console.Clear();
     Console.WriteLine($"You are at the  -{locations.currentLocation}-");
     Thread.Sleep(500);

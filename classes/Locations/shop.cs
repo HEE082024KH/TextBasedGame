@@ -1,7 +1,6 @@
 public class ShopLocation(Locations locations)
 {
   private readonly Items items = new(locations, locations.items);
-  private readonly Locations locations = locations;
   private readonly Status status = new(locations, locations.items);
   private bool shopOutside;
   private bool subwayToShop;
@@ -254,7 +253,7 @@ public class ShopLocation(Locations locations)
           Thread.Sleep(3000);
           Console.Write("There does not seem to be anyone here.");
           Thread.Sleep(2500);
-          Console.Write("It all seems a bit");
+          Console.Write(" It all seems a bit");
           Thread.Sleep(1500);
           Console.WriteLine(", off.");
           Thread.Sleep(1500);
@@ -262,13 +261,13 @@ public class ShopLocation(Locations locations)
           Thread.Sleep(1500);
           Console.WriteLine(", a small creature behind the counter groans towards you.");
           Thread.Sleep(3000);
-          Console.WriteLine("You jump, as they stare at you with a stern look");
+          Console.WriteLine("You jump, as they stare at you with a stern look.");
           Thread.Sleep(2500);
           Console.Write("You try asking him about what he sells");
           Thread.Sleep(2000);
-          Console.WriteLine(" but he just points to a sign behind him");
+          Console.WriteLine(" but he just points to a sign behind him,");
           Thread.Sleep(2000);
-          Console.WriteLine(", before grunting and retreating to the back room.");
+          Console.WriteLine("before grunting and retreating to the back room.");
           Thread.Sleep(3000);
           Console.Write("The sign seams simple enough though");
           Thread.Sleep(2000);
