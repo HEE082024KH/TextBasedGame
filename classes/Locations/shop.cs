@@ -1,6 +1,6 @@
 public class ShopLocation(Locations locations)
 {
-  private readonly Items items = new(locations,locations.items);
+  private readonly Items items = new(locations, locations.items);
   private readonly Locations locations = locations;
   private readonly Status status = new(locations, locations.items);
   private bool shopOutside;
@@ -181,6 +181,7 @@ public class ShopLocation(Locations locations)
 
           break;
         case 3:
+          Console.Clear();
           Console.Write("Without hesitation");
           Thread.Sleep(1000);
           Console.WriteLine(" you start running as fast as you can.");
