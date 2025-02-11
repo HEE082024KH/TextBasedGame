@@ -877,6 +877,7 @@ public class ApartmentsLocation(Locations locations)
           }
           case 5:
           {
+            Console.Clear();
             Console.WriteLine("It looks be some sort of janitors closet.");
             Thread.Sleep(3000);
             Console.Write("It's messy and full of useless utility items");
