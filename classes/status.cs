@@ -195,6 +195,11 @@ public class Status(Locations locations, Items items)
       Console.WriteLine("- Machine Gun");
     }
 
+    if (items.Coin)
+    {
+      Console.WriteLine("- Coin");
+    }
+
     Console.WriteLine(">");
     Console.ReadLine();
   }

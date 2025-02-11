@@ -27,6 +27,7 @@ public class Items(Locations locations, Items items)
   public bool Necklace;
   public bool DogBone;
   public bool MachineGun;
+  public bool Coin;
   public int Money;
   public int HealthPoints = 80;
 
@@ -104,27 +105,32 @@ public class Items(Locations locations, Items items)
     Console.WriteLine("");
     if (Knife)
     {
-      Console.WriteLine("Knife");
+      Console.WriteLine("- Knife");
     }
 
     if (Necklace)
     {
-      Console.WriteLine("Necklace");
+      Console.WriteLine("- Necklace");
     }
 
     if (GreenGem)
     {
-      Console.WriteLine("Green Gem");
+      Console.WriteLine("- Green Gem");
+    }
+
+    if (Coin)
+    {
+      Console.WriteLine("- Coin");
     }
 
     if (Alcohol > 0)
     {
-      Console.WriteLine("Alcohol");
+      Console.WriteLine("- Alcohol");
     }
 
     if (Bandages > 0)
     {
-      Console.WriteLine("Bandages");
+      Console.WriteLine("- Bandages");
     }
 
     try
@@ -155,6 +161,11 @@ public class Items(Locations locations, Items items)
         Console.WriteLine("You sold the necklace for $100");
         Thread.Sleep(2500);
         Money += 100;
+        break;
+      case "coin":
+        Console.WriteLine("You sold the Coin for $25");
+        Thread.Sleep(2500);
+        Money += 25;
         break;
       case "alcohol":
         sellAlcohol:

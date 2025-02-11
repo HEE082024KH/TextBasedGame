@@ -38,6 +38,18 @@ public class AbandonedWarehouse(Locations locations)
       {
         case 1:
           Console.Clear();
+          Console.Write("You try to talk with the man");
+          Thread.Sleep(2000);
+          Console.Write("The man does not say a word");
+          Thread.Sleep(2000);
+          Console.Write(", just stares at you");
+          Thread.Sleep(2000);
+          Console.Write(" and hands you a COIN and 10 bucks");
+          Thread.Sleep(2000);
+          Console.WriteLine(", then walks off");
+          Thread.Sleep(2000);
+          items.Coin = true;
+          items.Money += 10;
           break;
         case 2:
           Console.Clear();
@@ -97,6 +109,15 @@ public class AbandonedWarehouse(Locations locations)
                 Thread.Sleep(2000);
                 Console.WriteLine(" and try to talk with the man");
                 Thread.Sleep(2000);
+                Console.Write("The man does not say a word");
+                Thread.Sleep(2000);
+                Console.Write(", just stares at you");
+                Thread.Sleep(2000);
+                Console.Write(" and hands you a COIN");
+                Thread.Sleep(2000);
+                Console.WriteLine(", then walks off");
+                Thread.Sleep(2000);
+                items.Coin = true;
                 break;
               case 2:
                 Console.Clear();
@@ -141,7 +162,15 @@ public class AbandonedWarehouse(Locations locations)
           }
           else
           {
-            Console.WriteLine("");
+            Console.WriteLine("You raise your fist to fight the man.");
+            Thread.Sleep(2000);
+            Console.WriteLine("He does not seem to care and just walks right past you.");
+            Thread.Sleep(3000);
+            Console.Write(".");
+            Thread.Sleep(500);
+            Console.Write(".");
+            Thread.Sleep(500);
+            Console.WriteLine(".");
             Thread.Sleep(2000);
           }
 
