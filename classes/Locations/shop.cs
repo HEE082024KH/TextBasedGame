@@ -113,6 +113,11 @@ public class ShopLocation(Locations locations)
       Console.WriteLine("- Coin");
     }
 
+    if (items.Gun)
+    {
+      Console.WriteLine("- Gun");
+    }
+
     if (items.Alcohol > 0)
     {
       Console.WriteLine("- Alcohol");
@@ -156,6 +161,11 @@ public class ShopLocation(Locations locations)
         Console.WriteLine("You sold the Coin for $25");
         Thread.Sleep(2500);
         items.Money += 25;
+        break;
+      case "gun":
+        Console.WriteLine("You sold the Gun for $50");
+        Thread.Sleep(2500);
+        items.Money += 50;
         break;
       case "alcohol":
         sellAlcohol:

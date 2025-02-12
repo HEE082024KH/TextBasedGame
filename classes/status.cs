@@ -200,6 +200,11 @@ public class Status(Locations locations, Items items)
       Console.WriteLine("- Coin");
     }
 
+    if (items.Gun)
+    {
+      Console.WriteLine("- Gun");
+    }
+
     Console.WriteLine(">");
     Console.ReadLine();
   }
