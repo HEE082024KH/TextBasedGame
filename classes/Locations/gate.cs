@@ -7,6 +7,8 @@ public class GateLocation(Locations locations)
   {
     locations.currentLocation = "Gate";
     Console.Clear();
+    Structures.Gate();
+    Console.WriteLine("");
     Console.WriteLine($"You are at the  -{locations.currentLocation}-");
     Console.WriteLine("");
     Console.WriteLine("--What do you want to do?--");
@@ -42,9 +44,11 @@ public class GateLocation(Locations locations)
       }
       case 3:
       {
-        if (items.GateKey == true)
+        if (items.GateKey)
         {
           Console.Clear();
+          Structures.Gate();
+          Console.WriteLine("");
           Console.WriteLine("You take out the key and slide it into the keyhole");
           Thread.Sleep(2000);
           Console.Write(", with a distinct click");
@@ -98,7 +102,7 @@ public class GateLocation(Locations locations)
       }
       case 4:
       {
-        if (items.Flashlight == true && items.Hairpin == true)
+        if (items.Flashlight || items.Hairpin)
         {
           Console.Clear();
           Console.WriteLine("You use your flashlight to look around");
@@ -107,7 +111,7 @@ public class GateLocation(Locations locations)
           Thread.Sleep(3500);
           Gate();
         }
-        else if (items.Flashlight == true)
+        else if (items.Flashlight)
         {
           Console.Clear();
           Console.WriteLine("You use your flashlight to look around");
