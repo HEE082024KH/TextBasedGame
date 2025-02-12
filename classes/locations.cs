@@ -47,7 +47,7 @@ public class Locations
     }
 
     Console.Clear();
-    map.ShowMap();
+    Map.ShowMap();
     Console.WriteLine("Where do you want to travel to?");
     Console.Write(">");
     try

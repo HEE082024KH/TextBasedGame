@@ -1,6 +1,6 @@
 public class Map
 {
-  public void ShowMap()
+  public static void ShowMap()
   {
     Console.WriteLine("");
     Console.WriteLine("                   _       ,");
@@ -46,7 +46,7 @@ public class Map
 
 public class Structures
 {
-  public void Skyscraper()
+  public static void Office()
   {
     Console.WriteLine("");
     Console.WriteLine("███████████████");
@@ -68,7 +68,7 @@ public class Structures
     Console.WriteLine("");
   }
 
-  public void City()
+  public static void Gate()
   {
     Console.WriteLine("");
     Console.WriteLine("                   _                      _                _");
@@ -95,21 +95,29 @@ public class Structures
     Console.WriteLine("");
   }
 
-  public void WarehouseStructure()
+  public static void Warehouse()
   {
     Console.WriteLine("");
-    Console.WriteLine("            )");
-    Console.WriteLine("           (      _[]_         (");
-    Console.WriteLine("   __[]___[]___[]/____\\_[]_    )");
-    Console.WriteLine("  /______________|    |____\\  (");
-    Console.WriteLine("  |[][] [][] [][] [][] [][]|__[]_");
-    Console.WriteLine("  |    |    |    |    |    |_____\\");
-    Console.WriteLine("  |[]|||||[]|[]|||[]|||||[]|[_]|||");
-    Console.WriteLine("  ================================");
+    Console.WriteLine("            )   )                       (       )  (");
+    Console.WriteLine("           (    (             _____       )     (    )");
+    Console.WriteLine("   __[]___[]___[]___[]___[]__/_____\\[]___[]___[]___[]___[]___    )");
+    Console.WriteLine("  /__________________________|     |__________________________\\   (");
+    Console.WriteLine("  |  [] []     [] []     [] []     [] []     [] []     [] []  |     )");
+    Console.WriteLine("  |         |         |         |         |         |         |    (");
+    Console.WriteLine("  |  [] []     [] []     [] []     [] []     [] []     [] []  |___[]___");
+    Console.WriteLine("  |         |         |         |         |         |         |        \\");
+    Console.WriteLine("  |||||||[]||||||||[]||||||||[]||||||||[]||||||||[]||||||||[]||         \\");
+    Console.WriteLine("  |         |         |         |         |         |         |__________\\");
+    Console.WriteLine("  |  [] []     [] []     [] []     [] []     [] []     [] []     [] []   |");
+    Console.WriteLine("  |         |         |         |         |         |                    |");
+    Console.WriteLine("  |  [] []     [] []     [] []     [] []     [] []     [] []     [] []   |");
+    Console.WriteLine("  |         |         |         |         |         |                    |");
+    Console.WriteLine("  ||[]||||||||[]||||||||[]||||||||[]||||||||[]||||||||[]||||||||[]||||||||");
+    Console.WriteLine("  ========================================================================");
     Console.WriteLine("");
   }
 
-  public void Hallway()
+  public static void Apartments()
   {
     Console.WriteLine("");
     Console.WriteLine(" _____________________________________________");
@@ -135,7 +143,7 @@ public class Structures
     Console.WriteLine("");
   }
 
-  public void FancyHouse()
+  public static void FancyHouse()
   {
     Console.WriteLine("");
     Console.WriteLine("                 _ _.-'`-._ _");
@@ -151,7 +159,7 @@ public class Structures
     Console.WriteLine("");
   }
 
-  public void Clouds()
+  public static void Clouds()
   {
     Console.WriteLine("");
     Console.WriteLine("                _         ");
@@ -170,7 +178,7 @@ public class Structures
     Console.WriteLine("");
   }
 
-  public void Computer()
+  public static void Computer()
   {
     Console.WriteLine("");
     Console.WriteLine("                       .,,uod8B8bou,,.");

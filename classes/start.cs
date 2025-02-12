@@ -24,7 +24,7 @@ public class Start()
     Console.WriteLine("Your eyes finally open enough for you to realize your surroundings.");
     Thread.Sleep(3500);
     Console.Clear();
-    structures.Clouds();
+    Structures.Clouds();
     Thread.Sleep(2000);
     Console.WriteLine("");
     Console.Write("It's dark");

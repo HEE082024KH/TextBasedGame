@@ -1,7 +1,6 @@
 public class BombShelter(Locations locations)
 {
   private readonly Items items = locations.items;
-  private readonly Locations locations = locations;
   private readonly Status status = new(locations, locations.items);
 
   public void Shelter()

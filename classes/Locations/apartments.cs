@@ -9,9 +9,7 @@ public class ApartmentsLocation(Locations locations)
   private bool insideApartmentsDoor4KillHands;
   private bool insideApartmentsDoor4Steal;
   private bool insideApartmentsDoor4Talk;
-  private readonly Structures structures = new Structures();
   private readonly Items items = locations.items;
-  private readonly Locations locations = locations;
   private readonly Status status = new(locations, locations.items);
 
   public void Apartments()
@@ -109,21 +107,24 @@ public class ApartmentsLocation(Locations locations)
         if (!enterInsideApartments)
         {
           Console.Clear();
-          structures.Hallway();
+          Structures.Apartments();
           Console.WriteLine("");
           Console.Write("The door opens with a nasty creak");
-          Thread.Sleep(1000);
+          Thread.Sleep(2000);
           Console.WriteLine(", sure to notify anyone nearby.");
           Thread.Sleep(1500);
           Console.Write("Inside there's a small hallway with a door at the end");
-          Thread.Sleep(2000);
+          Thread.Sleep(2500);
           Console.WriteLine(", and 2 doors on either side.");
-          Thread.Sleep(2000);
+          Thread.Sleep(3000);
           Console.WriteLine("");
           enterInsideApartments = true;
         }
 
         insideApartments:
+        Console.Clear();
+        Structures.Apartments();
+        Console.WriteLine("");
         Console.WriteLine("What do you want to do?");
         Console.WriteLine("1. Enter the first door on the right");
         Console.WriteLine("2. Enter the second door on the right");
@@ -142,7 +143,7 @@ public class ApartmentsLocation(Locations locations)
           Console.WriteLine("Invalid input");
           Thread.Sleep(1500);
           Console.Clear();
-          structures.Hallway();
+          Structures.Apartments();
           Console.WriteLine("");
           goto insideApartments;
         }
@@ -163,7 +164,7 @@ public class ApartmentsLocation(Locations locations)
               Console.WriteLine("Not much to find here");
               Thread.Sleep(2000);
               Console.Clear();
-              structures.Hallway();
+              Structures.Apartments();
               Console.WriteLine("");
               goto insideApartments;
             }
@@ -178,7 +179,7 @@ public class ApartmentsLocation(Locations locations)
               Console.WriteLine("Not much to find here");
               Thread.Sleep(2000);
               Console.Clear();
-              structures.Hallway();
+              Structures.Apartments();
               Console.WriteLine("");
               goto insideApartments;
             }
@@ -188,7 +189,7 @@ public class ApartmentsLocation(Locations locations)
             Console.WriteLine("If only you had a crowbar or something to unlock the door");
             Thread.Sleep(3000);
             Console.Clear();
-            structures.Hallway();
+            Structures.Apartments();
             Console.WriteLine("");
             goto insideApartments;
           }
@@ -300,7 +301,7 @@ public class ApartmentsLocation(Locations locations)
                 }
 
                 Console.Clear();
-                structures.Hallway();
+                Structures.Apartments();
                 Console.WriteLine("");
                 goto insideApartments;
               case 2:
@@ -371,7 +372,7 @@ public class ApartmentsLocation(Locations locations)
                     Thread.Sleep(3000);
                     insideApartmentsDoor2Done = true;
                     Console.Clear();
-                    structures.Hallway();
+                    Structures.Apartments();
                     Console.WriteLine("");
                     goto insideApartments;
                   }
@@ -382,13 +383,13 @@ public class ApartmentsLocation(Locations locations)
                 Console.WriteLine("There is not much left to find here, however.");
                 Thread.Sleep(2500);
                 Console.Clear();
-                structures.Hallway();
+                Structures.Apartments();
                 Console.WriteLine("");
                 goto insideApartments;
             }
 
             Console.Clear();
-            structures.Hallway();
+            Structures.Apartments();
             Console.WriteLine("");
             goto insideApartments;
           }
@@ -511,12 +512,12 @@ public class ApartmentsLocation(Locations locations)
                         Thread.Sleep(3000);
                         items.OfficeKeycard = true;
                         Console.Clear();
-                        structures.Hallway();
+                        Structures.Apartments();
                         Console.WriteLine("");
                         goto insideApartments;
                       case 2:
                         Console.Clear();
-                        structures.Hallway();
+                        Structures.Apartments();
                         Console.WriteLine("");
                         goto insideApartments;
                     }
@@ -528,7 +529,7 @@ public class ApartmentsLocation(Locations locations)
                 break;
               case 2:
                 Console.Clear();
-                structures.Hallway();
+                Structures.Apartments();
                 Console.WriteLine("");
                 goto insideApartments;
             }
@@ -543,7 +544,7 @@ public class ApartmentsLocation(Locations locations)
               Console.WriteLine("You do not have any reason to go back here.");
               Thread.Sleep(3000);
               Console.Clear();
-              structures.Hallway();
+              Structures.Apartments();
               Console.WriteLine("");
               goto insideApartments;
             }
@@ -568,7 +569,7 @@ public class ApartmentsLocation(Locations locations)
                 Thread.Sleep(2500);
                 insideApartmentsDoor4Done = true;
                 Console.Clear();
-                structures.Hallway();
+                Structures.Apartments();
                 Console.WriteLine("");
                 goto insideApartments;
               }
@@ -583,7 +584,7 @@ public class ApartmentsLocation(Locations locations)
               Console.WriteLine("You should find the necklace before coming back here.");
               Thread.Sleep(4000);
               Console.Clear();
-              structures.Hallway();
+              Structures.Apartments();
               Console.WriteLine("");
               goto insideApartments;
             }
@@ -614,7 +615,7 @@ public class ApartmentsLocation(Locations locations)
               Thread.Sleep(2500);
               insideApartmentsDoor4Done = true;
               Console.Clear();
-              structures.Hallway();
+              Structures.Apartments();
               Console.WriteLine("");
               goto insideApartments;
             }
@@ -681,7 +682,7 @@ public class ApartmentsLocation(Locations locations)
                   items.NecklaceQuest = true;
                   insideApartmentsDoor4Talk = true;
                   Console.Clear();
-                  structures.Hallway();
+                  Structures.Apartments();
                   Console.WriteLine("");
                   goto insideApartments;
                 case 2:
@@ -714,7 +715,7 @@ public class ApartmentsLocation(Locations locations)
 
                   insideApartmentsDoor4Steal = true;
                   Console.Clear();
-                  structures.Hallway();
+                  Structures.Apartments();
                   Console.WriteLine("");
                   goto insideApartments;
                 case 3:
@@ -867,7 +868,7 @@ public class ApartmentsLocation(Locations locations)
 
                   insideApartmentsDoor4Kill = true;
                   Console.Clear();
-                  structures.Hallway();
+                  Structures.Apartments();
                   Console.WriteLine("");
                   goto insideApartments;
               }
@@ -889,7 +890,7 @@ public class ApartmentsLocation(Locations locations)
             items.Alcohol = items.Alcohol++;
             Thread.Sleep(3500);
             Console.Clear();
-            structures.Hallway();
+            Structures.Apartments();
             Console.WriteLine("");
             goto insideApartments;
           }
@@ -906,7 +907,7 @@ public class ApartmentsLocation(Locations locations)
             Console.WriteLine(" you doubt it is safe to pass.");
             Thread.Sleep(3000);
             Console.Clear();
-            structures.Hallway();
+            Structures.Apartments();
             Console.WriteLine("");
             goto insideApartments;
           }

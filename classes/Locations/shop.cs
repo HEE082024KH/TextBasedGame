@@ -6,6 +6,233 @@ public class ShopLocation(Locations locations)
   private bool subwayToShop;
   private bool insideShop;
 
+  private void BuyItems()
+  {
+    Console.Clear();
+    Console.WriteLine("--What do you want to buy?--");
+    Console.WriteLine("1. Leave");
+    Console.WriteLine("");
+    Console.WriteLine("- Machine Gun");
+    Console.WriteLine("- Bandages");
+    Console.WriteLine("- Alcohol");
+    try
+    {
+      locations.itemInput = Console.ReadLine()?.ToLower();
+    }
+    catch
+    {
+      Console.WriteLine("Invalid input");
+      Thread.Sleep(1500);
+      BuyItems();
+    }
+
+    switch (locations.itemInput)
+    {
+      case "machine gun":
+      case "machinegun":
+        if (items.Money >= 500)
+        {
+          Console.WriteLine("You bought the Machine Gun for $500");
+          Thread.Sleep(3000);
+          items.Money -= 500;
+          items.MachineGun = true;
+        }
+        else
+        {
+          Console.WriteLine("You do not have enough money.");
+          Thread.Sleep(2500);
+        }
+
+        Console.Clear();
+        break;
+      case "alcohol":
+        if (items.Money >= 50)
+        {
+          Console.WriteLine("You bought a bottle of Alcohol for $50");
+          Thread.Sleep(2500);
+          items.Alcohol += 1;
+          items.Money -= 50;
+        }
+        else
+        {
+          Console.WriteLine("You do not have enough money.");
+          Thread.Sleep(2500);
+        }
+
+        Console.Clear();
+        break;
+      case "bandages":
+      case "bandage":
+        if (items.Money >= 25)
+        {
+          Console.WriteLine("You bought a Bandage for $25");
+          Thread.Sleep(2500);
+          items.Bandages += 1;
+          items.Money -= 25;
+        }
+        else
+        {
+          Console.WriteLine("You do not have enough money.");
+          Thread.Sleep(2500);
+        }
+
+        Console.Clear();
+        break;
+      case "1":
+        Console.Clear();
+        break;
+      default:
+        BuyItems();
+        break;
+    }
+  }
+
+  private void SellItems()
+  {
+    Console.Clear();
+    Console.WriteLine("--What do you want to sell?--");
+    Console.WriteLine("1. Leave");
+    Console.WriteLine("");
+    if (items.Knife)
+    {
+      Console.WriteLine("- Knife");
+    }
+
+    if (items.Necklace)
+    {
+      Console.WriteLine("- Necklace");
+    }
+
+    if (items.GreenGem)
+    {
+      Console.WriteLine("- Green Gem");
+    }
+
+    if (items.Coin)
+    {
+      Console.WriteLine("- Coin");
+    }
+
+    if (items.Alcohol > 0)
+    {
+      Console.WriteLine("- Alcohol");
+    }
+
+    if (items.Bandages > 0)
+    {
+      Console.WriteLine("- Bandages");
+    }
+
+    try
+    {
+      locations.itemInput = Console.ReadLine()?.ToLower();
+    }
+    catch
+    {
+      Console.WriteLine("Invalid input");
+      Thread.Sleep(1500);
+      SellItems();
+    }
+
+    switch (locations.itemInput)
+    {
+      case "knife":
+        Console.WriteLine("You sold the Knife for $5");
+        Thread.Sleep(2500);
+        items.Money += 5;
+        break;
+      case "green gem":
+      case "greengem":
+        Console.WriteLine("You sold the Green Gem for $200");
+        Thread.Sleep(2500);
+        items.Money += 200;
+        break;
+      case "necklace":
+        Console.WriteLine("You sold the necklace for $100");
+        Thread.Sleep(2500);
+        items.Money += 100;
+        break;
+      case "coin":
+        Console.WriteLine("You sold the Coin for $25");
+        Thread.Sleep(2500);
+        items.Money += 25;
+        break;
+      case "alcohol":
+        sellAlcohol:
+        Console.WriteLine($"How many do you want to sell? (Currently have {items.Alcohol})");
+        try
+        {
+          locations.input = Convert.ToInt32(Console.ReadLine());
+        }
+        catch
+        {
+          Console.WriteLine("Invalid input");
+          Thread.Sleep(1500);
+          Console.Clear();
+          goto sellAlcohol;
+        }
+
+        if (locations.input > 0 && locations.input <= items.Alcohol)
+        {
+          Console.WriteLine($"You sold {locations.input} bottles of Alcohol for ${locations.input * 20}");
+          Thread.Sleep(2500);
+          items.Alcohol -= Convert.ToInt32(locations.input);
+          items.Money += 20 * Convert.ToInt32(locations.input);
+        }
+        else
+        {
+          Console.WriteLine("You do not have that much Alcohol.");
+          Thread.Sleep(2000);
+          goto sellAlcohol;
+        }
+
+        break;
+      case "bandages":
+      case "bandage":
+        sellBandages:
+        Console.WriteLine($"How many do you want to sell? (Currently have {items.Bandages})");
+        Console.WriteLine($"1. Leave");
+        try
+        {
+          locations.input = Convert.ToInt32(Console.ReadLine());
+        }
+        catch
+        {
+          Console.WriteLine("Invalid input");
+          Thread.Sleep(1500);
+          Console.Clear();
+          goto sellBandages;
+        }
+
+        if (locations.input > 0 && locations.input <= items.Bandages)
+        {
+          Console.WriteLine($"You sold {locations.input} Bandages for ${locations.input * 10}");
+          Thread.Sleep(2500);
+          items.Bandages -= Convert.ToInt32(locations.input);
+          items.Money += 10 * Convert.ToInt32(locations.input);
+          SellItems();
+        }
+        else if (locations.itemInput == "1")
+        {
+          SellItems();
+        }
+        else
+        {
+          Console.WriteLine("You do not have that many Bandages.");
+          Thread.Sleep(2000);
+          goto sellBandages;
+        }
+
+        break;
+      case "1":
+        Console.Clear();
+        break;
+      default:
+        SellItems();
+        break;
+    }
+  }
+
   public void Shop()
   {
     if (locations.currentLocation == "Subway Entrance" && !subwayToShop)
@@ -309,10 +536,10 @@ public class ShopLocation(Locations locations)
         switch (locations.input)
         {
           case 1:
-            items.BuyItems();
+            BuyItems();
             goto insideShop;
           case 2:
-            items.SellItems();
+            SellItems();
             goto insideShop;
           case 3:
             break;
