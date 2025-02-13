@@ -1,6 +1,5 @@
 public class Start()
 {
-  private Structures structures;
   public bool newGame = false;
 
   public void NewGame()

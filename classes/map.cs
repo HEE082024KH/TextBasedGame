@@ -1,4 +1,4 @@
-public class Map
+public static class Map
 {
   public static void ShowMap()
   {
@@ -44,7 +44,7 @@ public class Map
   }
 }
 
-public class Structures
+public static class Structures
 {
   public static void Office()
   {

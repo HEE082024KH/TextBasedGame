@@ -1,6 +1,5 @@
 public class Locations
 {
-  Map map = new();
   Start start = new();
   public Items items;
   public string? CurrentLocation;

@@ -6,7 +6,7 @@ public class Items(Locations locations, Items items)
   // MONEY SPENDABLE: $585
   //
   // UNUSED ITEMS:
-  // DogBone, Gun, Water, Batteries
+  // Gun, Water, Batteries
   //
   // ITEMS DON'T EXIST:
   // GateKey, GunMagazine, ShelterKey
