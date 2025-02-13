@@ -3,6 +3,7 @@ public class FountainLocation(Locations locations)
   private readonly Items items = new(locations, locations.items);
   private readonly Status status = new(locations, locations.items);
   private bool fountain;
+  private bool fountainSit;
 
   public void Fountain()
   {
@@ -86,12 +87,21 @@ public class FountainLocation(Locations locations)
           Thread.Sleep(2000);
           Console.WriteLine("");
           fountainThrow:
-          Console.WriteLine("--What do you want to do?---");
-          Console.WriteLine("1. Throw something into the fountain");
-          Console.WriteLine("2. Leave");
+          Console.WriteLine("Which item do you want to throw in?");
+          Console.WriteLine("1. Leave");
+          if (items.Coin)
+          {
+            Console.WriteLine("- Coin");
+          }
+
+          if (items.DogBone)
+          {
+            Console.WriteLine("- Dog Bone");
+          }
+
           try
           {
-            locations.Input = Convert.ToInt32(Console.ReadLine());
+            locations.ItemInput = Console.ReadLine()?.ToLower();
           }
           catch
           {
@@ -102,65 +112,63 @@ public class FountainLocation(Locations locations)
             goto fountainThrow;
           }
 
-          switch (locations.Input)
+          switch (locations.ItemInput)
           {
-            case 1:
-              fountainThrowThrow:
+            case "coin":
               Console.Clear();
-              Console.WriteLine("Which item do you want to throw in?");
-              Console.WriteLine("1. Leave");
-              if (items.Coin)
-              {
-                Console.WriteLine("- Coin");
-              }
-
-              if (items.DogBone)
-              {
-                Console.WriteLine("- Dog Bone");
-              }
-
-              try
-              {
-                locations.ItemInput = Console.ReadLine()?.ToLower();
-              }
-              catch
-              {
-                Console.Clear();
-                Console.WriteLine("Invalid input");
-                Thread.Sleep(1500);
-                Console.Clear();
-                goto fountainThrowThrow;
-              }
-
-              switch (locations.ItemInput)
-              {
-                case "coin":
-                  Console.WriteLine("You toss the Coin into the fountain.");
-                  Thread.Sleep(2000);
-                  break;
-                case "dogbone":
-                case "dog bone":
-                  Console.WriteLine("You toss the Dog Bone into the fountain.");
-                  Thread.Sleep(2000);
-                  break;
-                case "1":
-                  Fountain();
-                  break;
-                default:
-                  goto fountainThrowThrow;
-              }
-
+              Console.WriteLine("You toss the Coin into the fountain.");
+              Thread.Sleep(2000);
               break;
-            case 2:
+            case "dogbone":
+            case "dog bone":
+              Console.Clear();
+              Console.WriteLine("You toss the Dog Bone into the fountain.");
+              Thread.Sleep(2000);
+              break;
+            case "1":
               Fountain();
               break;
+            default:
+              goto fountainThrow;
           }
 
           break;
         }
         case 4:
         {
-          break;
+          Console.Clear();
+          Console.WriteLine("You approach the fountain and sit down by the water.");
+          Thread.Sleep(3000);
+          Console.Write("With swift motions");
+          Thread.Sleep(1500);
+          Console.WriteLine(" you drag your hand through the water.");
+          Thread.Sleep(2000);
+          Console.WriteLine("The water is surprisingly warm.");
+          Thread.Sleep(2500);
+          Console.Write("Somehow");
+          Thread.Sleep(1000);
+          Console.Write(", there is not a sound to be heard");
+          Thread.Sleep(2000);
+          Console.WriteLine(", complete silence.");
+          Thread.Sleep(1500);
+          Console.Write("A gentle breeze tickles your chin");
+          Thread.Sleep(2000);
+          Console.WriteLine(" as you embrace the quiet.");
+          Thread.Sleep(2000);
+          Console.WriteLine("You enjoy the tranquility a for a minute.");
+          Thread.Sleep(5000);
+          Console.Clear();
+          Console.WriteLine("You feel invigorated by the break.");
+          Thread.Sleep(3000);
+          if (!fountainSit)
+          {
+            Console.WriteLine("You are at full HP");
+            items.HealthPoints = 100;
+            items.Hp();
+            fountainSit = true;
+          }
+
+          continue;
         }
         default:
         {
