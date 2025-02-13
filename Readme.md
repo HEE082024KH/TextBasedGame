@@ -8,11 +8,11 @@ Initially the idea was to create a simple game, but as I've worked on it new ide
 the project grew in size.
 
 <br><picture>
-<img src="https://www.askpython.com/wp-content/uploads/2021/06/text-based-story-game-2048x1152.png.webp" width="525" height="295"/> 
+<img src="https://www.askpython.com/wp-content/uploads/2021/06/text-based-story-game-2048x1152.png.webp" width="525" height="295"/>
 </picture><br> &nbsp;
 
-Currently, the game only has 4/12 locations finished, but most game logic and structure is done.
-<br> **\*About 35-40% done overall.**
+Currently, the game only has 5/12 locations finished, but most game logic and structure is done.
+Locations completed: Gate, Apartments, Subway Entrance, Shop, Bomb Shelter <br> **\*About 40-45% done overall.**
 
 Feel free to test the game if you want, any feedback is welcome.
 

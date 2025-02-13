@@ -26,7 +26,7 @@ public class Map
     Console.WriteLine("| +----------+      |  +---+                      |        +-----------------+  |");
     Console.WriteLine("| |          |      |--| A |                      |        |                 |  |");
     Console.WriteLine("| |          |      |  +---+                      |        |                 |  |");
-    Console.WriteLine("| |          |      |   12.    +--------+         |        |                 |  |");
+    Console.WriteLine("| |          |      |   11.    +--------+         |        |                 |  |");
     Console.WriteLine("| |          |      |          |        |       +---+      |                 |  |");
     Console.WriteLine("| |          |-----------------|        |-------| F |------|                 |  |");
     Console.WriteLine("| |          |      |          |        |       +---+      |                 |  |");
