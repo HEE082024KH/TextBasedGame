@@ -2,6 +2,9 @@ public class BombShelter(Locations locations)
 {
   private readonly Items items = new(locations, locations.items);
   private readonly Status status = new(locations, locations.items);
+  private bool insideShelter;
+  private bool insideShelterTake;
+  private bool travelFromShelter;
 
   public void Shelter()
   {
@@ -33,6 +36,11 @@ public class BombShelter(Locations locations)
         case 1:
         {
           locations.LocationSelector();
+          if (insideShelterTake)
+          {
+            travelFromShelter = true;
+          }
+
           break;
         }
         case 2:
@@ -50,8 +58,9 @@ public class BombShelter(Locations locations)
           Thread.Sleep(2500);
           Console.WriteLine("You almost feel slightly claustrophobic as you approach the door.");
           Thread.Sleep(3000);
-          if (items.ShelterKey)
+          if (items.ShelterKey && !insideShelter)
           {
+            Console.Clear();
             Console.WriteLine("You use the Shelter Key to open the door.");
             Thread.Sleep(2500);
             Console.WriteLine("The door screeches as it opens.");
@@ -77,16 +86,19 @@ public class BombShelter(Locations locations)
             }
             catch
             {
+              Console.Clear();
               Console.WriteLine("Invalid input");
               Thread.Sleep(1500);
+              Console.Clear();
               goto insideShelter;
             }
 
             switch (locations.Input)
             {
               case 1:
+                Console.Clear();
                 Console.WriteLine("You gather some of the useful things in here.");
-                Thread.Sleep(3000);
+                Thread.Sleep(2500);
                 Console.WriteLine("You got a FLASHLIGHT");
                 Thread.Sleep(2000);
                 items.Flashlight = true;
@@ -101,16 +113,54 @@ public class BombShelter(Locations locations)
                 Shelter();
                 break;
               case 2:
+                Console.Clear();
+                Console.Write("You take with you everything you can carry");
+                Thread.Sleep(2500);
+                Console.WriteLine(" even things you do not need.");
+                Thread.Sleep(2000);
+                Console.WriteLine("You got a FLASHLIGHT");
+                Thread.Sleep(2000);
+                items.Flashlight = true;
+                Console.WriteLine("You got WATER");
+                Thread.Sleep(2000);
+                items.Water = true;
+                Console.WriteLine("You got BATTERIES");
+                Thread.Sleep(3000);
+                items.Batteries = true;
+                Console.WriteLine("You leave the place empty.");
+                Thread.Sleep(3000);
+                Shelter();
+                insideShelterTake = true;
                 break;
             }
+
+            insideShelter = true;
           }
-          else
+          else if (!items.ShelterKey)
           {
+            Console.Clear();
             Console.WriteLine("Locked.");
             Thread.Sleep(2000);
             Console.WriteLine("I guess it is smart to prevent people stealing stuff.");
             Thread.Sleep(3000);
             Console.WriteLine("But what if people actually need shelter?");
+            Thread.Sleep(3000);
+            continue;
+          }
+          else if (travelFromShelter)
+          {
+            Console.Clear();
+            Console.Write("As you enter the shelter");
+            Thread.Sleep(1500);
+            Console.WriteLine(" you notice a dead woman on the ground.");
+            Thread.Sleep(2500);
+            Console.Write("She looks frail and skinny");
+            Thread.Sleep(2000);
+            Console.WriteLine(", clothes ragged and dirty.");
+            Thread.Sleep(2000);
+            Console.WriteLine("Looks like she starved to death.");
+            Thread.Sleep(2000);
+            Console.WriteLine("Maybe I should not have taken everything.");
             Thread.Sleep(3000);
             continue;
           }
