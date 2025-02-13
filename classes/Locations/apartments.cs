@@ -1,5 +1,7 @@
 public class ApartmentsLocation(Locations locations)
 {
+  private readonly Items items = new(locations, locations.items);
+  private readonly Status status = new(locations, locations.items);
   private bool enterInsideApartments;
   private bool insideApartmentsWindow;
   private bool insideApartmentsDoor2;
@@ -9,14 +11,12 @@ public class ApartmentsLocation(Locations locations)
   private bool insideApartmentsDoor4KillHands;
   private bool insideApartmentsDoor4Steal;
   private bool insideApartmentsDoor4Talk;
-  private readonly Items items = locations.items;
-  private readonly Status status = new(locations, locations.items);
 
   public void Apartments()
   {
-    locations.currentLocation = "Apartments";
+    locations.CurrentLocation = "Apartments";
     Console.Clear();
-    Console.WriteLine($"You are at the  -{locations.currentLocation}-");
+    Console.WriteLine($"You are at the  -{locations.CurrentLocation}-");
     Console.WriteLine("");
     Console.WriteLine("--What do you want to do?--");
     Console.WriteLine("1. Travel to a different location");
@@ -26,7 +26,7 @@ public class ApartmentsLocation(Locations locations)
     Console.WriteLine("5. Look for an open window");
     try
     {
-      locations.input = Convert.ToInt32(Console.ReadLine());
+      locations.Input = Convert.ToInt32(Console.ReadLine());
     }
     catch
     {
@@ -36,7 +36,7 @@ public class ApartmentsLocation(Locations locations)
       Apartments();
     }
 
-    switch (locations.input)
+    switch (locations.Input)
     {
       case 1:
       {
@@ -61,7 +61,7 @@ public class ApartmentsLocation(Locations locations)
         Console.WriteLine("2. Leave them alone");
         try
         {
-          locations.input = Convert.ToInt32(Console.ReadLine());
+          locations.Input = Convert.ToInt32(Console.ReadLine());
         }
         catch
         {
@@ -72,7 +72,7 @@ public class ApartmentsLocation(Locations locations)
           goto outsideApartments;
         }
 
-        switch (locations.input)
+        switch (locations.Input)
         {
           case 1:
           {
@@ -135,7 +135,7 @@ public class ApartmentsLocation(Locations locations)
         Console.WriteLine("7. Go back out");
         try
         {
-          locations.input = Convert.ToInt32(Console.ReadLine());
+          locations.Input = Convert.ToInt32(Console.ReadLine());
         }
         catch
         {
@@ -148,7 +148,7 @@ public class ApartmentsLocation(Locations locations)
           goto insideApartments;
         }
 
-        switch (locations.input)
+        switch (locations.Input)
         {
           case 1:
           {
@@ -207,7 +207,7 @@ public class ApartmentsLocation(Locations locations)
             Console.WriteLine("2. Hug the wall and sneakily look inside");
             try
             {
-              locations.input = Convert.ToInt32(Console.ReadLine());
+              locations.Input = Convert.ToInt32(Console.ReadLine());
             }
             catch
             {
@@ -218,7 +218,7 @@ public class ApartmentsLocation(Locations locations)
               goto insideApartmentsDoor2;
             }
 
-            switch (locations.input)
+            switch (locations.Input)
             {
               case 1:
                 if (!insideApartmentsDoor2)
@@ -407,7 +407,7 @@ public class ApartmentsLocation(Locations locations)
             Console.WriteLine("2. Leave");
             try
             {
-              locations.input = Convert.ToInt32(Console.ReadLine());
+              locations.Input = Convert.ToInt32(Console.ReadLine());
             }
             catch
             {
@@ -418,7 +418,7 @@ public class ApartmentsLocation(Locations locations)
               goto insideApartmentsDoor3;
             }
 
-            switch (locations.input)
+            switch (locations.Input)
             {
               case 1:
                 Console.Clear();
@@ -444,7 +444,7 @@ public class ApartmentsLocation(Locations locations)
                 Console.WriteLine("2. Leave");
                 try
                 {
-                  locations.input = Convert.ToInt32(Console.ReadLine());
+                  locations.Input = Convert.ToInt32(Console.ReadLine());
                 }
                 catch
                 {
@@ -455,7 +455,7 @@ public class ApartmentsLocation(Locations locations)
                   goto insideApartmentsDoor3Open;
                 }
 
-                switch (locations.input)
+                switch (locations.Input)
                 {
                   case 1:
                     Console.Clear();
@@ -472,7 +472,7 @@ public class ApartmentsLocation(Locations locations)
                     Console.WriteLine("2. Leave");
                     try
                     {
-                      locations.input = Convert.ToInt32(Console.ReadLine());
+                      locations.Input = Convert.ToInt32(Console.ReadLine());
                     }
                     catch
                     {
@@ -483,7 +483,7 @@ public class ApartmentsLocation(Locations locations)
                       goto insideApartmentsDoor3OpenInside;
                     }
 
-                    switch (locations.input)
+                    switch (locations.Input)
                     {
                       case 1:
                         Console.Clear();
@@ -652,7 +652,7 @@ public class ApartmentsLocation(Locations locations)
               Console.WriteLine("3. Kill her and take her stuff.");
               try
               {
-                locations.input = Convert.ToInt32(Console.ReadLine());
+                locations.Input = Convert.ToInt32(Console.ReadLine());
               }
               catch
               {
@@ -663,7 +663,7 @@ public class ApartmentsLocation(Locations locations)
                 goto insideApartmentsDoor4;
               }
 
-              switch (locations.input)
+              switch (locations.Input)
               {
                 case 1:
                   Console.Clear();
@@ -727,7 +727,7 @@ public class ApartmentsLocation(Locations locations)
                   if (items.Crowbar) Console.WriteLine("- Crowbar");
                   try
                   {
-                    locations.itemInput = Console.ReadLine()?.ToLower();
+                    locations.ItemInput = Console.ReadLine()?.ToLower();
                   }
                   catch
                   {
@@ -738,7 +738,7 @@ public class ApartmentsLocation(Locations locations)
                     goto insideApartmentsDoor4Kill;
                   }
 
-                  switch (locations.itemInput)
+                  switch (locations.ItemInput)
                   {
                     case "hands":
                       Console.Write("You swiftly place your hands around her neck");
@@ -813,7 +813,7 @@ public class ApartmentsLocation(Locations locations)
                       Console.WriteLine("2. No");
                       try
                       {
-                        locations.input = Convert.ToInt32(Console.ReadLine());
+                        locations.Input = Convert.ToInt32(Console.ReadLine());
                       }
                       catch
                       {
@@ -824,7 +824,7 @@ public class ApartmentsLocation(Locations locations)
                         goto insideApartmentsDoor4KillCrowbar;
                       }
 
-                      switch (locations.input)
+                      switch (locations.Input)
                       {
                         case 1:
                           Console.Write("You strike her again");

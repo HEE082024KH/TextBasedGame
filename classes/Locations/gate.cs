@@ -1,15 +1,15 @@
 public class GateLocation(Locations locations)
 {
-  private readonly Items items = locations.items;
+  private readonly Items items = new(locations, locations.items);
   private readonly Status status = new(locations, locations.items);
 
   public void Gate()
   {
-    locations.currentLocation = "Gate";
+    locations.CurrentLocation = "Gate";
     Console.Clear();
     Structures.Gate();
     Console.WriteLine("");
-    Console.WriteLine($"You are at the  -{locations.currentLocation}-");
+    Console.WriteLine($"You are at the  -{locations.CurrentLocation}-");
     Console.WriteLine("");
     Console.WriteLine("--What do you want to do?--");
     Console.WriteLine("1. Travel to a different location");
@@ -18,7 +18,7 @@ public class GateLocation(Locations locations)
     Console.WriteLine("4. Look around for anything useful");
     try
     {
-      locations.input = Convert.ToInt32(Console.ReadLine());
+      locations.Input = Convert.ToInt32(Console.ReadLine());
     }
     catch
     {
@@ -28,7 +28,7 @@ public class GateLocation(Locations locations)
       Gate();
     }
 
-    switch (locations.input)
+    switch (locations.Input)
     {
       case 1:
       {

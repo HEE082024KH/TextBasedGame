@@ -22,7 +22,7 @@ public class Status(Locations locations, Items items)
     Console.WriteLine("3. Go back");
     try
     {
-      locations.input = Convert.ToInt32(Console.ReadLine());
+      locations.Input = Convert.ToInt32(Console.ReadLine());
     }
     catch
     {
@@ -30,7 +30,7 @@ public class Status(Locations locations, Items items)
       ShowStatus();
     }
 
-    switch (locations.input)
+    switch (locations.Input)
     {
       case 1:
         Console.Clear();
@@ -60,7 +60,7 @@ public class Status(Locations locations, Items items)
 
     try
     {
-      locations.itemInput = Console.ReadLine()?.ToLower();
+      locations.ItemInput = Console.ReadLine()?.ToLower();
     }
     catch
     {
@@ -69,7 +69,7 @@ public class Status(Locations locations, Items items)
       UseItems();
     }
 
-    switch (locations.itemInput)
+    switch (locations.ItemInput)
     {
       case "bandage":
         switch (items.HealthPoints)

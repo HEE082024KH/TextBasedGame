@@ -2,17 +2,14 @@ using System.Reflection.PortableExecutable;
 
 public class Items(Locations locations, Items items)
 {
-  // MONEY AVAILABLE: $365
+  // MONEY AVAILABLE: $375
   // MONEY SPENDABLE: $585
   //
   // UNUSED ITEMS:
-  // DogBone
-  // Gun
+  // DogBone, Gun
   //
-  // ITEMS NOT EXISTING:
-  // Flashlight
-  // GateKey
-  // GunMagazine
+  // ITEMS DON'T EXIST:
+  // Flashlight, GateKey, GunMagazine, ShelterKey
 
   public bool GateKey;
   public bool Flashlight;
@@ -34,6 +31,7 @@ public class Items(Locations locations, Items items)
   public bool Coin;
   public bool Gun;
   public bool GunMagazine;
+  public bool ShelterKey;
   public int Money;
   public int HealthPoints = 80;
 

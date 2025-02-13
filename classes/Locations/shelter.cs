@@ -1,13 +1,13 @@
 public class BombShelter(Locations locations)
 {
-  private readonly Items items = locations.items;
+  private readonly Items items = new(locations, locations.items);
   private readonly Status status = new(locations, locations.items);
 
   public void Shelter()
   {
-    locations.currentLocation = "BombShelter";
+    locations.CurrentLocation = "BombShelter";
     Console.Clear();
-    Console.WriteLine($"You are at the  -{locations.currentLocation}-");
+    Console.WriteLine($"You are at the  -{locations.CurrentLocation}-");
     Thread.Sleep(500);
     Console.WriteLine("---What do you want to do?---");
     Console.WriteLine("1. Travel to a different location");
@@ -16,7 +16,7 @@ public class BombShelter(Locations locations)
     Console.WriteLine("4. Look around outside");
     try
     {
-      locations.input = Convert.ToInt32(Console.ReadLine());
+      locations.Input = Convert.ToInt32(Console.ReadLine());
     }
     catch
     {
@@ -26,7 +26,7 @@ public class BombShelter(Locations locations)
       Shelter();
     }
 
-    switch (locations.input)
+    switch (locations.Input)
     {
       case 1:
       {
@@ -42,6 +42,27 @@ public class BombShelter(Locations locations)
       }
       case 3:
       {
+        Console.Clear();
+        Console.WriteLine("You walk down the concrete stairs towards a solid steel door.");
+        Thread.Sleep(3500);
+        Console.WriteLine("Seems like it might go deep underground.");
+        Thread.Sleep(2500);
+        Console.WriteLine("You almost feel slightly claustrophobic as you approach the door.");
+        Thread.Sleep(3500);
+        if (items.ShelterKey)
+        {
+          Console.WriteLine("Shelter Key success.");
+        }
+        else
+        {
+          Console.WriteLine("Locked.");
+          Thread.Sleep(2000);
+          Console.WriteLine("I guess it is smart to prevent people stealing stuff.");
+          Thread.Sleep(3000);
+          Console.WriteLine("But what if people actually need shelter?");
+          Thread.Sleep(3000);
+        }
+
         break;
       }
       case 4:
@@ -58,7 +79,7 @@ public class BombShelter(Locations locations)
         Console.WriteLine("2. Leave");
         try
         {
-          locations.input = Convert.ToInt32(Console.ReadLine());
+          locations.Input = Convert.ToInt32(Console.ReadLine());
         }
         catch
         {
@@ -69,7 +90,7 @@ public class BombShelter(Locations locations)
           goto shelterEntrance;
         }
 
-        switch (locations.input)
+        switch (locations.Input)
         {
           case 1:
             Console.Clear();

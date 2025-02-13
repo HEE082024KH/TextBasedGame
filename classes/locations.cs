@@ -3,9 +3,9 @@ public class Locations
   Map map = new();
   Start start = new();
   public Items items;
-  public string? currentLocation;
-  public int? input;
-  public string? itemInput;
+  public string? CurrentLocation;
+  public int? Input;
+  public string? ItemInput;
 
   // Define locations
   GateLocation gate;
@@ -52,79 +52,69 @@ public class Locations
     Console.Write(">");
     try
     {
-      input = Convert.ToInt32(Console.ReadLine());
+      Input = Convert.ToInt32(Console.ReadLine());
     }
     catch
     {
-      Console.WriteLine("Please enter a number!");
+      Console.WriteLine("Invalid input");
+      Thread.Sleep(1500);
+      Console.Clear();
+      LocationSelector();
     }
 
-    switch (input)
+    switch (Input)
     {
       case 1:
-        currentLocation = "Gate";
-        goto gate;
+        CurrentLocation = "Gate";
+        gate.Gate();
+        break;
       case 2:
-        currentLocation = "Apartments";
-        goto apartments;
+        CurrentLocation = "Apartments";
+        apartments.Apartments();
+        break;
       case 3:
-        currentLocation = "Subway Entrance";
-        goto subway;
+        CurrentLocation = "Subway Entrance";
+        subway.Subway();
+        break;
       case 4:
-        currentLocation = "Shop";
-        goto shop;
+        CurrentLocation = "Shop";
+        shop.Shop();
+        break;
       case 5:
-        currentLocation = "Art Gallery";
-        goto art;
+        CurrentLocation = "Art Gallery";
+        art.Art();
+        break;
       case 6:
-        currentLocation = "Office Building";
-        goto office;
+        CurrentLocation = "Office Building";
+        office.Office();
+        break;
       case 7:
-        currentLocation = "Pavilion";
-        goto pavilion;
+        CurrentLocation = "Pavilion";
+        pavilion.Pavilion();
+        break;
       case 8:
-        currentLocation = "Abandoned Warehouse";
-        goto warehouse;
+        CurrentLocation = "Abandoned Warehouse";
+        warehouse.Warehouse();
+        break;
       case 9:
-        currentLocation = "Bomb Shelter";
-        goto shelter;
+        CurrentLocation = "Bomb Shelter";
+        shelter.Shelter();
+        break;
       case 10:
-        currentLocation = "Fountain";
-        goto fountain;
+        CurrentLocation = "Fountain";
+        fountain.Fountain();
+        break;
       case 11:
-        currentLocation = "Alley";
-        goto alley;
+        CurrentLocation = "Alley";
+        alley.Alley();
+        break;
       case 12:
-        currentLocation = "Shack";
-        goto shack;
+        CurrentLocation = "Shack";
+        shack.Shack();
+        break;
       default:
         Console.WriteLine("Invalid input");
         break;
     }
-
-    gate:
-    gate.Gate();
-    apartments:
-    apartments.Apartments();
-    subway:
-    subway.Subway();
-    shop:
-    shop.Shop();
-    art:
-    art.Art();
-    office:
-    office.Office();
-    pavilion:
-    pavilion.Pavilion();
-    warehouse:
-    warehouse.Warehouse();
-    shelter:
-    shelter.Shelter();
-    fountain:
-    fountain.Fountain();
-    alley:
-    alley.Alley();
-    shack:
-    shack.Shack();
   }
 }

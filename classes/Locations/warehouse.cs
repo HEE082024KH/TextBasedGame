@@ -6,7 +6,7 @@ public class AbandonedWarehouse(Locations locations)
 
   public void Warehouse()
   {
-    if (locations.currentLocation == "Pavilion" && !pavilionToWarehouse)
+    if (locations.CurrentLocation == "Pavilion" && !pavilionToWarehouse)
     {
       Console.Clear();
       Console.Write("On your way to the Warehouse");
@@ -23,7 +23,7 @@ public class AbandonedWarehouse(Locations locations)
       Console.WriteLine("3. Run");
       try
       {
-        locations.input = Convert.ToInt32(Console.ReadLine());
+        locations.Input = Convert.ToInt32(Console.ReadLine());
       }
       catch
       {
@@ -34,7 +34,7 @@ public class AbandonedWarehouse(Locations locations)
         goto pavilionToWarehouse;
       }
 
-      switch (locations.input)
+      switch (locations.Input)
       {
         case 1:
           Console.Clear();
@@ -90,7 +90,7 @@ public class AbandonedWarehouse(Locations locations)
             Console.WriteLine("2. Attack him");
             try
             {
-              locations.input = Convert.ToInt32(Console.ReadLine());
+              locations.Input = Convert.ToInt32(Console.ReadLine());
             }
             catch
             {
@@ -101,7 +101,7 @@ public class AbandonedWarehouse(Locations locations)
               goto warehouseAttackMan;
             }
 
-            switch (locations.input)
+            switch (locations.Input)
             {
               case 1:
                 Console.Clear();
@@ -189,9 +189,9 @@ public class AbandonedWarehouse(Locations locations)
       pavilionToWarehouse = true;
     }
 
-    locations.currentLocation = "Abandoned Warehouse";
+    locations.CurrentLocation = "Abandoned Warehouse";
     Console.Clear();
-    Console.WriteLine($"You are at the  -{locations.currentLocation}-");
+    Console.WriteLine($"You are at the  -{locations.CurrentLocation}-");
     Thread.Sleep(500);
     Console.WriteLine("---What do you want to do?---");
     Console.WriteLine("1. Travel to a different location");
@@ -200,7 +200,7 @@ public class AbandonedWarehouse(Locations locations)
     Console.WriteLine("4. ");
     try
     {
-      locations.input = Convert.ToInt32(Console.ReadLine());
+      locations.Input = Convert.ToInt32(Console.ReadLine());
     }
     catch
     {
@@ -210,7 +210,7 @@ public class AbandonedWarehouse(Locations locations)
       Warehouse();
     }
 
-    switch (locations.input)
+    switch (locations.Input)
     {
       case 1:
       {

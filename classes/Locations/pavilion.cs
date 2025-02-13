@@ -1,13 +1,13 @@
 public class PavilionLocation(Locations locations)
 {
-  private readonly Items items = locations.items;
+  private readonly Items items = new(locations, locations.items);
   private readonly Status status = new(locations, locations.items);
 
   public void Pavilion()
   {
-    locations.currentLocation = "Pavilion";
+    locations.CurrentLocation = "Pavilion";
     Console.Clear();
-    Console.WriteLine($"You are at the  -{locations.currentLocation}-");
+    Console.WriteLine($"You are at the  -{locations.CurrentLocation}-");
     Thread.Sleep(500);
     Console.WriteLine("---What do you want to do?---");
     Console.WriteLine("1. Travel to a different location");
@@ -16,7 +16,7 @@ public class PavilionLocation(Locations locations)
     Console.WriteLine("4. ");
     try
     {
-      locations.input = Convert.ToInt32(Console.ReadLine());
+      locations.Input = Convert.ToInt32(Console.ReadLine());
     }
     catch
     {
@@ -26,7 +26,7 @@ public class PavilionLocation(Locations locations)
       Pavilion();
     }
 
-    switch (locations.input)
+    switch (locations.Input)
     {
       case 1:
       {

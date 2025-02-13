@@ -1,6 +1,6 @@
 public class SubwayEntrance(Locations locations)
 {
-  private readonly Items items = locations.items;
+  private readonly Items items = new(locations, locations.items);
   private readonly Status status = new(locations, locations.items);
   private bool subwayEntrance;
   private bool subwayFlashlight;
@@ -8,7 +8,7 @@ public class SubwayEntrance(Locations locations)
 
   public void Subway()
   {
-    if (locations.currentLocation == "Apartments" && !apartmentsToSubway)
+    if (locations.CurrentLocation == "Apartments" && !apartmentsToSubway)
     {
       Console.Clear();
       Console.Write("On your way to the Subway");
@@ -25,7 +25,7 @@ public class SubwayEntrance(Locations locations)
       Console.WriteLine("3. Run");
       try
       {
-        locations.input = Convert.ToInt32(Console.ReadLine());
+        locations.Input = Convert.ToInt32(Console.ReadLine());
       }
       catch
       {
@@ -36,7 +36,7 @@ public class SubwayEntrance(Locations locations)
         goto apartmentsToSubway;
       }
 
-      switch (locations.input)
+      switch (locations.Input)
       {
         case 1:
           Console.Clear();
@@ -60,7 +60,7 @@ public class SubwayEntrance(Locations locations)
           Thread.Sleep(2000);
           try
           {
-            locations.input = Convert.ToInt32(Console.ReadLine());
+            locations.Input = Convert.ToInt32(Console.ReadLine());
           }
           catch
           {
@@ -71,7 +71,7 @@ public class SubwayEntrance(Locations locations)
             goto apartmentsToSubwayThugs;
           }
 
-          switch (locations.input)
+          switch (locations.Input)
           {
             case 1:
               Console.Clear();
@@ -187,9 +187,9 @@ public class SubwayEntrance(Locations locations)
       apartmentsToSubway = true;
     }
 
-    locations.currentLocation = "Subway Entrance";
+    locations.CurrentLocation = "Subway Entrance";
     Console.Clear();
-    Console.WriteLine($"You are at the  -{locations.currentLocation}-");
+    Console.WriteLine($"You are at the  -{locations.CurrentLocation}-");
     Thread.Sleep(500);
     Console.WriteLine("---What do you want to do?---");
     Console.WriteLine("1. Travel to a different location");
@@ -198,7 +198,7 @@ public class SubwayEntrance(Locations locations)
     Console.WriteLine("4. Check the area around the entrance");
     try
     {
-      locations.input = Convert.ToInt32(Console.ReadLine());
+      locations.Input = Convert.ToInt32(Console.ReadLine());
     }
     catch
     {
@@ -208,7 +208,7 @@ public class SubwayEntrance(Locations locations)
       Subway();
     }
 
-    switch (locations.input)
+    switch (locations.Input)
     {
       case 1:
       {
@@ -263,7 +263,7 @@ public class SubwayEntrance(Locations locations)
         Console.WriteLine("2. Leave");
         try
         {
-          locations.input = Convert.ToInt32(Console.ReadLine());
+          locations.Input = Convert.ToInt32(Console.ReadLine());
         }
         catch
         {
@@ -274,7 +274,7 @@ public class SubwayEntrance(Locations locations)
           goto subwayEntrance;
         }
 
-        switch (locations.input)
+        switch (locations.Input)
         {
           case 1:
             if (items.Flashlight && !subwayFlashlight)
@@ -318,7 +318,7 @@ public class SubwayEntrance(Locations locations)
               Console.WriteLine("3. Leave");
               try
               {
-                locations.input = Convert.ToInt32(Console.ReadLine());
+                locations.Input = Convert.ToInt32(Console.ReadLine());
               }
               catch
               {
@@ -329,7 +329,7 @@ public class SubwayEntrance(Locations locations)
                 goto subwayShelves;
               }
 
-              switch (locations.input)
+              switch (locations.Input)
               {
                 case 1:
                   Console.WriteLine("You start searching the boxes on the left side.");
@@ -432,7 +432,7 @@ public class SubwayEntrance(Locations locations)
         Console.WriteLine("2. Leave");
         try
         {
-          locations.input = Convert.ToInt32(Console.ReadLine());
+          locations.Input = Convert.ToInt32(Console.ReadLine());
         }
         catch
         {
@@ -443,7 +443,7 @@ public class SubwayEntrance(Locations locations)
           goto subwayEntrance;
         }
 
-        switch (locations.input)
+        switch (locations.Input)
         {
           case 1:
             Console.WriteLine("You search the few unopened bags that are left.");
