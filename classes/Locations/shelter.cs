@@ -52,7 +52,57 @@ public class BombShelter(Locations locations)
           Thread.Sleep(3000);
           if (items.ShelterKey)
           {
-            Console.WriteLine("Shelter Key success.");
+            Console.WriteLine("You use the Shelter Key to open the door.");
+            Thread.Sleep(2500);
+            Console.WriteLine("The door screeches as it opens.");
+            Thread.Sleep(2000);
+            Console.Write("Inside everything looks untouched");
+            Thread.Sleep(2000);
+            Console.Write(" like no one has been here for a long time");
+            Thread.Sleep(2000);
+            Console.WriteLine(", if at all.");
+            Thread.Sleep(1500);
+            Console.WriteLine("There is a lot of useful things in here.");
+            Thread.Sleep(2500);
+            Console.WriteLine("Maybe I should leave some stuff for other people that need it.");
+            Thread.Sleep(3000);
+            Console.WriteLine("");
+            insideShelter:
+            Console.WriteLine("--What do you want to do?---");
+            Console.WriteLine("1. Take only what you need.");
+            Console.WriteLine("2. Take everything.");
+            try
+            {
+              locations.Input = Convert.ToInt32(Console.ReadLine());
+            }
+            catch
+            {
+              Console.WriteLine("Invalid input");
+              Thread.Sleep(1500);
+              goto insideShelter;
+            }
+
+            switch (locations.Input)
+            {
+              case 1:
+                Console.WriteLine("You gather some of the useful things in here.");
+                Thread.Sleep(3000);
+                Console.WriteLine("You got a FLASHLIGHT");
+                Thread.Sleep(2000);
+                items.Flashlight = true;
+                Console.WriteLine("You got WATER");
+                Thread.Sleep(2000);
+                items.Water = true;
+                Console.WriteLine("You got BATTERIES");
+                Thread.Sleep(3000);
+                items.Batteries = true;
+                Console.WriteLine("And you leave the rest for someone else that needs it.");
+                Thread.Sleep(3000);
+                Shelter();
+                break;
+              case 2:
+                break;
+            }
           }
           else
           {

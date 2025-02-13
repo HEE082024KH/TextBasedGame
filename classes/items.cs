@@ -6,10 +6,10 @@ public class Items(Locations locations, Items items)
   // MONEY SPENDABLE: $585
   //
   // UNUSED ITEMS:
-  // DogBone, Gun
+  // DogBone, Gun, Water, Batteries
   //
   // ITEMS DON'T EXIST:
-  // Flashlight, GateKey, GunMagazine, ShelterKey
+  // GateKey, GunMagazine, ShelterKey
 
   public bool GateKey;
   public bool Flashlight;
@@ -32,6 +32,8 @@ public class Items(Locations locations, Items items)
   public bool Gun;
   public bool GunMagazine;
   public bool ShelterKey;
+  public bool Water;
+  public bool Batteries;
   public int Money;
   public int HealthPoints = 80;
 
