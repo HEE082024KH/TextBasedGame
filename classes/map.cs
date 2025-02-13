@@ -49,22 +49,28 @@ public class Structures
   public static void Office()
   {
     Console.WriteLine("");
-    Console.WriteLine("███████████████");
-    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
-    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
-    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
-    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
-    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
-    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
-    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
-    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
-    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
-    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
-    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
-    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
-    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
-    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
-    Console.WriteLine("█⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("████████████████████████████████████████████████████████████████████");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
+    Console.WriteLine("█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛█");
     Console.WriteLine("");
   }
 
