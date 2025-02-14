@@ -17,6 +17,7 @@ public class ApartmentsLocation(Locations locations)
     locations.CurrentLocation = "Apartments";
     Console.Clear();
     Console.WriteLine($"You are at the  -{locations.CurrentLocation}-");
+    Thread.Sleep(500);
     Console.WriteLine("");
     Console.WriteLine("--What do you want to do?--");
     Console.WriteLine("1. Travel to a different location");
