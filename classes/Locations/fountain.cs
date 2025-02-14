@@ -126,14 +126,37 @@ public class FountainLocation(Locations locations)
               Thread.Sleep(2000);
               Console.Write("Shortly after it calms down");
               Thread.Sleep(2000);
-              Console.WriteLine("");
-              Thread.Sleep(2000);
+              Console.WriteLine(" and the SHELTER KEY jumps out of the water.");
+              Thread.Sleep(3000);
               break;
             case "dogbone":
             case "dog bone":
               Console.Clear();
               Console.WriteLine("You toss the Dog Bone into the fountain.");
               Thread.Sleep(2000);
+              Console.Write("The water changes color");
+              Thread.Sleep(2000);
+              Console.Write(" to a hue of red");
+              Thread.Sleep(2000);
+              Console.WriteLine(", and starts to boil.");
+              Thread.Sleep(2000);
+              Console.Write("Shortly after it calms down");
+              Thread.Sleep(2000);
+              Console.WriteLine(" and a GUN MAGAZINE jumps out of the water.");
+              Thread.Sleep(3000);
+              if (items.Gun)
+              {
+                Console.WriteLine("You have now assembled the Gun, and is able to use it.");
+                Thread.Sleep(4000);
+              }
+              else
+              {
+                Console.Write("Not much use for this");
+                Thread.Sleep(2000);
+                Console.WriteLine(", you need to find a Gun.");
+                Thread.Sleep(2000);
+              }
+
               break;
             case "1":
               Fountain();
