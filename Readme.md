@@ -12,7 +12,7 @@ the project grew in size.
 </picture><br> &nbsp;
 
 Currently, the game only has 6/12 locations finished, but most game logic and structure is done.
-Locations completed: Gate, Apartments, Subway Entrance, Shop, Bomb Shelter, Fountain. **\*About 40-45% done overall.**
+Locations completed: Gate, Apartments, Subway Entrance, Shop, Bomb Shelter, Fountain. **\*About 45-50% done overall.**
 
 Feel free to test the game if you want, any feedback is welcome.
 
