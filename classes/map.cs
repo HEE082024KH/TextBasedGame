@@ -149,6 +149,34 @@ public static class Structures
     Console.WriteLine("");
   }
 
+  public static void HallwayEnd()
+  {
+    Console.WriteLine("");
+    Console.WriteLine("88888888888888888888888888888888888888888888888888888888888888888888888");
+    Console.WriteLine("88.._|      | `-.  | `.  -_-_ _-_  _-  _- -_ -  .'|   |.'|     |  _..88");
+    Console.WriteLine("88   `-.._  |    |`!  |`.  -_ -__ -_ _- _-_-  .'  |.;'   |   _.!-'|  88");
+    Console.WriteLine("88      | `-!._  |  `;!  ;. _______________ ,'| .-' |   _!.i'     |  88");
+    Console.WriteLine("88..__  |     |`-!._ | `.| |_______________||.\"'|  _!.;'   |     _|..88");
+    Console.WriteLine("88   |``\"..__ |    |`\";.| i|_|MMMMMMMMMMM|_|'| _!-|   |   _|..-|'    88");
+    Console.WriteLine("88   |      |``--..|_ | `;!|l|MMoMMMMoMMM|1|.'j   |_..!-'|     |     88");
+    Console.WriteLine("88   |      |    |   |`-,!_|_|MMMMPoYMMMM|_||.!-;'  |    |     |     88");
+    Console.WriteLine("88___|______|____!.,.!,.!,!|d|MMMoMdMloMM|p|,!,.!.,.!..__|_____|_____88");
+    Console.WriteLine("88      |     |    |  |  | |_|MMMMbMdMMMM|_|| |   |   |    |      |  88");
+    Console.WriteLine("88      |     |    |..!-;'i|r|MPYMoMMMMoM|r| |`-..|   |    |      |  88");
+    Console.WriteLine("88      |    _!.-j'  | _!,\"|_|MMoMMMMoMMM|_||!._|  `i-!.._ |      |  88");
+    Console.WriteLine("88     _!.-'|    | _.\"|  !;|1|MbdMMoMMMMM|l|`.| `-._|    |``-.._  |  88");
+    Console.WriteLine("88..-i'     |  _.''|  !-| !|_|MMMoMMMMoMM|_|.|`-. | ``._ |     |``\"..88");
+    Console.WriteLine("88   |      |.|    |.|  !| |u|MoMMMMoMMMM|n||`. |`!   | `\".    |     88");
+    Console.WriteLine("88   |  _.-'  |  .'  |.' |/|_|MMMMoMMMMoM|_|! |`!  `,.|    |-._|     88");
+    Console.WriteLine("88  _!\"'|     !.'|  .'| .'|[@]MMMMMMMMMMM[@] \\|  `. | `._  |   `-._  88");
+    Console.WriteLine("88-'    |   .'   |.|  |/| /                 \\|`.  |`!    |.|      |`-88");
+    Console.WriteLine("88      |_.'|   .' | .' |/                   \\  \\ |  `.  | `._-Lee|  88");
+    Console.WriteLine("88     .'   | .'   |/|  /                     \\ |`!   |`.|    `.  |  88");
+    Console.WriteLine("88  _.'     !'|   .' | /                       \\|  `  |  `.    |`.|  88");
+    Console.WriteLine("88888888888888888888888888888888888888888888888888888888888888888888888");
+    Console.WriteLine("");
+  }
+
   public static void FancyHouse()
   {
     Console.WriteLine("");
