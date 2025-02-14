@@ -118,6 +118,16 @@ public class FountainLocation(Locations locations)
               Console.Clear();
               Console.WriteLine("You toss the Coin into the fountain.");
               Thread.Sleep(2000);
+              Console.Write("The water changes color");
+              Thread.Sleep(2000);
+              Console.Write(" to a hue of green");
+              Thread.Sleep(2000);
+              Console.WriteLine(", and starts to boil.");
+              Thread.Sleep(2000);
+              Console.Write("Shortly after it calms down");
+              Thread.Sleep(2000);
+              Console.WriteLine("");
+              Thread.Sleep(2000);
               break;
             case "dogbone":
             case "dog bone":

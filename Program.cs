@@ -2,11 +2,11 @@
 
 class Program
 {
-    static void Main(string[] args)
-    {
-        Controller controller = new();
+  static void Main()
+  {
+    Controller controller = new();
 
-        // Run Game
-        controller.Run();
-    }
+    // Run Game
+    controller.Run();
+  }
 }
