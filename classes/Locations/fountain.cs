@@ -129,6 +129,7 @@ public class FountainLocation(Locations locations)
               Thread.Sleep(2000);
               Console.WriteLine(" and the SHELTER KEY jumps out of the water.");
               Thread.Sleep(3000);
+              items.ShelterKey = true;
               break;
             case "dogbone":
             case "dog bone":
@@ -145,6 +146,7 @@ public class FountainLocation(Locations locations)
               Thread.Sleep(2000);
               Console.WriteLine(" and a GUN MAGAZINE jumps out of the water.");
               Thread.Sleep(3000);
+              items.GunMagazine = true;
               if (items.Gun)
               {
                 Console.WriteLine("You have now assembled the Gun, and is able to use it.");
@@ -154,7 +156,7 @@ public class FountainLocation(Locations locations)
               {
                 Console.Write("Not much use for this");
                 Thread.Sleep(2000);
-                Console.WriteLine(", you need to find a Gun.");
+                Console.WriteLine(", unless you find a Gun.");
                 Thread.Sleep(2000);
               }
 

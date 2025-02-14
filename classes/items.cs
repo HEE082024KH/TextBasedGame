@@ -1,15 +1,13 @@
-using System.Reflection.PortableExecutable;
-
 public class Items(Locations locations, Items items)
 {
   // MONEY AVAILABLE: $375
   // MONEY SPENDABLE: $585
   //
   // UNUSED ITEMS:
-  // Gun, Water, Batteries
+  // Water, Batteries, Gun + GunMagazine
   //
   // ITEMS DON'T EXIST:
-  // GateKey, GunMagazine, ShelterKey
+  // GateKey
 
   public bool GateKey;
   public bool Flashlight;
