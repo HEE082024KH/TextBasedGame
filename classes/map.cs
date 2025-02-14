@@ -1,3 +1,5 @@
+namespace TextBasedGame.classes;
+
 public static class Map
 {
   public static void ShowMap()

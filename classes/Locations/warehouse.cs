@@ -1,3 +1,5 @@
+using TextBasedGame.classes;
+
 public class AbandonedWarehouse(Locations locations)
 {
   private readonly Items items = locations.items;

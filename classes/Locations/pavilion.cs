@@ -1,3 +1,5 @@
+using TextBasedGame.classes;
+
 public class PavilionLocation(Locations locations)
 {
   private readonly Items items = new(locations, locations.items);

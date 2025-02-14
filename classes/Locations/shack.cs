@@ -1,3 +1,5 @@
+using TextBasedGame.classes;
+
 public class ShackLocation(Locations locations)
 {
   private readonly Items items = new(locations, locations.items);

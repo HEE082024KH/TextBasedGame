@@ -1,3 +1,5 @@
+namespace TextBasedGame.classes;
+
 public class Items(Locations locations, Items items)
 {
   // MONEY AVAILABLE: $375

@@ -1,3 +1,5 @@
+using TextBasedGame.classes;
+
 public class FountainLocation(Locations locations)
 {
   private readonly Items items = new(locations, locations.items);

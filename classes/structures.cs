@@ -1,4 +1,6 @@
-﻿public static class Structures
+﻿namespace TextBasedGame.classes;
+
+public static class Structures
 {
   public static void Office()
   {

@@ -1,6 +1,8 @@
+namespace TextBasedGame.classes;
+
 public class Controller
 {
-  Locations locations = new();
+  private readonly Locations locations = new();
 
   public void Run()
   {

@@ -1,4 +1,6 @@
-public class Start()
+namespace TextBasedGame.classes;
+
+public class Start
 {
   public bool newGame = false;
 

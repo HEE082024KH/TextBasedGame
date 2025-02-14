@@ -1,3 +1,5 @@
+namespace TextBasedGame.classes;
+
 public class Locations
 {
   Start start = new();
@@ -32,7 +34,7 @@ public class Locations
     warehouse = new(this);
     shelter = new(this);
     fountain = new(this);
-    alley = new(this);
+    alley = new((Locations)this);
     shack = new(this);
   }
 
