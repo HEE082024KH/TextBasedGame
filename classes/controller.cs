@@ -4,6 +4,7 @@ public class Controller
 
   public void Run()
   {
+    Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
     locations.InitializeLocations();
     locations.LocationSelector();
   }
