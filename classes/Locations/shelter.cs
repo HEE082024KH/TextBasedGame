@@ -35,12 +35,12 @@ public class BombShelter(Locations locations)
       {
         case 1:
         {
-          locations.LocationSelector();
           if (insideShelterTake)
           {
             travelFromShelter = true;
           }
 
+          locations.LocationSelector();
           break;
         }
         case 2:
