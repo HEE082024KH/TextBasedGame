@@ -6,6 +6,8 @@ public class PavilionLocation(Locations locations)
   private readonly Status status = new(locations, locations.items);
   private bool pavilion;
   private bool pavilionCenter;
+  private bool pavilionSearch;
+
 
   public void Pavilion()
   {
@@ -100,11 +102,36 @@ public class PavilionLocation(Locations locations)
           switch (locations.Input)
           {
             case 1:
-              Console.Clear();
-              Console.Write("It looks pretty empty here");
-              Thread.Sleep(2000);
-              Console.WriteLine(", not many spots to find anything.");
-              Thread.Sleep(2000);
+              if (!pavilionSearch)
+              {
+                Console.Clear();
+                Console.Write("It looks pretty empty here");
+                Thread.Sleep(2000);
+                Console.WriteLine(", not many spots where anything could be.");
+                Thread.Sleep(2500);
+                Console.WriteLine("Regardless, you search around each bench.");
+                Thread.Sleep(3000);
+                Console.Write("Nothing");
+                Thread.Sleep(2000);
+                Console.WriteLine(", just as you expected.");
+                Thread.Sleep(2000);
+                Console.Write("Just as you are about to leave");
+                Thread.Sleep(2000);
+                Console.WriteLine(", something catches your eye.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Something stuck to the leg of one of the benches.");
+                Thread.Sleep(3000);
+                Console.WriteLine("");
+                Thread.Sleep(2000);
+              }
+              else
+              {
+                Console.Clear();
+                Console.WriteLine("There is nothing more to find here.");
+                Thread.Sleep(3000);
+              }
+
+              Pavilion();
               break;
             case 2:
               Console.Clear();
