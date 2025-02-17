@@ -119,10 +119,12 @@ public class PavilionLocation(Locations locations)
                 Thread.Sleep(2000);
                 Console.WriteLine(", something catches your eye.");
                 Thread.Sleep(2000);
-                Console.WriteLine("Something stuck to the leg of one of the benches.");
+                Console.WriteLine("Something is stuck to the leg of one of the benches.");
                 Thread.Sleep(3000);
-                Console.WriteLine("");
+                Console.WriteLine("You found a CREDIT CARD");
                 Thread.Sleep(2000);
+                items.CreditCard = true;
+                pavilionSearch = true;
               }
               else
               {
