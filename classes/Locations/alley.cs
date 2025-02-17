@@ -12,7 +12,7 @@ public class AlleyLocation(Locations locations)
     Console.WriteLine($"You are at the  -{locations.CurrentLocation}-");
     Thread.Sleep(500);
     Console.WriteLine("");
-    Console.WriteLine("---What do you want to do?---");
+    Console.WriteLine("--What do you want to do?--");
     Console.WriteLine("1. Travel to a different location");
     Console.WriteLine("2. Check status");
     Console.WriteLine("3. ");
