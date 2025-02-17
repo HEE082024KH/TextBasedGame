@@ -1,5 +1,26 @@
 namespace TextBasedGame.classes;
 
+public class Item
+{
+  public required string Name;
+  private readonly bool Exists;
+  private readonly int Amount;
+
+  public required List<Item> Items;
+
+  public Item(string name, bool exists, int amount)
+  {
+    Name = name;
+    Exists = exists;
+    Amount = amount;
+  }
+
+  public void ShowInventory()
+  {
+    // Items.Add(new Item(Name, Exists, Amount));
+  }
+}
+
 public class Items(Locations locations, Items items)
 {
   // MONEY AVAILABLE: $375
