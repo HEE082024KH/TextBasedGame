@@ -13,7 +13,7 @@ public class GateLocation(Locations locations)
       Console.Clear();
       Structures.Gate();
       Console.WriteLine("");
-      Console.WriteLine($"You are at the  -{locations.CurrentLocation}-");
+      Console.WriteLine($"You are at the -{locations.CurrentLocation}-");
       Thread.Sleep(500);
       Console.WriteLine("");
       Console.WriteLine("--What do you want to do?--");

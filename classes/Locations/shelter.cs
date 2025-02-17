@@ -14,7 +14,7 @@ public class BombShelter(Locations locations)
     {
       locations.CurrentLocation = "BombShelter";
       Console.Clear();
-      Console.WriteLine($"You are at the  -{locations.CurrentLocation}-");
+      Console.WriteLine($"You are at the -{locations.CurrentLocation}-");
       Thread.Sleep(500);
       Console.WriteLine("");
       Console.WriteLine("--What do you want to do?--");

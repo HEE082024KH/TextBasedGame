@@ -7,58 +7,61 @@ public class PavilionLocation(Locations locations)
 
   public void Pavilion()
   {
-    locations.CurrentLocation = "Pavilion";
-    Console.Clear();
-    Console.WriteLine($"You are at the  -{locations.CurrentLocation}-");
-    Thread.Sleep(500);
-    Console.WriteLine("");
-    Console.WriteLine("--What do you want to do?--");
-    Console.WriteLine("1. Travel to a different location");
-    Console.WriteLine("2. Check status");
-    Console.WriteLine("3. ");
-    Console.WriteLine("4. ");
-    try
+    while (true)
     {
-      locations.Input = Convert.ToInt32(Console.ReadLine());
-    }
-    catch
-    {
+      locations.CurrentLocation = "Pavilion";
       Console.Clear();
-      Console.WriteLine("Invalid input");
-      Thread.Sleep(1500);
-      Pavilion();
-    }
-
-    switch (locations.Input)
-    {
-      case 1:
+      Console.WriteLine($"You are at the -{locations.CurrentLocation}-");
+      Thread.Sleep(500);
+      Console.WriteLine("");
+      Console.WriteLine("--What do you want to do?--");
+      Console.WriteLine("1. Travel to a different location");
+      Console.WriteLine("2. Check status");
+      Console.WriteLine("3. ");
+      Console.WriteLine("4. ");
+      try
       {
-        locations.LocationSelector();
-        break;
+        locations.Input = Convert.ToInt32(Console.ReadLine());
       }
-      case 2:
+      catch
       {
         Console.Clear();
-        status.ShowStatus();
-        Pavilion();
-        break;
-      }
-      case 3:
-      {
-        break;
-      }
-      case 4:
-      {
-        break;
-      }
-      default:
-      {
-        Console.Clear();
-        Console.Write("Invalid input");
+        Console.WriteLine("Invalid input");
         Thread.Sleep(1500);
         Pavilion();
-        break;
       }
+
+      switch (locations.Input)
+      {
+        case 1:
+        {
+          locations.LocationSelector();
+          break;
+        }
+        case 2:
+        {
+          Console.Clear();
+          status.ShowStatus();
+          continue;
+        }
+        case 3:
+        {
+          break;
+        }
+        case 4:
+        {
+          break;
+        }
+        default:
+        {
+          Console.Clear();
+          Console.Write("Invalid input");
+          Thread.Sleep(1500);
+          continue;
+        }
+      }
+
+      break;
     }
   }
 }
