@@ -1,23 +1,42 @@
 namespace TextBasedGame.classes;
 
-public class Item
+public class Variable(string name, bool exists, int amount)
 {
-  public required string Name;
-  private readonly bool Exists;
-  private readonly int Amount;
+  public required string Name { get; set; }
+  private bool Exists { get; set; }
+  private int Amount { get; set; }
 
-  public required List<Item> Items;
+  public required List<Variable> Variables { get; set; }
+  public required List<Variable> Inventory { get; set; }
 
-  public Item(string name, bool exists, int amount)
+  public void Item()
   {
     Name = name;
     Exists = exists;
     Amount = amount;
+    List<Variable> items = [];
   }
 
-  public void ShowInventory()
+  public void AddToSaveFile()
   {
-    // Items.Add(new Item(Name, Exists, Amount));
+    Variables.Add(new Variable(Name, Exists, Amount)
+    {
+      Name = null,
+      Exists = false,
+      Variables = null,
+      Inventory = null
+    });
+  }
+
+  public void AddToInventory()
+  {
+    Inventory.Add(new Variable(Name, Exists, Amount)
+    {
+      Name = null,
+      Exists = true,
+      Variables = null,
+      Inventory = null
+    });
   }
 }
 
