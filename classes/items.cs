@@ -38,6 +38,11 @@ public class Variable(string name, bool exists, int amount)
       Inventory = null
     });
   }
+
+  public void ShowInventory()
+  {
+    // Inventory.Where(Item => Item.Exists).ForEach(Item => Console.WriteLine());
+  }
 }
 
 public class Items(Locations locations, Items items)
