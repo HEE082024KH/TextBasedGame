@@ -11,8 +11,9 @@ the project grew in size.
 <img src="https://www.askpython.com/wp-content/uploads/2021/06/text-based-story-game-2048x1152.png.webp" width="525" height="295"/>
 </picture><br> &nbsp;
 
-Currently, the game has 6/12 locations finished, and most game logic and structure is done.
-Locations completed: Gate, Apartments, Subway Entrance, Shop, Bomb Shelter, Fountain. **\*About 45-50% done overall.**
+Currently, the game has 7/12 locations finished, and most game logic and structure is done.
+Locations completed: Gate, Apartments, Subway Entrance, Shop, Bomb Shelter, Fountain, Pavilion. **\*About 50% done
+overall.**
 
 Feel free to test the game if you want, any feedback is welcome.
 
