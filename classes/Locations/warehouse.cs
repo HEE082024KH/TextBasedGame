@@ -3,7 +3,7 @@ using TextBasedGame.classes;
 public class AbandonedWarehouse(Locations locations)
 {
   private readonly Items items = locations.items;
-  private readonly Status status = new(locations, locations.items);
+  private readonly Status status = locations.status;
   private bool pavilionToWarehouse;
 
   public void Warehouse()

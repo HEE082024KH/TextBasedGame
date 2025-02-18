@@ -2,8 +2,8 @@ using TextBasedGame.classes;
 
 public class GateLocation(Locations locations)
 {
-  private readonly Items items = new(locations, locations.items);
-  private readonly Status status = new(locations, locations.items);
+  private readonly Items items = locations.items;
+  private readonly Status status = locations.status;
 
   public void Gate()
   {

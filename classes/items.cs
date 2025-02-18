@@ -1,53 +1,42 @@
 namespace TextBasedGame.classes;
 
-public class Variable(string name, bool exists, int amount)
+public class Variable(string name, int amount, bool exists = false)
 {
-  public required string Name { get; set; }
-  private bool Exists { get; set; }
-  private int Amount { get; set; }
+  public string Name { get; set; } = name;
 
+  public bool Exists { get; set; } = exists;
+  public int Amount { get; set; } = amount;
+}
+
+public class Lists()
+{
   public required List<Variable> Variables { get; set; }
   public required List<Variable> Inventory { get; set; }
 
   public void Item()
   {
-    Name = name;
-    Exists = exists;
-    Amount = amount;
-    List<Variable> items = [];
   }
 
-  public void AddToSaveFile()
+  public void AddItem(string name, bool exists, int amount)
   {
-    Variables.Add(new Variable(Name, Exists, Amount)
-    {
-      Name = null,
-      Exists = false,
-      Variables = null,
-      Inventory = null
-    });
+    Variables.Add(new Variable(name, amount, exists));
   }
 
-  public void AddToInventory()
+  public void DisplayExistingItemsAndAmount()
   {
-    Inventory.Add(new Variable(Name, Exists, Amount)
-    {
-      Name = null,
-      Exists = true,
-      Variables = null,
-      Inventory = null
-    });
+    Variables.ForEach(item => Console.WriteLine($"{item.Name} amount is: {item.Amount}"));
   }
 
-  public void ShowInventory()
+  public void DisplayInventory()
   {
-    // Inventory.Where(Item => Item.Exists).ForEach(Item => Console.WriteLine());
+    Variables.Where(item => item.Exists).ToList()
+      .ForEach(item => Console.WriteLine($"{item.Name} amount is: {item.Amount}"));
   }
 }
 
-public class Items(Locations locations, Items items)
+public class Items()
 {
-  // MONEY AVAILABLE: $375
+  // MONEY AVAILABLE: $475
   // MONEY SPENDABLE: $585
   //
   // UNUSED ITEMS:

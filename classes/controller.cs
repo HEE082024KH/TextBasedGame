@@ -6,6 +6,7 @@ public class Controller
 
   public void Run()
   {
+    // Load all items/variables.
     locations.InitializeLocations();
     locations.LocationSelector();
   }
