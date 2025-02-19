@@ -5,7 +5,7 @@ public class ApartmentsLocation(Locations locations)
   private readonly Items items = locations.Items;
   private readonly Status? status = locations.Status;
   private bool apartments;
-  private bool enterInsideApartments;
+  private bool insideApartments;
   private bool insideApartmentsWindow;
   private bool insideApartmentsDoor2;
   private bool insideApartmentsDoor2Done;
@@ -24,7 +24,7 @@ public class ApartmentsLocation(Locations locations)
       Thread.Sleep(2000);
       apartments = true;
     }
-    
+
     locations.CurrentLocation = "Apartments";
     Console.Clear();
     Console.WriteLine($"You are at the -{locations.CurrentLocation}-");
@@ -116,7 +116,7 @@ public class ApartmentsLocation(Locations locations)
       }
       case 4:
       {
-        if (!enterInsideApartments)
+        if (!insideApartments)
         {
           Console.Clear();
           Structures.Apartments();
@@ -130,7 +130,7 @@ public class ApartmentsLocation(Locations locations)
           Console.WriteLine(", and 2 doors on either side.");
           Thread.Sleep(3000);
           Console.WriteLine("");
-          enterInsideApartments = true;
+          insideApartments = true;
         }
 
         insideApartments:
