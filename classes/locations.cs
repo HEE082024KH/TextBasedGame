@@ -2,11 +2,11 @@ namespace TextBasedGame.classes;
 
 public class Locations
 {
-  Start start = new();
-  public Items items = new();
+  private readonly Start start = new();
+  public readonly Items Items = new();
   public string? CurrentLocation;
   public int? Input;
-  public Status status;
+  public Status Status;
   public string? ItemInput;
 
   // Define locations
@@ -25,7 +25,7 @@ public class Locations
 
   public void InitializeLocations()
   {
-    status = new(this, items);
+    Status = new(this, Items);
     gate = new(this);
     apartments = new(this);
     subway = new(this);

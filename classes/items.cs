@@ -3,7 +3,6 @@ namespace TextBasedGame.classes;
 public class Variable(string name, int amount, bool exists = false)
 {
   public string Name { get; set; } = name;
-
   public bool Exists { get; set; } = exists;
   public int Amount { get; set; } = amount;
 }
@@ -11,11 +10,6 @@ public class Variable(string name, int amount, bool exists = false)
 public class Lists()
 {
   public required List<Variable> Variables { get; set; }
-  public required List<Variable> Inventory { get; set; }
-
-  public void Item()
-  {
-  }
 
   public void AddItem(string name, bool exists, int amount)
   {

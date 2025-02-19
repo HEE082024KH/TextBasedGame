@@ -2,8 +2,8 @@ using TextBasedGame.classes;
 
 public class ApartmentsLocation(Locations locations)
 {
-  private readonly Items items = locations.items;
-  private readonly Status status = locations.status;
+  private readonly Items items = locations.Items;
+  private readonly Status status = locations.Status;
   private bool enterInsideApartments;
   private bool insideApartmentsWindow;
   private bool insideApartmentsDoor2;

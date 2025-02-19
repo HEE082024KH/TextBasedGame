@@ -2,8 +2,8 @@ using TextBasedGame.classes;
 
 public class ShopLocation(Locations locations)
 {
-  private readonly Items items = locations.items;
-  private readonly Status status = locations.status;
+  private readonly Items items = locations.Items;
+  private readonly Status status = locations.Status;
   private bool shopOutside;
   private bool subwayToShop;
   private bool insideShop;
