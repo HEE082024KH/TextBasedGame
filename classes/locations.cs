@@ -26,7 +26,7 @@ public class Locations
 
   public void InitializeClasses()
   {
-    // Lists = new Lists(this);
+    Lists = new Lists(this);
     Status = new Status(this, Items);
     gate = new GateLocation(this);
     apartments = new ApartmentsLocation(this);
@@ -69,17 +69,17 @@ public class Locations
 
     switch (Input)
     {
-      // case 99:
-      //   Lists lists = new(this);
-      //   lists.AddItem("Test false", false, 0);
-      //   lists.AddItem("Test exists", true, 0);
-      //   lists.AddItem("Test number", true, 2);
-      //   lists.DisplayExistingItemsAndAmount();
-      //   Console.WriteLine("");
-      //   lists.DisplayInventory();
-      //   Console.WriteLine("");
-      //   Thread.Sleep(50000);
-      //   break;
+      case 99: // Testing lists
+        Lists lists = new(this);
+        lists.AddItem("Test false", 0, false);
+        lists.AddItem("Test exists", 0, true);
+        lists.AddItem("Test number", 2, true);
+        lists.DisplayExistingItemsAndAmount();
+        Console.WriteLine("");
+        lists.DisplayInventory();
+        Console.WriteLine("");
+        Thread.Sleep(50000);
+        break;
       case 1:
         CurrentLocation = "Gate";
         gate?.Gate();

@@ -9,22 +9,31 @@ public class Variable(string name, int amount, bool exists = false)
 
 public class Lists(Locations locations)
 {
-  public required List<Variable> Variables { get; set; }
+  public List<Variable> Variables { get; set; } =
+  [
+    new("CurrentLocation", 0),
+    new("Input", 0),
+    new("ItemInput", 0),
+    new("gate", 0)
+  ];
 
-  public void AddItem(string name, bool exists, int amount)
+  public void AddItem(string name, int amount, bool exists)
   {
+    // If item exists, modify existing entry.
+    // else Add using below.
     Variables.Add(new Variable(name, amount, exists));
   }
 
   public void DisplayExistingItemsAndAmount()
   {
-    Variables.ForEach(item => Console.WriteLine($"{item.Name} amount is: {item.Amount}"));
+    Variables.ForEach(item =>
+      Console.WriteLine($"- {item.Amount} {item.Name}"));
   }
 
   public void DisplayInventory()
   {
     Variables.Where(item => item.Exists).ToList()
-      .ForEach(item => Console.WriteLine($"{item.Name} amount is: {item.Amount}"));
+      .ForEach(item => Console.WriteLine($"- {item.Amount} {item.Name}"));
   }
 }
 
