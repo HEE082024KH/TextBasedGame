@@ -193,8 +193,18 @@ public class SubwayEntrance(Locations locations)
     if (!subway)
     {
       Console.Clear();
-      Console.WriteLine("");
+      Console.Write("Rundown and abandoned");
       Thread.Sleep(2000);
+      Console.WriteLine(", this subway station is in a rough state.");
+      Thread.Sleep(3000);
+      Console.Write("Paint scraped off");
+      Thread.Sleep(2000);
+      Console.Write(", dust a dirt everywhere");
+      Thread.Sleep(2000);
+      Console.WriteLine(", structually falling apart");
+      Thread.Sleep(3000);
+      Console.WriteLine("Looks like it has been a while since it has been in use.");
+      Thread.Sleep(4000);
       subway = true;
     }
 
