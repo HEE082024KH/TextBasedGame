@@ -286,7 +286,7 @@ public class PavilionLocation(Locations locations)
                 Thread.Sleep(3000);
                 Console.WriteLine("It is almost like the flower is smiling at you.");
                 Thread.Sleep(3000);
-                Console.WriteLine("Suddenly, $100 drops on the ground, in front of it.");
+                Console.WriteLine("Suddenly, it drops $100 on the ground in front of you.");
                 Thread.Sleep(4000);
                 items.Money += 100;
                 pavilionSmallFlower = true;
