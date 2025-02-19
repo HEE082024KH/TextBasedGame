@@ -66,9 +66,9 @@ public class BombShelter(Locations locations)
           Console.Clear();
           Console.WriteLine("You walk down the concrete stairs towards a solid steel door.");
           Thread.Sleep(3000);
-          Console.WriteLine("Seems like it might go deep underground.");
+          Console.Write("Seems like it might go deep underground");
           Thread.Sleep(2500);
-          Console.WriteLine("You almost feel slightly claustrophobic as you approach the door.");
+          Console.WriteLine(", it almost feels slightly claustrophobic");
           Thread.Sleep(3000);
           if (items.ShelterKey && !insideShelter)
           {
