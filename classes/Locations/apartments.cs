@@ -3,7 +3,7 @@ using TextBasedGame.classes;
 public class ApartmentsLocation(Locations locations)
 {
   private readonly Items items = locations.Items;
-  private readonly Status status = locations.Status;
+  private readonly Status? status = locations.Status;
   private bool enterInsideApartments;
   private bool insideApartmentsWindow;
   private bool insideApartmentsDoor2;
@@ -49,7 +49,7 @@ public class ApartmentsLocation(Locations locations)
       case 2:
       {
         Console.Clear();
-        status.ShowStatus();
+        status?.ShowStatus();
         Apartments();
         break;
       }
@@ -525,7 +525,6 @@ public class ApartmentsLocation(Locations locations)
                         goto insideApartments;
                     }
 
-                    ;
                     break;
                 }
 

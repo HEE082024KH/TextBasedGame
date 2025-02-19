@@ -7,7 +7,7 @@ public class Controller
   public void Run()
   {
     // Load all items/variables.
-    locations.InitializeLocations();
+    locations.InitializeClasses();
     locations.LocationSelector();
   }
 
@@ -37,7 +37,7 @@ public class Controller
       case "start":
       case "startgame":
       case "start game":
-        locations.InitializeLocations();
+        locations.InitializeClasses();
         locations.LocationSelector();
         break;
       case "2":

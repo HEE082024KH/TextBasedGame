@@ -3,7 +3,7 @@ using TextBasedGame.classes;
 public class ShopLocation(Locations locations)
 {
   private readonly Items items = locations.Items;
-  private readonly Status status = locations.Status;
+  private readonly Status? status = locations.Status;
   private bool shopOutside;
   private bool subwayToShop;
   private bool insideShop;
@@ -478,7 +478,7 @@ public class ShopLocation(Locations locations)
       case 2:
       {
         Console.Clear();
-        status.ShowStatus();
+        status?.ShowStatus();
         Shop();
         break;
       }

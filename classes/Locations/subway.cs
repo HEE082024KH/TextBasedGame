@@ -3,7 +3,8 @@ using TextBasedGame.classes;
 public class SubwayEntrance(Locations locations)
 {
   private readonly Items items = locations.Items;
-  private readonly Status status = locations.Status;
+  private readonly Status? status = locations.Status;
+  private bool subway;
   private bool subwayEntrance;
   private bool subwayFlashlight;
   private bool apartmentsToSubway;
@@ -189,6 +190,14 @@ public class SubwayEntrance(Locations locations)
       apartmentsToSubway = true;
     }
 
+    if (!subway)
+    {
+      Console.Clear();
+      Console.WriteLine("");
+      Thread.Sleep(2000);
+      subway = true;
+    }
+
     locations.CurrentLocation = "Subway Entrance";
     Console.Clear();
     Console.WriteLine($"You are at the -{locations.CurrentLocation}-");
@@ -221,7 +230,7 @@ public class SubwayEntrance(Locations locations)
       case 2:
       {
         Console.Clear();
-        status.ShowStatus();
+        status?.ShowStatus();
         Subway();
         break;
       }

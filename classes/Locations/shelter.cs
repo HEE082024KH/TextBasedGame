@@ -3,7 +3,7 @@ using TextBasedGame.classes;
 public class BombShelter(Locations locations)
 {
   private readonly Items items = locations.Items;
-  private readonly Status status = locations.Status;
+  private readonly Status? status = locations.Status;
   private bool insideShelter;
   private bool insideShelterTake;
   private bool travelFromShelter;
@@ -49,7 +49,7 @@ public class BombShelter(Locations locations)
         case 2:
         {
           Console.Clear();
-          status.ShowStatus();
+          status?.ShowStatus();
           continue;
         }
         case 3:

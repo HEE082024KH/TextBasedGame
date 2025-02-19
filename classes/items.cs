@@ -7,7 +7,7 @@ public class Variable(string name, int amount, bool exists = false)
   public int Amount { get; set; } = amount;
 }
 
-public class Lists()
+public class Lists(Locations locations)
 {
   public required List<Variable> Variables { get; set; }
 
@@ -28,7 +28,7 @@ public class Lists()
   }
 }
 
-public class Items()
+public class Items
 {
   // MONEY AVAILABLE: $475
   // MONEY SPENDABLE: $585
