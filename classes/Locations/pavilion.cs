@@ -3,7 +3,7 @@ using TextBasedGame.classes;
 public class PavilionLocation(Locations locations)
 {
   private readonly Items items = locations.Items;
-  private readonly Status status = locations.Status;
+  private readonly Status? status = locations.Status;
   private bool pavilion;
   private bool pavilionCenter;
   private bool pavilionSearch;
@@ -74,7 +74,7 @@ public class PavilionLocation(Locations locations)
         case 2:
         {
           Console.Clear();
-          status.ShowStatus();
+          status?.ShowStatus();
           continue;
         }
         case 3:

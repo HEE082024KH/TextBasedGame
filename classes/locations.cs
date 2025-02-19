@@ -74,7 +74,6 @@ public class Locations
       //   lists.AddItem("Test false", false, 0);
       //   lists.AddItem("Test exists", true, 0);
       //   lists.AddItem("Test number", true, 2);
-      //   Console.WriteLine("");
       //   lists.DisplayExistingItemsAndAmount();
       //   Console.WriteLine("");
       //   lists.DisplayInventory();
