@@ -4,11 +4,20 @@ public class GateLocation(Locations locations)
 {
   private readonly Items items = locations.Items;
   private readonly Status? status = locations.Status;
+  private bool gate;
 
   public void Gate()
   {
     while (true)
     {
+      if (!gate)
+      {
+        Console.Clear();
+        Console.WriteLine("");
+        Thread.Sleep(2000);
+        gate = true;
+      }
+
       locations.CurrentLocation = "Gate";
       Console.Clear();
       Structures.Gate();

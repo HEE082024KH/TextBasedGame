@@ -4,6 +4,7 @@ public class ApartmentsLocation(Locations locations)
 {
   private readonly Items items = locations.Items;
   private readonly Status? status = locations.Status;
+  private bool apartments;
   private bool enterInsideApartments;
   private bool insideApartmentsWindow;
   private bool insideApartmentsDoor2;
@@ -16,6 +17,14 @@ public class ApartmentsLocation(Locations locations)
 
   public void Apartments()
   {
+    if (!apartments)
+    {
+      Console.Clear();
+      Console.WriteLine("");
+      Thread.Sleep(2000);
+      apartments = true;
+    }
+    
     locations.CurrentLocation = "Apartments";
     Console.Clear();
     Console.WriteLine($"You are at the -{locations.CurrentLocation}-");

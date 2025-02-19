@@ -4,12 +4,21 @@ public class BombShelter(Locations locations)
 {
   private readonly Items items = locations.Items;
   private readonly Status? status = locations.Status;
+  private bool shelter;
   private bool insideShelter;
   private bool insideShelterTake;
   private bool travelFromShelter;
 
   public void Shelter()
   {
+    if (!shelter)
+    {
+      Console.Clear();
+      Console.WriteLine("");
+      Thread.Sleep(2000);
+      shelter = true;
+    }
+
     while (true)
     {
       locations.CurrentLocation = "BombShelter";
