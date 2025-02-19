@@ -3,10 +3,19 @@ using TextBasedGame.classes;
 public class ArtGallery(Locations locations)
 {
   private readonly Items items = locations.Items;
-  private readonly Status status = locations.Status;
+  private readonly Status? status = locations.Status;
+  private bool artGallery;
 
   public void Art()
   {
+    if (!artGallery)
+    {
+      Console.Clear();
+      Console.WriteLine("");
+      Thread.Sleep(2000);
+      artGallery = true;
+    }
+
     locations.CurrentLocation = "ArtGallery";
     Console.Clear();
     Console.WriteLine($"You are at the -{locations.CurrentLocation}-");

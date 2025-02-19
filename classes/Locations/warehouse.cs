@@ -4,6 +4,7 @@ public class AbandonedWarehouse(Locations locations)
 {
   private readonly Items items = locations.Items;
   private readonly Status status = locations.Status;
+  private bool warehouse;
   private bool pavilionToWarehouse;
 
   public void Warehouse()
@@ -189,6 +190,14 @@ public class AbandonedWarehouse(Locations locations)
       }
 
       pavilionToWarehouse = true;
+    }
+
+    if (!warehouse)
+    {
+      Console.Clear();
+      Console.WriteLine("");
+      Thread.Sleep(2000);
+      warehouse = true;
     }
 
     locations.CurrentLocation = "Abandoned Warehouse";

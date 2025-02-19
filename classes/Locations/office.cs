@@ -3,10 +3,19 @@ using TextBasedGame.classes;
 public class OfficeBuilding(Locations locations)
 {
   private readonly Items items = locations.Items;
-  private readonly Status status = locations.Status;
+  private readonly Status? status = locations.Status;
+  private bool office;
 
   public void Office()
   {
+    if (!office)
+    {
+      Console.Clear();
+      Console.WriteLine("");
+      Thread.Sleep(2000);
+      office = true;
+    }
+
     locations.CurrentLocation = "OfficeBuilding";
     Console.Clear();
     Console.WriteLine($"You are at the -{locations.CurrentLocation}-");

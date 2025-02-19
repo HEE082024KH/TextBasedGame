@@ -3,10 +3,19 @@ using TextBasedGame.classes;
 public class AlleyLocation(Locations locations)
 {
   private readonly Items items = locations.Items;
-  private readonly Status status = locations.Status;
+  private readonly Status? status = locations.Status;
+  private bool alley;
 
   public void Alley()
   {
+    if (!alley)
+    {
+      Console.Clear();
+      Console.WriteLine("");
+      Thread.Sleep(2000);
+      alley = true;
+    }
+
     locations.CurrentLocation = "Alley";
     Console.Clear();
     Console.WriteLine($"You are at the -{locations.CurrentLocation}-");

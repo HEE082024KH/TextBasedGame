@@ -3,10 +3,19 @@ using TextBasedGame.classes;
 public class ShackLocation(Locations locations)
 {
   private readonly Items items = locations.Items;
-  private readonly Status status = locations.Status;
+  private readonly Status? status = locations.Status;
+  private bool shack;
 
   public void Shack()
   {
+    if (!shack)
+    {
+      Console.Clear();
+      Console.WriteLine("");
+      Thread.Sleep(2000);
+      shack = true;
+    }
+
     locations.CurrentLocation = "Shack";
     Console.Clear();
     Console.WriteLine($"You are at the -{locations.CurrentLocation}-");
