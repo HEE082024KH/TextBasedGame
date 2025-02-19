@@ -4,6 +4,7 @@ public class ShopLocation(Locations locations)
 {
   private readonly Items items = locations.Items;
   private readonly Status? status = locations.Status;
+  private bool shop;
   private bool shopOutside;
   private bool subwayToShop;
   private bool insideShop;
@@ -444,6 +445,30 @@ public class ShopLocation(Locations locations)
       }
 
       subwayToShop = true;
+    }
+
+    if (!shop)
+    {
+      Console.Clear();
+      Console.Write("The area around the shop looks empty");
+      Thread.Sleep(3000);
+      Console.WriteLine(", scavanged and picked clean.");
+      Thread.Sleep(2500);
+      Console.Write("A big ass neon sign sit atop the building");
+      Thread.Sleep(3000);
+      Console.WriteLine(", missing a few light bulbs");
+      Thread.Sleep(2000);
+      Console.WriteLine(", but still lighting up the area.");
+      Thread.Sleep(3000);
+      Console.WriteLine("Items are visible in the shop windows");
+      Thread.Sleep(3000);
+      Console.WriteLine(", secure behind metal bars.");
+      Thread.Sleep(2500);
+      Console.WriteLine("Traps are scattered around the perimeter");
+      Thread.Sleep(3000);
+      Console.WriteLine(", spikes and barbed wire.");
+      Thread.Sleep(2500);
+      shop = true;
     }
 
     locations.CurrentLocation = "Shop";
