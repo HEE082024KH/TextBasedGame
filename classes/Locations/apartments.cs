@@ -84,7 +84,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
           goto outsideApartments;
         }
 
-        switch (locations.Input)
+        switch (lists.GetInput("Input"))
         {
           case 1:
           {
@@ -94,6 +94,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
             Console.WriteLine("Looking through one of the bags, you cut your hand on a sharp object");
             Thread.Sleep(2500);
             Console.WriteLine("-10 HP");
+            lists.ModifyValue("Health Points", hp => hp - 10);
             items.HealthPoints -= 10;
             items.Hp();
             Thread.Sleep(2500);
@@ -944,7 +945,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
       }
       case 5:
       {
-        if (!items.GreenGem)
+        if (!lists.CheckBool("Green Gem"))
         {
           if (!insideApartmentsWindow)
           {

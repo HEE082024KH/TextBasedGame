@@ -90,11 +90,23 @@ public class Lists(Locations locations)
     }
   }
 
-  public void DisplayExistingItemsAndAmount()
+  public void ModifyValue(string name, Func<int, int> amount)
   {
-    // all items 0, false - Hidden, json?, for save/load
-    Variables.ForEach(item =>
-      Console.WriteLine($"- {item.Amount} {item.Name} {item.Exists}"));
+    var item = Variables.FirstOrDefault(v => v.Name == name);
+    if (item != null)
+    {
+      item.Amount = amount(item.Amount);
+    }
+  }
+
+  public bool CheckBool(string name)
+  {
+    return Variables.Where(i => i.Name == name).Select(i => i.Exists).FirstOrDefault();
+  }
+
+  public int GetInput(string name)
+  {
+    return Variables.Where(i => i.Name == name).Select(i => i.Amount).FirstOrDefault();
   }
 
   public void DisplayInventory()
@@ -102,7 +114,7 @@ public class Lists(Locations locations)
     // perm items, >1, false - Hidden
     // Variables.Where(item => !item.Exists && item.Amount >= 1).ToList()
     //   .ForEach(item => Console.WriteLine($"- {item.Amount} {item.Name}"));
-    
+
     // add items, >=1, true - Top of inventory
     Variables.Where(item => item.Exists && item.Amount >= 1).ToList()
       .ForEach(item => Console.WriteLine($"- {item.Amount} {item.Name}"));
@@ -110,6 +122,13 @@ public class Lists(Locations locations)
     // add items, 0, true - Bottom of inventory
     Variables.Where(item => item.Exists && item.Amount == 0).ToList()
       .ForEach(item => Console.WriteLine($"- {item.Name}"));
+  }
+
+  public void DisplayExistingItemsAndAmount()
+  {
+    // all items 0, false - Hidden, json?, for save/load
+    Variables.ForEach(item =>
+      Console.WriteLine($"- {item.Amount} {item.Name} {item.Exists}"));
   }
 }
 
