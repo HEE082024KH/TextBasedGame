@@ -16,6 +16,9 @@ public class Lists(Locations locations)
     new("CurrentLocation", 0),
     new("Input", 0),
     new("ItemInput", 0),
+    new("IsBuzzed", -1),
+    new("IsDrunk", -1),
+    new("IsHammered", -1),
     new("gate", -1),
     new("apartments", -1),
     new("insideApartments", -1),
@@ -27,6 +30,7 @@ public class Lists(Locations locations)
     new("insideApartmentsDoor4KillHands", -1),
     new("insideApartmentsDoor4Steal", -1),
     new("insideApartmentsDoor4Talk", -1),
+    new("necklaceQuest", -1),
     new("shop", -1),
     new("shopOutside", -1),
     new("subwayToShop", -1),
@@ -53,30 +57,26 @@ public class Lists(Locations locations)
     new("shack", -1),
     new("warehouse", -1),
     new("pavilionToWarehouse", -1),
-    new("GateKey", 0),
+    new("Gate Key", 0),
     new("Flashlight", 0),
     new("Hairpin", 0),
     new("Crowbar", 0),
     new("Knife", 0),
     new("Bandages", 0),
     new("Alcohol", 0),
-    new("IsBuzzed", 0),
-    new("IsDrunk", 0),
-    new("IsHammered", 0),
     new("Key", 0),
-    new("GreenGem", 0),
-    new("OfficeKeycard", 0),
-    new("NecklaceQuest", 0),
+    new("Green Gem", 0),
+    new("Office Keycard", 0),
     new("Necklace", 0),
-    new("DogBone", 0),
-    new("MachineGun", 0),
+    new("Dog Bone", 0),
+    new("Machine Gun", 0),
     new("Coin", 0),
     new("Gun", 0),
-    new("GunMagazine", 0),
-    new("ShelterKey", 0),
+    new("Gun Magazine", 0),
+    new("Shelter Key", 0),
     new("Water", 0),
     new("Batteries", 0),
-    new("CreditCard", 0),
+    new("Credit Card", 0),
     // new("", 0),
   ];
 
@@ -88,14 +88,6 @@ public class Lists(Locations locations)
       item.Amount = amount; // Update the amount
       item.Exists = exists; // Update the exists flag
     }
-    else
-    {
-      Console.WriteLine("Item not found");
-      Console.ReadLine();
-    }
-    // string? item = Console.ReadLine();
-    // Variables.Find(item => item.Name == name).Exists = exists;
-    // Variables.Add(new Variable(name, amount, exists));
   }
 
   public void DisplayExistingItemsAndAmount()
@@ -110,7 +102,7 @@ public class Lists(Locations locations)
     // perm items, >1, false - Hidden
     // Variables.Where(item => !item.Exists && item.Amount >= 1).ToList()
     //   .ForEach(item => Console.WriteLine($"- {item.Amount} {item.Name}"));
-    // Console.WriteLine("");
+    
     // add items, >=1, true - Top of inventory
     Variables.Where(item => item.Exists && item.Amount >= 1).ToList()
       .ForEach(item => Console.WriteLine($"- {item.Amount} {item.Name}"));

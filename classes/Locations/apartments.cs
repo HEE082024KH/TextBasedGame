@@ -1,6 +1,6 @@
 using TextBasedGame.classes;
 
-public class ApartmentsLocation(Locations locations)
+public class ApartmentsLocation(Locations locations, Lists lists)
 {
   private readonly Items items = locations.Items;
   private readonly Status? status = locations.Status;
@@ -970,6 +970,7 @@ public class ApartmentsLocation(Locations locations)
             Thread.Sleep(3000);
             Console.WriteLine("You got a GREEN GEM.");
             Thread.Sleep(2000);
+            lists.AddItem("Green Gem", 0, true);
             items.GreenGem = true;
           }
           else

@@ -29,7 +29,7 @@ public class Locations
     Lists = new Lists(this);
     Status = new Status(this, Items);
     gate = new GateLocation(this);
-    apartments = new ApartmentsLocation(this);
+    apartments = new ApartmentsLocation(this, Lists);
     subway = new SubwayEntrance(this);
     shop = new ShopLocation(this);
     art = new ArtGallery(this);
@@ -71,13 +71,13 @@ public class Locations
     {
       case 99: // Testing lists
         Lists lists = new(this);
-        lists.AddItem("Money", 50, false);
-        lists.AddItem("Bandages", 3, true);
-        lists.AddItem("Alcohol", 1, true);
-        lists.AddItem("Coin", 0, true);
-        lists.AddItem("apartments", -1, true);
-        lists.DisplayExistingItemsAndAmount();
-        Console.WriteLine("");
+        // lists.AddItem("Money", 50, false);
+        // lists.AddItem("Bandages", 3, true);
+        // lists.AddItem("Alcohol", 1, true);
+        // lists.AddItem("Coin", 0, true);
+        // lists.AddItem("apartments", -1, true);
+        // lists.DisplayExistingItemsAndAmount();
+        // Console.WriteLine("");
         lists.DisplayInventory();
         Console.ReadLine();
         break;
