@@ -11,40 +11,48 @@ public class Lists(Locations locations)
 {
   public List<Variable> Variables { get; set; } =
   [
+    new("HealthPoints", 80),
+    new("Money", 0),
     new("CurrentLocation", 0),
     new("Input", 0),
     new("ItemInput", 0),
-    new("gate", 0),
-    new("apartments", 0),
-    new("insideApartments", 0),
-    new("insideApartmentsWindow", 0),
-    new("insideApartmentsDoor2", 0),
-    new("insideApartmentsDoor2Done", 0),
-    new("insideApartmentsDoor4Done", 0),
-    new("insideApartmentsDoor4Kill", 0),
-    new("insideApartmentsDoor4KillHands", 0),
-    new("insideApartmentsDoor4Steal", 0),
-    new("insideApartmentsDoor4Talk", 0),
-    new("shop", 0),
-    new("shopOutside", 0),
-    new("subwayToShop", 0),
-    new("insideShop", 0),
-    new("subway", 0),
-    new("subwayEntrance", 0),
-    new("subwayFlashlight", 0),
-    new("apartmentsToSubway", 0),
-    new("pavilion", 0),
-    new("pavilionCenter", 0),
-    new("pavilionSearch", 0),
-    new("pavilionAround", 0),
-    new("pavilionBigFlower", 0),
-    new("pavilionSmallFlower", 0),
-    new("fountain", 0),
-    new("fountainSit", 0),
-    new("shelter", 0),
-    new("insideShelter", 0),
-    new("insideShelterTake", 0),
-    new("travelFromShelter", 0),
+    new("gate", -1),
+    new("apartments", -1),
+    new("insideApartments", -1),
+    new("insideApartmentsWindow", -1),
+    new("insideApartmentsDoor2", -1),
+    new("insideApartmentsDoor2Done", -1),
+    new("insideApartmentsDoor4Done", -1),
+    new("insideApartmentsDoor4Kill", -1),
+    new("insideApartmentsDoor4KillHands", -1),
+    new("insideApartmentsDoor4Steal", -1),
+    new("insideApartmentsDoor4Talk", -1),
+    new("shop", -1),
+    new("shopOutside", -1),
+    new("subwayToShop", -1),
+    new("insideShop", -1),
+    new("subway", -1),
+    new("subwayEntrance", -1),
+    new("subwayFlashlight", -1),
+    new("apartmentsToSubway", -1),
+    new("pavilion", -1),
+    new("pavilionCenter", -1),
+    new("pavilionSearch", -1),
+    new("pavilionAround", -1),
+    new("pavilionBigFlower", -1),
+    new("pavilionSmallFlower", -1),
+    new("fountain", -1),
+    new("fountainSit", -1),
+    new("shelter", -1),
+    new("insideShelter", -1),
+    new("insideShelterTake", -1),
+    new("travelFromShelter", -1),
+    new("alley", -1),
+    new("artGallery", -1),
+    new("office", -1),
+    new("shack", -1),
+    new("warehouse", -1),
+    new("pavilionToWarehouse", -1),
     new("GateKey", 0),
     new("Flashlight", 0),
     new("Hairpin", 0),
@@ -69,34 +77,47 @@ public class Lists(Locations locations)
     new("Water", 0),
     new("Batteries", 0),
     new("CreditCard", 0),
-    new("Money", 0),
-    new("HealthPoints", 80),
-    new("alley", 0),
-    new("artGallery", 0),
-    new("office", 0),
-    new("shack", 0),
-    new("warehouse", 0),
-    new("pavilionToWarehouse", 0),
     // new("", 0),
   ];
 
   public void AddItem(string name, int amount, bool exists)
   {
-    string? item = Console.ReadLine();
-    Variables.Find(item => item.Name == name).Exists = exists;
+    var item = Variables.FirstOrDefault(v => v.Name == name);
+    if (item != null)
+    {
+      item.Amount = amount; // Update the amount
+      item.Exists = exists; // Update the exists flag
+    }
+    else
+    {
+      Console.WriteLine("Item not found");
+      Console.ReadLine();
+    }
+    // string? item = Console.ReadLine();
+    // Variables.Find(item => item.Name == name).Exists = exists;
     // Variables.Add(new Variable(name, amount, exists));
   }
 
   public void DisplayExistingItemsAndAmount()
   {
+    // all items 0, false - Hidden, json?, for save/load
     Variables.ForEach(item =>
-      Console.WriteLine($"- {item.Amount} {item.Name}"));
+      Console.WriteLine($"- {item.Amount} {item.Name} {item.Exists}"));
   }
 
   public void DisplayInventory()
   {
-    Variables.Where(item => item.Exists).ToList()
+    // perm items, >1, false - Hidden
+    // Variables.Where(item => !item.Exists && item.Amount >= 1).ToList()
+    //   .ForEach(item => Console.WriteLine($"- {item.Amount} {item.Name}"));
+    // Console.WriteLine("");
+    // add items, >=1, true - Top of inventory
+    Variables.Where(item => item.Exists && item.Amount >= 1).ToList()
       .ForEach(item => Console.WriteLine($"- {item.Amount} {item.Name}"));
+    Console.WriteLine("");
+    // add items, 0, true - Bottom of inventory
+    Variables.Where(item => item.Exists && item.Amount == 0).ToList()
+      .ForEach(item => Console.WriteLine($"- {item.Name}"));
   }
 }
 
