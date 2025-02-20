@@ -71,14 +71,10 @@ public class Locations
     {
       case 99: // Testing lists
         Lists lists = new(this);
-        lists.AddItem("Test false", 0, false);
-        lists.AddItem("Test exists", 0, true);
-        lists.AddItem("Test number", 2, true);
         lists.DisplayExistingItemsAndAmount();
         Console.WriteLine("");
         lists.DisplayInventory();
-        Console.WriteLine("");
-        Thread.Sleep(50000);
+        Console.ReadLine();
         break;
       case 1:
         CurrentLocation = "Gate";
