@@ -2,19 +2,19 @@ namespace TextBasedGame.classes;
 
 public class Variable(string name, int amount, bool exists = false)
 {
-  public string Name { get; set; } = name;
+  public string Name { get; } = name;
   public bool Exists { get; set; } = exists;
   public int Amount { get; set; } = amount;
 }
 
 public class Lists(Locations locations)
 {
-  public List<Variable> Variables { get; set; } =
+  private List<Variable> Variables { get; } =
   [
-    new("HealthPoints", 80),
+    new("HP", 80),
     new("Money", 0),
-    new("CurrentLocation", 0),
     new("Input", 0),
+    new("CurrentLocation", 0),
     new("ItemInput", 0),
     new("IsBuzzed", -1),
     new("IsDrunk", -1),
@@ -90,6 +90,15 @@ public class Lists(Locations locations)
     }
   }
 
+  public void ModifyInt(string name, int amount)
+  {
+    var item = Variables.FirstOrDefault(v => v.Name == name);
+    if (item != null)
+    {
+      item.Amount = amount;
+    }
+  }
+
   public void ModifyValue(string name, Func<int, int> amount)
   {
     var item = Variables.FirstOrDefault(v => v.Name == name);
@@ -104,7 +113,7 @@ public class Lists(Locations locations)
     return Variables.Where(i => i.Name == name).Select(i => i.Exists).FirstOrDefault();
   }
 
-  public int GetInput(string name)
+  public int GetValue(string name)
   {
     return Variables.Where(i => i.Name == name).Select(i => i.Amount).FirstOrDefault();
   }
@@ -129,6 +138,22 @@ public class Lists(Locations locations)
     // all items 0, false - Hidden, json?, for save/load
     Variables.ForEach(item =>
       Console.WriteLine($"- {item.Amount} {item.Name} {item.Exists}"));
+  }
+
+  public void Hp()
+  {
+    if (GetValue("HP") > 0)
+    {
+      return;
+    }
+
+    Console.WriteLine("You died from too many serious wounds");
+    Thread.Sleep(2000);
+    Console.WriteLine("---GAME OVER---");
+    Console.WriteLine("");
+    Console.WriteLine("Press Enter to exit");
+    Console.ReadLine();
+    Environment.Exit(0);
   }
 }
 

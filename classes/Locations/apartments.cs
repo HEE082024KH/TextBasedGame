@@ -2,30 +2,19 @@ using TextBasedGame.classes;
 
 public class ApartmentsLocation(Locations locations, Lists lists)
 {
-  private readonly Items items = locations.Items;
   private readonly Status? status = locations.Status;
-  private bool apartments;
-  private bool insideApartments;
-  private bool insideApartmentsWindow;
-  private bool insideApartmentsDoor2;
-  private bool insideApartmentsDoor2Done;
-  private bool insideApartmentsDoor4Done;
-  private bool insideApartmentsDoor4Kill;
-  private bool insideApartmentsDoor4KillHands;
-  private bool insideApartmentsDoor4Steal;
-  private bool insideApartmentsDoor4Talk;
 
   public void Apartments()
   {
-    if (!apartments)
+    if (lists.CheckBool("apartments"))
     {
       Console.Clear();
       Console.WriteLine("");
       Thread.Sleep(2000);
-      apartments = true;
+      lists.AddItem("apartments", -1, true);
     }
 
-    locations.CurrentLocation = "Apartments";
+    lists.CurrentLocation = "Apartments";
     Console.Clear();
     Console.WriteLine($"You are at the -{locations.CurrentLocation}-");
     Thread.Sleep(500);
@@ -38,7 +27,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
     Console.WriteLine("5. Look for an open window");
     try
     {
-      locations.Input = Convert.ToInt32(Console.ReadLine());
+      lists.ModifyInt("Input", 0) = Convert.ToInt32(Console.ReadLine());
     }
     catch
     {
@@ -48,7 +37,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
       Apartments();
     }
 
-    switch (locations.Input)
+    switch (lists.GetValue("Input"))
     {
       case 1:
       {
@@ -73,7 +62,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
         Console.WriteLine("2. Leave them alone");
         try
         {
-          locations.Input = Convert.ToInt32(Console.ReadLine());
+          lists.ModifyInt("Input", 0) = Convert.ToInt32(Console.ReadLine());
         }
         catch
         {
@@ -84,7 +73,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
           goto outsideApartments;
         }
 
-        switch (lists.GetInput("Input"))
+        switch (lists.GetValue("Input"))
         {
           case 1:
           {
@@ -94,9 +83,8 @@ public class ApartmentsLocation(Locations locations, Lists lists)
             Console.WriteLine("Looking through one of the bags, you cut your hand on a sharp object");
             Thread.Sleep(2500);
             Console.WriteLine("-10 HP");
-            lists.ModifyValue("Health Points", hp => hp - 10);
-            items.HealthPoints -= 10;
-            items.Hp();
+            lists.ModifyValue("HP", hp => hp - 10);
+            lists.Hp();
             Thread.Sleep(2500);
             Apartments();
             break;
@@ -117,7 +105,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
       }
       case 4:
       {
-        if (!insideApartments)
+        if (!lists.CheckBool("insideApartments"))
         {
           Console.Clear();
           Structures.Apartments();
@@ -131,7 +119,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
           Console.WriteLine(", and 2 doors on either side.");
           Thread.Sleep(3000);
           Console.WriteLine("");
-          insideApartments = true;
+          lists.AddItem("insideApartments", -1, true);
         }
 
         insideApartments:
@@ -148,7 +136,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
         Console.WriteLine("7. Go back out");
         try
         {
-          locations.Input = Convert.ToInt32(Console.ReadLine());
+          lists.ModifyInt("Input", 0) = Convert.ToInt32(Console.ReadLine()));
         }
         catch
         {
@@ -161,13 +149,14 @@ public class ApartmentsLocation(Locations locations, Lists lists)
           goto insideApartments;
         }
 
-        switch (locations.Input)
+        switch (lists.GetValue("Input"))
         {
           case 1:
           {
             Console.Clear();
-            if (items.Crowbar)
+            if (lists.CheckBool("Crowbar"))
             {
+              Console.Clear();
               Console.WriteLine("You use the crowbar to pry the door open.");
               Thread.Sleep(1000);
               Console.WriteLine("With a loud crack the door opens");
@@ -182,9 +171,10 @@ public class ApartmentsLocation(Locations locations, Lists lists)
               goto insideApartments;
             }
 
-            if (items.Hairpin)
+            if (lists.CheckBool("Hairpin"))
             {
-              items.Hairpin = false;
+              lists.AddItem("Hairpin", 0, true);
+              Console.Clear();
               Console.WriteLine("You use the hairpin to unlock the door.");
               Thread.Sleep(2000);
               Console.WriteLine("The room looks to be a maintenance room of sorts");
@@ -220,7 +210,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
             Console.WriteLine("2. Hug the wall and sneakily look inside");
             try
             {
-              locations.Input = Convert.ToInt32(Console.ReadLine());
+              lists.ModifyInt("Input", 0) = Convert.ToInt32(Console.ReadLine());
             }
             catch
             {
@@ -231,15 +221,15 @@ public class ApartmentsLocation(Locations locations, Lists lists)
               goto insideApartmentsDoor2;
             }
 
-            switch (locations.Input)
+            switch (lists.GetValue("Input"))
             {
               case 1:
-                if (!insideApartmentsDoor2)
+                if (!lists.CheckBool("insideApartmentsDoor2"))
                 {
                   Console.Clear();
                   Console.WriteLine("As you walk in a man jumps you from behind.");
                   Thread.Sleep(1000);
-                  if (items.IsBuzzed)
+                  if (lists.CheckBool("IsBuzzed"))
                   {
                     Console.Write("Despite feeling buzzed you manage to overpower the man");
                     Thread.Sleep(2500);
@@ -247,10 +237,10 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                     Thread.Sleep(2000);
                     Console.WriteLine("\t-20 HP");
                     Thread.Sleep(2000);
-                    items.HealthPoints -= 20;
-                    items.Hp();
+                    lists.ModifyValue("HP", hp => hp - 20);
+                    lists.Hp();
                   }
-                  else if (items.IsDrunk)
+                  else if (lists.CheckBool("IsDrunk"))
                   {
                     Console.WriteLine("You barely manage to fight him off");
                     Thread.Sleep(2000);
@@ -258,17 +248,17 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                     Thread.Sleep(2000);
                     Console.WriteLine("\t-30 HP");
                     Thread.Sleep(2000);
-                    items.HealthPoints -= 30;
-                    items.Hp();
+                    lists.ModifyValue("HP", hp => hp - 30);
+                    lists.Hp();
                   }
-                  else if (items.IsHammered)
+                  else if (lists.CheckBool("IsHammered"))
                   {
                     Console.WriteLine("You are hammered.");
                     Thread.Sleep(2000);
                     Console.Write("Before you notice what is going on everything goes black.");
                     Thread.Sleep(3000);
-                    items.HealthPoints = 0;
-                    items.Hp();
+                    lists.AddItem("HP", 0, false);
+                    lists.Hp();
                   }
                   else
                   {
@@ -276,34 +266,35 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                     Thread.Sleep(2000);
                     Console.WriteLine("\t-15 HP");
                     Thread.Sleep(2000);
-                    items.HealthPoints -= 15;
-                    items.Hp();
+                    lists.ModifyValue("HP", hp => hp - 15);
+                    lists.Hp();
                   }
 
-                  items.Hp();
+                  lists.Hp();
                   Console.WriteLine(
                     "He's not much of a fighter, however, and eventually you knock him out.");
                   Thread.Sleep(3000);
                   Console.WriteLine("You go through his pockets and find a KNIFE");
                   Thread.Sleep(2000);
-                  items.Knife = true;
-                  if (items.NecklaceQuest)
+                  lists.AddItem("Knife", 0, true);
+                  if (lists.CheckBool("necklaceQuest"))
                   {
-                    items.NecklaceQuest = false;
+                    lists.AddItem("necklaceQuest", -1, false);
                     Console.WriteLine("You also find the woman's NECKLACE");
                     Thread.Sleep(2000);
-                    items.Necklace = true;
+                    lists.AddItem("Necklace", 0, true);
                   }
 
-                  insideApartmentsDoor2 = true;
+                  lists.AddItem("insideApartmentsDoor2", -1, true);
                 }
-                else if (!items.Necklace && items.NecklaceQuest && insideApartmentsDoor2)
+                else if (!lists.CheckBool("Necklace") && lists.CheckBool("necklaceQuest") &&
+                         lists.CheckBool("insideApartmentsDoor2"))
                 {
                   Console.WriteLine("You see the man lying on the floor.");
                   Thread.Sleep(2000);
                   Console.WriteLine("You go through his pockets and find the woman's NECKLACE");
                   Thread.Sleep(3500);
-                  items.Necklace = true;
+                  lists.AddItem("Necklace", 0, true);
                 }
                 else
                 {
@@ -318,10 +309,10 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                 Console.WriteLine("");
                 goto insideApartments;
               case 2:
-                if (!insideApartmentsDoor2Done)
+                if (!lists.CheckBool("insideApartmentsDoor2Done"))
                 {
                   {
-                    if (!items.IsDrunk || !items.IsHammered)
+                    if (!lists.CheckBool("IsDrunk") || !lists.CheckBool("IsHammered"))
                     {
                       Console.Clear();
                       Console.Write("As you look inside");
@@ -338,7 +329,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                     }
 
                     Thread.Sleep(1500);
-                    if (items.IsBuzzed)
+                    if (lists.CheckBool("IsBuzzed"))
                     {
                       Console.WriteLine(
                         "Despite feeling buzzed you charge the man and knock him to the ground");
@@ -347,10 +338,9 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                         "Eventually, with a bit of fumbling, you manage to knock him out.");
                       Console.WriteLine("\t-5 HP");
                       Thread.Sleep(3000);
-                      items.HealthPoints -= 5;
-                      items.Hp();
+                      lists.ModifyValue("HP", hp => hp - 5);
                     }
-                    else if (items.IsDrunk)
+                    else if (lists.CheckBool("IsDrunk"))
                     {
                       Console.WriteLine("You walk inside and get jumped by a strange man.");
                       Thread.Sleep(3500);
@@ -358,17 +348,17 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                         "You struggle to overpower him, but eventually you manage to knock him out.");
                       Console.WriteLine("\t-15 HP");
                       Thread.Sleep(3000);
-                      items.HealthPoints -= 15;
-                      items.Hp();
+                      lists.ModifyValue("HP", hp => hp - 15);
+                      lists.Hp();
                     }
-                    else if (items.IsHammered)
+                    else if (lists.CheckBool("IsHammered"))
                     {
                       Console.WriteLine("You are hammered.");
                       Thread.Sleep(1500);
                       Console.WriteLine("You walk inside and suddenly everything goes black.");
                       Thread.Sleep(3500);
-                      items.HealthPoints = 0;
-                      items.Hp();
+                      lists.AddItem("HP", 0, false);
+                      lists.Hp();
                     }
                     else
                     {
@@ -379,11 +369,11 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                       Thread.Sleep(2500);
                     }
 
-                    items.Hp();
+                    lists.Hp();
                     Console.WriteLine("You go through his pockets and find a KNIFE");
-                    items.Knife = true;
+                    lists.AddItem("Knife", 0, true);
                     Thread.Sleep(3000);
-                    insideApartmentsDoor2Done = true;
+                    lists.AddItem("insideApartmentsDoor2Done", -1, true);
                     Console.Clear();
                     Structures.Apartments();
                     Console.WriteLine("");
@@ -420,7 +410,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
             Console.WriteLine("2. Leave");
             try
             {
-              locations.Input = Convert.ToInt32(Console.ReadLine());
+              Input = Convert.ToInt32(Console.ReadLine());
             }
             catch
             {
@@ -431,7 +421,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
               goto insideApartmentsDoor3;
             }
 
-            switch (locations.Input)
+            switch (lists.GetValue("Input"))
             {
               case 1:
                 Console.Clear();
@@ -457,7 +447,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                 Console.WriteLine("2. Leave");
                 try
                 {
-                  locations.Input = Convert.ToInt32(Console.ReadLine());
+                  Input = Convert.ToInt32(Console.ReadLine());
                 }
                 catch
                 {
@@ -468,7 +458,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                   goto insideApartmentsDoor3Open;
                 }
 
-                switch (locations.Input)
+                switch (lists.GetValue("Input"))
                 {
                   case 1:
                     Console.Clear();
@@ -485,7 +475,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                     Console.WriteLine("2. Leave");
                     try
                     {
-                      locations.Input = Convert.ToInt32(Console.ReadLine());
+                      Input = Convert.ToInt32(Console.ReadLine());
                     }
                     catch
                     {
@@ -496,7 +486,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                       goto insideApartmentsDoor3OpenInside;
                     }
 
-                    switch (locations.Input)
+                    switch (lists.GetValue("Input"))
                     {
                       case 1:
                         Console.Clear();
@@ -510,8 +500,8 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                         Thread.Sleep(2000);
                         Console.WriteLine("\t-15 HP");
                         Thread.Sleep(3000);
-                        items.HealthPoints -= 15;
-                        items.Hp();
+                        lists.ModifyValue("HP", hp => hp - 15);
+                        lists.Hp();
                         Thread.Sleep(2500);
                         Console.Write("Just as you are about to leave");
                         Thread.Sleep(2000);
@@ -523,7 +513,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                         Thread.Sleep(4000);
                         Console.WriteLine("You got the OFFICE KEYCARD");
                         Thread.Sleep(3000);
-                        items.OfficeKeycard = true;
+                        lists.AddItem("Office Keycard", 0, true);
                         Console.Clear();
                         Structures.Apartments();
                         Console.WriteLine("");
@@ -550,7 +540,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
           }
           case 4:
           {
-            if (insideApartmentsDoor4Done)
+            if (lists.CheckBool("insideApartmentsDoor4Done"))
             {
               Console.Clear();
               Console.WriteLine("You do not have any reason to go back here.");
@@ -561,9 +551,9 @@ public class ApartmentsLocation(Locations locations, Lists lists)
               goto insideApartments;
             }
 
-            if (insideApartmentsDoor4Talk)
+            if (lists.CheckBool("insideApartmentsDoor4Talk"))
             {
-              if (items.Necklace)
+              if (lists.CheckBool("Necklace"))
               {
                 Console.Clear();
                 Console.WriteLine("Her face lights up as you enter.");
@@ -574,12 +564,12 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                 Thread.Sleep(2500);
                 Console.WriteLine("She gives you a KEY in return.");
                 Thread.Sleep(2000);
-                items.Key = true;
+                lists.AddItem("Key", 0, true);
                 Console.WriteLine("She is unsure where it fits, but she found it on this floor.");
                 Thread.Sleep(3000);
                 Console.WriteLine("If you look around a bit you might figure where to use it.");
                 Thread.Sleep(2500);
-                insideApartmentsDoor4Done = true;
+                lists.AddItem("insideApartmentsDoor4Done", -1, true);
                 Console.Clear();
                 Structures.Apartments();
                 Console.WriteLine("");
@@ -601,7 +591,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
               goto insideApartments;
             }
 
-            if (insideApartmentsDoor4Steal)
+            if (lists.CheckBool("insideApartmentsDoor4Steal"))
             {
               Console.Clear();
               Console.WriteLine("You enter the apartment looking for the woman.");
@@ -610,12 +600,12 @@ public class ApartmentsLocation(Locations locations, Lists lists)
               Thread.Sleep(3000);
               Console.WriteLine("Her sleeping bag and things are gone.");
               Thread.Sleep(2500);
-              insideApartmentsDoor4Steal = true;
+              lists.AddItem("insideApartmentsDoor4Steal", -1, true);
             }
-            else if (insideApartmentsDoor4Kill)
+            else if (lists.CheckBool("insideApartmentsDoor4Kill"))
             {
               Console.Clear();
-              if (insideApartmentsDoor4KillHands)
+              if (lists.CheckBool("insideApartmentsDoor4KillHands"))
               {
                 Console.WriteLine("The apartment has blood everywhere.");
                 Thread.Sleep(2000);
@@ -625,7 +615,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
               Thread.Sleep(3000);
               Console.WriteLine("There is nothing more to find here.");
               Thread.Sleep(2500);
-              insideApartmentsDoor4Done = true;
+              lists.AddItem("insideApartmentsDoor4Done", -1, true);
               Console.Clear();
               Structures.Apartments();
               Console.WriteLine("");
@@ -664,7 +654,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
               Console.WriteLine("3. Kill her and take her stuff.");
               try
               {
-                locations.Input = Convert.ToInt32(Console.ReadLine());
+                Input = Convert.ToInt32(Console.ReadLine());
               }
               catch
               {
@@ -675,7 +665,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                 goto insideApartmentsDoor4;
               }
 
-              switch (locations.Input)
+              switch (lists.GetValue("Input"))
               {
                 case 1:
                   Console.Clear();
@@ -691,30 +681,30 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                   Thread.Sleep(4000);
                   Console.WriteLine("She wants you to recover her necklace and return it to her.");
                   Thread.Sleep(4000);
-                  items.NecklaceQuest = true;
-                  insideApartmentsDoor4Talk = true;
+                  lists.AddItem("necklaceQuest", -1, true);
+                  lists.AddItem("insideApartmentsDoor4Talk", -1, true);
                   Console.Clear();
                   Structures.Apartments();
                   Console.WriteLine("");
                   goto insideApartments;
                 case 2:
                   Console.Clear();
-                  if (items.Knife)
+                  if (lists.CheckBool("Knife"))
                   {
                     Console.WriteLine(
                       "You pull out your knife and force her to give you what she has.");
                     Thread.Sleep(3500);
                     Console.WriteLine("Reluctantly, she pulls out 25 bucks from behind a dresser.");
-                    items.Money += 25;
+                    lists.ModifyValue("Money", i => i + 25);
                   }
-                  else if (items.Crowbar)
+                  else if (lists.CheckBool("Crowbar"))
                   {
                     Console.WriteLine(
                       "You pull out your crowbar and force her to give you what she has.");
                     Thread.Sleep(3500);
                     Console.WriteLine("Reluctantly, gives you 20 bucks.");
                     Thread.Sleep(2500);
-                    items.Money += 20;
+                    lists.ModifyValue("Money", i => i + 20);
                   }
                   else
                   {
@@ -722,10 +712,10 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                     Thread.Sleep(3500);
                     Console.WriteLine("Reluctantly, gives you 10 bucks.");
                     Thread.Sleep(2500);
-                    items.Money += 10;
+                    lists.ModifyValue("Money", i => i + 10);
                   }
 
-                  insideApartmentsDoor4Steal = true;
+                  lists.AddItem("insideApartmentsDoor4Steal", -1, true);
                   Console.Clear();
                   Structures.Apartments();
                   Console.WriteLine("");
@@ -735,11 +725,11 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                   Console.Clear();
                   Console.WriteLine("What weapon do you want to use?");
                   Console.WriteLine("- Hands");
-                  if (items.Knife) Console.WriteLine("- Knife");
-                  if (items.Crowbar) Console.WriteLine("- Crowbar");
+                  if (lists.CheckBool("Knife")) Console.WriteLine("- Knife");
+                  if (lists.CheckBool("Crowbar")) Console.WriteLine("- Crowbar");
                   try
                   {
-                    locations.ItemInput = Console.ReadLine()?.ToLower();
+                    ItemInput = Console.ReadLine()?.ToLower();
                   }
                   catch
                   {
@@ -750,7 +740,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                     goto insideApartmentsDoor4Kill;
                   }
 
-                  switch (locations.ItemInput)
+                  switch (ItemInput)
                   {
                     case "hands":
                       Console.Write("You swiftly place your hands around her neck");
@@ -776,8 +766,8 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                       Console.Write("From her dead corpse");
                       Thread.Sleep(1500);
                       Console.WriteLine(", you find 5 bucks");
-                      items.Money += 5;
-                      insideApartmentsDoor4KillHands = true;
+                      lists.ModifyValue("Money", i => i + 5);
+                      lists.AddItem("insideApartmentsDoor4KillHands", -1, true);
                       break;
                     case "knife":
                       Console.WriteLine("With a swift motion you stab her in the stomach.");
@@ -802,7 +792,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                       Thread.Sleep(1500);
                       Console.WriteLine(", you find 5 bucks");
                       Thread.Sleep(2000);
-                      items.Money += 5;
+                      lists.ModifyValue("Money", i => i + 5);
                       break;
                     case "crowbar":
                       Console.Write("You swing the crowbar with force");
@@ -825,7 +815,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                       Console.WriteLine("2. No");
                       try
                       {
-                        locations.Input = Convert.ToInt32(Console.ReadLine());
+                        Input = Convert.ToInt32(Console.ReadLine());
                       }
                       catch
                       {
@@ -836,7 +826,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                         goto insideApartmentsDoor4KillCrowbar;
                       }
 
-                      switch (locations.Input)
+                      switch (lists.GetValue("Input"))
                       {
                         case 1:
                           Console.Write("You strike her again");
@@ -849,7 +839,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                           Thread.Sleep(1500);
                           Console.WriteLine(", you find 5 bucks");
                           Thread.Sleep(2000);
-                          items.Money += 5;
+                          lists.ModifyValue("Money", i => i + 5);
                           break;
                         case 2:
                           Console.WriteLine("You stand around");
@@ -867,18 +857,17 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                           Console.Write("From her dead corpse");
                           Thread.Sleep(1500);
                           Console.Write(", you find 5 bucks");
-                          items.Money += 5;
+                          lists.ModifyValue("Money", i => i + 5);
                           break;
                       }
 
-
-                      insideApartmentsDoor4Done = true;
+                      lists.AddItem("insideApartmentsDoor4Done", -1, true);
                       break;
                     default:
                       goto insideApartmentsDoor4Kill;
                   }
 
-                  insideApartmentsDoor4Kill = true;
+                  lists.AddItem("insideApartmentsDoor4Kill", -1, true);
                   Console.Clear();
                   Structures.Apartments();
                   Console.WriteLine("");
@@ -898,8 +887,8 @@ public class ApartmentsLocation(Locations locations, Lists lists)
             Console.WriteLine(", but there is a medical cabinet on the wall");
             Thread.Sleep(2500);
             Console.WriteLine("Inside you find a BANDAGE and a bottle of ALCOHOL.");
-            items.Bandages = items.Bandages++;
-            items.Alcohol = items.Alcohol++;
+            lists.ModifyValue("Bandages", i => i + 1);
+            lists.ModifyValue("Alchohol", i => i + 1);
             Thread.Sleep(3500);
             Console.Clear();
             Structures.Apartments();
@@ -947,7 +936,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
       {
         if (!lists.CheckBool("Green Gem"))
         {
-          if (!insideApartmentsWindow)
+          if (!lists.CheckBool("insideApartmentsWindow"))
           {
             Console.Clear();
             Console.WriteLine("You walk around the building until you find an open window.");
@@ -957,13 +946,13 @@ public class ApartmentsLocation(Locations locations, Lists lists)
             Console.WriteLine("There's not much to the room, other than your standard furniture");
             Thread.Sleep(500);
             Console.Write("...");
-            insideApartmentsWindow = true;
+            lists.AddItem("insideApartmentsWindow", -1, true);
           }
 
           Thread.Sleep(1500);
           Console.WriteLine("You spot a small box on a dresser");
           Thread.Sleep(2000);
-          if (items.Key)
+          if (lists.CheckBool("Key"))
           {
             Console.WriteLine("You use the key to open the box.");
             Thread.Sleep(2000);
@@ -972,7 +961,6 @@ public class ApartmentsLocation(Locations locations, Lists lists)
             Console.WriteLine("You got a GREEN GEM.");
             Thread.Sleep(2000);
             lists.AddItem("Green Gem", 0, true);
-            items.GreenGem = true;
           }
           else
           {
