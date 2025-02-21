@@ -1,21 +1,19 @@
 using TextBasedGame.classes;
 
-public class GateLocation(Locations locations)
+public class GateLocation(Locations locations, Lists lists)
 {
-  private readonly Items items = locations.Items;
   private readonly Status? status = locations.Status;
-  private bool gate;
 
   public void Gate()
   {
     while (true)
     {
-      if (!gate)
+      if (!lists.CheckBool("gate"))
       {
         Console.Clear();
         Console.WriteLine("");
         Thread.Sleep(2000);
-        gate = true;
+        lists.AddItem("gate", -1, true);
       }
 
       locations.CurrentLocation = "Gate";
@@ -32,7 +30,7 @@ public class GateLocation(Locations locations)
       Console.WriteLine("4. Look around for anything useful");
       try
       {
-        locations.Input = Convert.ToInt32(Console.ReadLine());
+        Input = Convert.ToInt32(Console.ReadLine());
       }
       catch
       {
@@ -42,7 +40,7 @@ public class GateLocation(Locations locations)
         Gate();
       }
 
-      switch (locations.Input)
+      switch (lists.GetValue("Input"))
       {
         case 1:
         {
@@ -57,7 +55,7 @@ public class GateLocation(Locations locations)
         }
         case 3:
         {
-          if (items.GateKey)
+          if (lists.CheckBool("Gate Key"))
           {
             Console.Clear();
             Structures.Gate();
@@ -113,7 +111,7 @@ public class GateLocation(Locations locations)
         }
         case 4:
         {
-          if (items.Flashlight || items.Hairpin)
+          if (lists.CheckBool("Flashlight") || lists.CheckBool("Hairpin"))
           {
             Console.Clear();
             Console.WriteLine("You use your flashlight to look around");
@@ -123,13 +121,13 @@ public class GateLocation(Locations locations)
             continue;
           }
 
-          if (items.Flashlight)
+          if (lists.CheckBool("Flashlight"))
           {
             Console.Clear();
             Console.WriteLine("You use your flashlight to look around");
             Thread.Sleep(2500);
             Console.WriteLine("You found a HAIRPIN");
-            items.Hairpin = true;
+            lists.AddItem("Hairpin", -1, true);
             Thread.Sleep(300);
             continue;
           }

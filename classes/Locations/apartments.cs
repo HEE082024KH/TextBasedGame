@@ -27,7 +27,10 @@ public class ApartmentsLocation(Locations locations, Lists lists)
     Console.WriteLine("5. Look for an open window");
     try
     {
-      lists.ModifyInt("Input", 0) = Convert.ToInt32(Console.ReadLine());
+      int i = Convert.ToInt32(Console.ReadLine());
+      lists.ModifyInt("Input", i);
+
+      lists.ModifyInt("Input", i) = Convert.ToInt32(Console.ReadLine());
     }
     catch
     {

@@ -1,22 +1,17 @@
 using TextBasedGame.classes;
 
-public class BombShelter(Locations locations)
+public class BombShelter(Locations locations, Lists lists)
 {
-  private readonly Items items = locations.Items;
   private readonly Status? status = locations.Status;
-  private bool shelter;
-  private bool insideShelter;
-  private bool insideShelterTake;
-  private bool travelFromShelter;
 
   public void Shelter()
   {
-    if (!shelter)
+    if (!lists.CheckBool("shelter"))
     {
       Console.Clear();
       Console.WriteLine("");
       Thread.Sleep(2000);
-      shelter = true;
+      lists.AddItem("shelter", -1, true);
     }
 
     while (true)
@@ -33,7 +28,7 @@ public class BombShelter(Locations locations)
       Console.WriteLine("4. Look around outside");
       try
       {
-        locations.Input = Convert.ToInt32(Console.ReadLine());
+        Input = Convert.ToInt32(Console.ReadLine());
       }
       catch
       {
@@ -43,13 +38,13 @@ public class BombShelter(Locations locations)
         Shelter();
       }
 
-      switch (locations.Input)
+      switch (lists.GetValue("Input"))
       {
         case 1:
         {
-          if (insideShelterTake)
+          if (lists.CheckBool("insideShelterTake"))
           {
-            travelFromShelter = true;
+            lists.AddItem("insideShelterTake", -1, true);
           }
 
           locations.LocationSelector();
@@ -70,7 +65,7 @@ public class BombShelter(Locations locations)
           Thread.Sleep(2500);
           Console.WriteLine(", it almost feels slightly claustrophobic");
           Thread.Sleep(3000);
-          if (items.ShelterKey && !insideShelter)
+          if (lists.CheckBool("Shelter Key") && !lists.CheckBool("insideShelter"))
           {
             Console.Clear();
             Console.WriteLine("You use the Shelter Key to open the door.");
@@ -94,7 +89,7 @@ public class BombShelter(Locations locations)
             Console.WriteLine("2. Take everything.");
             try
             {
-              locations.Input = Convert.ToInt32(Console.ReadLine());
+              Input = Convert.ToInt32(Console.ReadLine());
             }
             catch
             {
@@ -105,7 +100,7 @@ public class BombShelter(Locations locations)
               goto insideShelter;
             }
 
-            switch (locations.Input)
+            switch (lists.GetValue("Input"))
             {
               case 1:
                 Console.Clear();
@@ -113,13 +108,13 @@ public class BombShelter(Locations locations)
                 Thread.Sleep(2500);
                 Console.WriteLine("You got a FLASHLIGHT");
                 Thread.Sleep(2000);
-                items.Flashlight = true;
+                lists.AddItem("Flashlight", 0, true);
                 Console.WriteLine("You got WATER");
                 Thread.Sleep(2000);
-                items.Water = true;
+                lists.AddItem("Water", 1, true);
                 Console.WriteLine("You got BATTERIES");
                 Thread.Sleep(3000);
-                items.Batteries = true;
+                lists.AddItem("Batteries", 0, true);
                 Console.WriteLine("And you leave the rest for someone else that needs it.");
                 Thread.Sleep(3000);
                 Shelter();
@@ -132,13 +127,13 @@ public class BombShelter(Locations locations)
                 Thread.Sleep(2000);
                 Console.WriteLine("You got a FLASHLIGHT");
                 Thread.Sleep(2000);
-                items.Flashlight = true;
+                lists.AddItem("Flashlight", 0, true);
                 Console.WriteLine("You got WATER");
                 Thread.Sleep(2000);
-                items.Water = true;
+                lists.AddItem("Water", 1, true);
                 Console.WriteLine("You got BATTERIES");
                 Thread.Sleep(3000);
-                items.Batteries = true;
+                lists.AddItem("Batteries", 0, true);
                 Console.WriteLine("You leave the place empty.");
                 Thread.Sleep(3000);
                 Shelter();
@@ -148,7 +143,7 @@ public class BombShelter(Locations locations)
 
             insideShelter = true;
           }
-          else if (!items.ShelterKey)
+          else if (!lists.CheckBool("ShelterKey"))
           {
             Console.Clear();
             Console.WriteLine("Locked.");
@@ -159,7 +154,7 @@ public class BombShelter(Locations locations)
             Thread.Sleep(3000);
             continue;
           }
-          else if (travelFromShelter)
+          else if (lists.CheckBool("travelFromShelter"))
           {
             Console.Clear();
             Console.Write("As you enter the shelter");
@@ -193,7 +188,7 @@ public class BombShelter(Locations locations)
           Console.WriteLine("2. Leave");
           try
           {
-            locations.Input = Convert.ToInt32(Console.ReadLine());
+            Input = Convert.ToInt32(Console.ReadLine());
           }
           catch
           {
@@ -204,7 +199,7 @@ public class BombShelter(Locations locations)
             goto shelterEntrance;
           }
 
-          switch (locations.Input)
+          switch (lists.GetValue("Input"))
           {
             case 1:
               Console.Clear();
@@ -218,7 +213,7 @@ public class BombShelter(Locations locations)
               Thread.Sleep(3000);
               Console.Write("As you open it you find a GUN");
               Thread.Sleep(2000);
-              items.Gun = true;
+              lists.AddItem("Gun", 0, true);
               Console.WriteLine(", however it is missing the magazine.");
               Thread.Sleep(2000);
               continue;

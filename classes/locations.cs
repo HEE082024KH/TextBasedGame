@@ -28,7 +28,7 @@ public class Locations
   {
     Lists = new Lists(this);
     Status = new Status(this, Items);
-    gate = new GateLocation(this);
+    gate = new GateLocation(this, Lists);
     apartments = new ApartmentsLocation(this, Lists);
     subway = new SubwayEntrance(this);
     shop = new ShopLocation(this);
@@ -36,7 +36,7 @@ public class Locations
     office = new OfficeBuilding(this);
     pavilion = new PavilionLocation(this);
     warehouse = new AbandonedWarehouse(this);
-    shelter = new BombShelter(this);
+    shelter = new BombShelter(this, Lists);
     fountain = new FountainLocation(this);
     alley = new AlleyLocation(this);
     shack = new ShackLocation(this);

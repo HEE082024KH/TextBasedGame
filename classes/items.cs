@@ -1,9 +1,10 @@
 namespace TextBasedGame.classes;
 
-public class Variable(string name, int amount, bool exists = false)
+public class Variable(string name, int amount, string text, bool exists = false)
 {
   public string Name { get; } = name;
   public bool Exists { get; set; } = exists;
+  public string Text { get; set; } = "";
   public int Amount { get; set; } = amount;
 }
 
@@ -11,14 +12,17 @@ public class Lists(Locations locations)
 {
   private List<Variable> Variables { get; } =
   [
-    new("HP", 80),
-    new("Money", 0),
-    new("Input", 0),
-    new("CurrentLocation", 0),
-    new("ItemInput", 0),
+    // Permanent items/states
+    new("HP", 80, ""),
+    new("Money", 0, ""),
+    new("Input", 0, ""),
+    new("CurrentLocation", 0, ""),
+    new("ItemInput", 0, ""),
     new("IsBuzzed", -1),
     new("IsDrunk", -1),
     new("IsHammered", -1),
+
+    // Location/events
     new("gate", -1),
     new("apartments", -1),
     new("insideApartments", -1),
@@ -57,6 +61,8 @@ public class Lists(Locations locations)
     new("shack", -1),
     new("warehouse", -1),
     new("pavilionToWarehouse", -1),
+
+    // Items
     new("Gate Key", 0),
     new("Flashlight", 0),
     new("Hairpin", 0),
@@ -96,6 +102,8 @@ public class Lists(Locations locations)
     if (item != null)
     {
       item.Amount = amount;
+      item.Amount = Convert.ToInt32(Console.ReadLine());
+      ;
     }
   }
 
@@ -105,6 +113,15 @@ public class Lists(Locations locations)
     if (item != null)
     {
       item.Amount = amount(item.Amount);
+    }
+  }
+
+  public void ModifyText(string name, string text)
+  {
+    var item = Variables.FirstOrDefault(v => v.Name == name);
+    if (item != null)
+    {
+      item.Text = text;
     }
   }
 
