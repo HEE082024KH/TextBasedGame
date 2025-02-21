@@ -28,7 +28,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
 
     lists.CurrentLocation = "Apartments";
     Console.Clear();
-    Console.WriteLine($"You are at the -{locations.CurrentLocation}-");
+    Console.WriteLine($"You are at the -{lists.CurrentLocation}-");
     Thread.Sleep(500);
     Console.WriteLine("");
     Console.WriteLine("--What do you want to do?--");
@@ -351,6 +351,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                       Console.WriteLine("\t-5 HP");
                       Thread.Sleep(3000);
                       lists.ModifyValue("HP", hp => hp - 5);
+                      lists.Hp();
                     }
                     else if (lists.CheckBool("IsDrunk"))
                     {

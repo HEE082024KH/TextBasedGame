@@ -28,7 +28,7 @@ public class Locations
     Status = new Status(this, Items);
     gate = new GateLocation(this, Lists);
     apartments = new ApartmentsLocation(this, Lists);
-    subway = new SubwayEntrance(this);
+    subway = new SubwayEntrance(this, Lists);
     shop = new ShopLocation(this);
     art = new ArtGallery(this);
     office = new OfficeBuilding(this);

@@ -1,17 +1,12 @@
 using TextBasedGame.classes;
 
-public class SubwayEntrance(Locations locations)
+public class SubwayEntrance(Locations locations, Lists lists)
 {
-  private readonly Items items = locations.Items;
   private readonly Status? status = locations.Status;
-  private bool subway;
-  private bool subwayEntrance;
-  private bool subwayFlashlight;
-  private bool apartmentsToSubway;
 
   public void Subway()
   {
-    if (locations.CurrentLocation == "Apartments" && !apartmentsToSubway)
+    if (lists.CurrentLocation == "Apartments" && !lists.CheckBool("apartmentsToSubway"))
     {
       Console.Clear();
       Console.Write("On your way to the Subway");
@@ -28,7 +23,7 @@ public class SubwayEntrance(Locations locations)
       Console.WriteLine("3. Run");
       try
       {
-        locations.Input = Convert.ToInt32(Console.ReadLine());
+        lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
       }
       catch
       {
@@ -39,7 +34,7 @@ public class SubwayEntrance(Locations locations)
         goto apartmentsToSubway;
       }
 
-      switch (locations.Input)
+      switch (lists.GetValue("Input"))
       {
         case 1:
           Console.Clear();
@@ -63,7 +58,7 @@ public class SubwayEntrance(Locations locations)
           Thread.Sleep(2000);
           try
           {
-            locations.Input = Convert.ToInt32(Console.ReadLine());
+            lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
           }
           catch
           {
@@ -74,7 +69,7 @@ public class SubwayEntrance(Locations locations)
             goto apartmentsToSubwayThugs;
           }
 
-          switch (locations.Input)
+          switch (lists.GetValue("Input"))
           {
             case 1:
               Console.Clear();
@@ -82,7 +77,7 @@ public class SubwayEntrance(Locations locations)
               Thread.Sleep(2000);
               Console.WriteLine("They end up taking all your money.");
               Thread.Sleep(2000);
-              items.Money = 0;
+              lists.ModifyInt("Money", 0);
               Console.Write("As they walk off");
               Thread.Sleep(1500);
               Console.WriteLine(", you are not sure whether you should be happy to be alive");
@@ -114,14 +109,14 @@ public class SubwayEntrance(Locations locations)
               Thread.Sleep(2000);
               Console.WriteLine(" as everything turns black.");
               Thread.Sleep(3000);
-              items.HealthPoints = 0;
-              items.Hp();
+              lists.ModifyInt("HP", 0);
+              lists.Hp();
               break;
           }
 
           break;
         case 2:
-          if (items.MachineGun)
+          if (lists.CheckBool("MachineGun"))
           {
             Console.Clear();
             Console.WriteLine("You pull out your machine gun and spray the thugs with bullet.");
@@ -130,13 +125,13 @@ public class SubwayEntrance(Locations locations)
             Thread.Sleep(3500);
             Console.WriteLine("You loot their corpses for 15 bucks.");
             Thread.Sleep(3000);
-            items.Money += 15;
+            lists.ModifyValue("Money", i => i + 15);
           }
-          else if (items.Knife || items.Crowbar)
+          else if (lists.CheckBool("Knife") || lists.CheckBool("Crowbar"))
           {
             Console.Clear();
-            if (items.Knife) Console.WriteLine("You pull out your knife and get ready to fight.");
-            if (items.Crowbar) Console.WriteLine("You pull out your crowbar and get ready to fight.");
+            if (lists.CheckBool("Knife")) Console.WriteLine("You pull out your knife and get ready to fight.");
+            if (lists.CheckBool("Crowbar")) Console.WriteLine("You pull out your crowbar and get ready to fight.");
             Thread.Sleep(3000);
             Console.Write("You expect them to come at you all at once");
             Thread.Sleep(2500);
@@ -156,13 +151,13 @@ public class SubwayEntrance(Locations locations)
             Thread.Sleep(2500);
             Console.WriteLine("You search his pockets and find 5 bucks");
             Thread.Sleep(2500);
-            items.Money += 5;
+            lists.ModifyValue("Money", i => i + 5);
             Console.WriteLine("They got in a few good stabs and swipes.");
             Thread.Sleep(2500);
             Console.WriteLine("-25 HP");
             Thread.Sleep(2000);
-            items.HealthPoints = 0;
-            items.Hp();
+            lists.ModifyInt("HP", 0);
+            lists.Hp();
           }
 
           break;
@@ -187,10 +182,10 @@ public class SubwayEntrance(Locations locations)
           break;
       }
 
-      apartmentsToSubway = true;
+      lists.AddItem("apartmentsToSubway", -1, true);
     }
 
-    if (!subway)
+    if (!lists.CheckBool("subway"))
     {
       Console.Clear();
       Console.Write("Rundown and abandoned");
@@ -205,12 +200,12 @@ public class SubwayEntrance(Locations locations)
       Thread.Sleep(3000);
       Console.WriteLine("Looks like it has been a while since it has been in use.");
       Thread.Sleep(4000);
-      subway = true;
+      lists.AddItem("subway", -1, true);
     }
 
-    locations.CurrentLocation = "Subway Entrance";
+    lists.CurrentLocation = "Subway Entrance";
     Console.Clear();
-    Console.WriteLine($"You are at the -{locations.CurrentLocation}-");
+    Console.WriteLine($"You are at the -{lists.CurrentLocation}-");
     Thread.Sleep(500);
     Console.WriteLine("");
     Console.WriteLine("---What do you want to do?---");
@@ -220,7 +215,7 @@ public class SubwayEntrance(Locations locations)
     Console.WriteLine("4. Check the area around the entrance");
     try
     {
-      locations.Input = Convert.ToInt32(Console.ReadLine());
+      lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
     }
     catch
     {
@@ -230,7 +225,7 @@ public class SubwayEntrance(Locations locations)
       Subway();
     }
 
-    switch (locations.Input)
+    switch (lists.GetValue("Input"))
     {
       case 1:
       {
@@ -246,13 +241,13 @@ public class SubwayEntrance(Locations locations)
       }
       case 3:
       {
-        if (subwayFlashlight)
+        if (lists.CheckBool("subwayFlashlight"))
         {
           Console.WriteLine("I have nothing more to do down here.");
           Thread.Sleep(2000);
           Subway();
         }
-        else if (!subwayEntrance)
+        else if (!lists.CheckBool("subwayEntrance"))
         {
           Console.Clear();
           Console.Write("As you walk down into the subway");
@@ -276,7 +271,7 @@ public class SubwayEntrance(Locations locations)
           Console.WriteLine(" but it might be hard to see anything without a flashlight.");
           Thread.Sleep(3500);
           Console.WriteLine("");
-          subwayEntrance = true;
+          lists.AddItem("subwayEntrance", -1, true);
         }
 
         subwayEntrance:
@@ -285,7 +280,7 @@ public class SubwayEntrance(Locations locations)
         Console.WriteLine("2. Leave");
         try
         {
-          locations.Input = Convert.ToInt32(Console.ReadLine());
+          lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
         }
         catch
         {
@@ -296,10 +291,10 @@ public class SubwayEntrance(Locations locations)
           goto subwayEntrance;
         }
 
-        switch (locations.Input)
+        switch (lists.GetValue("Input"))
         {
           case 1:
-            if (items.Flashlight && !subwayFlashlight)
+            if (lists.CheckBool("Flashlight") && !lists.CheckBool("subwayFlashlight"))
             {
               Console.WriteLine("You venture down into the subway.");
               Thread.Sleep(2000);
@@ -340,7 +335,7 @@ public class SubwayEntrance(Locations locations)
               Console.WriteLine("3. Leave");
               try
               {
-                locations.Input = Convert.ToInt32(Console.ReadLine());
+                lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
               }
               catch
               {
@@ -351,7 +346,7 @@ public class SubwayEntrance(Locations locations)
                 goto subwayShelves;
               }
 
-              switch (locations.Input)
+              switch (lists.GetValue("Input"))
               {
                 case 1:
                   Console.WriteLine("You start searching the boxes on the left side.");
@@ -361,12 +356,12 @@ public class SubwayEntrance(Locations locations)
                   Console.WriteLine(", you cut your hand on something sharp");
                   Thread.Sleep(2500);
                   Console.WriteLine("-10 HP");
-                  items.HealthPoints -= 10;
-                  items.Hp();
+                  lists.ModifyValue("HP", i => i - 10);
+                  lists.Hp();
                   Console.Clear();
                   goto subwayShelves;
                 case 2:
-                  if (!items.Crowbar)
+                  if (!lists.CheckBool("Crowbar"))
                   {
                     Console.WriteLine("You start searching the boxes on the right side.");
                     Thread.Sleep(2500);
@@ -376,7 +371,7 @@ public class SubwayEntrance(Locations locations)
                     Thread.Sleep(2000);
                     Console.WriteLine("Inside you find a CROWBAR");
                     Thread.Sleep(2500);
-                    items.Crowbar = true;
+                    lists.AddItem("Crowbar", 0, true);
                   }
                   else
                   {
@@ -391,9 +386,9 @@ public class SubwayEntrance(Locations locations)
                   break;
               }
 
-              subwayFlashlight = true;
+              lists.AddItem("subwayFlashlight", -1, true);
             }
-            else if (subwayFlashlight)
+            else if (lists.CheckBool("subwayFlashlight"))
             {
               Console.WriteLine("I have nothing more to do down here.");
               Thread.Sleep(2000);
@@ -422,8 +417,8 @@ public class SubwayEntrance(Locations locations)
               Thread.Sleep(1000);
               Console.WriteLine(" Everything goes black.");
               Thread.Sleep(2000);
-              items.HealthPoints = 0;
-              items.Hp();
+              lists.ModifyInt("HP", 0);
+              lists.Hp();
             }
 
             break;
@@ -454,7 +449,7 @@ public class SubwayEntrance(Locations locations)
         Console.WriteLine("2. Leave");
         try
         {
-          locations.Input = Convert.ToInt32(Console.ReadLine());
+          lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
         }
         catch
         {
@@ -465,7 +460,7 @@ public class SubwayEntrance(Locations locations)
           goto subwayEntrance;
         }
 
-        switch (locations.Input)
+        switch (lists.GetValue("Input"))
         {
           case 1:
             Console.WriteLine("You search the few unopened bags that are left.");
@@ -477,8 +472,8 @@ public class SubwayEntrance(Locations locations)
             Console.WriteLine(", and likely a few diseases.");
             Thread.Sleep(2000);
             Console.WriteLine("-20 HP");
-            items.HealthPoints -= 20;
-            items.Hp();
+            lists.ModifyValue("HP", i => i - 20);
+            lists.Hp();
             Thread.Sleep(2000);
             Subway();
             break;
