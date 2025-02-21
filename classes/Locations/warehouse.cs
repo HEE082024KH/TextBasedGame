@@ -1,17 +1,14 @@
 using TextBasedGame.classes;
 
-public class AbandonedWarehouse(Locations locations)
+public class AbandonedWarehouse(Locations locations, Lists lists)
 {
-  private readonly Items items = locations.Items;
   private readonly Status? status = locations.Status;
-  private bool warehouse;
-  private bool pavilionToWarehouse;
 
   public void Warehouse()
   {
     while (true)
     {
-      if (locations.CurrentLocation == "Pavilion" && !pavilionToWarehouse)
+      if (lists.CurrentLocation == "Pavilion" && !lists.CheckBool("pavilionToWarehouse"))
       {
         Console.Clear();
         Console.Write("On your way to the Warehouse");
@@ -28,7 +25,7 @@ public class AbandonedWarehouse(Locations locations)
         Console.WriteLine("3. Run");
         try
         {
-          locations.Input = Convert.ToInt32(Console.ReadLine());
+          lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
         }
         catch
         {
@@ -39,7 +36,7 @@ public class AbandonedWarehouse(Locations locations)
           goto pavilionToWarehouse;
         }
 
-        switch (locations.Input)
+        switch (lists.GetValue("Input"))
         {
           case 1:
             Console.Clear();
@@ -53,12 +50,12 @@ public class AbandonedWarehouse(Locations locations)
             Thread.Sleep(2000);
             Console.WriteLine(", then walks off");
             Thread.Sleep(2000);
-            items.Coin = true;
-            items.Money += 10;
+            lists.AddItem("Coin", 0, true);
+            lists.ModifyValue("Money", i => i + 10);
             break;
           case 2:
             Console.Clear();
-            if (items.MachineGun)
+            if (lists.CheckBool("MachineGun"))
             {
               Console.WriteLine("You pull out the Machine Gun and fire multiple rounds towards him.");
               Thread.Sleep(3500);
@@ -75,10 +72,10 @@ public class AbandonedWarehouse(Locations locations)
               Console.WriteLine("He does not have anything useful on him.");
               Thread.Sleep(2000);
             }
-            else if (items.Knife || items.Crowbar)
+            else if (lists.CheckBool("Knife") || lists.CheckBool("Crowbar"))
             {
-              if (items.Knife) Console.Write("You pull out your Knife");
-              if (items.Crowbar) Console.Write("You pull out your Crowbar");
+              if (lists.CheckBool("Knife")) Console.Write("You pull out your Knife");
+              if (lists.CheckBool("Crowbar")) Console.Write("You pull out your Crowbar");
               Thread.Sleep(2000);
               Console.WriteLine(", but the man keeps walking towards you.");
               Thread.Sleep(2000);
@@ -95,7 +92,7 @@ public class AbandonedWarehouse(Locations locations)
               Console.WriteLine("2. Attack him");
               try
               {
-                locations.Input = Convert.ToInt32(Console.ReadLine());
+                lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
               }
               catch
               {
@@ -106,7 +103,7 @@ public class AbandonedWarehouse(Locations locations)
                 goto warehouseAttackMan;
               }
 
-              switch (locations.Input)
+              switch (lists.GetValue("Input"))
               {
                 case 1:
                   Console.Clear();
@@ -122,11 +119,11 @@ public class AbandonedWarehouse(Locations locations)
                   Thread.Sleep(2000);
                   Console.WriteLine(", then walks off");
                   Thread.Sleep(2000);
-                  items.Coin = true;
+                  lists.AddItem("Coin", 0, true);
                   break;
                 case 2:
                   Console.Clear();
-                  if (items.Knife)
+                  if (lists.CheckBool("Knife"))
                   {
                     Console.WriteLine("You shove the knife into his stomach.");
                     Thread.Sleep(2500);
@@ -142,10 +139,10 @@ public class AbandonedWarehouse(Locations locations)
                     Thread.Sleep(3500);
                     Console.WriteLine("You find 5 bucks in his pockets");
                     Thread.Sleep(2000);
-                    items.Money += 5;
+                    lists.ModifyValue("Money", i => i + 5);
                   }
 
-                  if (items.Crowbar)
+                  if (lists.CheckBool("Crowbar"))
                   {
                     Console.Write("You swing the crowbar towards his head");
                     Thread.Sleep(2500);
@@ -159,7 +156,7 @@ public class AbandonedWarehouse(Locations locations)
                     Thread.Sleep(2000);
                     Console.WriteLine("You find 5 bucks in his pocket.");
                     Thread.Sleep(2000);
-                    items.Money += 5;
+                    lists.ModifyValue("Money", i => i + 5);
                   }
 
                   break;
@@ -191,20 +188,20 @@ public class AbandonedWarehouse(Locations locations)
             break;
         }
 
-        pavilionToWarehouse = true;
+        lists.AddItem("pavilionToWarehouse", -1, true);
       }
 
-      if (!warehouse)
+      if (!lists.CheckBool("warehouse"))
       {
         Console.Clear();
         Console.WriteLine("");
         Thread.Sleep(2000);
-        warehouse = true;
+        lists.AddItem("warehouse", -1, true);
       }
 
-      locations.CurrentLocation = "Abandoned Warehouse";
+      lists.CurrentLocation = "Abandoned Warehouse";
       Console.Clear();
-      Console.WriteLine($"You are at the -{locations.CurrentLocation}-");
+      Console.WriteLine($"You are at the -{lists.CurrentLocation}-");
       Thread.Sleep(500);
       Console.WriteLine("");
       Console.WriteLine("--What do you want to do?--");
@@ -214,7 +211,7 @@ public class AbandonedWarehouse(Locations locations)
       Console.WriteLine("4. ");
       try
       {
-        locations.Input = Convert.ToInt32(Console.ReadLine());
+        lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
       }
       catch
       {
@@ -224,7 +221,7 @@ public class AbandonedWarehouse(Locations locations)
         Warehouse();
       }
 
-      switch (locations.Input)
+      switch (lists.GetValue("Input"))
       {
         case 1:
         {

@@ -103,8 +103,6 @@ public class Lists(Locations locations)
     if (item != null)
     {
       item.Amount = amount;
-      item.Amount = Convert.ToInt32(Console.ReadLine());
-      ;
     }
   }
 

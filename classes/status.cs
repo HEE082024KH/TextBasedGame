@@ -1,6 +1,6 @@
 namespace TextBasedGame.classes;
 
-public class Status(Locations locations, Lists lists)
+public class Status(Locations locations, Items items)
 {
   public void ShowStatus()
   {
@@ -24,7 +24,7 @@ public class Status(Locations locations, Lists lists)
     Console.WriteLine("3. Go back");
     try
     {
-      locations.Input = Convert.ToInt32(Console.ReadLine());
+      // lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
     }
     catch
     {
@@ -32,19 +32,19 @@ public class Status(Locations locations, Lists lists)
       ShowStatus();
     }
 
-    switch (locations.Input)
-    {
-      case 1:
-        Console.Clear();
-        ShowInventory();
-        break;
-      case 2:
-        Console.Clear();
-        UseItems();
-        break;
-      case 3:
-        break;
-    }
+    // switch (lists.GetValue("Input"))
+    // {
+    //   case 1:
+    //     Console.Clear();
+    //     ShowInventory();
+    //     break;
+    //   case 2:
+    //     Console.Clear();
+    //     UseItems();
+    //     break;
+    //   case 3:
+    //     break;
+    // }
   }
 
   private void UseItems()

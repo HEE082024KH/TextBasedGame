@@ -4,6 +4,7 @@ public class Locations
 {
   private readonly Start start = new();
   public Status? Status;
+  public required Items Items;
   public required Lists Lists;
   public string? ItemInput;
 
@@ -24,7 +25,7 @@ public class Locations
   public void InitializeClasses()
   {
     Lists = new Lists(this);
-    Status = new Status(this, Lists);
+    Status = new Status(this, Items);
     gate = new GateLocation(this, Lists);
     apartments = new ApartmentsLocation(this, Lists);
     subway = new SubwayEntrance(this);
@@ -32,7 +33,7 @@ public class Locations
     art = new ArtGallery(this);
     office = new OfficeBuilding(this);
     pavilion = new PavilionLocation(this);
-    warehouse = new AbandonedWarehouse(this);
+    warehouse = new AbandonedWarehouse(this, Lists);
     shelter = new BombShelter(this, Lists);
     fountain = new FountainLocation(this);
     alley = new AlleyLocation(this);

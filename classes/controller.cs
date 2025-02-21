@@ -2,7 +2,7 @@ namespace TextBasedGame.classes;
 
 public class Controller
 {
-  private readonly Locations locations = new();
+  private readonly Locations locations;
 
   public void Run()
   {
