@@ -16,7 +16,7 @@ public class GateLocation(Locations locations, Lists lists)
         lists.AddItem("gate", -1, true);
       }
 
-      locations.CurrentLocation = "Gate";
+      lists.CurrentLocation = "Gate";
       Console.Clear();
       Structures.Gate();
       Console.WriteLine("");
@@ -30,7 +30,7 @@ public class GateLocation(Locations locations, Lists lists)
       Console.WriteLine("4. Look around for anything useful");
       try
       {
-        Input = Convert.ToInt32(Console.ReadLine());
+        lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
       }
       catch
       {
