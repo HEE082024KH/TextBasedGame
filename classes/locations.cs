@@ -29,7 +29,7 @@ public class Locations
     gate = new GateLocation(this, Lists);
     apartments = new ApartmentsLocation(this, Lists);
     subway = new SubwayEntrance(this, Lists);
-    shop = new ShopLocation(this);
+    shop = new ShopLocation(this, Lists);
     art = new ArtGallery(this);
     office = new OfficeBuilding(this);
     pavilion = new PavilionLocation(this);

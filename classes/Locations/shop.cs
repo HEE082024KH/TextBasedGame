@@ -1,6 +1,6 @@
 using TextBasedGame.classes;
 
-public class ShopLocation(Locations locations)
+public class ShopLocation(Locations locations, Lists lists)
 {
   private readonly Items items = locations.Items;
   private readonly Status? status = locations.Status;
@@ -96,47 +96,14 @@ public class ShopLocation(Locations locations)
     Console.WriteLine("--What do you want to sell?--");
     Console.WriteLine("1. Leave");
     Console.WriteLine("");
-    if (items.Knife)
-    {
-      Console.WriteLine("- Knife");
-    }
-
-    if (items.Necklace)
-    {
-      Console.WriteLine("- Necklace");
-    }
-
-    if (items.GreenGem)
-    {
-      Console.WriteLine("- Green Gem");
-    }
-
-    if (items.Coin)
-    {
-      Console.WriteLine("- Coin");
-    }
-
-    if (items.Gun)
-    {
-      Console.WriteLine("- Gun");
-    }
-
-    if (items.Alcohol > 0)
-    {
-      Console.WriteLine("- Alcohol");
-    }
-
-    if (items.Bandages > 0)
-    {
-      Console.WriteLine("- Bandages");
-    }
-
+    // List of tradeable items
     try
     {
       locations.ItemInput = Console.ReadLine()?.ToLower();
     }
     catch
     {
+      Console.Clear();
       Console.WriteLine("Invalid input");
       Thread.Sleep(1500);
       SellItems();
@@ -175,22 +142,24 @@ public class ShopLocation(Locations locations)
         Console.WriteLine($"How many do you want to sell? (Currently have {items.Alcohol})");
         try
         {
-          locations.Input = Convert.ToInt32(Console.ReadLine());
+          lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
         }
         catch
         {
+          Console.Clear();
           Console.WriteLine("Invalid input");
           Thread.Sleep(1500);
           Console.Clear();
           goto sellAlcohol;
         }
 
-        if (locations.Input > 0 && locations.Input <= items.Alcohol)
+        if (lists.GetValue("Input") > 0 && lists.GetValue("Input") <= items.Alcohol)
         {
-          Console.WriteLine($"You sold {locations.Input} bottles of Alcohol for ${locations.Input * 20}");
+          Console.WriteLine(
+            $"You sold {lists.GetValue("Input")} bottles of Alcohol for ${lists.GetValue("Input") * 20}");
           Thread.Sleep(2500);
-          items.Alcohol -= Convert.ToInt32(locations.Input);
-          items.Money += 20 * Convert.ToInt32(locations.Input);
+          items.Alcohol -= Convert.ToInt32(lists.GetValue("Input"));
+          items.Money += 20 * Convert.ToInt32(lists.GetValue("Input"));
         }
         else
         {
@@ -207,7 +176,7 @@ public class ShopLocation(Locations locations)
         Console.WriteLine($"1. Leave");
         try
         {
-          locations.Input = Convert.ToInt32(Console.ReadLine());
+          lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
         }
         catch
         {
@@ -217,12 +186,12 @@ public class ShopLocation(Locations locations)
           goto sellBandages;
         }
 
-        if (locations.Input > 0 && locations.Input <= items.Bandages)
+        if (lists.GetValue("Input") > 0 && lists.GetValue("Input") <= items.Bandages)
         {
-          Console.WriteLine($"You sold {locations.Input} Bandages for ${locations.Input * 10}");
+          Console.WriteLine($"You sold {lists.GetValue("Input")} Bandages for ${lists.GetValue("Input") * 10}");
           Thread.Sleep(2500);
-          items.Bandages -= Convert.ToInt32(locations.Input);
-          items.Money += 10 * Convert.ToInt32(locations.Input);
+          items.Bandages -= Convert.ToInt32(lists.GetValue("Input"));
+          items.Money += 10 * Convert.ToInt32(lists.GetValue("Input"));
           SellItems();
         }
         else if (locations.ItemInput == "1")
@@ -248,7 +217,7 @@ public class ShopLocation(Locations locations)
 
   public void Shop()
   {
-    if (locations.CurrentLocation == "Subway Entrance" && !subwayToShop)
+    if (lists.CurrentLocation == "Subway Entrance" && !subwayToShop)
     {
       Console.Clear();
       Console.Write("On your way to the Shop");
@@ -265,7 +234,7 @@ public class ShopLocation(Locations locations)
       Console.WriteLine("3. Run");
       try
       {
-        locations.Input = Convert.ToInt32(Console.ReadLine());
+        lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
       }
       catch
       {
@@ -276,7 +245,7 @@ public class ShopLocation(Locations locations)
         goto subwayToShop;
       }
 
-      switch (locations.Input)
+      switch (lists.GetValue("Input"))
       {
         case 1:
           Console.Clear();
@@ -303,7 +272,7 @@ public class ShopLocation(Locations locations)
           Console.WriteLine("2. Get up and run");
           try
           {
-            locations.Input = Convert.ToInt32(Console.ReadLine());
+            lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
           }
           catch
           {
@@ -314,7 +283,7 @@ public class ShopLocation(Locations locations)
             goto subwayToShopDogs;
           }
 
-          switch (locations.Input)
+          switch (lists.GetValue("Input"))
           {
             case 1:
               Console.Clear();
@@ -471,9 +440,9 @@ public class ShopLocation(Locations locations)
       shop = true;
     }
 
-    locations.CurrentLocation = "Shop";
+    lists.CurrentLocation = "Shop";
     Console.Clear();
-    Console.WriteLine($"You are at the -{locations.CurrentLocation}-");
+    Console.WriteLine($"You are at the -{lists.CurrentLocation}-");
     Thread.Sleep(500);
     Console.WriteLine("");
     Console.WriteLine("--What do you want to do?--");
@@ -483,7 +452,7 @@ public class ShopLocation(Locations locations)
     Console.WriteLine("4. Look around outside");
     try
     {
-      locations.Input = Convert.ToInt32(Console.ReadLine());
+      lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
     }
     catch
     {
@@ -493,7 +462,7 @@ public class ShopLocation(Locations locations)
       Shop();
     }
 
-    switch (locations.Input)
+    switch (lists.GetValue("Input"))
     {
       case 1:
       {
@@ -560,7 +529,7 @@ public class ShopLocation(Locations locations)
         Console.WriteLine("4. Leave");
         try
         {
-          locations.Input = Convert.ToInt32(Console.ReadLine());
+          lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
         }
         catch
         {
@@ -571,7 +540,7 @@ public class ShopLocation(Locations locations)
           goto insideShop;
         }
 
-        switch (locations.Input)
+        switch (lists.GetValue("Input"))
         {
           case 1:
             BuyItems();
@@ -605,7 +574,7 @@ public class ShopLocation(Locations locations)
           Console.WriteLine("2. Leave them alone");
           try
           {
-            locations.Input = Convert.ToInt32(Console.ReadLine());
+            lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
           }
           catch
           {
@@ -616,7 +585,7 @@ public class ShopLocation(Locations locations)
             goto shopOutside;
           }
 
-          switch (locations.Input)
+          switch (lists.GetValue("Input"))
           {
             case 1:
               Console.WriteLine("You search the bags for anything useful.");
