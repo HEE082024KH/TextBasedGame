@@ -20,7 +20,7 @@ public class GateLocation(Locations locations, Lists lists)
       Console.Clear();
       Structures.Gate();
       Console.WriteLine("");
-      Console.WriteLine($"You are at the -{locations.CurrentLocation}-");
+      Console.WriteLine($"You are at the -{lists.CurrentLocation}-");
       Thread.Sleep(500);
       Console.WriteLine("");
       Console.WriteLine("--What do you want to do?--");

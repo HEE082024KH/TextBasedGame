@@ -1,6 +1,6 @@
 namespace TextBasedGame.classes;
 
-public class Status(Locations locations, Items items)
+public class Status(Locations locations, Lists lists)
 {
   public void ShowStatus()
   {

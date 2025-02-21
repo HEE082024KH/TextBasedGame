@@ -3,11 +3,8 @@ namespace TextBasedGame.classes;
 public class Locations
 {
   private readonly Start start = new();
-  public readonly Items Items = new();
   public Status? Status;
-  public Lists? Lists;
-  public string? CurrentLocation;
-  public int? Input;
+  public required Lists Lists;
   public string? ItemInput;
 
   // Define locations
@@ -27,7 +24,7 @@ public class Locations
   public void InitializeClasses()
   {
     Lists = new Lists(this);
-    Status = new Status(this, Items);
+    Status = new Status(this, Lists);
     gate = new GateLocation(this, Lists);
     apartments = new ApartmentsLocation(this, Lists);
     subway = new SubwayEntrance(this);
@@ -57,7 +54,7 @@ public class Locations
     Console.Write(">");
     try
     {
-      Input = Convert.ToInt32(Console.ReadLine());
+      Lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
     }
     catch
     {
@@ -67,7 +64,7 @@ public class Locations
       LocationSelector();
     }
 
-    switch (Input)
+    switch (Lists.GetValue("Input"))
     {
       case 99: // Testing lists
         Lists lists = new(this);
@@ -82,55 +79,45 @@ public class Locations
         Console.ReadLine();
         break;
       case 1:
-        CurrentLocation = "Gate";
         gate?.Gate();
         break;
       case 2:
-        CurrentLocation = "Apartments";
         apartments?.Apartments();
         break;
       case 3:
-        CurrentLocation = "Subway Entrance";
         subway?.Subway();
         break;
       case 4:
-        CurrentLocation = "Shop";
         shop?.Shop();
         break;
       case 5:
-        CurrentLocation = "Art Gallery";
         art?.Art();
         break;
       case 6:
-        CurrentLocation = "Office Building";
         office?.Office();
         break;
       case 7:
-        CurrentLocation = "Pavilion";
         pavilion?.Pavilion();
         break;
       case 8:
-        CurrentLocation = "Abandoned Warehouse";
         warehouse?.Warehouse();
         break;
       case 9:
-        CurrentLocation = "Bomb Shelter";
         shelter?.Shelter();
         break;
       case 10:
-        CurrentLocation = "Fountain";
         fountain?.Fountain();
         break;
       case 11:
-        CurrentLocation = "Alley";
         alley?.Alley();
         break;
       case 12:
-        CurrentLocation = "Shack";
         shack?.Shack();
         break;
       default:
+        Console.Clear();
         Console.WriteLine("Invalid input");
+        Thread.Sleep(1500);
         break;
     }
   }

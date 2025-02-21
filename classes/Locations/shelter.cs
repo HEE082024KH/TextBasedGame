@@ -16,9 +16,9 @@ public class BombShelter(Locations locations, Lists lists)
 
     while (true)
     {
-      locations.CurrentLocation = "BombShelter";
+      lists.CurrentLocation = "BombShelter";
       Console.Clear();
-      Console.WriteLine($"You are at the -{locations.CurrentLocation}-");
+      Console.WriteLine($"You are at the -{lists.CurrentLocation}-");
       Thread.Sleep(500);
       Console.WriteLine("");
       Console.WriteLine("--What do you want to do?--");
