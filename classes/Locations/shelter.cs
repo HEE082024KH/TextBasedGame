@@ -28,7 +28,7 @@ public class BombShelter(Locations locations, Lists lists)
       Console.WriteLine("4. Look around outside");
       try
       {
-        Input = Convert.ToInt32(Console.ReadLine());
+        lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
       }
       catch
       {
@@ -89,7 +89,7 @@ public class BombShelter(Locations locations, Lists lists)
             Console.WriteLine("2. Take everything.");
             try
             {
-              Input = Convert.ToInt32(Console.ReadLine());
+              lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
             }
             catch
             {
@@ -137,11 +137,11 @@ public class BombShelter(Locations locations, Lists lists)
                 Console.WriteLine("You leave the place empty.");
                 Thread.Sleep(3000);
                 Shelter();
-                insideShelterTake = true;
+                lists.AddItem("insideShelterTake", -1, true);
                 break;
             }
 
-            insideShelter = true;
+            lists.AddItem("insideShelter", -1, true);
           }
           else if (!lists.CheckBool("ShelterKey"))
           {
@@ -188,7 +188,7 @@ public class BombShelter(Locations locations, Lists lists)
           Console.WriteLine("2. Leave");
           try
           {
-            Input = Convert.ToInt32(Console.ReadLine());
+            lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
           }
           catch
           {
