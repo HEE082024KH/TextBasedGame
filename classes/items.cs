@@ -65,7 +65,7 @@ public class Lists(Locations locations)
 
     // Items
     new("Gate Key", 0),
-    new("Flashlight", 0, tradeable: true),
+    new("Flashlight", 0),
     new("Hairpin", 0),
     new("Crowbar", 0, tradeable: true),
     new("Knife", 0, tradeable: true),

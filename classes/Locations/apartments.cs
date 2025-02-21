@@ -74,7 +74,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
         Console.WriteLine("2. Leave them alone");
         try
         {
-          lists.ModifyInt("Input", 0) = Convert.ToInt32(Console.ReadLine());
+          lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
         }
         catch
         {
@@ -148,7 +148,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
         Console.WriteLine("7. Go back out");
         try
         {
-          lists.ModifyInt("Input", 0) = Convert.ToInt32(Console.ReadLine()));
+          lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
         }
         catch
         {
@@ -222,7 +222,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
             Console.WriteLine("2. Hug the wall and sneakily look inside");
             try
             {
-              lists.ModifyInt("Input", 0) = Convert.ToInt32(Console.ReadLine());
+              lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
             }
             catch
             {
@@ -422,7 +422,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
             Console.WriteLine("2. Leave");
             try
             {
-              Input = Convert.ToInt32(Console.ReadLine());
+              lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
             }
             catch
             {
@@ -459,7 +459,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                 Console.WriteLine("2. Leave");
                 try
                 {
-                  Input = Convert.ToInt32(Console.ReadLine());
+                  lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
                 }
                 catch
                 {
@@ -487,7 +487,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                     Console.WriteLine("2. Leave");
                     try
                     {
-                      Input = Convert.ToInt32(Console.ReadLine());
+                      lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
                     }
                     catch
                     {
@@ -666,7 +666,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
               Console.WriteLine("3. Kill her and take her stuff.");
               try
               {
-                Input = Convert.ToInt32(Console.ReadLine());
+                lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
               }
               catch
               {
