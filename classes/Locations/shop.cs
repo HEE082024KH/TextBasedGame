@@ -85,7 +85,7 @@ public class ShopLocation(Locations locations, Lists lists)
     }
   }
 
-  // Convert list from ItemInput to Input
+  // Convert list from ItemInput to Input w/ index
   private void SellItems()
   {
     Console.Clear();

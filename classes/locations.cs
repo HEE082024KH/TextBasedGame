@@ -37,7 +37,7 @@ public class Locations
     shelter = new BombShelter(this, Lists);
     fountain = new FountainLocation(this);
     alley = new AlleyLocation(this);
-    shack = new ShackLocation(this);
+    shack = new ShackLocation(this, Lists);
   }
 
   public void LocationSelector()

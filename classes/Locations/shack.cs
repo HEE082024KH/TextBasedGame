@@ -1,8 +1,7 @@
 using TextBasedGame.classes;
 
-public class ShackLocation(Locations locations)
+public class ShackLocation(Locations locations, Lists lists)
 {
-  private readonly Items items = locations.Items;
   private readonly Status? status = locations.Status;
   private bool shack;
 
@@ -18,9 +17,9 @@ public class ShackLocation(Locations locations)
         shack = true;
       }
 
-      locations.CurrentLocation = "Shack";
+      lists.CurrentLocation = "Shack";
       Console.Clear();
-      Console.WriteLine($"You are at the -{locations.CurrentLocation}-");
+      Console.WriteLine($"You are at the -{lists.CurrentLocation}-");
       Thread.Sleep(500);
       Console.WriteLine("");
       Console.WriteLine("--What do you want to do?--");
@@ -30,7 +29,7 @@ public class ShackLocation(Locations locations)
       Console.WriteLine("4. Look around for anything useful");
       try
       {
-        locations.Input = Convert.ToInt32(Console.ReadLine());
+        lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
       }
       catch
       {
@@ -40,7 +39,7 @@ public class ShackLocation(Locations locations)
         Shack();
       }
 
-      switch (locations.Input)
+      switch (lists.GetValue("Input"))
       {
         case 1:
         {
