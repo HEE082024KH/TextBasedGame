@@ -38,6 +38,59 @@ public class Locations
     shack = new ShackLocation(this, Lists);
   }
 
+  public void MainMenu()
+  {
+    while (true)
+    {
+      Console.Clear();
+      Structures.Computer();
+      Console.WriteLine("");
+      Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
+      Console.WriteLine("|                                  |");
+      Console.WriteLine("|    1. Start Game                 |");
+      Console.WriteLine("|                                  |");
+      Console.WriteLine("|    2. Check Achievements         |");
+      Console.WriteLine("|                                  |");
+      Console.WriteLine("|    3. Exit Game                  |");
+      Console.WriteLine("|                                  |");
+      Console.WriteLine("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
+      Console.WriteLine("");
+      try
+      {
+        Lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
+      }
+      catch
+      {
+        Console.Clear();
+        Console.WriteLine("Invalid Input");
+        Thread.Sleep(1500);
+        MainMenu();
+      }
+
+      switch (Lists.GetValue("Input"))
+      {
+        case 1:
+          InitializeClasses();
+          LocationSelector();
+          break;
+        case 2:
+          break;
+        case 3:
+          Console.WriteLine("Quitting...");
+          Thread.Sleep(2000);
+          Environment.Exit(0);
+          break;
+        default:
+          Console.Clear();
+          Console.WriteLine("Invalid Input");
+          Thread.Sleep(1500);
+          continue;
+      }
+
+      break;
+    }
+  }
+
   public void LocationSelector()
   {
     Console.Clear();
