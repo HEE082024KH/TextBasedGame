@@ -32,7 +32,7 @@ public class Locations
     shop = new ShopLocation(this, Lists);
     art = new ArtGallery(this);
     office = new OfficeBuilding(this);
-    pavilion = new PavilionLocation(this);
+    pavilion = new PavilionLocation(this, Lists);
     warehouse = new AbandonedWarehouse(this, Lists);
     shelter = new BombShelter(this, Lists);
     fountain = new FountainLocation(this);

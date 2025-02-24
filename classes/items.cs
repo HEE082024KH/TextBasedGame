@@ -23,7 +23,7 @@ public class Lists(Locations locations)
     new("IsDrunk", -1),
     new("IsHammered", -1),
 
-    // Location/events
+    // Locations/events
     new("gate", -1),
     new("apartments", -1),
     new("insideApartments", -1),
@@ -81,8 +81,8 @@ public class Lists(Locations locations)
     new("Gun", 0, tradeable: true),
     new("Gun Magazine", 0),
     new("Shelter Key", 0),
-    new("Water", 0, tradeable: true),
-    new("Batteries", 0, tradeable: true),
+    new("Water", 0),
+    new("Batteries", 0),
     new("Credit Card", 0),
     // new("", 0),
   ];

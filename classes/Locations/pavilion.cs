@@ -1,22 +1,14 @@
 using TextBasedGame.classes;
 
-public class PavilionLocation(Locations locations)
+public class PavilionLocation(Locations locations, Lists lists)
 {
-  private readonly Items items = locations.Items;
   private readonly Status? status = locations.Status;
-  private bool pavilion;
-  private bool pavilionCenter;
-  private bool pavilionSearch;
-  private bool pavilionAround;
-  private bool pavilionBigFlower;
-  private bool pavilionSmallFlower;
-
 
   public void Pavilion()
   {
     while (true)
     {
-      if (!pavilion)
+      if (!lists.CheckBool("pavilion"))
       {
         Console.Clear();
         Console.Write("As you approach the pavilion");
@@ -39,12 +31,12 @@ public class PavilionLocation(Locations locations)
         Thread.Sleep(1500);
         Console.Write(" it looks incredible.");
         Thread.Sleep(3000);
-        pavilion = true;
+        lists.AddItem("pavilion", -1, true);
       }
 
-      locations.CurrentLocation = "Pavilion";
+      lists.CurrentLocation = "Pavilion";
       Console.Clear();
-      Console.WriteLine($"You are at the -{locations.CurrentLocation}-");
+      Console.WriteLine($"You are at the -{lists.CurrentLocation}-");
       Thread.Sleep(500);
       Console.WriteLine("");
       Console.WriteLine("--What do you want to do?--");
@@ -54,7 +46,7 @@ public class PavilionLocation(Locations locations)
       Console.WriteLine("4. Walk around the pavilion");
       try
       {
-        locations.Input = Convert.ToInt32(Console.ReadLine());
+        lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
       }
       catch
       {
@@ -64,7 +56,7 @@ public class PavilionLocation(Locations locations)
         Pavilion();
       }
 
-      switch (locations.Input)
+      switch (lists.GetValue("Input"))
       {
         case 1:
         {
@@ -92,7 +84,7 @@ public class PavilionLocation(Locations locations)
           Console.WriteLine("3. Leave");
           try
           {
-            locations.Input = Convert.ToInt32(Console.ReadLine());
+            lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
           }
           catch
           {
@@ -103,10 +95,10 @@ public class PavilionLocation(Locations locations)
             goto pavilionCenter;
           }
 
-          switch (locations.Input)
+          switch (lists.GetValue("Input"))
           {
             case 1:
-              if (!pavilionSearch)
+              if (!lists.CheckBool("pavilionSearch"))
               {
                 Console.Clear();
                 Console.Write("It looks pretty empty here");
@@ -127,8 +119,8 @@ public class PavilionLocation(Locations locations)
                 Thread.Sleep(3000);
                 Console.WriteLine("You found a CREDIT CARD");
                 Thread.Sleep(2000);
-                items.CreditCard = true;
-                pavilionSearch = true;
+                lists.AddItem("pavilionSearch", -1, true);
+                lists.AddItem("Credit Card", 0, true);
               }
               else
               {
@@ -157,13 +149,13 @@ public class PavilionLocation(Locations locations)
               Console.Clear();
               Console.WriteLine("You feel invigorated by the break.");
               Thread.Sleep(3000);
-              if (!pavilionCenter)
+              if (!lists.CheckBool("pavilionCenter"))
               {
                 Console.WriteLine("You are at full HP");
                 Thread.Sleep(2500);
-                items.HealthPoints = 100;
-                items.Hp();
-                pavilionCenter = true;
+                lists.ModifyInt("HP", 100);
+                lists.Hp();
+                lists.AddItem("pavilionCenter", -1, true);
               }
 
               goto pavilionCenter;
@@ -179,7 +171,7 @@ public class PavilionLocation(Locations locations)
         }
         case 4:
         {
-          if (!pavilionAround)
+          if (!lists.CheckBool("pavilionAround"))
           {
             Console.Clear();
             Console.WriteLine("You walk around the base of the pavilion");
@@ -202,7 +194,7 @@ public class PavilionLocation(Locations locations)
             Thread.Sleep(1500);
             Console.WriteLine(", colorless.");
             Thread.Sleep(2500);
-            pavilionAround = true;
+            lists.AddItem("pavilionAround", -1, true);
           }
           else
           {
@@ -219,11 +211,13 @@ public class PavilionLocation(Locations locations)
           pavilionWater:
           Console.WriteLine("--What do you want to do?--");
           Console.WriteLine("1. Leave");
-          if (items.Water && !pavilionBigFlower) Console.WriteLine("2. Water the big flower");
-          if (items.Water && !pavilionSmallFlower) Console.WriteLine("3. Water the small flower");
+          if (lists.CheckBool("Water") && !lists.CheckBool("pavilionBigFlower"))
+            Console.WriteLine("2. Water the big flower");
+          if (lists.CheckBool("Water") && !lists.CheckBool("pavilionSmallFlower"))
+            Console.WriteLine("3. Water the small flower");
           try
           {
-            locations.Input = Convert.ToInt32(Console.ReadLine());
+            lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
           }
           catch
           {
@@ -234,17 +228,17 @@ public class PavilionLocation(Locations locations)
             goto pavilionWater;
           }
 
-          switch (locations.Input)
+          switch (lists.GetValue("Input"))
           {
             case 1:
               break;
             case 2:
-              if (items.Water && !pavilionBigFlower)
+              if (lists.CheckBool("Water") && !lists.CheckBool("pavilionBigFlower"))
               {
                 Console.Clear();
                 Console.WriteLine("You water the big flower.");
                 Thread.Sleep(2500);
-                items.Water = false;
+                lists.AddItem("Water", 0, false);
                 Console.Write("It sprouts to life ");
                 Thread.Sleep(1500);
                 Console.WriteLine(" and grows even bigger.");
@@ -259,11 +253,11 @@ public class PavilionLocation(Locations locations)
                 Thread.Sleep(3500);
                 Console.WriteLine("-70 HP");
                 Thread.Sleep(2000);
-                items.HealthPoints -= 70;
-                items.Hp();
-                pavilionBigFlower = true;
+                lists.ModifyValue("HP", i => i - 70);
+                lists.Hp();
+                lists.AddItem("pavilionBigFlower", -1, true);
               }
-              else if (pavilionBigFlower)
+              else if (lists.CheckBool("pavilionBigFlower"))
               {
                 Console.Clear();
                 Console.WriteLine("That big flower is still there.");
@@ -274,12 +268,12 @@ public class PavilionLocation(Locations locations)
 
               break;
             case 3:
-              if (items.Water && !pavilionSmallFlower)
+              if (lists.CheckBool("Water") && !lists.CheckBool("pavilionSmallFlower"))
               {
                 Console.Clear();
                 Console.WriteLine("You water the small flower.");
                 Thread.Sleep(2500);
-                items.Water = false;
+                lists.AddItem("Water", 0, false);
                 Console.Write("It sprouts to life");
                 Thread.Sleep(2000);
                 Console.WriteLine(" and becomes full of beautiful vibrant colors.");
@@ -288,10 +282,10 @@ public class PavilionLocation(Locations locations)
                 Thread.Sleep(3000);
                 Console.WriteLine("Suddenly, it drops $100 on the ground in front of you.");
                 Thread.Sleep(4000);
-                items.Money += 100;
-                pavilionSmallFlower = true;
+                lists.ModifyValue("Money", i => i + 100);
+                lists.AddItem("pavilionSmallFlower", -1, true);
               }
-              else if (pavilionSmallFlower)
+              else if (lists.CheckBool("pavilionSmallFlower"))
               {
                 Console.Clear();
                 Console.WriteLine("The small flower is still there.");
