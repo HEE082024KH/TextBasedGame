@@ -88,15 +88,11 @@ public class FountainLocation(Locations locations, Lists lists)
           Console.WriteLine("");
           fountainThrow:
           Console.WriteLine("Which item do you want to throw in?");
-          Console.WriteLine("1. Leave");
-          if (items.Coin)
+          Console.WriteLine("0. Leave");
+          var usableAt = lists.Variables.Where(item => item.UsableAtLocation.Contains(lists.CurrentLocation));
+          foreach (var item in usableAt)
           {
-            Console.WriteLine("- Coin");
-          }
-
-          if (items.DogBone)
-          {
-            Console.WriteLine("- Dog Bone");
+            Console.WriteLine($"{lists.Variables.IndexOf(item)}. {item.Name}");
           }
 
           try
@@ -111,6 +107,9 @@ public class FountainLocation(Locations locations, Lists lists)
             Console.Clear();
             goto fountainThrow;
           }
+
+          var items = usableAt.Where((_, index) => index == lists.GetValue("Input"))
+            .FirstOrDefault();
 
           switch (lists.GetValue("Input"))
           {
@@ -145,7 +144,7 @@ public class FountainLocation(Locations locations, Lists lists)
               Thread.Sleep(2000);
               Console.WriteLine(" and a GUN MAGAZINE jumps out of the water.");
               Thread.Sleep(3000);
-              items.GunMagazine = true;
+              lists.AddItem("Gun Magazine", 0, true);
               if (items.Gun)
               {
                 Console.WriteLine("You have now assembled the Gun, and is able to use it.");
