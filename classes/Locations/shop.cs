@@ -2,12 +2,7 @@ using TextBasedGame.classes;
 
 public class ShopLocation(Locations locations, Lists lists)
 {
-  private readonly Items items = locations.Items;
   private readonly Status? status = locations.Status;
-  private bool shop;
-  private bool shopOutside;
-  private bool subwayToShop;
-  private bool insideShop;
 
   private void BuyItems()
   {
@@ -33,12 +28,12 @@ public class ShopLocation(Locations locations, Lists lists)
     {
       case "machine gun":
       case "machinegun":
-        if (items.Money >= 500)
+        if (lists.GetValue("Money") >= 500)
         {
           Console.WriteLine("You bought the Machine Gun for $500");
           Thread.Sleep(3000);
-          items.Money -= 500;
-          items.MachineGun = true;
+          lists.ModifyValue("Money", i => i - 500);
+          lists.AddItem("Machine Gun", 0, true);
         }
         else
         {
@@ -49,12 +44,12 @@ public class ShopLocation(Locations locations, Lists lists)
         Console.Clear();
         break;
       case "alcohol":
-        if (items.Money >= 50)
+        if (lists.GetValue("Money") >= 50)
         {
           Console.WriteLine("You bought a bottle of Alcohol for $50");
           Thread.Sleep(2500);
-          items.Alcohol += 1;
-          items.Money -= 50;
+          lists.ModifyValue("Alcohol", i => i + 1);
+          lists.ModifyValue("Money", i => i - 50);
         }
         else
         {
@@ -66,12 +61,12 @@ public class ShopLocation(Locations locations, Lists lists)
         break;
       case "bandages":
       case "bandage":
-        if (items.Money >= 25)
+        if (lists.GetValue("Money") >= 25)
         {
           Console.WriteLine("You bought a Bandage for $25");
           Thread.Sleep(2500);
-          items.Bandages += 1;
-          items.Money -= 25;
+          lists.ModifyValue("Bandages", i => i + 1);
+          lists.ModifyValue("Money", i => i - 25);
         }
         else
         {
@@ -90,6 +85,7 @@ public class ShopLocation(Locations locations, Lists lists)
     }
   }
 
+  // Convert list from ItemInput to Input
   private void SellItems()
   {
     Console.Clear();
@@ -114,32 +110,32 @@ public class ShopLocation(Locations locations, Lists lists)
       case "knife":
         Console.WriteLine("You sold the Knife for $5");
         Thread.Sleep(2500);
-        items.Money += 5;
+        lists.ModifyValue("Money", i => i + 5);
         break;
       case "green gem":
       case "greengem":
         Console.WriteLine("You sold the Green Gem for $200");
         Thread.Sleep(2500);
-        items.Money += 200;
+        lists.ModifyValue("Money", i => i + 200);
         break;
       case "necklace":
         Console.WriteLine("You sold the necklace for $100");
         Thread.Sleep(2500);
-        items.Money += 100;
+        lists.ModifyValue("Money", i => i + 100);
         break;
       case "coin":
         Console.WriteLine("You sold the Coin for $25");
         Thread.Sleep(2500);
-        items.Money += 25;
+        lists.ModifyValue("Money", i => i + 25);
         break;
       case "gun":
         Console.WriteLine("You sold the Gun for $50");
         Thread.Sleep(2500);
-        items.Money += 50;
+        lists.ModifyValue("Money", i => i + 50);
         break;
       case "alcohol":
         sellAlcohol:
-        Console.WriteLine($"How many do you want to sell? (Currently have {items.Alcohol})");
+        Console.WriteLine($"How many do you want to sell? (Currently have {lists.GetValue("Alcohol")})");
         try
         {
           lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
@@ -153,13 +149,13 @@ public class ShopLocation(Locations locations, Lists lists)
           goto sellAlcohol;
         }
 
-        if (lists.GetValue("Input") > 0 && lists.GetValue("Input") <= items.Alcohol)
+        if (lists.GetValue("Input") > 0 && lists.GetValue("Input") <= lists.GetValue("Alcohol"))
         {
           Console.WriteLine(
             $"You sold {lists.GetValue("Input")} bottles of Alcohol for ${lists.GetValue("Input") * 20}");
           Thread.Sleep(2500);
-          items.Alcohol -= Convert.ToInt32(lists.GetValue("Input"));
-          items.Money += 20 * Convert.ToInt32(lists.GetValue("Input"));
+          lists.ModifyValue("Alcohol", i => i - Convert.ToInt32(lists.GetValue("Input")));
+          lists.ModifyValue("Money", i => i + 20 * Convert.ToInt32(lists.GetValue("Input")));
         }
         else
         {
@@ -172,7 +168,7 @@ public class ShopLocation(Locations locations, Lists lists)
       case "bandages":
       case "bandage":
         sellBandages:
-        Console.WriteLine($"How many do you want to sell? (Currently have {items.Bandages})");
+        Console.WriteLine($"How many do you want to sell? (Currently have {lists.GetValue("Bandages")})");
         Console.WriteLine($"1. Leave");
         try
         {
@@ -186,15 +182,15 @@ public class ShopLocation(Locations locations, Lists lists)
           goto sellBandages;
         }
 
-        if (lists.GetValue("Input") > 0 && lists.GetValue("Input") <= items.Bandages)
+        if (lists.GetValue("Input") > 0 && lists.GetValue("Input") <= lists.GetValue("Bandages"))
         {
           Console.WriteLine($"You sold {lists.GetValue("Input")} Bandages for ${lists.GetValue("Input") * 10}");
           Thread.Sleep(2500);
-          items.Bandages -= Convert.ToInt32(lists.GetValue("Input"));
-          items.Money += 10 * Convert.ToInt32(lists.GetValue("Input"));
+          lists.ModifyValue("Bandages", i => i - lists.GetValue("Input"));
+          lists.ModifyValue("Money", i => i + 10 * Convert.ToInt32(lists.GetValue("Input")));
           SellItems();
         }
-        else if (locations.ItemInput == "1")
+        else if (lists.GetValue("Input") == 1)
         {
           SellItems();
         }
@@ -217,7 +213,7 @@ public class ShopLocation(Locations locations, Lists lists)
 
   public void Shop()
   {
-    if (lists.CurrentLocation == "Subway Entrance" && !subwayToShop)
+    if (lists.CurrentLocation == "Subway Entrance" && !lists.CheckBool("subwayToShop"))
     {
       Console.Clear();
       Console.Write("On your way to the Shop");
@@ -315,7 +311,7 @@ public class ShopLocation(Locations locations, Lists lists)
               Thread.Sleep(3500);
               Console.WriteLine("Then they nonchalantly walk off");
               Thread.Sleep(3000);
-              items.DogBone = true;
+              lists.AddItem("Dog Bone", 0, true);
               break;
             case 2:
               Console.Clear();
@@ -337,14 +333,14 @@ public class ShopLocation(Locations locations, Lists lists)
               Thread.Sleep(3000);
               Console.WriteLine("Until everything goes black-");
               Thread.Sleep(2000);
-              items.HealthPoints = 0;
-              items.Hp();
+              lists.ModifyInt("HP", 0);
+              lists.Hp();
               break;
           }
 
           break;
         case 2:
-          if (items.MachineGun)
+          if (lists.CheckBool("MachineGun"))
           {
             Console.Clear();
             Console.WriteLine("You pull out your machine gun and spray the dogs with bullet.");
@@ -383,8 +379,8 @@ public class ShopLocation(Locations locations, Lists lists)
             Thread.Sleep(3000);
             Console.WriteLine("Until everything goes black-");
             Thread.Sleep(2000);
-            items.HealthPoints = 0;
-            items.Hp();
+            lists.ModifyInt("HP", 0);
+            lists.Hp();
           }
 
           break;
@@ -413,10 +409,10 @@ public class ShopLocation(Locations locations, Lists lists)
           break;
       }
 
-      subwayToShop = true;
+      lists.AddItem("subwayToShop", 0, true);
     }
 
-    if (!shop)
+    if (!lists.CheckBool("shop"))
     {
       Console.Clear();
       Console.Write("The area around the shop looks empty");
@@ -437,7 +433,7 @@ public class ShopLocation(Locations locations, Lists lists)
       Thread.Sleep(3000);
       Console.WriteLine(", spikes and barbed wire.");
       Thread.Sleep(2500);
-      shop = true;
+      lists.AddItem("shop", -1, true);
     }
 
     lists.CurrentLocation = "Shop";
@@ -478,7 +474,7 @@ public class ShopLocation(Locations locations, Lists lists)
       }
       case 3:
       {
-        if (!insideShop)
+        if (!lists.CheckBool("insideShop"))
         {
           Console.Clear();
           Console.WriteLine("As you enter the shop you hear faint music humming in the background.");
@@ -518,7 +514,8 @@ public class ShopLocation(Locations locations, Lists lists)
           Console.WriteLine(" Fuck off!");
           Thread.Sleep(3000);
           Console.WriteLine("");
-          insideShop = true;
+
+          lists.AddItem("insideShop", -1, true);
         }
 
         insideShop:
@@ -559,7 +556,7 @@ public class ShopLocation(Locations locations, Lists lists)
       }
       case 4:
       {
-        if (!shopOutside)
+        if (!lists.CheckBool("shopOutside"))
         {
           Console.Write("You walk around outside the shop");
           Thread.Sleep(2500);
@@ -594,8 +591,8 @@ public class ShopLocation(Locations locations, Lists lists)
               Thread.Sleep(2000);
               Console.WriteLine(", about 5 bucks.");
               Thread.Sleep(2000);
-              items.Money += 5;
-              shopOutside = true;
+              lists.ModifyValue("Money", i => i + 5);
+              lists.AddItem("shopOutside", -1, true);
               Shop();
               break;
             case 2:
