@@ -4,9 +4,7 @@ public class Locations
 {
   private readonly Start start = new();
   public Status? Status;
-  public required Items Items;
   public required Lists Lists;
-  public string? ItemInput;
 
   // Define locations
   private GateLocation? gate;
@@ -25,7 +23,7 @@ public class Locations
   public void InitializeClasses()
   {
     Lists = new Lists(this);
-    Status = new Status(this, Items);
+    Status = new Status(this, Lists);
     gate = new GateLocation(this, Lists);
     apartments = new ApartmentsLocation(this, Lists);
     subway = new SubwayEntrance(this, Lists);

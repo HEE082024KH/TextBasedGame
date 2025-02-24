@@ -1,13 +1,30 @@
 namespace TextBasedGame.classes;
 
-public class Variable(string name, int amount, bool exists = false, bool tradeable = false, bool fountain = false)
+public class Variable(
+  string name,
+  int amount,
+  bool exists = false,
+  bool tradeable = false,
+  bool usable = false,
+  bool fountain = false)
+
 {
   public string Name { get; } = name;
   public int Amount { get; set; } = amount;
   public bool Exists { get; set; } = exists;
   public bool Tradeable { get; set; } = tradeable;
+  public bool Usable { get; set; } = usable;
   public bool Fountain { get; set; } = fountain;
 }
+
+// MONEY AVAILABLE: $475
+// MONEY SPENDABLE: $585
+//
+// UNUSED ITEMS:
+// Water, Batteries, Gun + GunMagazine, Credit Card
+//
+// ITEMS DON'T EXIST:
+// GateKey
 
 public class Lists(Locations locations)
 {
@@ -70,8 +87,8 @@ public class Lists(Locations locations)
     new("Hairpin", 0),
     new("Crowbar", 0, tradeable: true),
     new("Knife", 0, tradeable: true),
-    new("Bandages", 0, tradeable: true),
-    new("Alcohol", 0, tradeable: true),
+    new("Bandages", 0, tradeable: true, usable: true),
+    new("Alcohol", 0, tradeable: true, usable: true),
     new("Key", 0),
     new("Green Gem", 0, tradeable: true),
     new("Office Keycard", 0),
@@ -128,17 +145,23 @@ public class Lists(Locations locations)
 
   public void DisplayInventory()
   {
-    // perm items, >1, false - Hidden
+    // perm items, >1, false - Hidden, only for testing
     // Variables.Where(item => !item.Exists && item.Amount >= 1).ToList()
     //   .ForEach(item => Console.WriteLine($"- {item.Amount} {item.Name}"));
+
+    Console.WriteLine("You have the following items in your inventory:");
 
     // add items, >=1, true - Top of inventory
     Variables.Where(item => item.Exists && item.Amount >= 1).ToList()
       .ForEach(item => Console.WriteLine($"- {item.Amount} {item.Name}"));
     Console.WriteLine("");
+
     // add items, 0, true - Bottom of inventory
     Variables.Where(item => item.Exists && item.Amount == 0).ToList()
       .ForEach(item => Console.WriteLine($"- {item.Name}"));
+
+    Console.WriteLine(">");
+    Console.ReadLine();
   }
 
   public void DisplayExistingItemsAndAmount()
@@ -151,61 +174,6 @@ public class Lists(Locations locations)
   public void Hp()
   {
     if (GetValue("HP") > 0)
-    {
-      return;
-    }
-
-    Console.WriteLine("You died from too many serious wounds");
-    Thread.Sleep(2000);
-    Console.WriteLine("---GAME OVER---");
-    Console.WriteLine("");
-    Console.WriteLine("Press Enter to exit");
-    Console.ReadLine();
-    Environment.Exit(0);
-  }
-}
-
-public class Items
-{
-  // MONEY AVAILABLE: $475
-  // MONEY SPENDABLE: $585
-  //
-  // UNUSED ITEMS:
-  // Water, Batteries, Gun + GunMagazine, Credit Card
-  //
-  // ITEMS DON'T EXIST:
-  // GateKey
-
-  public bool GateKey;
-  public bool Flashlight;
-  public bool Hairpin;
-  public bool Crowbar;
-  public bool Knife;
-  public int Bandages;
-  public int Alcohol;
-  public bool IsBuzzed;
-  public bool IsDrunk;
-  public bool IsHammered;
-  public bool Key;
-  public bool GreenGem;
-  public bool OfficeKeycard;
-  public bool NecklaceQuest;
-  public bool Necklace;
-  public bool DogBone;
-  public bool MachineGun;
-  public bool Coin;
-  public bool Gun;
-  public bool GunMagazine;
-  public bool ShelterKey;
-  public bool Water;
-  public bool Batteries;
-  public bool CreditCard;
-  public int Money;
-  public int HealthPoints = 80;
-
-  public void Hp()
-  {
-    if (HealthPoints > 0)
     {
       return;
     }
