@@ -52,82 +52,75 @@ public class Status(Locations locations, Lists lists)
   private void UseItems()
   {
     Console.WriteLine("Type which item you want to use");
-    if (items.Bandages > 0)
+    var usable = lists.Variables.Where(item => item.Usable && item.Amount >= 1);
+    foreach (var item in usable)
     {
-      Console.WriteLine("- Bandage");
-    }
-
-    if (items.Alcohol > 0)
-    {
-      Console.WriteLine("- Alcohol");
+      Console.WriteLine($"{lists.Variables.IndexOf(item)}. {item.Name}");
     }
 
     try
     {
-      locations.ItemInput = Console.ReadLine()?.ToLower();
+      lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
     }
     catch
     {
+      Console.Clear();
       Console.WriteLine("Invalid input");
       Thread.Sleep(1500);
       UseItems();
     }
 
-    switch (lists.GetValue("Input"))
+    var items = usable.Where((_, index) => index == lists.GetValue("Input"))
+      .FirstOrDefault();
+    if (items.Name == "Bandages" && lists.GetValue("HP") >= 70)
     {
-      case "bandage":
-        switch (lists.GetValue("HealthPoints"))
-        {
-          case 70:
-            Console.WriteLine("You use a bandage, and is now at full health.");
-            Thread.Sleep(3000);
-            lists.ModifyInt("HP", 100);
-            break;
-          case 100:
-            Console.WriteLine("You are already full health.");
-            Thread.Sleep(2500);
-            break;
-          default:
-            lists.ModifyValue("Bandages", i => i - 1);
-            lists.ModifyValue("HP", i => i + 30);
-            Console.WriteLine("You use a bandage.");
-            Thread.Sleep(1000);
-            Console.WriteLine($"HP: {lists.GetValue("HealthPoints")}/100");
-            Thread.Sleep(2000);
-            break;
-        }
-
-        break;
-      case "alcohol":
-        if (lists.CheckBool("IsBuzzed"))
-        {
-          Console.WriteLine("You take another drink.");
-          Thread.Sleep(1500);
-          Console.WriteLine("You start to feel drunk.");
-          Thread.Sleep(2500);
-          lists.AddItem("IsDrunk", -1, true);
-          lists.AddItem("IsBuzzed", -1, false);
-        }
-        else if (lists.CheckBool("IsDrunk"))
-        {
-          Console.WriteLine("You take another drink.");
-          Thread.Sleep(1500);
-          Console.WriteLine("You start to feel hammered.");
-          Thread.Sleep(2500);
-          lists.AddItem("IsHammered", -1, true);
-          lists.AddItem("IsDrunk", -1, false);
-        }
-        else
-        {
-          Console.WriteLine("You take a drink.");
-          Thread.Sleep(1500);
-          Console.WriteLine("You start to feel buzzed.");
-          Thread.Sleep(2500);
-          lists.AddItem("IsBuzzed", -1, true);
-        }
-
-        lists.ModifyValue("Alcohol", i => i - 1);
-        break;
+      Console.WriteLine("You use a bandage, and is now at full health.");
+      Thread.Sleep(3000);
+      lists.ModifyInt("HP", 100);
     }
+    else if (items.Name == "Bandages" && lists.GetValue("HP") == 100)
+    {
+      Console.WriteLine("You are already full health.");
+      Thread.Sleep(2500);
+    }
+    else
+    {
+      lists.ModifyValue("Bandages", i => i - 1);
+      lists.ModifyValue("HP", i => i + 30);
+      Console.WriteLine("You use a bandage.");
+      Thread.Sleep(1000);
+      Console.WriteLine($"HP: {lists.GetValue("HealthPoints")}/100");
+      Thread.Sleep(2000);
+    }
+
+    if (items.Name == "Alcohol" || lists.CheckBool("IsBuzzed"))
+    {
+      Console.WriteLine("You take another drink.");
+      Thread.Sleep(1500);
+      Console.WriteLine("You start to feel drunk.");
+      Thread.Sleep(2500);
+      lists.AddItem("IsDrunk", -1, true);
+      lists.AddItem("IsBuzzed", -1, false);
+    }
+
+    else if (items.Name == "Alcohol" || lists.CheckBool("IsDrunk"))
+    {
+      Console.WriteLine("You take another drink.");
+      Thread.Sleep(1500);
+      Console.WriteLine("You start to feel hammered.");
+      Thread.Sleep(2500);
+      lists.AddItem("IsHammered", -1, true);
+      lists.AddItem("IsDrunk", -1, false);
+    }
+    else
+    {
+      Console.WriteLine("You take a drink.");
+      Thread.Sleep(1500);
+      Console.WriteLine("You start to feel buzzed.");
+      Thread.Sleep(2500);
+      lists.AddItem("IsBuzzed", -1, true);
+    }
+
+    lists.ModifyValue("Alcohol", i => i - 1);
   }
 }

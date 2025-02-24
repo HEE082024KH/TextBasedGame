@@ -115,7 +115,7 @@ public class ShopLocation(Locations locations, Lists lists)
 
     var items = sellables.Where((_, index) => index == lists.GetValue("Input"))
       .FirstOrDefault();
-    if (items.Name == "bandages" || items.Name == "alcohol")
+    if (items.Name == "Bandages" || items.Name == "Alcohol")
     {
       sell:
       Console.WriteLine($"How many do you want to sell? (Currently have {lists.GetValue($"{items.Name}")})");
