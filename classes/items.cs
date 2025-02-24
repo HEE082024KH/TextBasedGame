@@ -3,17 +3,21 @@ namespace TextBasedGame.classes;
 public class Variable(
   string name,
   int amount,
+  int sellAmount = 0,
   bool exists = false,
   bool tradeable = false,
   bool usable = false,
-  bool fountain = false)
+  string[] usableAtLocation = null
+)
+
 {
   public string Name { get; } = name;
   public int Amount { get; set; } = amount;
+  public int SellAmount { get; set; } = sellAmount;
   public bool Exists { get; set; } = exists;
   public bool Tradeable { get; } = tradeable;
   public bool Usable { get; } = usable;
-  public bool Fountain { get; } = fountain;
+  public string[] UsableAtLocation { get; } = usableAtLocation;
 }
 
 // MONEY AVAILABLE: $475
@@ -29,7 +33,7 @@ public class Lists(Locations locations)
 {
   public string CurrentLocation = "";
 
-  private List<Variable> Variables { get; } =
+  public List<Variable> Variables { get; } =
   [
     // Permanent items/states
     new("HP", 80),
@@ -84,23 +88,23 @@ public class Lists(Locations locations)
     new("Gate Key", 0),
     new("Flashlight", 0),
     new("Hairpin", 0),
-    new("Crowbar", 0, tradeable: true),
-    new("Knife", 0, tradeable: true),
-    new("Bandages", 0, tradeable: true, usable: true),
-    new("Alcohol", 0, tradeable: true, usable: true),
     new("Key", 0),
-    new("Green Gem", 0, tradeable: true),
     new("Office Keycard", 0),
-    new("Necklace", 0, tradeable: true),
-    new("Dog Bone", 0, fountain: true),
-    new("Machine Gun", 0, tradeable: true),
-    new("Coin", 0, tradeable: true, fountain: true),
-    new("Gun", 0, tradeable: true),
     new("Gun Magazine", 0),
     new("Shelter Key", 0),
     new("Water", 0),
     new("Batteries", 0),
     new("Credit Card", 0),
+    new("Crowbar", 0, tradeable: true),
+    new("Machine Gun", 0, tradeable: true),
+    new("Bandages", 0, tradeable: true, usable: true),
+    new("Alcohol", 0, tradeable: true, usable: true),
+    new("Knife", 0, tradeable: true, sellAmount: 5),
+    new("Green Gem", 0, tradeable: true, sellAmount: 200),
+    new("Necklace", 0, tradeable: true, sellAmount: 100),
+    new("Gun", 0, tradeable: true, sellAmount: 50),
+    new("Coin", 0, tradeable: true, sellAmount: 25, usableAtLocation: ["Fountain"]),
+    new("Dog Bone", 0, usableAtLocation: ["Fountain"]),
     // new("", 0),
   ];
 
