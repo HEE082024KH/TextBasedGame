@@ -30,7 +30,7 @@ public class Locations
     apartments = new ApartmentsLocation(this, Lists);
     subway = new SubwayEntrance(this, Lists);
     shop = new ShopLocation(this, Lists);
-    art = new ArtGallery(this);
+    art = new ArtGallery(this, Lists);
     office = new OfficeBuilding(this, Lists);
     pavilion = new PavilionLocation(this, Lists);
     warehouse = new AbandonedWarehouse(this, Lists);
