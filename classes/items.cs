@@ -1,11 +1,12 @@
 namespace TextBasedGame.classes;
 
-public class Variable(string name, int amount, bool exists = false, bool tradeable = false)
+public class Variable(string name, int amount, bool exists = false, bool tradeable = false, bool fountain = false)
 {
   public string Name { get; } = name;
   public int Amount { get; set; } = amount;
   public bool Exists { get; set; } = exists;
   public bool Tradeable { get; set; } = tradeable;
+  public bool Fountain { get; set; } = fountain;
 }
 
 public class Lists(Locations locations)
@@ -75,9 +76,9 @@ public class Lists(Locations locations)
     new("Green Gem", 0, tradeable: true),
     new("Office Keycard", 0),
     new("Necklace", 0, tradeable: true),
-    new("Dog Bone", 0),
+    new("Dog Bone", 0, fountain: true),
     new("Machine Gun", 0, tradeable: true),
-    new("Coin", 0, tradeable: true),
+    new("Coin", 0, tradeable: true, fountain: true),
     new("Gun", 0, tradeable: true),
     new("Gun Magazine", 0),
     new("Shelter Key", 0),

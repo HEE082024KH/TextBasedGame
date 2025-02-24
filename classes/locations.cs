@@ -35,7 +35,7 @@ public class Locations
     pavilion = new PavilionLocation(this, Lists);
     warehouse = new AbandonedWarehouse(this, Lists);
     shelter = new BombShelter(this, Lists);
-    fountain = new FountainLocation(this);
+    fountain = new FountainLocation(this, Lists);
     alley = new AlleyLocation(this);
     shack = new ShackLocation(this, Lists);
   }

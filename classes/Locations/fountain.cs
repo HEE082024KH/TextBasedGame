@@ -1,17 +1,14 @@
 using TextBasedGame.classes;
 
-public class FountainLocation(Locations locations)
+public class FountainLocation(Locations locations, Lists lists)
 {
-  private readonly Items items = locations.Items;
   private readonly Status? status = locations.Status;
-  private bool fountain;
-  private bool fountainSit;
 
   public void Fountain()
   {
     while (true)
     {
-      if (!fountain)
+      if (!lists.CheckBool("fountain"))
       {
         Console.Write("As you round the corner");
         Thread.Sleep(2000);
@@ -39,12 +36,12 @@ public class FountainLocation(Locations locations)
         Thread.Sleep(1000);
         Console.WriteLine(", like it has been frozen in time.");
         Thread.Sleep(2500);
-        fountain = true;
+        lists.AddItem("fountain", -1, true);
       }
 
-      locations.CurrentLocation = "Fountain";
+      lists.CurrentLocation = "Fountain";
       Console.Clear();
-      Console.WriteLine($"You are at the -{locations.CurrentLocation}-");
+      Console.WriteLine($"You are at the -{lists.CurrentLocation}-");
       Thread.Sleep(500);
       Console.WriteLine("");
       Console.WriteLine("--What do you want to do?--");
@@ -54,7 +51,7 @@ public class FountainLocation(Locations locations)
       Console.WriteLine("4. Sit down by the fountain");
       try
       {
-        locations.Input = Convert.ToInt32(Console.ReadLine());
+        lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
       }
       catch
       {
@@ -64,7 +61,7 @@ public class FountainLocation(Locations locations)
         Fountain();
       }
 
-      switch (locations.Input)
+      switch (lists.GetValue("Input"))
       {
         case 1:
         {
@@ -104,7 +101,7 @@ public class FountainLocation(Locations locations)
 
           try
           {
-            locations.ItemInput = Console.ReadLine()?.ToLower();
+            lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
           }
           catch
           {
@@ -115,7 +112,7 @@ public class FountainLocation(Locations locations)
             goto fountainThrow;
           }
 
-          switch (locations.ItemInput)
+          switch (lists.GetValue("Input"))
           {
             case "coin":
               Console.Clear();
@@ -198,12 +195,12 @@ public class FountainLocation(Locations locations)
           Console.Clear();
           Console.WriteLine("You feel invigorated by the break.");
           Thread.Sleep(3000);
-          if (!fountainSit)
+          if (!lists.CheckBool("fountainSit"))
           {
             Console.WriteLine("You are at full HP");
-            items.HealthPoints = 100;
-            items.Hp();
-            fountainSit = true;
+            lists.ModifyInt("HP", 100);
+            lists.Hp();
+            lists.AddItem("fountainSit", -1, true);
           }
 
           continue;
