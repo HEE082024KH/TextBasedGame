@@ -31,7 +31,7 @@ public class Locations
     subway = new SubwayEntrance(this, Lists);
     shop = new ShopLocation(this, Lists);
     art = new ArtGallery(this);
-    office = new OfficeBuilding(this);
+    office = new OfficeBuilding(this, Lists);
     pavilion = new PavilionLocation(this, Lists);
     warehouse = new AbandonedWarehouse(this, Lists);
     shelter = new BombShelter(this, Lists);

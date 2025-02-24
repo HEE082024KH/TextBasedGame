@@ -1,26 +1,24 @@
 using TextBasedGame.classes;
 
-public class OfficeBuilding(Locations locations)
+public class OfficeBuilding(Locations locations, Lists lists)
 {
-  private readonly Items items = locations.Items;
   private readonly Status? status = locations.Status;
-  private bool office;
 
   public void Office()
   {
     while (true)
     {
-      if (!office)
+      if (!lists.CheckBool("office"))
       {
         Console.Clear();
         Console.WriteLine("");
         Thread.Sleep(2000);
-        office = true;
+        lists.AddItem("office", -1, true);
       }
 
-      locations.CurrentLocation = "OfficeBuilding";
+      lists.CurrentLocation = "OfficeBuilding";
       Console.Clear();
-      Console.WriteLine($"You are at the -{locations.CurrentLocation}-");
+      Console.WriteLine($"You are at the -{lists.CurrentLocation}-");
       Thread.Sleep(500);
       Console.WriteLine("");
       Console.WriteLine("--What do you want to do?--");
@@ -30,7 +28,7 @@ public class OfficeBuilding(Locations locations)
       Console.WriteLine("4. Look around for anything useful");
       try
       {
-        locations.Input = Convert.ToInt32(Console.ReadLine());
+        lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
       }
       catch
       {
@@ -40,7 +38,7 @@ public class OfficeBuilding(Locations locations)
         Office();
       }
 
-      switch (locations.Input)
+      switch (lists.GetValue("Input"))
       {
         case 1:
         {
