@@ -1,26 +1,24 @@
 using TextBasedGame.classes;
 
-public class AlleyLocation(Locations locations)
+public class AlleyLocation(Locations locations, Lists lists)
 {
-  private readonly Items items = locations.Items;
   private readonly Status? status = locations.Status;
-  private bool alley;
 
   public void Alley()
   {
     while (true)
     {
-      if (!alley)
+      if (!lists.CheckBool("alley"))
       {
         Console.Clear();
         Console.WriteLine("");
         Thread.Sleep(2000);
-        alley = true;
+        lists.AddItem("alley", -1, true);
       }
 
-      locations.CurrentLocation = "Alley";
+      lists.CurrentLocation = "Alley";
       Console.Clear();
-      Console.WriteLine($"You are at the -{locations.CurrentLocation}-");
+      Console.WriteLine($"You are at the -{lists.CurrentLocation}-");
       Thread.Sleep(500);
       Console.WriteLine("");
       Console.WriteLine("--What do you want to do?--");
@@ -30,7 +28,7 @@ public class AlleyLocation(Locations locations)
       Console.WriteLine("4. ");
       try
       {
-        locations.Input = Convert.ToInt32(Console.ReadLine());
+        lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
       }
       catch
       {
@@ -40,7 +38,7 @@ public class AlleyLocation(Locations locations)
         Alley();
       }
 
-      switch (locations.Input)
+      switch (lists.GetValue("Input"))
       {
         case 1:
         {
