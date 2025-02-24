@@ -7,14 +7,13 @@ public class Variable(
   bool tradeable = false,
   bool usable = false,
   bool fountain = false)
-
 {
   public string Name { get; } = name;
   public int Amount { get; set; } = amount;
   public bool Exists { get; set; } = exists;
-  public bool Tradeable { get; set; } = tradeable;
-  public bool Usable { get; set; } = usable;
-  public bool Fountain { get; set; } = fountain;
+  public bool Tradeable { get; } = tradeable;
+  public bool Usable { get; } = usable;
+  public bool Fountain { get; } = fountain;
 }
 
 // MONEY AVAILABLE: $475

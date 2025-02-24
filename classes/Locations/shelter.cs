@@ -9,8 +9,32 @@ public class BombShelter(Locations locations, Lists lists)
     if (!lists.CheckBool("shelter"))
     {
       Console.Clear();
-      Console.WriteLine("");
+      Console.WriteLine("You stumble upon a sign that says \"Bomb Shelter straight ahead\"");
+      Thread.Sleep(3500);
+      Console.WriteLine("However, after walking ahead for a bit there is nothing.");
+      Thread.Sleep(3000);
+      Console.Write("Just overgrown weeds and bushes");
+      Thread.Sleep(2500);
+      Console.Write(", like no one has been here for a while");
+      Thread.Sleep(2500);
+      Console.WriteLine(", if at all.");
       Thread.Sleep(2000);
+      Console.Write("You look around some more");
+      Thread.Sleep(2000);
+      Console.Write(" searching for a sign of this shelter");
+      Thread.Sleep(2500);
+      Console.WriteLine(" that is supposed to be here.");
+      Thread.Sleep(3000);
+      Console.Write("A while has passed");
+      Thread.Sleep(2000);
+      Console.WriteLine(" when you finally stumble upon a hole in the ground.");
+      Thread.Sleep(3500);
+      Console.Write("You remove layers upon layers of branches and leaves");
+      Thread.Sleep(3000);
+      Console.WriteLine(", and reveal a set of stairs");
+      Thread.Sleep(2000);
+      Console.WriteLine("They lead down towards a door.");
+      Thread.Sleep(2500);
       lists.AddItem("shelter", -1, true);
     }
 
