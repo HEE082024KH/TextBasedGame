@@ -123,13 +123,13 @@ public class ApartmentsLocation(Locations locations, Lists lists)
           Structures.Apartments();
           Console.WriteLine("");
           Console.Write("The door opens with a nasty creak");
-          Thread.Sleep(2000);
-          Console.WriteLine(", sure to notify anyone nearby.");
-          Thread.Sleep(1500);
-          Console.Write("Inside there's a small hallway with a door at the end");
-          Thread.Sleep(2500);
-          Console.WriteLine(", and 2 doors on either side.");
           Thread.Sleep(3000);
+          Console.WriteLine(", sure to notify anyone nearby.");
+          Thread.Sleep(2500);
+          Console.Write("Inside there is a small hallway with a door at the end");
+          Thread.Sleep(3500);
+          Console.WriteLine(", and 2 doors on either side.");
+          Thread.Sleep(3500);
           Console.WriteLine("");
           lists.AddItem("insideApartments", -1, true);
         }
@@ -170,13 +170,13 @@ public class ApartmentsLocation(Locations locations, Lists lists)
             {
               Console.Clear();
               Console.WriteLine("You use the crowbar to pry the door open.");
-              Thread.Sleep(1000);
+              Thread.Sleep(3000);
               Console.WriteLine("With a loud crack the door opens");
-              Thread.Sleep(2000);
+              Thread.Sleep(2500);
               Console.WriteLine("The room looks to be a maintenance room of sorts");
-              Thread.Sleep(1000);
+              Thread.Sleep(3000);
               Console.WriteLine("Not much to find here");
-              Thread.Sleep(2000);
+              Thread.Sleep(2500);
               Console.Clear();
               Structures.Apartments();
               Console.WriteLine("");
@@ -188,11 +188,11 @@ public class ApartmentsLocation(Locations locations, Lists lists)
               lists.AddItem("Hairpin", 0, true);
               Console.Clear();
               Console.WriteLine("You use the hairpin to unlock the door.");
-              Thread.Sleep(2000);
+              Thread.Sleep(3000);
               Console.WriteLine("The room looks to be a maintenance room of sorts");
-              Thread.Sleep(1000);
+              Thread.Sleep(3000);
               Console.WriteLine("Not much to find here");
-              Thread.Sleep(2000);
+              Thread.Sleep(2500);
               Console.Clear();
               Structures.Apartments();
               Console.WriteLine("");
@@ -200,9 +200,9 @@ public class ApartmentsLocation(Locations locations, Lists lists)
             }
 
             Console.WriteLine("The door is locked");
-            Thread.Sleep(1000);
+            Thread.Sleep(2500);
             Console.WriteLine("If only you had a crowbar or something to unlock the door");
-            Thread.Sleep(3000);
+            Thread.Sleep(4000);
             Console.Clear();
             Structures.Apartments();
             Console.WriteLine("");
@@ -213,9 +213,9 @@ public class ApartmentsLocation(Locations locations, Lists lists)
             insideApartmentsDoor2:
             Console.Clear();
             Console.Write("The door opens with ease");
-            Thread.Sleep(1500);
+            Thread.Sleep(2500);
             Console.WriteLine(", almost too easy");
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
             Console.WriteLine("");
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("1. Just walk in");
@@ -377,15 +377,15 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                     {
                       Console.WriteLine(
                         "You catch him off guard by quickly charging him and knocking him to the ground.");
-                      Thread.Sleep(3500);
+                      Thread.Sleep(4000);
                       Console.WriteLine("With a quick strike you knock him out cold.");
-                      Thread.Sleep(2500);
+                      Thread.Sleep(3000);
                     }
 
                     lists.Hp();
                     Console.WriteLine("You go through his pockets and find a KNIFE");
                     lists.AddItem("Knife", 0, true);
-                    Thread.Sleep(3000);
+                    Thread.Sleep(4000);
                     lists.AddItem("insideApartmentsDoor2Done", -1, true);
                     Console.Clear();
                     Structures.Apartments();
@@ -505,7 +505,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                         Console.Clear();
                         Console.Write("You keep looking around");
                         Thread.Sleep(2500);
-                        Console.WriteLine(", touching things you maybe shouldn't.");
+                        Console.WriteLine(", touching things you maybe shouldn not.");
                         Thread.Sleep(3000);
                         Console.Write("You do not find anything useful");
                         Thread.Sleep(2500);
@@ -519,13 +519,13 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                         Console.Write("Just as you are about to leave");
                         Thread.Sleep(2000);
                         Console.WriteLine(
-                          ", you notice a keycard stuck to the wall just next to the door.");
+                          ", you notice a card stuck to the wall next to the door.");
                         Thread.Sleep(3500);
                         Console.WriteLine(
                           "You pick up what looks like a keycard for an office or something.");
                         Thread.Sleep(4000);
                         Console.WriteLine("You got the OFFICE KEYCARD");
-                        Thread.Sleep(3000);
+                        Thread.Sleep(3500);
                         lists.AddItem("Office Keycard", 0, true);
                         Console.Clear();
                         Structures.Apartments();
@@ -638,25 +638,23 @@ public class ApartmentsLocation(Locations locations, Lists lists)
             {
               Console.Clear();
               Console.WriteLine("The door appears broken, and opens with ease.");
-              Thread.Sleep(2000);
+              Thread.Sleep(3000);
               Console.Write("The place is a complete mess");
-              Thread.Sleep(1500);
+              Thread.Sleep(2000);
               Console.Write(", but somehow different");
               Thread.Sleep(1500);
-              Console.Write(", man-made");
-              Thread.Sleep(1000);
-              Console.WriteLine(", or rather destroyed.");
+              Console.WriteLine(", destroyed.");
               Thread.Sleep(3000);
               Console.WriteLine("You look around for anything or anyone.");
-              Thread.Sleep(2000);
+              Thread.Sleep(3000);
               Console.Write("There is not much to be found it seems");
-              Thread.Sleep(2000);
+              Thread.Sleep(3000);
               Console.WriteLine(", until you hear a faint sound from the next room.");
               Thread.Sleep(3000);
               Console.Write("As you enter the room you notice a mattress on the floor");
-              Thread.Sleep(3000);
+              Thread.Sleep(3500);
               Console.Write(", and a small woman next to it");
-              Thread.Sleep(2000);
+              Thread.Sleep(2500);
               Console.WriteLine(" trying to hide and make herself small.");
               Thread.Sleep(4000);
               insideApartmentsDoor4:
@@ -683,17 +681,17 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                 case 1:
                   Console.Clear();
                   Console.Write("Calmly you talk to her");
-                  Thread.Sleep(2000);
+                  Thread.Sleep(2500);
                   Console.WriteLine(", assuring that you mean no harm.");
-                  Thread.Sleep(2500);
+                  Thread.Sleep(3000);
                   Console.WriteLine("With a careful voice she responds, and you talk for a minute");
-                  Thread.Sleep(1500);
+                  Thread.Sleep(4000);
                   Console.WriteLine("You learn she has lost a precious momento.");
-                  Thread.Sleep(2500);
+                  Thread.Sleep(3000);
                   Console.WriteLine("The neighbor across the hall beat her up and took it from her.");
                   Thread.Sleep(4000);
                   Console.WriteLine("She wants you to recover her necklace and return it to her.");
-                  Thread.Sleep(4000);
+                  Thread.Sleep(5000);
                   lists.AddItem("necklaceQuest", -1, true);
                   lists.AddItem("insideApartmentsDoor4Talk", -1, true);
                   Console.Clear();
