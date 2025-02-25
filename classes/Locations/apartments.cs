@@ -208,6 +208,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
             Console.WriteLine("");
             goto insideApartments;
           }
+          // Need to fix below
           case 2:
           {
             insideApartmentsDoor2:
@@ -570,18 +571,18 @@ public class ApartmentsLocation(Locations locations, Lists lists)
               {
                 Console.Clear();
                 Console.WriteLine("Her face lights up as you enter.");
-                Thread.Sleep(2500);
+                Thread.Sleep(3000);
                 Console.WriteLine("You hand the necklace over to her");
-                Thread.Sleep(2500);
+                Thread.Sleep(3000);
                 Console.WriteLine("With great appreciation she thanks you.");
-                Thread.Sleep(2500);
+                Thread.Sleep(3000);
                 Console.WriteLine("She gives you a KEY in return.");
-                Thread.Sleep(2000);
+                Thread.Sleep(2500);
                 lists.AddItem("Key", 0, true);
                 Console.WriteLine("She is unsure where it fits, but she found it on this floor.");
-                Thread.Sleep(3000);
+                Thread.Sleep(4000);
                 Console.WriteLine("If you look around a bit you might figure where to use it.");
-                Thread.Sleep(2500);
+                Thread.Sleep(4000);
                 lists.AddItem("insideApartmentsDoor4Done", -1, true);
                 Console.Clear();
                 Structures.Apartments();
@@ -591,11 +592,11 @@ public class ApartmentsLocation(Locations locations, Lists lists)
 
               Console.Clear();
               Console.WriteLine("Her face lights up as you enter.");
-              Thread.Sleep(2500);
+              Thread.Sleep(3000);
               Console.Write("When she learns you have not found the necklace");
               Thread.Sleep(3000);
               Console.WriteLine(", her smile fades.");
-              Thread.Sleep(1500);
+              Thread.Sleep(2000);
               Console.WriteLine("You should find the necklace before coming back here.");
               Thread.Sleep(4000);
               Console.Clear();
