@@ -12,25 +12,25 @@ public class PavilionLocation(Locations locations, Lists lists)
       {
         Console.Clear();
         Console.Write("As you approach the pavilion");
-        Thread.Sleep(2000);
-        Console.WriteLine(" you expect to see a decayed structure in the middle of the park.");
-        Thread.Sleep(3500);
-        Console.Write("To your surprise");
-        Thread.Sleep(1500);
-        Console.Write(" it looks magnificent");
-        Thread.Sleep(2000);
-        Console.WriteLine(", a gorgeous structure in the center of a lush, green park.");
-        Thread.Sleep(3000);
-        Console.Write("Decorated with colorful bushes and flowers");
         Thread.Sleep(2500);
+        Console.WriteLine(" you expect to see a decayed structure in the middle of the park.");
+        Thread.Sleep(4000);
+        Console.Write("To your surprise");
+        Thread.Sleep(2000);
+        Console.Write(" it looks magnificent");
+        Thread.Sleep(2500);
+        Console.WriteLine(", a gorgeous structure in the center of a lush, green park.");
+        Thread.Sleep(4000);
+        Console.Write("Decorated with colorful bushes and flowers");
+        Thread.Sleep(3500);
         Console.WriteLine(" everywhere throughout the park.");
-        Thread.Sleep(2000);
+        Thread.Sleep(3000);
         Console.Write("In stark contrast to it's surroundings");
-        Thread.Sleep(2000);
+        Thread.Sleep(3000);
         Console.Write(", somehow");
         Thread.Sleep(1500);
         Console.Write(" it looks incredible.");
-        Thread.Sleep(3000);
+        Thread.Sleep(4000);
         lists.AddItem("pavilion", -1, true);
       }
 
