@@ -121,7 +121,6 @@ public class ApartmentsLocation(Locations locations, Lists lists)
         {
           Console.Clear();
           Structures.Apartments();
-          Console.WriteLine("");
           Console.Write("The door opens with a nasty creak");
           Thread.Sleep(3000);
           Console.WriteLine(", sure to notify anyone nearby.");
@@ -899,18 +898,17 @@ public class ApartmentsLocation(Locations locations, Lists lists)
           {
             Console.Clear();
             Console.WriteLine("It looks be some sort of janitors closet.");
+            Thread.Sleep(3500);
+            Console.Write("It's messy and full of useless utility items.");
             Thread.Sleep(3000);
-            Console.Write("It's messy and full of useless utility items");
-            Thread.Sleep(2500);
             Console.WriteLine(", but there is a medical cabinet on the wall");
-            Thread.Sleep(2500);
+            Thread.Sleep(3000);
             Console.WriteLine("Inside you find a BANDAGE and a bottle of ALCOHOL.");
+            Thread.Sleep(4000);
             lists.ModifyValue("Bandages", i => i + 1);
             lists.ModifyValue("Alchohol", i => i + 1);
-            Thread.Sleep(3500);
             Console.Clear();
             Structures.Apartments();
-            Console.WriteLine("");
             goto insideApartments;
           }
           case 6:
