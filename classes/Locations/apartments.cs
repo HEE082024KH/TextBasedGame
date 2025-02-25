@@ -10,7 +10,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
     {
       Console.Clear();
       Console.Write("Walking up to the Apartments");
-      Thread.Sleep(2500);
+      Thread.Sleep(2000);
       Console.WriteLine(" you notice there is only one apartment block left.");
       Thread.Sleep(3500);
       Console.Write("There are rubbles of bricks and steel");
@@ -22,7 +22,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
       Console.Write("The top floors looks badly damaged");
       Thread.Sleep(3000);
       Console.WriteLine(", some of it gone altogether.");
-      Thread.Sleep(4000);
+      Thread.Sleep(5000);
       lists.AddItem("apartments", -1, true);
     }
 
