@@ -43,7 +43,6 @@ public class ShopLocation(Locations locations, Lists lists)
             Thread.Sleep(2500);
           }
 
-          Console.Clear();
           break;
         case 2:
           if (lists.GetValue("Money") >= 50)
@@ -59,7 +58,6 @@ public class ShopLocation(Locations locations, Lists lists)
             Thread.Sleep(2500);
           }
 
-          Console.Clear();
           break;
         case 3:
           if (lists.GetValue("Money") >= 25)
@@ -75,15 +73,14 @@ public class ShopLocation(Locations locations, Lists lists)
             Thread.Sleep(2500);
           }
 
-          Console.Clear();
           break;
         case 0:
-          Console.Clear();
           break;
         default:
           continue;
       }
 
+      Console.Clear();
       break;
     }
   }

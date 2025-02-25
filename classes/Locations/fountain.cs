@@ -111,9 +111,9 @@ public class FountainLocation(Locations locations, Lists lists)
           var items = usableAt.Where((_, index) => index == lists.GetValue("Input"))
             .FirstOrDefault();
 
-          switch (lists.GetValue("Input"))
+          switch (items?.Name)
           {
-            case "coin":
+            case "Coin":
               Console.Clear();
               Console.WriteLine("You toss the Coin into the fountain.");
               Thread.Sleep(2000);
@@ -127,10 +127,9 @@ public class FountainLocation(Locations locations, Lists lists)
               Thread.Sleep(2000);
               Console.WriteLine(" and the SHELTER KEY jumps out of the water.");
               Thread.Sleep(3000);
-              items.ShelterKey = true;
+              lists.AddItem("Shelter Key", 0, true);
               break;
-            case "dogbone":
-            case "dog bone":
+            case "Dog Bone":
               Console.Clear();
               Console.WriteLine("You toss the Dog Bone into the fountain.");
               Thread.Sleep(2000);
@@ -145,7 +144,7 @@ public class FountainLocation(Locations locations, Lists lists)
               Console.WriteLine(" and a GUN MAGAZINE jumps out of the water.");
               Thread.Sleep(3000);
               lists.AddItem("Gun Magazine", 0, true);
-              if (items.Gun)
+              if (lists.CheckBool("Gun"))
               {
                 Console.WriteLine("You have now assembled the Gun, and is able to use it.");
                 Thread.Sleep(4000);
@@ -154,12 +153,12 @@ public class FountainLocation(Locations locations, Lists lists)
               {
                 Console.Write("Not much use for this");
                 Thread.Sleep(2000);
-                Console.WriteLine(", unless you find a Gun.");
-                Thread.Sleep(2000);
+                Console.WriteLine(", unless you find the rest of the Gun.");
+                Thread.Sleep(3000);
               }
 
               break;
-            case "1":
+            case "0":
               Fountain();
               break;
             default:
