@@ -7,7 +7,7 @@ public class Variable(
   bool exists = false,
   bool tradeable = false,
   bool usable = false,
-  string[] usableAtLocation = null
+  string[]? usableAtLocation = null
 )
 
 {
@@ -106,7 +106,6 @@ public class Lists(Locations locations)
     new("Knife", 0, tradeable: true, sellAmount: 5, usableAtLocation: ["Apartments"]),
     new("Coin", 0, tradeable: true, sellAmount: 25, usableAtLocation: ["Fountain"]),
     new("Dog Bone", 0, usableAtLocation: ["Fountain"]),
-    // new("", 0),
   ];
 
   public void AddItem(string name, int amount, bool exists)

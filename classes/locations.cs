@@ -4,7 +4,7 @@ public class Locations
 {
   private readonly Start start = new();
   public Status? Status;
-  public required Lists Lists;
+  public Lists Lists;
 
   // Define locations
   private GateLocation? gate;

@@ -6,23 +6,23 @@ public class ApartmentsLocation(Locations locations, Lists lists)
 
   public void Apartments()
   {
-    if (lists.CheckBool("apartments"))
+    if (!lists.CheckBool("apartments"))
     {
       Console.Clear();
       Console.Write("Walking up to the Apartments");
-      Thread.Sleep(2000);
-      Console.WriteLine(" you notice there is only one apartment block left.");
-      Thread.Sleep(3000);
-      Console.Write("There are rubbles of bricks and steel");
-      Thread.Sleep(2000);
-      Console.WriteLine(" scattered all around where the apartment blocks used to be.");
-      Thread.Sleep(3500);
-      Console.WriteLine("Even the one left standing looks to be in rough shape.");
-      Thread.Sleep(3500);
-      Console.Write("The top floors looks badly damaged");
       Thread.Sleep(2500);
-      Console.WriteLine(", some of it gone altogether.");
+      Console.WriteLine(" you notice there is only one apartment block left.");
+      Thread.Sleep(3500);
+      Console.Write("There are rubbles of bricks and steel");
+      Thread.Sleep(2500);
+      Console.WriteLine(" scattered all around where the apartment blocks used to be.");
+      Thread.Sleep(4000);
+      Console.WriteLine("Even the one left standing looks to be in rough shape.");
+      Thread.Sleep(4000);
+      Console.Write("The top floors looks badly damaged");
       Thread.Sleep(3000);
+      Console.WriteLine(", some of it gone altogether.");
+      Thread.Sleep(4000);
       lists.AddItem("apartments", -1, true);
     }
 
