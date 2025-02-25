@@ -737,12 +737,15 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                   insideApartmentsDoor4Kill:
                   Console.Clear();
                   Console.WriteLine("What weapon do you want to use?");
-                  Console.WriteLine("- Hands");
-                  if (lists.CheckBool("Knife")) Console.WriteLine("- Knife");
-                  if (lists.CheckBool("Crowbar")) Console.WriteLine("- Crowbar");
+                  var usableAt = lists.Variables.Where(item => item.UsableAtLocation.Contains(lists.CurrentLocation));
+                  foreach (var item in usableAt)
+                  {
+                    Console.WriteLine($"{lists.Variables.IndexOf(item) + 1}. {item.Name}");
+                  }
+
                   try
                   {
-                    ItemInput = Console.ReadLine()?.ToLower();
+                    lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
                   }
                   catch
                   {
@@ -753,9 +756,12 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                     goto insideApartmentsDoor4Kill;
                   }
 
-                  switch (ItemInput)
+                  var items = usableAt.Where((_, index) => index == lists.GetValue("Input"))
+                    .FirstOrDefault();
+
+                  switch (items?.Name)
                   {
-                    case "hands":
+                    case "Hands":
                       Console.Write("You swiftly place your hands around her neck");
                       Thread.Sleep(3000);
                       Console.Write(", squeezing");
@@ -782,7 +788,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                       lists.ModifyValue("Money", i => i + 5);
                       lists.AddItem("insideApartmentsDoor4KillHands", -1, true);
                       break;
-                    case "knife":
+                    case "Knife":
                       Console.WriteLine("With a swift motion you stab her in the stomach.");
                       Thread.Sleep(3000);
                       Console.WriteLine("She gasps as the blade enter her body");
@@ -807,7 +813,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                       Thread.Sleep(2000);
                       lists.ModifyValue("Money", i => i + 5);
                       break;
-                    case "crowbar":
+                    case "Crowbar":
                       Console.Write("You swing the crowbar with force");
                       Thread.Sleep(2500);
                       Console.WriteLine(", striking her across the face.");
@@ -828,7 +834,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                       Console.WriteLine("2. No");
                       try
                       {
-                        Input = Convert.ToInt32(Console.ReadLine());
+                        lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
                       }
                       catch
                       {
