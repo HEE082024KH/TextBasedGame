@@ -9,7 +9,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
     if (!lists.CheckBool("apartments"))
     {
       Console.Clear();
-      Console.Write("Walking up to the Apartments");
+      Console.Write("Walking up to the apartments");
       Thread.Sleep(2000);
       Console.WriteLine(" you notice there is only one apartment block left.");
       Thread.Sleep(3500);
@@ -959,18 +959,18 @@ public class ApartmentsLocation(Locations locations, Lists lists)
           {
             Console.Clear();
             Console.WriteLine("You walk around the building until you find an open window.");
-            Thread.Sleep(2500);
+            Thread.Sleep(3500);
             Console.WriteLine("Carefully, you climb through the window.");
             Thread.Sleep(2500);
             Console.WriteLine("There's not much to the room, other than your standard furniture");
-            Thread.Sleep(500);
-            Console.Write("...");
+            Thread.Sleep(3500);
+            Console.Write("... ");
             lists.AddItem("insideApartmentsWindow", -1, true);
           }
 
           Thread.Sleep(1500);
-          Console.WriteLine("You spot a small box on a dresser");
-          Thread.Sleep(2000);
+          Console.WriteLine("you spot a small box on a dresser");
+          Thread.Sleep(2500);
           if (lists.CheckBool("Key"))
           {
             Console.WriteLine("You use the key to open the box.");
@@ -983,7 +983,9 @@ public class ApartmentsLocation(Locations locations, Lists lists)
           }
           else
           {
-            Console.Write(", but it seems to be locked. You need to look for the key.");
+            Console.Write(", but it seems to be locked.");
+            Thread.Sleep(2500);
+            Console.WriteLine(" You need to look for the key.");
             Thread.Sleep(2500);
           }
 
