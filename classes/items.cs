@@ -17,7 +17,7 @@ public class Variable(
   public bool Exists { get; set; } = exists;
   public bool Tradeable { get; } = tradeable;
   public bool Usable { get; } = usable;
-  public string[] UsableAtLocation { get; } = usableAtLocation;
+  public string[]? UsableAtLocation { get; } = usableAtLocation;
 }
 
 // MONEY AVAILABLE: $475
