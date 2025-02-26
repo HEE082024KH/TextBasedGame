@@ -210,13 +210,13 @@ public class ApartmentsLocation(Locations locations, Lists lists)
           // Need to fix case 2.
           case 2:
           {
-            insideApartmentsDoor2:
             Console.Clear();
             Console.Write("The door opens with ease");
             Thread.Sleep(2500);
             Console.WriteLine(", almost too easy");
             Thread.Sleep(2000);
             Console.WriteLine("");
+            insideApartmentsDoor2:
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("1. Just walk in");
             Console.WriteLine("2. Hug the wall and sneakily look inside");
@@ -310,6 +310,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                 }
                 else
                 {
+                  Console.Clear();
                   Console.WriteLine("You see the man lying on the floor.");
                   Thread.Sleep(2000);
                   Console.WriteLine("There is not much left to find here, however.");
@@ -394,6 +395,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                   }
                 }
 
+                Console.Clear();
                 Console.WriteLine("You see the man lying on the floor.");
                 Thread.Sleep(2000);
                 Console.WriteLine("There is not much left to find here, however.");
