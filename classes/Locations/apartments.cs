@@ -246,7 +246,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                     Thread.Sleep(3500);
                     Console.WriteLine(", however, you are hurt in the process.");
                     Thread.Sleep(3000);
-                    Console.WriteLine("\t-20 HP");
+                    Console.WriteLine("-20 HP");
                     Thread.Sleep(2500);
                     lists.ModifyValue("HP", hp => hp - 20);
                     lists.Hp();
@@ -257,7 +257,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                     Thread.Sleep(3000);
                     Console.Write(", turns out fighting while drunk is not easy");
                     Thread.Sleep(3000);
-                    Console.WriteLine("\t-30 HP");
+                    Console.WriteLine("-30 HP");
                     Thread.Sleep(2500);
                     lists.ModifyValue("HP", hp => hp - 30);
                     lists.Hp();
@@ -275,7 +275,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                   {
                     Console.WriteLine("During the struggle you hurt your arm.");
                     Thread.Sleep(3000);
-                    Console.WriteLine("\t-15 HP");
+                    Console.WriteLine("-15 HP");
                     Thread.Sleep(2500);
                     lists.ModifyValue("HP", hp => hp - 15);
                     lists.Hp();
@@ -350,7 +350,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                       Thread.Sleep(3500);
                       Console.WriteLine(
                         "Eventually, with a bit of fumbling, you manage to knock him out.");
-                      Console.WriteLine("\t-5 HP");
+                      Console.WriteLine("-5 HP");
                       Thread.Sleep(3000);
                       lists.ModifyValue("HP", hp => hp - 5);
                       lists.Hp();
@@ -361,7 +361,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                       Thread.Sleep(3500);
                       Console.WriteLine(
                         "You struggle to overpower him, but eventually you manage to knock him out.");
-                      Console.WriteLine("\t-15 HP");
+                      Console.WriteLine("-15 HP");
                       Thread.Sleep(3000);
                       lists.ModifyValue("HP", hp => hp - 15);
                       lists.Hp();
@@ -515,7 +515,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                         Thread.Sleep(2500);
                         Console.WriteLine(", but you might have overstayed your welcome.");
                         Thread.Sleep(2000);
-                        Console.WriteLine("\t-15 HP");
+                        Console.WriteLine("-15 HP");
                         Thread.Sleep(3000);
                         lists.ModifyValue("HP", hp => hp - 15);
                         lists.Hp();

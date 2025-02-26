@@ -203,7 +203,7 @@ public class BombShelter(Locations locations, Lists lists)
           Console.Clear();
           Console.WriteLine("You look around the entrance for anything useful.");
           Thread.Sleep(2500);
-          Console.WriteLine("There is a few bags of trash scattered around.");
+          Console.WriteLine("There are a few bags of trash scattered around.");
           Thread.Sleep(2500);
           Console.WriteLine("");
           shelterEntrance:

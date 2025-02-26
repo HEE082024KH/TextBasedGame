@@ -111,7 +111,7 @@ public class GateLocation(Locations locations, Lists lists)
         }
         case 4:
         {
-          if (lists.CheckBool("Flashlight") || lists.CheckBool("Hairpin"))
+          if (lists.CheckBool("Flashlight") && lists.CheckBool("Hairpin"))
           {
             Console.Clear();
             Console.WriteLine("You use your flashlight to look around");
@@ -135,7 +135,7 @@ public class GateLocation(Locations locations, Lists lists)
           Console.Clear();
           Console.WriteLine("You struggle to see anything in the dark");
           Thread.Sleep(2500);
-          Console.WriteLine("If only I had a flashlight");
+          Console.WriteLine("If only you had a flashlight");
           Thread.Sleep(3000);
           continue;
         }

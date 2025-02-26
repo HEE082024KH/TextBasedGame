@@ -194,12 +194,12 @@ public class SubwayEntrance(Locations locations, Lists lists)
       Thread.Sleep(3000);
       Console.Write("Paint scraped off");
       Thread.Sleep(2000);
-      Console.Write(", dust a dirt everywhere");
+      Console.Write(", dust and dirt everywhere");
       Thread.Sleep(2000);
-      Console.WriteLine(", structually falling apart");
+      Console.WriteLine(", structually falling apart.");
       Thread.Sleep(3000);
       Console.WriteLine("Looks like it has been a while since it has been in use.");
-      Thread.Sleep(4000);
+      Thread.Sleep(5000);
       lists.AddItem("subway", -1, true);
     }
 
@@ -251,25 +251,25 @@ public class SubwayEntrance(Locations locations, Lists lists)
         {
           Console.Clear();
           Console.Write("As you walk down into the subway");
-          Thread.Sleep(1500);
+          Thread.Sleep(2500);
           Console.WriteLine(", it gets harder to see");
           Thread.Sleep(2500);
           Console.Write("The lights are out");
-          Thread.Sleep(1500);
-          Console.WriteLine(" and you can hear rats running around somewhere.");
-          Thread.Sleep(3000);
-          Console.Write("Despite the lack of lights");
-          Thread.Sleep(1500);
-          Console.WriteLine(", you notice all the dirt and grime on the floors.");
-          Thread.Sleep(3000);
-          Console.Write("From what you can see");
-          Thread.Sleep(1500);
-          Console.WriteLine(" it does not look like this subway is in use anymore.");
-          Thread.Sleep(3000);
-          Console.Write("I can go further down into the subway");
           Thread.Sleep(2000);
-          Console.WriteLine(" but it might be hard to see anything without a flashlight.");
+          Console.WriteLine(" and you can hear rats running around somewhere.");
           Thread.Sleep(3500);
+          Console.Write("Despite the lack of lights");
+          Thread.Sleep(2500);
+          Console.WriteLine(", you notice all the dirt and grime on the floors.");
+          Thread.Sleep(3500);
+          Console.Write("From what you can see");
+          Thread.Sleep(2000);
+          Console.WriteLine(" it does not look like this subway is in use anymore.");
+          Thread.Sleep(3500);
+          Console.Write("You can go further down into the subway");
+          Thread.Sleep(3000);
+          Console.WriteLine(" but it might be hard to see anything without a flashlight.");
+          Thread.Sleep(4500);
           Console.WriteLine("");
           lists.AddItem("subwayEntrance", -1, true);
         }
@@ -434,7 +434,7 @@ public class SubwayEntrance(Locations locations, Lists lists)
         Console.Clear();
         Console.WriteLine("You look around the entrance for anything useful.");
         Thread.Sleep(2500);
-        Console.WriteLine("There is a few bags of trash scattered around.");
+        Console.WriteLine("There are a few bags of trash scattered around.");
         Thread.Sleep(2500);
         Console.Write("Some of them torn apart");
         Thread.Sleep(1500);
