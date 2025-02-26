@@ -207,7 +207,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
             Console.WriteLine("");
             goto insideApartments;
           }
-          // Need to fix below
+          // Need to fix case 2.
           case 2:
           {
             insideApartmentsDoor2:
@@ -236,7 +236,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
             switch (lists.GetValue("Input"))
             {
               case 1:
-                if (!lists.CheckBool("insideApartmentsDoor2"))
+                if (!lists.CheckBool("insideApartmentsDoor2") && !lists.CheckBool("insideApartmentsDoor2Done"))
                 {
                   Console.Clear();
                   Console.WriteLine("As you walk in a man jumps you from behind.");
@@ -485,7 +485,8 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                     insideApartmentsDoor3OpenInside:
                     Console.WriteLine("--What do you want to do?--");
                     Console.WriteLine("1. Keep looking");
-                    Console.WriteLine("2. Leave");
+                    Console.WriteLine("2. Lick the wall");
+                    Console.WriteLine("3. Leave");
                     try
                     {
                       lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
@@ -533,12 +534,44 @@ public class ApartmentsLocation(Locations locations, Lists lists)
                         goto insideApartments;
                       case 2:
                         Console.Clear();
+                        Console.Write("For some odd reason");
+                        Thread.Sleep(2000);
+                        Console.WriteLine(" you decide to lick the wall");
+                        Thread.Sleep(3500);
+                        Console.WriteLine("The taste is exactly as you thought.");
+                        Thread.Sleep(3500);
+                        Console.WriteLine("You can feel your body deteriorate as you consume the substance.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("You start to feel queezy.");
+                        Thread.Sleep(2500);
+                        Console.Write("Vomit starts to erupt from you");
+                        Thread.Sleep(3000);
+                        Console.WriteLine(", violently.");
+                        Thread.Sleep(2500);
+                        Console.WriteLine("You start to feel weak.");
+                        Thread.Sleep(2500);
+                        Console.WriteLine("A sharp pain starts in your chest");
+                        Thread.Sleep(3000);
+                        Console.WriteLine(", shooting outwards throughout your whole body.");
+                        Thread.Sleep(4000);
+                        Console.WriteLine("Everything turns black.");
+                        Thread.Sleep(3000);
+                        lists.ModifyInt("HP", 0);
+                        lists.Hp();
+                        break;
+                      case 3:
+                        Console.Clear();
                         Structures.Apartments();
                         Console.WriteLine("");
                         goto insideApartments;
                     }
 
                     break;
+                  case 2:
+                    Console.Clear();
+                    Structures.Apartments();
+                    Console.WriteLine("");
+                    goto insideApartments;
                 }
 
                 break;
