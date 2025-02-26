@@ -24,7 +24,7 @@ public class Variable(
 // MONEY SPENDABLE: $585
 //
 // UNUSED ITEMS:
-// Water, Batteries, Gun + GunMagazine, Credit Card
+// Batteries, Gun + GunMagazine, Credit Card
 //
 // ITEMS DON'T EXIST:
 // GateKey
@@ -163,7 +163,7 @@ public class Lists(Locations locations)
     Variables.Where(item => item.Exists && item.Amount == 0).ToList()
       .ForEach(item => Console.WriteLine($"- {item.Name}"));
 
-    Console.WriteLine(">");
+    Console.Write("> ");
     Console.ReadLine();
   }
 

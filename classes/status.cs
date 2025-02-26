@@ -4,48 +4,53 @@ public class Status(Locations locations, Lists lists)
 {
   public void ShowStatus()
   {
-    Console.WriteLine($"Current HP: {lists.GetValue("HP")}/100");
-    Console.WriteLine($"Current $: {lists.GetValue("Money")}");
-    if (lists.CheckBool("IsBuzzed"))
+    while (true)
     {
-      Console.WriteLine("You feel buzzed.");
-    }
-    else if (lists.CheckBool("IsDrunk"))
-    {
-      Console.WriteLine("You feel drunk.");
-    }
-    else if (lists.CheckBool("IsHammered"))
-    {
-      Console.WriteLine("You feel hammered.");
-    }
+      Console.WriteLine($"Current HP: {lists.GetValue("HP")}/100");
+      Console.WriteLine($"Current $: {lists.GetValue("Money")}");
+      if (lists.CheckBool("IsBuzzed"))
+      {
+        Console.WriteLine("You feel buzzed.");
+      }
+      else if (lists.CheckBool("IsDrunk"))
+      {
+        Console.WriteLine("You feel drunk.");
+      }
+      else if (lists.CheckBool("IsHammered"))
+      {
+        Console.WriteLine("You feel hammered.");
+      }
 
-    Console.WriteLine("1. Check inventory");
-    Console.WriteLine("2. Use item");
-    Console.WriteLine("3. Go back");
-    try
-    {
-      lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
-    }
-    catch
-    {
-      Console.Clear();
-      Console.WriteLine("Invalid input");
-      Thread.Sleep(1500);
-      ShowStatus();
-    }
+      Console.WriteLine("1. Check inventory");
+      Console.WriteLine("2. Use item");
+      Console.WriteLine("3. Go back");
+      try
+      {
+        lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
+      }
+      catch
+      {
+        Console.Clear();
+        Console.WriteLine("Invalid input");
+        Thread.Sleep(1500);
+        ShowStatus();
+      }
 
-    switch (lists.GetValue("Input"))
-    {
-      case 1:
-        Console.Clear();
-        lists.DisplayInventory();
-        break;
-      case 2:
-        Console.Clear();
-        UseItems();
-        break;
-      case 3:
-        break;
+      switch (lists.GetValue("Input"))
+      {
+        case 1:
+          Console.Clear();
+          lists.DisplayInventory();
+          continue;
+        case 2:
+          Console.Clear();
+          UseItems();
+          continue;
+        case 3:
+          break;
+      }
+
+      break;
     }
   }
 
