@@ -1,9 +1,7 @@
 using TextBasedGame.classes;
 
-public class AlleyLocation(Locations locations, Lists lists)
+public class AlleyLocation(Locations locations, Lists lists, Status status)
 {
-  private readonly Status? status = locations.Status;
-
   public void Alley()
   {
     while (true)
@@ -48,7 +46,7 @@ public class AlleyLocation(Locations locations, Lists lists)
         case 2:
         {
           Console.Clear();
-          status?.ShowStatus();
+          status.ShowStatus();
           continue;
         }
         case 3:

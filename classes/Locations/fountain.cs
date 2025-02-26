@@ -1,9 +1,7 @@
 using TextBasedGame.classes;
 
-public class FountainLocation(Locations locations, Lists lists)
+public class FountainLocation(Locations locations, Lists lists, Status status)
 {
-  private readonly Status? status = locations.Status;
-
   public void Fountain()
   {
     while (true)
@@ -71,7 +69,7 @@ public class FountainLocation(Locations locations, Lists lists)
         case 2:
         {
           Console.Clear();
-          status?.ShowStatus();
+          status.ShowStatus();
           continue;
         }
         case 3:

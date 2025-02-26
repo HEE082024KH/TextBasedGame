@@ -1,9 +1,7 @@
 using TextBasedGame.classes;
 
-public class OfficeBuilding(Locations locations, Lists lists)
+public class OfficeBuilding(Locations locations, Lists lists, Status status)
 {
-  private readonly Status? status = locations.Status;
-
   public void Office()
   {
     while (true)
@@ -48,7 +46,7 @@ public class OfficeBuilding(Locations locations, Lists lists)
         case 2:
         {
           Console.Clear();
-          status?.ShowStatus();
+          status.ShowStatus();
           continue;
         }
         case 3:

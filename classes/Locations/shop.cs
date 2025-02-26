@@ -1,9 +1,7 @@
 using TextBasedGame.classes;
 
-public class ShopLocation(Locations locations, Lists lists)
+public class ShopLocation(Locations locations, Lists lists, Status status)
 {
-  private readonly Status? status = locations.Status;
-
   private void BuyItems()
   {
     while (true)
@@ -85,7 +83,6 @@ public class ShopLocation(Locations locations, Lists lists)
     }
   }
 
-  // Convert list from ItemInput to Input w/ index
   private void SellItems()
   {
     Console.Clear();
@@ -414,7 +411,7 @@ public class ShopLocation(Locations locations, Lists lists)
       case 2:
       {
         Console.Clear();
-        status?.ShowStatus();
+        status.ShowStatus();
         Shop();
         break;
       }

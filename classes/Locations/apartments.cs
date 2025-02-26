@@ -1,9 +1,7 @@
 using TextBasedGame.classes;
 
-public class ApartmentsLocation(Locations locations, Lists lists)
+public class ApartmentsLocation(Locations locations, Lists lists, Status status)
 {
-  private readonly Status? status = locations.Status;
-
   public void Apartments()
   {
     if (!lists.CheckBool("apartments"))
@@ -59,7 +57,7 @@ public class ApartmentsLocation(Locations locations, Lists lists)
       case 2:
       {
         Console.Clear();
-        status?.ShowStatus();
+        status.ShowStatus();
         Apartments();
         break;
       }

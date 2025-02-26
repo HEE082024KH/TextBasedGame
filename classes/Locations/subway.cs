@@ -1,9 +1,7 @@
 using TextBasedGame.classes;
 
-public class SubwayEntrance(Locations locations, Lists lists)
+public class SubwayEntrance(Locations locations, Lists lists, Status status)
 {
-  private readonly Status? status = locations.Status;
-
   public void Subway()
   {
     if (lists.CurrentLocation == "Apartments" && !lists.CheckBool("apartmentsToSubway"))
@@ -235,7 +233,7 @@ public class SubwayEntrance(Locations locations, Lists lists)
       case 2:
       {
         Console.Clear();
-        status?.ShowStatus();
+        status.ShowStatus();
         Subway();
         break;
       }

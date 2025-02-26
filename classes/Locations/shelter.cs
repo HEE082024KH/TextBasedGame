@@ -1,9 +1,7 @@
 using TextBasedGame.classes;
 
-public class BombShelter(Locations locations, Lists lists)
+public class BombShelter(Locations locations, Lists lists, Status status)
 {
-  private readonly Status? status = locations.Status;
-
   public void Shelter()
   {
     if (!lists.CheckBool("shelter"))
@@ -77,7 +75,7 @@ public class BombShelter(Locations locations, Lists lists)
         case 2:
         {
           Console.Clear();
-          status?.ShowStatus();
+          status.ShowStatus();
           continue;
         }
         case 3:

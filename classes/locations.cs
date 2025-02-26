@@ -24,18 +24,18 @@ public class Locations
   {
     Lists = new Lists(this);
     Status = new Status(this, Lists);
-    gate = new GateLocation(this, Lists);
-    apartments = new ApartmentsLocation(this, Lists);
-    subway = new SubwayEntrance(this, Lists);
-    shop = new ShopLocation(this, Lists);
-    art = new ArtGallery(this, Lists);
-    office = new OfficeBuilding(this, Lists);
-    pavilion = new PavilionLocation(this, Lists);
-    warehouse = new AbandonedWarehouse(this, Lists);
-    shelter = new BombShelter(this, Lists);
-    fountain = new FountainLocation(this, Lists);
-    alley = new AlleyLocation(this, Lists);
-    shack = new ShackLocation(this, Lists);
+    gate = new GateLocation(this, Lists, Status);
+    apartments = new ApartmentsLocation(this, Lists, Status);
+    subway = new SubwayEntrance(this, Lists, Status);
+    shop = new ShopLocation(this, Lists, Status);
+    art = new ArtGallery(this, Lists, Status);
+    office = new OfficeBuilding(this, Lists, Status);
+    pavilion = new PavilionLocation(this, Lists, Status);
+    warehouse = new AbandonedWarehouse(this, Lists, Status);
+    shelter = new BombShelter(this, Lists, Status);
+    fountain = new FountainLocation(this, Lists, Status);
+    alley = new AlleyLocation(this, Lists, Status);
+    shack = new ShackLocation(this, Lists, Status);
   }
 
   public void MainMenu()
