@@ -9,8 +9,14 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
       if (!lists.CheckBool("alley"))
       {
         Console.Clear();
-        Console.WriteLine("");
+        Console.Write("Between two shabby buildings");
         Thread.Sleep(2000);
+        Console.WriteLine(" there is a murky alley leading away from the lights.");
+        Thread.Sleep(4000);
+        Console.Write("Faint sounds of people can be heard");
+        Thread.Sleep(3000);
+        Console.WriteLine(", hard to tell friendly or not.");
+        Thread.Sleep(3500);
         lists.AddItem("alley", -1, true);
       }
 
@@ -22,8 +28,7 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
       Console.WriteLine("--What do you want to do?--");
       Console.WriteLine("1. Travel to a different location");
       Console.WriteLine("2. Check status");
-      Console.WriteLine("3. ");
-      Console.WriteLine("4. ");
+      Console.WriteLine("3. Enter the alley");
       try
       {
         lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
@@ -39,31 +44,92 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
       switch (lists.GetValue("Input"))
       {
         case 1:
-        {
           locations.LocationSelector();
           break;
-        }
         case 2:
-        {
           Console.Clear();
           status.ShowStatus();
           continue;
-        }
         case 3:
-        {
+          Console.Clear();
+          Console.Write("As you walk down the alley");
+          Thread.Sleep(2500);
+          Console.WriteLine(" you come across a man blocking the road.");
+          Thread.Sleep(3000);
+          Console.WriteLine("The man is tall and wide, strong and intimidating.");
+          Thread.Sleep(4000);
+          Console.WriteLine("");
+          alley:
+          Console.WriteLine("--What do you want to do?--");
+          Console.WriteLine("1. Approach the man");
+          Console.WriteLine("2. Leave");
+          try
+          {
+            lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
+          }
+          catch
+          {
+            Console.Clear();
+            Console.WriteLine("Invalid input");
+            Thread.Sleep(1500);
+            goto alley;
+          }
+
+          switch (lists.GetValue("Input"))
+          {
+            case 1:
+              Console.Clear();
+              if (lists.CheckBool("Gun"))
+              {
+                Console.Clear();
+                Console.WriteLine("Your approach the man.");
+                Thread.Sleep(2500);
+                Console.WriteLine("He just stares ominously at you.");
+                Thread.Sleep(3000);
+                Console.WriteLine("You pull out your Gun and points it at him.");
+                Thread.Sleep(3500);
+                Console.WriteLine("He continues staring at you.");
+                Thread.Sleep(3000);
+                Console.WriteLine("Without changing expressions he stand aside and lets you pass.");
+                Thread.Sleep(4000);
+                alleyCorner:
+                Console.Write("As you turn the corner");
+                Thread.Sleep(2500);
+                Console.WriteLine("the area opens up, with people everywhere.");
+                Thread.Sleep(3000);
+                Console.WriteLine("");
+                Thread.Sleep(2000);
+              }
+              else
+              {
+                Console.Clear();
+                Console.WriteLine("Your approach the man.");
+                Thread.Sleep(2500);
+                Console.WriteLine("He just stares ominously at you.");
+                Thread.Sleep(3000);
+                Console.Write("As you start to open your mouth");
+                Thread.Sleep(3000);
+                Console.WriteLine(" he smacks you across the face.");
+                Thread.Sleep(3000);
+                Console.WriteLine("-10 HP");
+                Thread.Sleep(3000);
+                lists.ModifyValue("HP", i => i - 10);
+                lists.Hp();
+                Console.WriteLine("Does not seem like much of a talker.");
+                Thread.Sleep(4000);
+              }
+
+              break;
+            case 2:
+              break;
+          }
+
           continue;
-        }
-        case 4:
-        {
-          continue;
-        }
         default:
-        {
           Console.Clear();
           Console.Write("Invalid input");
           Thread.Sleep(1500);
           continue;
-        }
       }
 
       break;
