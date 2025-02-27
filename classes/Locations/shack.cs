@@ -71,10 +71,11 @@ public class ShackLocation(Locations locations, Lists lists, Status status)
           Thread.Sleep(3000);
           Console.WriteLine("");
           insideShack:
-          Console.WriteLine("Where do you want to search?");
+          Console.WriteLine("--Where do you want to search?--");
           Console.WriteLine("1. Broken boxes in the corner");
           Console.WriteLine("2. Fireplace");
           Console.WriteLine("3. Remains of a dresser.");
+          Console.WriteLine("4. Leave");
           try
           {
             lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
@@ -91,14 +92,88 @@ public class ShackLocation(Locations locations, Lists lists, Status status)
           {
             case 1:
               Console.Clear();
-              Console.WriteLine("You ruffle through the box");
-              Thread.Sleep(2500);
-              Console.WriteLine(", ");
+              Console.Write("You ruffle through the boxes");
               Thread.Sleep(2000);
+              Console.WriteLine(", one by one.");
+              Thread.Sleep(2500);
+              Console.WriteLine("Dust emit as you open them.");
+              Thread.Sleep(3000);
+              Console.Write("To your surprise");
+              Thread.Sleep(2500);
+              Console.WriteLine(" they are full of cash.");
+              Thread.Sleep(3000);
+              Console.Write("Discolored and crumpled");
+              Thread.Sleep(2500);
+              Console.WriteLine(", clearly all fake.");
+              Thread.Sleep(3000);
+              Console.WriteLine("One of the bills look normal, however.");
+              Thread.Sleep(3000);
+              Console.WriteLine("You got $10");
+              Thread.Sleep(3000);
+              lists.ModifyValue("Money", i => i + 10);
               break;
             case 2:
+              Console.Clear();
+              Console.WriteLine("The fireplace looks broken down and ruined.");
+              Thread.Sleep(3500);
+              Console.WriteLine("There is probably nothing to be found here.");
+              Thread.Sleep(3500);
+              Console.Write("You are about to leave");
+              Thread.Sleep(2500);
+              Console.Write(" when you spot a small button");
+              Thread.Sleep(2500);
+              Console.WriteLine(", in plain view next to the fireplace");
+              Thread.Sleep(3000);
+              Console.WriteLine("");
+              insideShackButton:
+              Console.WriteLine("--What do you want to do?--");
+              Console.WriteLine("1. Push the button");
+              Console.WriteLine("2. Leave");
+              try
+              {
+                lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
+              }
+              catch
+              {
+                Console.Clear();
+                Console.WriteLine("Invalid input");
+                Thread.Sleep(1500);
+                goto insideShackButton;
+              }
+
+              switch (lists.GetValue("Input"))
+              {
+                case 1:
+                  Console.Clear();
+                  Console.Write("As you push the button");
+                  Thread.Sleep(2500);
+                  Console.WriteLine(" you hear faint mechanical sounds.");
+                  Thread.Sleep(3000);
+                  Console.WriteLine("A small slot opens in the wall");
+                  Thread.Sleep(3000);
+                  Console.WriteLine("");
+                  Thread.Sleep(2000);
+                  break;
+                case 2:
+                  break;
+              }
+
               break;
             case 3:
+              Console.Clear();
+              Console.Write("You search the dresser");
+              Thread.Sleep(2500);
+              Console.WriteLine(", at least what is left of it");
+              Thread.Sleep(3000);
+              Console.Write("It is mostly empty");
+              Thread.Sleep(2500);
+              Console.WriteLine(" except for some paper.");
+              Thread.Sleep(3000);
+              Console.WriteLine("In between the paper you find $15");
+              Thread.Sleep(4000);
+              lists.ModifyValue("Money", i => i + 15);
+              break;
+            case 4:
               break;
           }
 
