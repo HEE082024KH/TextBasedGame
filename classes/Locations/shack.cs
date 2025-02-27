@@ -151,8 +151,28 @@ public class ShackLocation(Locations locations, Lists lists, Status status)
                   Thread.Sleep(3000);
                   Console.WriteLine("A small slot opens in the wall");
                   Thread.Sleep(3000);
-                  Console.WriteLine("");
-                  Thread.Sleep(2000);
+                  Console.Write("Inside is some sort of mechanical setup.");
+                  Thread.Sleep(3500);
+                  if (lists.CheckBool("Batteries"))
+                  {
+                    Console.WriteLine("You connect the Batteries and the mechanism whirs.");
+                    Thread.Sleep(3500);
+                    Console.Write("A small room opens below the slot");
+                    Thread.Sleep(2500);
+                    Console.WriteLine(", with a small box inside.");
+                    Thread.Sleep(3000);
+                    Console.WriteLine("The box, while dusty, opens with ease");
+                    Thread.Sleep(3000);
+                    Console.WriteLine("Inside you find $200");
+                    Thread.Sleep(4000);
+                    lists.ModifyValue("Money", i => i + 200);
+                  }
+                  else
+                  {
+                    Console.WriteLine("It is not apparent what will fit.");
+                    Thread.Sleep(4000);
+                  }
+
                   break;
                 case 2:
                   break;
@@ -177,9 +197,14 @@ public class ShackLocation(Locations locations, Lists lists, Status status)
               break;
           }
 
-          continue;
+          break;
         case 4:
-          continue;
+          Console.Clear();
+          Console.WriteLine("It is quite barren around the shack");
+          Thread.Sleep(3000);
+          Console.WriteLine("Not much to see or interact with.");
+          Thread.Sleep(3000);
+          break;
         default:
           Console.Clear();
           Console.Write("Invalid input");

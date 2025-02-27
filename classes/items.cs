@@ -24,7 +24,7 @@ public class Variable(
 // MONEY SPENDABLE: $585
 //
 // UNUSED ITEMS:
-// Batteries, Gun + GunMagazine, Credit Card
+// Gun + GunMagazine, Credit Card
 //
 // ITEMS DON'T EXIST:
 // GateKey
