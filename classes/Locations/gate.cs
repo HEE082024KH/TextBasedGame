@@ -9,8 +9,12 @@ public class GateLocation(Locations locations, Lists lists, Status status)
       if (!lists.CheckBool("gate"))
       {
         Console.Clear();
-        Console.WriteLine("");
-        Thread.Sleep(2000);
+        Console.Write("As you walk towards the gate");
+        Thread.Sleep(3000);
+        Console.WriteLine(" you look up at the sky turning darker and darker.");
+        Thread.Sleep(4000);
+        Console.WriteLine("Is this an omen?");
+        Thread.Sleep(2500);
         lists.AddItem("gate", -1, true);
       }
 
