@@ -62,18 +62,13 @@ public class FountainLocation(Locations locations, Lists lists, Status status)
       switch (lists.GetValue("Input"))
       {
         case 1:
-        {
           locations.LocationSelector();
           break;
-        }
         case 2:
-        {
           Console.Clear();
           status.ShowStatus();
           continue;
-        }
         case 3:
-        {
           Console.Clear();
           Console.Write("As you approach the fountain");
           Thread.Sleep(2000);
@@ -164,9 +159,7 @@ public class FountainLocation(Locations locations, Lists lists, Status status)
           }
 
           break;
-        }
         case 4:
-        {
           Console.Clear();
           Console.WriteLine("You approach the fountain and sit down by the water.");
           Thread.Sleep(3000);
@@ -200,14 +193,11 @@ public class FountainLocation(Locations locations, Lists lists, Status status)
           }
 
           continue;
-        }
         default:
-        {
           Console.Clear();
           Console.Write("Invalid input");
           Thread.Sleep(1500);
           continue;
-        }
       }
 
       break;
