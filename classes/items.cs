@@ -79,6 +79,8 @@ public class Lists(Locations locations)
     new("insideShelterTake", -1),
     new("travelFromShelter", -1),
     new("alley", -1),
+    new("alleyMan", -1),
+    new("alleyManGun", -1),
     new("artGallery", -1),
     new("office", -1),
     new("shack", -1),

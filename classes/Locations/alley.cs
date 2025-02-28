@@ -51,14 +51,19 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
           status.ShowStatus();
           continue;
         case 3:
-          Console.Clear();
-          Console.Write("As you walk down the alley");
-          Thread.Sleep(2500);
-          Console.WriteLine(" you come across a man blocking the road.");
-          Thread.Sleep(3000);
-          Console.WriteLine("The man is tall and wide, strong and intimidating.");
-          Thread.Sleep(4000);
-          Console.WriteLine("");
+          if (!lists.CheckBool("alleyMan"))
+          {
+            Console.Clear();
+            Console.Write("As you walk down the alley");
+            Thread.Sleep(2500);
+            Console.WriteLine(" you come across a man blocking the road.");
+            Thread.Sleep(3000);
+            Console.WriteLine("The man is tall and wide, strong and intimidating.");
+            Thread.Sleep(4000);
+            lists.AddItem("alleyMan", -1, true);
+            Console.WriteLine("");
+          }
+
           alley:
           Console.WriteLine("--What do you want to do?--");
           Console.WriteLine("1. Approach the man");
@@ -81,38 +86,49 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
               Console.Clear();
               if (lists.CheckBool("Gun"))
               {
-                Console.Clear();
-                Console.WriteLine("Your approach the man.");
-                Thread.Sleep(2500);
-                Console.WriteLine("He just stares ominously at you.");
-                Thread.Sleep(3000);
-                Console.WriteLine("You pull out your Gun and points it at him.");
-                Thread.Sleep(3500);
-                Console.WriteLine("He continues staring at you.");
-                Thread.Sleep(3000);
-                Console.WriteLine("Without changing expressions he stand aside and lets you pass.");
-                Thread.Sleep(4000);
-                Console.Write("As you turn the corner");
-                Thread.Sleep(2500);
-                Console.WriteLine("the area opens up with people everywhere.");
-                Thread.Sleep(3500);
-                Console.WriteLine("Stands and shops, selling all kinds of things and services");
-                Thread.Sleep(4000);
-                Console.WriteLine("How can there be this many people here when it is dead everywhere else?");
-                Thread.Sleep(4500);
-                Console.WriteLine("There is a so much going on here you don't even know where to start.");
-                Thread.Sleep(4500);
-                Console.Write("The alley is a deadend");
-                Thread.Sleep(2500);
-                Console.WriteLine(", tall buildings surrounds the market on all sides.");
-                Thread.Sleep(3500);
-                Console.WriteLine("You notice a lone steel door along the left wall.");
-                Thread.Sleep(3500);
-                Console.Write("Looks like the kind of door that should be heavily guarded");
-                Thread.Sleep(3500);
-                Console.WriteLine(", but it is not.");
-                Thread.Sleep(2500);
-                Console.WriteLine("");
+                if (!lists.CheckBool("alleyManGun"))
+                {
+                  Console.Clear();
+                  Console.WriteLine("Your approach the man.");
+                  Thread.Sleep(2500);
+                  Console.WriteLine("He just stares ominously at you.");
+                  Thread.Sleep(3000);
+                  Console.WriteLine("You pull out your Gun and points it at him.");
+                  Thread.Sleep(3500);
+                  Console.WriteLine("He continues staring at you.");
+                  Thread.Sleep(3000);
+                  Console.WriteLine("Without changing expressions he stand aside and lets you pass.");
+                  Thread.Sleep(4000);
+                  Console.Write("As you turn the corner");
+                  Thread.Sleep(2500);
+                  Console.WriteLine("the area opens up with people everywhere.");
+                  Thread.Sleep(3500);
+                  Console.WriteLine("Stands and shops, selling all kinds of things and services");
+                  Thread.Sleep(4000);
+                  Console.WriteLine("How can there be this many people here when it is dead everywhere else?");
+                  Thread.Sleep(4500);
+                  Console.WriteLine("There is a so much going on here you don't even know where to start.");
+                  Thread.Sleep(4500);
+                  Console.Write("The alley is a deadend");
+                  Thread.Sleep(2500);
+                  Console.WriteLine(", tall buildings surrounds the market on all sides.");
+                  Thread.Sleep(3500);
+                  Console.WriteLine("You notice a lone steel door along the left wall.");
+                  Thread.Sleep(3500);
+                  Console.Write("Looks like the kind of door that should be heavily guarded");
+                  Thread.Sleep(3500);
+                  Console.WriteLine(", but it is not.");
+                  Thread.Sleep(2500);
+                  lists.AddItem("alleyManGun", -1, true);
+                  Console.WriteLine("");
+                }
+                else
+                {
+                  Console.Clear();
+                  Console.WriteLine("");
+                  Thread.Sleep(2000);
+                }
+
                 alleyBackyard:
                 Console.WriteLine("--What do you want to do?--");
                 Console.WriteLine("1. Try to enter the lone steel door");
@@ -134,6 +150,22 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
 
                 switch (lists.GetValue("Input"))
                 {
+                  case 1:
+                    // Steel door
+                    Console.Clear();
+                    break;
+                  case 2:
+                    // Walk around
+                    break;
+                  case 3:
+                    // Stands and shops
+                    Console.Clear();
+                    break;
+                  case 4:
+                    // Talk with people
+                    break;
+                  case 5:
+                    break;
                 }
               }
               else
