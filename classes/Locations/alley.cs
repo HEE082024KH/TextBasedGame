@@ -193,7 +193,7 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                     Console.WriteLine("You approach the steel door and use the Credit Card to enter.");
                     Thread.Sleep(4500);
                     alleyUnderground:
-                    if (lists.CheckBool("alleyUndergroundStart"))
+                    if (!lists.CheckBool("alleyUndergroundStart"))
                     {
                       Console.Clear();
                       Console.WriteLine("You proceed down the stairs");
@@ -247,10 +247,75 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                       {
                         case 1:
                           Console.Clear();
+                          Console.WriteLine("You follow the women into the building");
+                          Thread.Sleep(3000);
+                          Console.WriteLine("They start to move sensually as they undress each other.");
+                          Thread.Sleep(4000);
+                          Console.WriteLine("One of them start to remove your pants");
+                          Thread.Sleep(3000);
+                          Console.Write("As you prepare for the pleasure that awaits");
+                          Thread.Sleep(3000);
+                          Console.WriteLine(" you feel a sharp pain in your thigh.");
+                          Thread.Sleep(3000);
+                          Console.Write("You look down at a knife stuck in your thigh");
+                          Thread.Sleep(3000);
+                          Console.WriteLine(", blood trickles as you feel intense pain.");
+                          Thread.Sleep(3000);
+                          Console.WriteLine("-50 HP");
+                          Thread.Sleep(3000);
+                          lists.ModifyValue("HP", i => i - 50);
+                          lists.Hp();
+                          Console.Write("Before you can react");
+                          Thread.Sleep(2500);
+                          Console.WriteLine(" the other woman holds a knife to your throat.");
+                          Thread.Sleep(3500);
+                          Console.WriteLine("They start go through your pockets.");
+                          Thread.Sleep(3000);
+                          Console.WriteLine("");
+                          alleyUndergroundWomenKnife:
+                          Console.WriteLine("--What do you want to do?--");
+                          Console.WriteLine("1. Let them");
+                          Console.WriteLine("2. Resist");
+                          try
+                          {
+                            lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
+                          }
+                          catch
+                          {
+                            Console.Clear();
+                            Console.WriteLine("Invalid input");
+                            Thread.Sleep(1500);
+                            goto alleyUndergroundWomenKnife;
+                          }
+
+                          switch (lists.GetValue("Input"))
+                          {
+                            case 1:
+                              Console.Clear();
+                              Console.Write("After going through your pockets");
+                              Thread.Sleep(2500);
+                              Console.WriteLine(" they take off with all your Money.");
+                              Thread.Sleep(4000);
+                              lists.ModifyInt("Money", 0);
+                              break;
+                            case 2:
+                              Console.Clear();
+                              Console.WriteLine("You try to stop them.");
+                              Thread.Sleep(2500);
+                              Console.WriteLine("With a swift motion the other woman slits your throat.");
+                              Thread.Sleep(4000);
+                              Console.WriteLine("Bloor pours out as you start to choke.");
+                              Thread.Sleep(3000);
+                              lists.ModifyInt("HP", 0);
+                              lists.Hp();
+                              break;
+                          }
+
                           break;
                         case 2:
                           break;
                       }
+
                       lists.AddItem("alleyUndergroundStart", -1, true);
                     }
 
