@@ -20,11 +20,11 @@ public class Variable(
   public string[]? UsableAtLocation { get; } = usableAtLocation;
 }
 
-// MONEY AVAILABLE: $475
+// MONEY AVAILABLE: $675
 // MONEY SPENDABLE: $585
 //
 // UNUSED ITEMS:
-// Gun + GunMagazine, Credit Card
+// Office keycard, Credit Card
 //
 // ITEMS DON'T EXIST:
 // GateKey

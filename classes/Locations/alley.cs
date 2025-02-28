@@ -153,17 +153,41 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                   case 1:
                     // Steel door
                     Console.Clear();
+                    Console.WriteLine("");
+                    Thread.Sleep(2000);
                     break;
                   case 2:
                     // Walk around
-                    break;
-                  case 3:
-                    // Stands and shops
                     Console.Clear();
-                    break;
+                    Console.WriteLine("");
+                    Thread.Sleep(2000);
+                    goto alleyBackyard;
+                  case 3:
+                    Console.Clear();
+                    Console.WriteLine("You browse the different shops and stalls.");
+                    Thread.Sleep(3000);
+                    Console.Write("There are many interesting items and trinkets");
+                    Thread.Sleep(3000);
+                    Console.WriteLine(", but no one seems interested in trading.");
+                    Thread.Sleep(4000);
+                    Console.WriteLine("Not sure why.");
+                    Thread.Sleep(3000);
+                    goto alleyBackyard;
                   case 4:
-                    // Talk with people
-                    break;
+                    Console.Clear();
+                    Console.Write("You walk around for a bit");
+                    Thread.Sleep(2500);
+                    Console.WriteLine(" trying to strike a conversation with people");
+                    Thread.Sleep(3500);
+                    Console.WriteLine("But none of them seem particularly interested in talking with me.");
+                    Thread.Sleep(4000);
+                    Console.WriteLine("Most of them give me a frown and a stare as I talk to them.");
+                    Thread.Sleep(4000);
+                    Console.WriteLine("The rest just outright ignore me and walk the other way.");
+                    Thread.Sleep(4000);
+                    Console.WriteLine("Not sure why");
+                    Thread.Sleep(3000);
+                    goto alleyBackyard;
                   case 5:
                     break;
                 }
