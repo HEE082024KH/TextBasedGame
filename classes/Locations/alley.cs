@@ -190,13 +190,69 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                       goto alleyBackyard;
                     }
 
-                    Console.Clear();
-                    Structures.SteelDoor();
                     Console.WriteLine("You approach the steel door and use the Credit Card to enter.");
                     Thread.Sleep(4500);
-                    
                     alleyUnderground:
-                    Console.Clear();
+                    if (lists.CheckBool("alleyUndergroundStart"))
+                    {
+                      Console.Clear();
+                      Console.WriteLine("You proceed down the stairs");
+                      Thread.Sleep(2500);
+                      Console.WriteLine(" until finally you reach the bottom.");
+                      Thread.Sleep(3000);
+                      Console.Write("You walk out into a massive open area");
+                      Thread.Sleep(3000);
+                      Console.WriteLine(", looks like an old sewer system of some kind.");
+                      Thread.Sleep(3000);
+                      Console.WriteLine("There are people everywhere");
+                      Thread.Sleep(2500);
+                      Console.WriteLine(" doing all kinds of things.");
+                      Thread.Sleep(2500);
+                      Console.WriteLine("People dealing and using drugs");
+                      Thread.Sleep(2500);
+                      Console.WriteLine(" all out in the open.");
+                      Thread.Sleep(3000);
+                      Console.WriteLine("Prostitutes serving customers in plain view.");
+                      Thread.Sleep(3500);
+                      Console.WriteLine("People getting beaten to a pulp by what appears to be gangs.");
+                      Thread.Sleep(4000);
+                      Console.WriteLine("It is like there is a whole city living down here");
+                      Thread.Sleep(4000);
+                      Console.WriteLine(", a criminal safe haven of sin.");
+                      Thread.Sleep(3000);
+                      Console.Write("Suddenly, two scantily clothed women approaches you");
+                      Thread.Sleep(3500);
+                      Console.WriteLine(", touching you all over.");
+                      Thread.Sleep(2500);
+                      Console.WriteLine("They try to lead you inside one of the shabby buildings nearby.");
+                      Thread.Sleep(4000);
+                      Console.WriteLine("");
+                      alleyUndergroundWomen:
+                      Console.WriteLine("--What do you want to do?--");
+                      Console.WriteLine("1. Go with them");
+                      Console.WriteLine("2. Reject them");
+                      try
+                      {
+                        lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
+                      }
+                      catch
+                      {
+                        Console.Clear();
+                        Console.WriteLine("Invalid input");
+                        Thread.Sleep(1500);
+                        goto alleyUndergroundWomen;
+                      }
+
+                      switch (lists.GetValue("Input"))
+                      {
+                        case 1:
+                          Console.Clear();
+                          break;
+                        case 2:
+                          break;
+                      }
+                      lists.AddItem("alleyUndergroundStart", -1, true);
+                    }
 
                     break;
                   case 2:
