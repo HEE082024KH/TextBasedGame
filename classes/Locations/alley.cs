@@ -92,13 +92,49 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                 Thread.Sleep(3000);
                 Console.WriteLine("Without changing expressions he stand aside and lets you pass.");
                 Thread.Sleep(4000);
-                alleyCorner:
                 Console.Write("As you turn the corner");
                 Thread.Sleep(2500);
-                Console.WriteLine("the area opens up, with people everywhere.");
-                Thread.Sleep(3000);
+                Console.WriteLine("the area opens up with people everywhere.");
+                Thread.Sleep(3500);
+                Console.WriteLine("Stands and shops, selling all kinds of things and services");
+                Thread.Sleep(4000);
+                Console.WriteLine("How can there be this many people here when it is dead everywhere else?");
+                Thread.Sleep(4500);
+                Console.WriteLine("There is a so much going on here you don't even know where to start.");
+                Thread.Sleep(4500);
+                Console.Write("The alley is a deadend");
+                Thread.Sleep(2500);
+                Console.WriteLine(", tall buildings surrounds the market on all sides.");
+                Thread.Sleep(3500);
+                Console.WriteLine("You notice a lone steel door along the left wall.");
+                Thread.Sleep(3500);
+                Console.Write("Looks like the kind of door that should be heavily guarded");
+                Thread.Sleep(3500);
+                Console.WriteLine(", but it is not.");
+                Thread.Sleep(2500);
                 Console.WriteLine("");
-                Thread.Sleep(2000);
+                alleyBackyard:
+                Console.WriteLine("--What do you want to do?--");
+                Console.WriteLine("1. Try to enter the lone steel door");
+                Console.WriteLine("2. Walk around the open area");
+                Console.WriteLine("3. Check out the stand and shops");
+                Console.WriteLine("4. Talk with people");
+                Console.WriteLine("5. Leave");
+                try
+                {
+                  lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
+                }
+                catch
+                {
+                  Console.Clear();
+                  Console.WriteLine("Invalid input");
+                  Thread.Sleep(1500);
+                  goto alleyBackyard;
+                }
+
+                switch (lists.GetValue("Input"))
+                {
+                }
               }
               else
               {
