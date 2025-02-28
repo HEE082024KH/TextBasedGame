@@ -151,16 +151,70 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                 switch (lists.GetValue("Input"))
                 {
                   case 1:
-                    // Steel door
                     Console.Clear();
-                    Console.WriteLine("");
-                    Thread.Sleep(2000);
+                    Structures.SteelDoor();
+                    if (!lists.CheckBool("alleyUnderground"))
+                    {
+                      Console.WriteLine("You approach the steel door.");
+                      Thread.Sleep(2500);
+                      Console.WriteLine("Carefully, you look around you.");
+                      Thread.Sleep(2500);
+                      Console.WriteLine("No one seems to care.");
+                      Thread.Sleep(2500);
+                      if (lists.CheckBool("Credit Card"))
+                      {
+                        Console.WriteLine("After trying a few things");
+                        Thread.Sleep(2500);
+                        Console.WriteLine(" you attempt using the Credit Card to open the door.");
+                        Thread.Sleep(3500);
+                        Console.WriteLine("Seems like the Credit Card works as some sort of access card.");
+                        Thread.Sleep(4000);
+                        Console.WriteLine("The door opens with a distinct metallic sound.");
+                        Thread.Sleep(3500);
+                        Console.WriteLine("It reveals a dimly lit staircase");
+                        Thread.Sleep(3000);
+                        Console.WriteLine(" leading down deep underground.");
+                        Thread.Sleep(3500);
+                        lists.AddItem("alleyUnderground", -1, true);
+                        goto alleyUnderground;
+                      }
+
+                      Console.Write("You try to open the door");
+                      Thread.Sleep(2500);
+                      Console.WriteLine(", but it appears to be locked.");
+                      Thread.Sleep(2500);
+                      Console.Write("There is no key slot, however");
+                      Thread.Sleep(2500);
+                      Console.WriteLine(", not sure what opens this door.");
+                      Thread.Sleep(4000);
+                      goto alleyBackyard;
+                    }
+
+                    Console.Clear();
+                    Structures.SteelDoor();
+                    Console.WriteLine("You approach the steel door and use the Credit Card to enter.");
+                    Thread.Sleep(4500);
+                    
+                    alleyUnderground:
+                    Console.Clear();
+
                     break;
                   case 2:
-                    // Walk around
                     Console.Clear();
-                    Console.WriteLine("");
-                    Thread.Sleep(2000);
+                    Console.WriteLine("You decide to walk around the alley on your own.");
+                    Thread.Sleep(3500);
+                    Console.WriteLine("It is interesting to observe how people act around here.");
+                    Thread.Sleep(4000);
+                    Console.WriteLine("Nothing like the rest of town");
+                    Thread.Sleep(3000);
+                    Console.WriteLine(", like a seperate society");
+                    Thread.Sleep(2500);
+                    Console.WriteLine(", hidden away");
+                    Thread.Sleep(3000);
+                    Console.WriteLine("They all walk around with purpose.");
+                    Thread.Sleep(3000);
+                    Console.WriteLine("There must be something unique about this place.");
+                    Thread.Sleep(4000);
                     goto alleyBackyard;
                   case 3:
                     Console.Clear();

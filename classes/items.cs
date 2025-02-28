@@ -82,6 +82,7 @@ public class Lists(Locations locations)
     new("alleyMan", -1),
     new("alleyManGun", -1),
     new("artGallery", -1),
+    new("alleyUnderground", -1),
     new("office", -1),
     new("shack", -1),
     new("warehouse", -1),

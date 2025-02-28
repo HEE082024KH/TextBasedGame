@@ -105,7 +105,7 @@ public static class Structures
     Console.WriteLine("");
   }
 
-  public static void HallwayEnd()
+  public static void SteelDoor()
   {
     Console.WriteLine("");
     Console.WriteLine("88888888888888888888888888888888888888888888888888888888888888888888888");
