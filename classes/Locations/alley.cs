@@ -319,6 +319,20 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                       lists.AddItem("alleyUndergroundStart", -1, true);
                     }
 
+                    alleyUndergroundStart:
+                    Console.Clear();
+                    Console.WriteLine("You look around the big open area.");
+                    Thread.Sleep(3000);
+                    Console.WriteLine("There is a lot to explore here");
+                    Thread.Sleep(2500);
+                    Console.WriteLine("");
+                    Console.WriteLine("--What do you want to do?--");
+                    Console.WriteLine("1. Check out the buildings on the left");
+                    Console.WriteLine("2. Check out the buildings on the right");
+                    Console.WriteLine("3. Check out the courtyard area");
+                    Console.WriteLine("4. Go forward, deeper underground");
+                    Console.WriteLine("5. Leave");
+
                     break;
                   case 2:
                     Console.Clear();

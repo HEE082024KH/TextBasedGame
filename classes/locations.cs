@@ -93,84 +93,90 @@ public class Locations
 
   public void LocationSelector()
   {
-    Console.Clear();
-    if (start.newGame)
+    while (true)
     {
-      start.NewGame();
-      start.newGame = false;
-    }
-
-    Console.Clear();
-    Map.ShowMap();
-    Console.WriteLine("Where do you want to travel to?");
-    Console.Write(">");
-    try
-    {
-      Lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
-    }
-    catch
-    {
-      Console.WriteLine("Invalid input");
-      Thread.Sleep(1500);
       Console.Clear();
-      LocationSelector();
-    }
+      if (start.newGame)
+      {
+        start.NewGame();
+        start.newGame = false;
+      }
 
-    switch (Lists.GetValue("Input"))
-    {
-      case 99: // Testing lists
-        Lists lists = new(this);
-        // lists.AddItem("Money", 50, false);
-        // lists.AddItem("Bandages", 3, true);
-        // lists.AddItem("Alcohol", 1, true);
-        // lists.AddItem("Coin", 0, true);
-        // lists.AddItem("apartments", -1, true);
-        // lists.DisplayExistingItemsAndAmount();
-        // Console.WriteLine("");
-        lists.DisplayInventory();
-        Console.ReadLine();
-        break;
-      case 1:
-        gate?.Gate();
-        break;
-      case 2:
-        apartments?.Apartments();
-        break;
-      case 3:
-        subway?.Subway();
-        break;
-      case 4:
-        shop?.Shop();
-        break;
-      case 5:
-        art?.Art();
-        break;
-      case 6:
-        office?.Office();
-        break;
-      case 7:
-        pavilion?.Pavilion();
-        break;
-      case 8:
-        warehouse?.Warehouse();
-        break;
-      case 9:
-        shelter?.Shelter();
-        break;
-      case 10:
-        fountain?.Fountain();
-        break;
-      case 11:
-        alley?.Alley();
-        break;
-      case 12:
-        shack?.Shack();
-        break;
-      default:
+      Console.Clear();
+      Map.ShowMap();
+      Console.WriteLine("--Where do you want to travel to?--");
+      Console.Write(">");
+      try
+      {
+        Lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
+      }
+      catch
+      {
         Console.Clear();
         Console.WriteLine("Invalid input");
         Thread.Sleep(1500);
-        break;
+        Console.Clear();
+        LocationSelector();
+      }
+
+      switch (Lists.GetValue("Input"))
+      {
+        case 99: // Testing lists
+          Lists lists = new(this);
+          // lists.AddItem("Money", 50, false);
+          // lists.AddItem("Bandages", 3, true);
+          // lists.AddItem("Alcohol", 1, true);
+          // lists.AddItem("Coin", 0, true);
+          // lists.AddItem("apartments", -1, true);
+          // lists.DisplayExistingItemsAndAmount();
+          // Console.WriteLine("");
+          lists.DisplayInventory();
+          Console.ReadLine();
+          break;
+        case 1:
+          gate?.Gate();
+          break;
+        case 2:
+          apartments?.Apartments();
+          break;
+        case 3:
+          subway?.Subway();
+          break;
+        case 4:
+          shop?.Shop();
+          break;
+        case 5:
+          art?.Art();
+          break;
+        case 6:
+          office?.Office();
+          break;
+        case 7:
+          pavilion?.Pavilion();
+          break;
+        case 8:
+          warehouse?.Warehouse();
+          break;
+        case 9:
+          shelter?.Shelter();
+          break;
+        case 10:
+          fountain?.Fountain();
+          break;
+        case 11:
+          alley?.Alley();
+          break;
+        case 12:
+          shack?.Shack();
+          break;
+        default:
+          Console.Clear();
+          Console.WriteLine("Invalid input");
+          Thread.Sleep(1500);
+          continue;
+      }
+
+      break;
     }
   }
 }
