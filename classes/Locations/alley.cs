@@ -313,19 +313,28 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
 
                           break;
                         case 2:
+                          Console.Clear();
+                          Console.WriteLine("You feel them tugging your arm as you break free.");
+                          Thread.Sleep(3500);
+                          Console.WriteLine("With a frown on their face they act all disappointed.");
+                          Thread.Sleep(4000);
+                          Console.Write("Missed opportunity?");
+                          Thread.Sleep(2500);
+                          Console.WriteLine(", or was something just off?");
+                          Thread.Sleep(4000);
                           break;
                       }
 
                       lists.AddItem("alleyUndergroundStart", -1, true);
                     }
 
-                    alleyUndergroundStart:
                     Console.Clear();
                     Console.WriteLine("You look around the big open area.");
                     Thread.Sleep(3000);
                     Console.WriteLine("There is a lot to explore here");
                     Thread.Sleep(2500);
                     Console.WriteLine("");
+                    alleyUndergroundStart:
                     Console.WriteLine("--What do you want to do?--");
                     Console.WriteLine("1. Check out the buildings on the left");
                     Console.WriteLine("2. Check out the buildings on the right");
@@ -354,7 +363,25 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                         break;
                       case 3:
                         Console.Clear();
-                        break;
+                        Console.WriteLine("The courtyard is full of people.");
+                        Thread.Sleep(3000);
+                        Console.Write("People everywhere are either drinking");
+                        Thread.Sleep(4000);
+                        Console.Write(", doing drugs");
+                        Thread.Sleep(1500);
+                        Console.Write(", fornicating");
+                        Thread.Sleep(1500);
+                        Console.WriteLine(", or all of them.");
+                        Thread.Sleep(2500);
+                        Console.WriteLine("It is like nothing you have seen before.");
+                        Thread.Sleep(3000);
+                        Console.Write("A haven of sin and immorality");
+                        Thread.Sleep(3000);
+                        Console.Write(", no judgement");
+                        Thread.Sleep(2000);
+                        Console.WriteLine(", no laws.");
+                        Thread.Sleep(2000);
+                        goto alleyUndergroundStart;
                       case 4:
                         Console.Clear();
                         break;
