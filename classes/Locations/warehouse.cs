@@ -6,7 +6,7 @@ public class AbandonedWarehouse(Locations locations, Lists lists, Status status)
   {
     while (true)
     {
-      if (lists.CurrentLocation == "Pavilion" && !lists.CheckBool("pavilionToWarehouse"))
+      if (!lists.CheckBool("pavilionToWarehouse"))
       {
         Console.Clear();
         Console.Write("On your way to the Warehouse");

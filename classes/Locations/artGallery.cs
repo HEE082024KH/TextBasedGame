@@ -22,8 +22,8 @@ public class ArtGallery(Locations locations, Lists lists, Status status)
       Console.WriteLine("--What do you want to do?--");
       Console.WriteLine("1. Travel to a different location");
       Console.WriteLine("2. Check status");
-      Console.WriteLine("3. Exit through the gate");
-      Console.WriteLine("4. Look around for anything useful");
+      Console.WriteLine("3. ");
+      Console.WriteLine("4. ");
       try
       {
         lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));

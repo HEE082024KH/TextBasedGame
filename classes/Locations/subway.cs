@@ -4,7 +4,7 @@ public class SubwayEntrance(Locations locations, Lists lists, Status status)
 {
   public void Subway()
   {
-    if (lists.CurrentLocation == "Apartments" && !lists.CheckBool("apartmentsToSubway"))
+    if (!lists.CheckBool("apartmentsToSubway"))
     {
       Console.Clear();
       Console.Write("On your way to the Subway");

@@ -332,6 +332,40 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                     Console.WriteLine("3. Check out the courtyard area");
                     Console.WriteLine("4. Go forward, deeper underground");
                     Console.WriteLine("5. Leave");
+                    try
+                    {
+                      lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
+                    }
+                    catch
+                    {
+                      Console.Clear();
+                      Console.WriteLine("Invalid input");
+                      Thread.Sleep(1500);
+                      goto alleyUndergroundStart;
+                    }
+
+                    switch (lists.GetValue("Input"))
+                    {
+                      case 1:
+                        Console.Clear();
+                        break;
+                      case 2:
+                        Console.Clear();
+                        break;
+                      case 3:
+                        Console.Clear();
+                        break;
+                      case 4:
+                        Console.Clear();
+                        break;
+                      case 5:
+                        break;
+                      default:
+                        Console.Clear();
+                        Console.WriteLine("Invalid input");
+                        Thread.Sleep(1500);
+                        goto alleyUndergroundStart;
+                    }
 
                     break;
                   case 2:

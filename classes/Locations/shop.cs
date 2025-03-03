@@ -156,7 +156,7 @@ public class ShopLocation(Locations locations, Lists lists, Status status)
 
   public void Shop()
   {
-    if (lists.CurrentLocation == "Subway Entrance" && !lists.CheckBool("subwayToShop"))
+    if (!lists.CheckBool("subwayToShop"))
     {
       Console.Clear();
       Console.Write("On your way to the Shop");
