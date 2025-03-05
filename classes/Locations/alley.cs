@@ -416,9 +416,19 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                                 Console.Clear();
                                 Console.WriteLine("You start searching the boxes for anything useful.");
                                 Thread.Sleep(3500);
-                                Console.WriteLine("");
+                                Console.WriteLine("While searching one of the boxes someone grabs you from behind.");
+                                Thread.Sleep(4000);
+                                Console.WriteLine("Before you realize what happened you get tossed out with ease.");
+                                Thread.Sleep(4000);
+                                Console.WriteLine("-15 HP");
                                 Thread.Sleep(2000);
-                                break;
+                                lists.ModifyValue("HP", i => i - 15);
+                                Console.WriteLine("You look back a large man");
+                                Thread.Sleep(2500);
+                                Console.WriteLine(" expressing in no short terms, to not come back here.");
+                                Thread.Sleep(4000);
+                                Console.Clear();
+                                goto alleyUndergroundLeft;
                               case 2:
                                 Console.Clear();
                                 goto alleyUndergroundLeft;
@@ -433,11 +443,16 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                             Thread.Sleep(2500);
                             Console.WriteLine(", except for a big box in the corner");
                             Thread.Sleep(3000);
-                            Console.WriteLine("Looks there is a hole in the wall behind it");
-                            Thread.Sleep(3000);
-                            Console.WriteLine(" leading next door.");
-                            Thread.Sleep(3000);
-                            break;
+                            if (lists.CheckBool("alleyUndergroundLeftBox"))
+                            {
+                              Console.WriteLine("Looks there is a hole in the wall behind it");
+                              Thread.Sleep(3000);
+                              Console.WriteLine(" leading next door.");
+                              Thread.Sleep(2500);
+                            }
+
+                            Console.Clear();
+                            goto alleyUndergroundLeft;
                           case 3:
                             Console.Clear();
                             Console.WriteLine("You walk towards the last building.");
@@ -450,17 +465,22 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                             Thread.Sleep(3500);
                             Console.WriteLine("Might need to look for a different way in if you want to get inside");
                             Thread.Sleep(4500);
+                            lists.AddItem("alleyUndergroundLeftBox", -1, true);
+                            Console.Clear();
                             goto alleyUndergroundLeft;
                           default:
                             Console.Clear();
                             Console.WriteLine("Invalid input");
                             Thread.Sleep(1500);
+                            Console.Clear();
                             goto alleyUndergroundLeft;
                         }
 
                         break;
                       case 2:
                         Console.Clear();
+                        Console.WriteLine("");
+                        Thread.Sleep(2000);
                         break;
                       case 3:
                         Console.Clear();
@@ -482,9 +502,12 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                         Thread.Sleep(2000);
                         Console.WriteLine(", no laws.");
                         Thread.Sleep(2000);
+                        Console.Clear();
                         goto alleyUndergroundStart;
                       case 4:
                         Console.Clear();
+                        Console.WriteLine("");
+                        Thread.Sleep(2000);
                         break;
                       case 5:
                         break;
@@ -492,6 +515,7 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                         Console.Clear();
                         Console.WriteLine("Invalid input");
                         Thread.Sleep(1500);
+                        Console.Clear();
                         goto alleyUndergroundStart;
                     }
 
