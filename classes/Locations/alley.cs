@@ -357,6 +357,107 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                     {
                       case 1:
                         Console.Clear();
+                        Console.WriteLine("There are three buildings on the left.");
+                        Thread.Sleep(3000);
+                        Console.Write("They look quite primitive");
+                        Thread.Sleep(2500);
+                        Console.WriteLine(", made of a combination of various materials.");
+                        Thread.Sleep(3500);
+                        Console.WriteLine("There are a few shady looking people hanging out by the last one.");
+                        Thread.Sleep(4000);
+                        Console.WriteLine("");
+                        alleyUndergroundLeft:
+                        Console.WriteLine("--What do you want to do?--");
+                        Console.WriteLine("1. Check out the first building");
+                        Console.WriteLine("2. Check out the second building");
+                        Console.WriteLine("3. Check out the last building");
+                        try
+                        {
+                          lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
+                        }
+                        catch
+                        {
+                          Console.Clear();
+                          Console.WriteLine("Invalid input");
+                          Thread.Sleep(1500);
+                          goto alleyUndergroundLeft;
+                        }
+
+                        switch (lists.GetValue("Input"))
+                        {
+                          case 1:
+                            Console.Clear();
+                            Console.WriteLine("You enter the first building.");
+                            Thread.Sleep(2500);
+                            Console.WriteLine("There are a bunch of boxes with a weapons logo on them.");
+                            Thread.Sleep(3500);
+                            Console.WriteLine("Not sure if it is smart to look inside or not.");
+                            Thread.Sleep(3000);
+                            Console.WriteLine("");
+                            alleyUndergroundLeftFirst:
+                            Console.WriteLine("--What do you want to do?--");
+                            Console.WriteLine("1. Check out the boxes");
+                            Console.WriteLine("2. Leave them");
+                            try
+                            {
+                              lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
+                            }
+                            catch
+                            {
+                              Console.Clear();
+                              Console.WriteLine("Invalid input");
+                              Thread.Sleep(1500);
+                              goto alleyUndergroundLeftFirst;
+                            }
+
+                            switch (lists.GetValue("Input"))
+                            {
+                              case 1:
+                                Console.Clear();
+                                Console.WriteLine("You start searching the boxes for anything useful.");
+                                Thread.Sleep(3500);
+                                Console.WriteLine("");
+                                Thread.Sleep(2000);
+                                break;
+                              case 2:
+                                Console.Clear();
+                                goto alleyUndergroundLeft;
+                            }
+
+                            break;
+                          case 2:
+                            Console.Clear();
+                            Console.WriteLine("You enter the second building.");
+                            Thread.Sleep(2500);
+                            Console.Write("The place looks fairly empty");
+                            Thread.Sleep(2500);
+                            Console.WriteLine(", except for a big box in the corner");
+                            Thread.Sleep(3000);
+                            Console.WriteLine("Looks there is a hole in the wall behind it");
+                            Thread.Sleep(3000);
+                            Console.WriteLine(" leading next door.");
+                            Thread.Sleep(3000);
+                            break;
+                          case 3:
+                            Console.Clear();
+                            Console.WriteLine("You walk towards the last building.");
+                            Thread.Sleep(2500);
+                            Console.WriteLine("The shady guys there puff up as you approach.");
+                            Thread.Sleep(3000);
+                            Console.WriteLine("It appears they are not keen on letting anyone by.");
+                            Thread.Sleep(3500);
+                            Console.WriteLine("You get a small glimpse inside og what looks like a hangout.");
+                            Thread.Sleep(3500);
+                            Console.WriteLine("Might need to look for a different way in if you want to get inside");
+                            Thread.Sleep(4500);
+                            goto alleyUndergroundLeft;
+                          default:
+                            Console.Clear();
+                            Console.WriteLine("Invalid input");
+                            Thread.Sleep(1500);
+                            goto alleyUndergroundLeft;
+                        }
+
                         break;
                       case 2:
                         Console.Clear();

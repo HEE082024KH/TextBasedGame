@@ -16,7 +16,10 @@ class Program
   static void Main()
   {
     Controller controller = new();
-    //
+
+    // Console.SetWindowSize(3000, 2000);
+    // Console.SetBufferSize(3000, 2000);
+
     // ShowWindow(GetConsoleWindow(), SwMaximize);
     // Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
 
