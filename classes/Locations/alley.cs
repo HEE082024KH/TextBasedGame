@@ -441,7 +441,7 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                             Thread.Sleep(2500);
                             Console.Write("The place looks fairly empty");
                             Thread.Sleep(2500);
-                            Console.WriteLine(", except for a big box in the corner");
+                            Console.WriteLine(", except for a few boxes in the corner");
                             Thread.Sleep(3000);
                             if (lists.CheckBool("alleyUndergroundLeftBox"))
                             {
