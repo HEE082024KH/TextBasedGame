@@ -15,7 +15,7 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
         Thread.Sleep(4000);
         Console.Write("Faint sounds of people can be heard");
         Thread.Sleep(3000);
-        Console.WriteLine(", hard to tell friendly or not.");
+        Console.WriteLine(", hard to tell if friendly or not.");
         Thread.Sleep(3500);
         lists.AddItem("alley", -1, true);
       }
@@ -449,6 +449,53 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                               Thread.Sleep(3000);
                               Console.WriteLine(" leading next door.");
                               Thread.Sleep(2500);
+                              Console.WriteLine("");
+                              alleyUndergroundLeftBox:
+                              Console.WriteLine("--What do you want to do?--");
+                              Console.WriteLine("1. Go through the hole");
+                              Console.WriteLine("2. Leave");
+                              try
+                              {
+                                lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
+                              }
+                              catch
+                              {
+                                Console.Clear();
+                                Console.WriteLine("Invalid input");
+                                Thread.Sleep(1500);
+                                Console.Clear();
+                                goto alleyUndergroundLeftBox;
+                              }
+
+                              switch (lists.GetValue("Input"))
+                              {
+                                case 1:
+                                  Console.Clear();
+                                  Console.WriteLine("You sneak through the hole in the wall.");
+                                  Thread.Sleep(3500);
+                                  Console.WriteLine("The other side looks like a barracks or armoury of sorts.");
+                                  Thread.Sleep(4000);
+                                  Console.WriteLine("There are weapons and gear everywhere.");
+                                  Thread.Sleep(3000);
+                                  Console.Write("As you plan to clean out the place");
+                                  Thread.Sleep(2500);
+                                  Console.WriteLine(" a few guards walk in.");
+                                  Thread.Sleep(2500);
+                                  Console.Write("Rushing back through the whole");
+                                  Thread.Sleep(2500);
+                                  Console.WriteLine(" you grab whatever is near on the way out");
+                                  Thread.Sleep(3000);
+                                  Console.WriteLine("You get out in time");
+                                  Thread.Sleep(2500);
+                                  Console.WriteLine(", with a GUARD UNIFORM");
+                                  Thread.Sleep(4000);
+                                  lists.AddItem("Guard Uniform", 0, true);
+                                  Console.Clear();
+                                  goto alleyUndergroundLeft;
+                                case 2:
+                                  Console.Clear();
+                                  goto alleyUndergroundLeft;
+                              }
                             }
 
                             Console.Clear();

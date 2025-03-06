@@ -101,6 +101,7 @@ public class Lists(Locations locations)
     new("Water", 0),
     new("Batteries", 0),
     new("Credit Card", 0),
+    new("Guard Uniform", 0),
     new("Machine Gun", 0, tradeable: true),
     new("Alcohol", 0, tradeable: true, usable: true),
     new("Bandages", 0, tradeable: true, usable: true),
