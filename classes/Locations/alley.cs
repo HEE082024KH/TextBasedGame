@@ -533,8 +533,51 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                         break;
                       case 2:
                         Console.Clear();
+                        Console.WriteLine("There are three buildings on the left.");
+                        Thread.Sleep(3000);
+                        Console.WriteLine("They do not look as primitive as the rest of the buildings in the area");
+                        Thread.Sleep(4000);
+                        Console.WriteLine("They are made of a combination of wood and brick.");
+                        Thread.Sleep(3000);
+                        Console.WriteLine("There are no people in sight, but you can hear voices talking.");
+                        Thread.Sleep(4000);
                         Console.WriteLine("");
-                        Thread.Sleep(2000);
+                        alleyUndergroundRight:
+                        Console.WriteLine("--What do you want to do?--");
+                        Console.WriteLine("1. Check out the first building");
+                        Console.WriteLine("2. Check out the second building");
+                        Console.WriteLine("3. Check out the last building");
+                        try
+                        {
+                          lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
+                        }
+                        catch
+                        {
+                          Console.Clear();
+                          Console.WriteLine("Invalid input");
+                          Thread.Sleep(1500);
+                          goto alleyUndergroundRight;
+                        }
+
+                        switch (lists.GetValue("Input"))
+                        {
+                          case 1:
+                            Console.Clear();
+                            Console.WriteLine("You enter the first building.");
+                            Thread.Sleep(2500);
+                            break;
+                          case 2:
+                            Console.Clear();
+                            Console.WriteLine("You enter the second building.");
+                            Thread.Sleep(2500);
+                            break;
+                          case 3:
+                            Console.Clear();
+                            Console.WriteLine("You enter the last building.");
+                            Thread.Sleep(2500);
+                            break;
+                        }
+
                         break;
                       case 3:
                         Console.Clear();
@@ -560,7 +603,7 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                         goto alleyUndergroundStart;
                       case 4:
                         Console.Clear();
-                        Console.WriteLine("");
+                        Console.WriteLine("You go forward ");
                         Thread.Sleep(2000);
                         break;
                       case 5:
@@ -621,6 +664,7 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                     break;
                 }
               }
+
               else
               {
                 Console.Clear();
