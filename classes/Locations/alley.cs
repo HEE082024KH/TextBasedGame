@@ -570,6 +570,38 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                             Console.Clear();
                             Console.WriteLine("You enter the second building.");
                             Thread.Sleep(2500);
+                            Console.WriteLine("Looks like someone might be living here.");
+                            Thread.Sleep(3000);
+                            Console.WriteLine("You hear faint sounds upstairs.");
+                            Thread.Sleep(2500);
+                            Console.WriteLine("");
+                            alleyUndergroundRightSecond:
+                            Console.WriteLine("--What do you want to do?--");
+                            Console.WriteLine("1. Go upstairs");
+                            Console.WriteLine("2. Leave");
+                            try
+                            {
+                              lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
+                            }
+                            catch
+                            {
+                              Console.Clear();
+                              Console.WriteLine("Invalid input");
+                              Thread.Sleep(1500);
+                              Console.Clear();
+                              goto alleyUndergroundRightSecond;
+                            }
+
+                            switch (lists.GetValue("Input"))
+                            {
+                              case 1:
+                                Console.Clear();
+                                Console.WriteLine("");
+                                Thread.Sleep(2000);
+                                break;
+                              case 2:
+                                break;
+                            }
                             break;
                           case 3:
                             Console.Clear();
