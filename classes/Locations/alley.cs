@@ -599,6 +599,8 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                         Thread.Sleep(2000);
                         Console.WriteLine(", no laws.");
                         Thread.Sleep(2000);
+                        Console.WriteLine("It is quite unique.");
+                        Thread.Sleep(4000);
                         Console.Clear();
                         goto alleyUndergroundStart;
                       case 4:
