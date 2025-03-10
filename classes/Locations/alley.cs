@@ -596,8 +596,34 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                             {
                               case 1:
                                 Console.Clear();
-                                Console.WriteLine("");
+                                Console.Write("As you walk upstairs");
+                                Thread.Sleep(2500);
+                                Console.WriteLine(" you notice a woman straddled on top of a man");
+                                Thread.Sleep(3500);
+                                Console.WriteLine("Before you can sneak out they notice you.");
+                                Thread.Sleep(3500);
+                                Console.Write("The man walks up to you");
+                                Thread.Sleep(2500);
+                                Console.WriteLine(", intimidatingly.");
                                 Thread.Sleep(2000);
+                                Console.Write("He is heavily tattooed and looks quite strong");
+                                Thread.Sleep(3500);
+                                Console.WriteLine(", not to mention nude.");
+                                Thread.Sleep(2500);
+                                Console.WriteLine("Before you can react he knocks you to the ground.");
+                                Thread.Sleep(3500);
+                                Console.Write("You can almost feel your bones break");
+                                Thread.Sleep(3000);
+                                Console.WriteLine(" as he repeatedly beats you");
+                                Thread.Sleep(3000);
+                                Console.WriteLine("-80 HP");
+                                Thread.Sleep(2000);
+                                lists.ModifyValue("HP", i => i - 80);
+                                lists.Hp();
+                                Console.WriteLine("Eventually he stops beating you, and lets you crawl out.");
+                                Thread.Sleep(4000);
+                                Console.WriteLine("Guess it is lucky he did not kill you.");
+                                Thread.Sleep(3500);
                                 break;
                               case 2:
                                 break;
