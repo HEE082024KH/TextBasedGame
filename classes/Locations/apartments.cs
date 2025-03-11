@@ -524,11 +524,11 @@ public class ApartmentsLocation(Locations locations, Lists lists, Status status)
                           ", you notice a card stuck to the wall next to the door.");
                         Thread.Sleep(3500);
                         Console.WriteLine(
-                          "You pick up what looks like a keycard for an office or something.");
+                          "You pick up what looks like a keycard of some kind");
                         Thread.Sleep(4000);
-                        Console.WriteLine("You got the OFFICE KEYCARD");
+                        Console.WriteLine("You got the KEYCARD");
                         Thread.Sleep(3500);
-                        lists.AddItem("Office Keycard", 0, true);
+                        lists.AddItem("Keycard", 0, true);
                         Console.Clear();
                         Structures.Apartments();
                         Console.WriteLine("");

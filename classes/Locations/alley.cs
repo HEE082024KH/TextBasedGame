@@ -568,71 +568,121 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                             break;
                           case 2:
                             Console.Clear();
-                            Console.WriteLine("You enter the second building.");
-                            Thread.Sleep(2500);
-                            Console.WriteLine("Looks like someone might be living here.");
-                            Thread.Sleep(3000);
-                            Console.WriteLine("You hear faint sounds upstairs.");
-                            Thread.Sleep(2500);
-                            Console.WriteLine("");
-                            alleyUndergroundRightSecond:
-                            Console.WriteLine("--What do you want to do?--");
-                            Console.WriteLine("1. Go upstairs");
-                            Console.WriteLine("2. Leave");
-                            try
+                            if (lists.CheckBool("alleyUndergroundRightMan"))
                             {
-                              lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
+                              Console.WriteLine("You enter the second building.");
+                              Thread.Sleep(2500);
+                              Console.WriteLine("Looks like someone might be living here.");
+                              Thread.Sleep(3000);
+                              Console.WriteLine("You hear faint sounds upstairs.");
+                              Thread.Sleep(2500);
+                              Console.WriteLine("");
+                              alleyUndergroundRightSecond:
+                              Console.WriteLine("--What do you want to do?--");
+                              Console.WriteLine("1. Go upstairs");
+                              Console.WriteLine("2. Leave");
+                              try
+                              {
+                                lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
+                              }
+                              catch
+                              {
+                                Console.Clear();
+                                Console.WriteLine("Invalid input");
+                                Thread.Sleep(1500);
+                                Console.Clear();
+                                goto alleyUndergroundRightSecond;
+                              }
+
+                              switch (lists.GetValue("Input"))
+                              {
+                                case 1:
+                                  Console.Clear();
+                                  Console.Write("As you walk upstairs");
+                                  Thread.Sleep(2500);
+                                  Console.WriteLine(" you notice a woman straddled on top of a man");
+                                  Thread.Sleep(3500);
+                                  Console.WriteLine("Before you can sneak out they notice you.");
+                                  Thread.Sleep(3500);
+                                  Console.Write("The man walks up to you");
+                                  Thread.Sleep(2500);
+                                  Console.WriteLine(", intimidatingly.");
+                                  Thread.Sleep(2000);
+                                  Console.Write("He is heavily tattooed and looks quite strong");
+                                  Thread.Sleep(3500);
+                                  Console.WriteLine(", not to mention nude.");
+                                  Thread.Sleep(2500);
+                                  Console.WriteLine("Before you can react he knocks you to the ground.");
+                                  Thread.Sleep(3500);
+                                  Console.Write("You can almost feel your bones break");
+                                  Thread.Sleep(3000);
+                                  Console.WriteLine(" as he repeatedly beats you");
+                                  Thread.Sleep(3000);
+                                  Console.WriteLine("-80 HP");
+                                  Thread.Sleep(2000);
+                                  lists.ModifyValue("HP", i => i - 80);
+                                  lists.Hp();
+                                  Console.WriteLine("Eventually he stops beating you, and lets you crawl out.");
+                                  Thread.Sleep(4000);
+                                  Console.WriteLine("Guess it is lucky he did not kill you.");
+                                  Thread.Sleep(3500);
+                                  lists.AddItem("alleyUndergroundRightMan", -1, true);
+
+                                  break;
+                                case 2:
+                                  break;
+                              }
                             }
-                            catch
+                            else
                             {
-                              Console.Clear();
-                              Console.WriteLine("Invalid input");
-                              Thread.Sleep(1500);
-                              Console.Clear();
-                              goto alleyUndergroundRightSecond;
+                              Console.WriteLine("You have already been beaten up once.");
+                              Thread.Sleep(3000);
+                              Console.WriteLine("Seems like a bad idea to go back here.");
+                              Thread.Sleep(4000);
                             }
 
-                            switch (lists.GetValue("Input"))
-                            {
-                              case 1:
-                                Console.Clear();
-                                Console.Write("As you walk upstairs");
-                                Thread.Sleep(2500);
-                                Console.WriteLine(" you notice a woman straddled on top of a man");
-                                Thread.Sleep(3500);
-                                Console.WriteLine("Before you can sneak out they notice you.");
-                                Thread.Sleep(3500);
-                                Console.Write("The man walks up to you");
-                                Thread.Sleep(2500);
-                                Console.WriteLine(", intimidatingly.");
-                                Thread.Sleep(2000);
-                                Console.Write("He is heavily tattooed and looks quite strong");
-                                Thread.Sleep(3500);
-                                Console.WriteLine(", not to mention nude.");
-                                Thread.Sleep(2500);
-                                Console.WriteLine("Before you can react he knocks you to the ground.");
-                                Thread.Sleep(3500);
-                                Console.Write("You can almost feel your bones break");
-                                Thread.Sleep(3000);
-                                Console.WriteLine(" as he repeatedly beats you");
-                                Thread.Sleep(3000);
-                                Console.WriteLine("-80 HP");
-                                Thread.Sleep(2000);
-                                lists.ModifyValue("HP", i => i - 80);
-                                lists.Hp();
-                                Console.WriteLine("Eventually he stops beating you, and lets you crawl out.");
-                                Thread.Sleep(4000);
-                                Console.WriteLine("Guess it is lucky he did not kill you.");
-                                Thread.Sleep(3500);
-                                break;
-                              case 2:
-                                break;
-                            }
                             break;
                           case 3:
                             Console.Clear();
-                            Console.WriteLine("You enter the last building.");
-                            Thread.Sleep(2500);
+                            if (!lists.CheckBool("alleyUndergroundRightKey"))
+                            {
+                              Console.WriteLine("You enter the last building.");
+                              Thread.Sleep(2500);
+                              Console.Write("It looks deceptively small");
+                              Thread.Sleep(2500);
+                              Console.WriteLine(", like there is something hidden away.");
+                              Thread.Sleep(3000);
+                              Console.WriteLine("There is a keycard reader on the wall.");
+                              Thread.Sleep(3000);
+                              if (lists.CheckBool("Keycard"))
+                              {
+                                Console.WriteLine("You try swiping the Keycard.");
+                                Thread.Sleep(3000);
+                                Console.WriteLine("The wall opens to reveal a hidden room.");
+                                Thread.Sleep(3000);
+                                Console.WriteLine("A hidden storage of some kind.");
+                                Thread.Sleep(3000);
+                                Console.WriteLine("However, it looks to have been recently cleared out.");
+                                Thread.Sleep(3500);
+                                Console.WriteLine("As you are about to leave you notice a Key left behind.");
+                                Thread.Sleep(4000);
+                                Console.WriteLine("You got a Key");
+                                Thread.Sleep(3000);
+                                lists.AddItem("KeyAlley", 0, true);
+                                lists.AddItem("alleyUndergroundRightKey", -1, true);
+                              }
+                              else
+                              {
+                                Console.WriteLine("If only you had a keycard to use on it.");
+                                Thread.Sleep(4000);
+                              }
+                            }
+                            else
+                            {
+                              Console.WriteLine("You have already checked this place.");
+                              Thread.Sleep(3500);
+                            }
+
                             break;
                         }
 
