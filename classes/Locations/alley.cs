@@ -509,19 +509,27 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                             goto alleyUndergroundLeft;
                           case 3:
                             Console.Clear();
-                            Console.WriteLine("You walk towards the last building.");
-                            Thread.Sleep(2500);
-                            Console.WriteLine("The shady guys there puff up as you approach.");
-                            Thread.Sleep(3000);
-                            Console.WriteLine("It appears they are not keen on letting anyone by.");
-                            Thread.Sleep(3500);
-                            Console.WriteLine("You get a small glimpse inside og what looks like a hangout.");
-                            Thread.Sleep(3500);
-                            Console.WriteLine("Might need to look for a different way in if you want to get inside");
-                            Thread.Sleep(4500);
-                            lists.AddItem("alleyUndergroundLeftBox", -1, true);
-                            Console.Clear();
-                            goto alleyUndergroundLeft;
+                            if (!lists.CheckBool("alleyUndergroundLeftBox"))
+                            {
+                              Console.WriteLine("You walk towards the last building.");
+                              Thread.Sleep(2500);
+                              Console.WriteLine("The shady guys there puff up as you approach.");
+                              Thread.Sleep(3000);
+                              Console.WriteLine("It appears they are not keen on letting anyone by.");
+                              Thread.Sleep(3500);
+                              Console.WriteLine("You get a small glimpse inside og what looks like a hangout.");
+                              Thread.Sleep(3500);
+                              Console.WriteLine("Might need to look for a different way in if you want to get inside");
+                              Thread.Sleep(4500);
+                              lists.AddItem("alleyUndergroundLeftBox", -1, true);
+                            }
+                            else
+                            {
+                              Console.WriteLine("You can not get inside this way.");
+                              Thread.Sleep(3500);
+                            }
+
+                            break;
                           default:
                             Console.Clear();
                             Console.WriteLine("Invalid input");
