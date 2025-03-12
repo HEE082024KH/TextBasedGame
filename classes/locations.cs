@@ -11,10 +11,7 @@ public class Locations
   private ApartmentsLocation? apartments;
   private SubwayEntrance? subway;
   private ShopLocation? shop;
-  private ArtGallery? art;
-  private OfficeBuilding? office;
   private PavilionLocation? pavilion;
-  private AbandonedWarehouse? warehouse;
   private BombShelter? shelter;
   private FountainLocation? fountain;
   private AlleyLocation? alley;
@@ -28,10 +25,7 @@ public class Locations
     apartments = new ApartmentsLocation(this, Lists, Status);
     subway = new SubwayEntrance(this, Lists, Status);
     shop = new ShopLocation(this, Lists, Status);
-    art = new ArtGallery(this, Lists, Status);
-    office = new OfficeBuilding(this, Lists, Status);
     pavilion = new PavilionLocation(this, Lists, Status);
-    warehouse = new AbandonedWarehouse(this, Lists, Status);
     shelter = new BombShelter(this, Lists, Status);
     fountain = new FountainLocation(this, Lists, Status);
     alley = new AlleyLocation(this, Lists, Status);
@@ -134,40 +128,31 @@ public class Locations
           Console.ReadLine();
           break;
         case 1:
-          gate?.Gate();
+          shack?.Shack();
           break;
         case 2:
-          apartments?.Apartments();
-          break;
-        case 3:
           subway?.Subway();
           break;
-        case 4:
-          shop?.Shop();
-          break;
-        case 5:
-          art?.Art();
-          break;
-        case 6:
-          office?.Office();
-          break;
-        case 7:
+        case 3:
           pavilion?.Pavilion();
           break;
-        case 8:
-          warehouse?.Warehouse();
+        case 4:
+          apartments?.Apartments();
           break;
-        case 9:
-          shelter?.Shelter();
-          break;
-        case 10:
+        case 5:
           fountain?.Fountain();
           break;
-        case 11:
+        case 6:
+          shelter?.Shelter();
+          break;
+        case 7:
+          gate?.Gate();
+          break;
+        case 8:
           alley?.Alley();
           break;
-        case 12:
-          shack?.Shack();
+        case 9:
+          shop?.Shop();
           break;
         default:
           Console.Clear();

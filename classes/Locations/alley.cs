@@ -573,6 +573,8 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                             Console.Clear();
                             Console.WriteLine("You enter the first building.");
                             Thread.Sleep(2500);
+                            Console.WriteLine("");
+                            Thread.Sleep(2000);
                             break;
                           case 2:
                             Console.Clear();
