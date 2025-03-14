@@ -573,8 +573,38 @@ public class AlleyLocation(Locations locations, Lists lists, Status status)
                             Console.Clear();
                             Console.WriteLine("You enter the first building.");
                             Thread.Sleep(2500);
-                            Console.WriteLine("");
+                            Console.WriteLine("There does not seem to anything to find here.");
+                            Thread.Sleep(3500);
+                            Console.Write("You have a last glance before leaving");
+                            Thread.Sleep(3000);
+                            Console.WriteLine(", when you spot blood.");
                             Thread.Sleep(2000);
+                            Console.WriteLine("A small smear of blood on the floor");
+                            Thread.Sleep(3000);
+                            Console.Write(" right in front of a seemingly normal wall.");
+                            Thread.Sleep(4000);
+                            Console.WriteLine("");
+                            alleyUndergroundRightBlood:
+                            Console.WriteLine("--What do you want to do?--");
+                            Console.WriteLine("1. Look for a hidden door");
+                            Console.WriteLine("2. Leave");
+                            try
+                            {
+                              lists.ModifyInt("Input", Convert.ToInt32(Console.ReadLine()));
+                            }
+                            catch
+                            {
+                              Console.Clear();
+                              Console.WriteLine("Invalid input");
+                              Thread.Sleep(1500);
+                              Console.Clear();
+                              goto alleyUndergroundRightBlood;
+                            }
+
+                            switch (lists.GetValue("Input"))
+                            {
+                            }
+
                             break;
                           case 2:
                             Console.Clear();
