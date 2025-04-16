@@ -12,7 +12,7 @@ the project grew in size.
 </picture><br> &nbsp;
 
 Currently, the game has 8/9 locations finished, and most game logic and structure is done. <br>
-**\*About 50% done
+**\*About 80% done
 overall.**
 
 Feel free to test the game if you want, any feedback is welcome.
